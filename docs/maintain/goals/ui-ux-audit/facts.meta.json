@@ -1,0 +1,125 @@
+{
+  "goalSlug": "ui-ux-audit",
+  "source": "chat-accept of facts-review.json (Plannotator facts UI still open; user said go on)",
+  "facts": [
+    {
+      "id": "catalog-filters-first",
+      "text": "On the catalog site, search and the three filters sit above Start here so they are in the first screen at 1280×800.",
+      "comment": "",
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "catalog-light-control-contrast",
+      "text": "In light theme, Reset, Catalog labels, search, and selects have at least 3:1 contrast against the filter panel (border and/or fill).",
+      "comment": "",
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "start-here-short",
+      "text": "Start here on the catalog and the generated README is the same short featured list of about 5–8 name + one-liner rows, not 19.",
+      "comment": "",
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "catalog-kit-polish",
+      "text": "The catalog looks noticeably tighter (spacing, type, chrome, 7px radius, empty wordmark alt, 44px project links, dialog focus on the title) while staying on kit tokens.",
+      "comment": "",
+      "recommendedAutomatedVerification": false,
+      "automatedVerification": false
+    },
+    {
+      "id": "catalog-no-react",
+      "text": "The catalog chrome uses a Vite + React 19 + Tailwind v4 + shadcn/ui island (`ToggleGroup`, `Select`, `Dialog`, `Button`, `Input`) under `src/awesome_iina/site/ui/`; the project list stays Jinja SSR. Generated Copier plugins still do not receive catalog identity.",
+      "comment": "",
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "catalog-provenance",
+      "text": "The catalog site stays grouped by exclusive provenance. The generated README stays the category list.",
+      "comment": "",
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "theme-name",
+      "text": "The catalog theme control is an Appearance ToggleGroup with visible Light and Dark options (not a cryptic Dark theme chip).",
+      "comment": "",
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "readme-awesome-badge",
+      "text": "The Awesome badge image can stay; its link goes to the list policy, not awesome.re as if this were a listing.",
+      "comment": "",
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "readme-actions-badges",
+      "text": "The generated README omits GitHub Actions badge chips until those workflow badge.svg URLs return an SVG on the origin; after publish they use native GitHub badge URLs.",
+      "comment": "",
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "readme-picture-lint",
+      "text": "lint-awesome fails if README picture srcset, img src, or Markdown image paths do not resolve in the repo.",
+      "comment": "",
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "github-origin-readme",
+      "text": "Origin publish is still required from the operator and is not done; the public GitHub landing remains the 14-byte stub.",
+      "comment": "",
+      "recommendedAutomatedVerification": false,
+      "automatedVerification": false
+    },
+    {
+      "id": "starlight-polish",
+      "text": "Maintainer Starlight matches the design.md sidebar order in frontmatter, uses a secondary Verification CTA, ships a favicon, uses a 44px menu, applies --ring on focus, maps light accent-low away from #43D9F5, and uses kit navy for the dark page canvas.",
+      "comment": "",
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "copier-identity",
+      "text": "Generated plugin Starlight CSS still has no catalog --brand-* or cyan/navy hex. The generated README and updating.md warn that Copier updates overwrite site/**.",
+      "comment": "",
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "plugin-webview-polish",
+      "text": "The plugin webview title and main landmark use the plugin name; empty media titles show fallback copy; overlay/preview chrome is usable (named select, pointer-events on preview controls); text uses CanvasText.",
+      "comment": "",
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "kit-html-polish",
+      "text": "Kit review header stays named at narrow widths, and START-HERE.html is a short but complete landing (skip, main, color-scheme) into review — still operator-only, not consumer chrome.",
+      "comment": "",
+      "recommendedAutomatedVerification": false,
+      "automatedVerification": false
+    },
+    {
+      "id": "no-awesome-re-submit",
+      "text": "This goal does not submit the catalog to awesome.re.",
+      "comment": "",
+      "recommendedAutomatedVerification": false,
+      "automatedVerification": false
+    },
+    {
+      "id": "no-kit-artwork-rewrite",
+      "text": "This goal does not redraw kit artwork; it reuses kit tokens and shipped SVGs.",
+      "comment": "",
+      "recommendedAutomatedVerification": false,
+      "automatedVerification": false
+    }
+  ]
+}

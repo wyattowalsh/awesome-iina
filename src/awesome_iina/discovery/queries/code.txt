@@ -1,0 +1,9 @@
+# Human-readable mirror of the code-query strategy in config/discovery.yaml.
+# The YAML file is the executable source of truth.
+ghRepo filename:Info.json
+identifier entry filename:Info.json IINA
+allowedDomains filename:Info.json ghVersion
+iina-plugin-definition filename:package.json
+iinaplgz
+iina.core iina.console
+iina-plugin pack filename:package.json

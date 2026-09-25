@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "image_files_verified": 23,
+  "originals_preserved": 4,
+  "github_preview_pixels": [
+    1280,
+    640
+  ],
+  "github_preview_bytes": 794030,
+  "github_under_1000000_bytes": true,
+  "ico_sizes": [
+    [
+      16,
+      16
+    ],
+    [
+      24,
+      24
+    ],
+    [
+      32,
+      32
+    ],
+    [
+      48,
+      48
+    ],
+    [
+      64,
+      64
+    ]
+  ],
+  "preview_local_links_resolved": 23,
+  "unperformed_checks": [
+    "Live GitHub upload/render",
+    "Real browser/device favicon test",
+    "Color-managed display validation",
+    "Independent brand/design audit",
+    "Human recognition study",
+    "Trademark or licensing clearance"
+  ]
+}

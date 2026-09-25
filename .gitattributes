@@ -1,0 +1,12 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
+*.zip binary
+*.iinaplgz binary
+uv.lock linguist-generated=true
+data/sources/*.json linguist-generated=true
+schemas/*.json linguist-generated=true
+README.md linguist-generated=true

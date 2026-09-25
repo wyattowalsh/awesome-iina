@@ -1,0 +1,36 @@
+{
+  "status": "Reviewer recommendation, not adopted/published",
+  "GitHub_primary": [
+    "assets/brand/github-social-preview-1280x640.png",
+    "assets/brand/wordmark-dark.svg",
+    "assets/brand/wordmark-light.svg",
+    "REPO-README-PREFIX.md"
+  ],
+  "reusable_primary": [
+    "assets/brand/symbol-dark.svg",
+    "assets/brand/symbol-light.svg",
+    "assets/brand/symbol-ink.svg",
+    "assets/brand/symbol-white.svg",
+    "assets/brand/avatar-1024.png"
+  ],
+  "website_if_used": [
+    "assets/brand/favicon.ico",
+    "assets/brand/favicon.svg",
+    "assets/brand/apple-touch-icon.png",
+    "assets/brand/icon-192.png",
+    "assets/brand/icon-512.png",
+    "integration/website-head.html"
+  ],
+  "website_conditional_fix": [
+    "assets/brand/site.webmanifest"
+  ],
+  "optional_not_required": [
+    "assets/brand/open-graph-1200x630.png",
+    "assets/brand/github-social-preview.svg"
+  ],
+  "exclude_from_primary": [
+    "assets/brand/readme-hero-retained.png",
+    "archive/original-kit/"
+  ],
+  "source_kit": "Preserve source/ and provenance/ as maintenance inputs; address F02 before claiming faithful live-text exchange previews."
+}

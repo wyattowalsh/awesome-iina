@@ -1,0 +1,9 @@
+plugin_name: IINA Sidebar Example
+plugin_slug: iina-sidebar-example
+plugin_identifier: org.example.iina-sidebar-example
+user_name: Plugin Author
+description: A typed IINA sidebar plugin.
+preset: sidebar
+preferences: true
+docs_profile: starlight
+hooks: false

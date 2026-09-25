@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IINA starter manifest subset (not the complete official schema)",
+  "type": "object",
+  "required": [
+    "name",
+    "identifier",
+    "version",
+    "entry",
+    "permissions"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "identifier": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9-]*(\\.[A-Za-z][A-Za-z0-9-]*)+$"
+    },
+    "version": {
+      "type": "string"
+    },
+    "entry": {
+      "type": "string"
+    },
+    "globalEntry": {
+      "type": "string"
+    },
+    "preferencesPage": {
+      "type": "string"
+    },
+    "permissions": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "show-osd",
+          "show-alert",
+          "video-overlay",
+          "network-request",
+          "file-system"
+        ]
+      }
+    }
+  },
+  "additionalProperties": true
+}

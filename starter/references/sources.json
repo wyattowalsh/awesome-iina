@@ -1,0 +1,163 @@
+[
+  {
+    "id": "R01",
+    "title": "Copier changelog",
+    "url": "https://copier.readthedocs.io/en/stable/changelog/",
+    "retrieved_at": "2026-09-13",
+    "finding": "9.18.2 is the current retrieved patched release; dated 2026-09-07."
+  },
+  {
+    "id": "R02",
+    "title": "Copier configuration",
+    "url": "https://copier.readthedocs.io/en/stable/configuring/",
+    "retrieved_at": "2026-09-13",
+    "finding": "StrictUndefined, custom delimiters, conditional destination exclusions, unsafe task/extension boundary."
+  },
+  {
+    "id": "R03",
+    "title": "Copier updates",
+    "url": "https://copier.readthedocs.io/en/stable/updating/",
+    "retrieved_at": "2026-09-13",
+    "finding": "Git lineage and answer history; reviewed updates and conflicts."
+  },
+  {
+    "id": "R04",
+    "title": "pnpm 12 release",
+    "url": "https://pnpm.io/blog/releases/12.0",
+    "retrieved_at": "2026-09-13",
+    "finding": "pnpm 12 stable; Rust rewrite; commands/settings/lockfile mostly carried over; unknown settings can fail under matching pin."
+  },
+  {
+    "id": "R05",
+    "title": "pnpm 12.4.1 release",
+    "url": "https://github.com/pnpm/pnpm/releases/tag/v12.4.1",
+    "retrieved_at": "2026-09-13",
+    "finding": "Latest GitHub stable release retrieved, published 2026-09-10. Dist-tag selection is separate."
+  },
+  {
+    "id": "R06",
+    "title": "pnpm build policy",
+    "url": "https://pnpm.io/settings/build",
+    "retrieved_at": "2026-09-13",
+    "finding": "allowBuilds, strictDepBuilds, verifyDepsBeforeRun; avoid default automatic install before run."
+  },
+  {
+    "id": "R07",
+    "title": "Node download",
+    "url": "https://nodejs.org/en/download",
+    "retrieved_at": "2026-09-13",
+    "finding": "24.21.0 LTS and 26.8.2 Current as retrieved; choose LTS as target."
+  },
+  {
+    "id": "R08",
+    "title": "TypeScript 7.0.2 release",
+    "url": "https://github.com/microsoft/TypeScript/releases/tag/v7.0.2",
+    "retrieved_at": "2026-09-13",
+    "finding": "Latest retrieved stable release, dated 2026-08-20."
+  },
+  {
+    "id": "R09",
+    "title": "TypeScript 7 announcement",
+    "url": "https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/",
+    "retrieved_at": "2026-09-13",
+    "finding": "No TS7 compiler API; official @typescript/typescript6 compatibility path; pin explicit target/types/rootDir."
+  },
+  {
+    "id": "R10",
+    "title": "esbuild release",
+    "url": "https://github.com/evanw/esbuild/releases/tag/v0.28.2",
+    "retrieved_at": "2026-09-13",
+    "finding": "Current retrieved release 0.28.2 dated August 8."
+  },
+  {
+    "id": "R11",
+    "title": "esbuild API",
+    "url": "https://esbuild.github.io/api/",
+    "retrieved_at": "2026-09-13",
+    "finding": "Explicit neutral/browser builds, IIFE output, metadata; syntax targets are not API polyfills."
+  },
+  {
+    "id": "R12",
+    "title": "IINA stable download",
+    "url": "https://iina.io/",
+    "retrieved_at": "2026-09-13",
+    "finding": "Stable download remains 1.4.4; app platform floor is not proof of this alpha compatibility."
+  },
+  {
+    "id": "R13",
+    "title": "IINA development guide",
+    "url": "https://docs.iina.io/pages/dev-guide.html",
+    "retrieved_at": "2026-09-13",
+    "finding": "Plugin context, manifest and permissions; moving docs may cover preview-only features."
+  },
+  {
+    "id": "R14",
+    "title": "IINA declarations",
+    "url": "https://github.com/iina/iina-plugin-definition/blob/master/iina/index.d.ts",
+    "retrieved_at": "2026-09-13",
+    "finding": "Inspected exact used symbols and overloads. Moving branch; inspected blob SHA 5b6e15053c57cc299b9f6d68bab69176bf019dc6, NOT a commit SHA."
+  },
+  {
+    "id": "R15",
+    "title": "IINA mpv API",
+    "url": "https://docs.iina.io/interfaces/IINA.API.MPV.html",
+    "retrieved_at": "2026-09-13",
+    "finding": "Player-only getString/getFlag and separate event API."
+  },
+  {
+    "id": "R16",
+    "title": "IINA native CLI",
+    "url": "https://github.com/iina/iina/blob/v1.4.4/iina-plugin/main.swift",
+    "retrieved_at": "2026-09-13",
+    "finding": "Pack shell command and basename-based .iinaplugin-dev links inspected in released code."
+  },
+  {
+    "id": "R17",
+    "title": "IINA webviews",
+    "url": "https://docs.iina.io/pages/webviews.html",
+    "retrieved_at": "2026-09-13",
+    "finding": "Distinct browser context and named JSON message bridge."
+  },
+  {
+    "id": "R18",
+    "title": "IINA preferences",
+    "url": "https://docs.iina.io/pages/plugin-preferences.html",
+    "retrieved_at": "2026-09-13",
+    "finding": "Native preference bindings; bool data-type; optional defaults."
+  },
+  {
+    "id": "R19",
+    "title": "Codex instructions",
+    "url": "https://developers.openai.com/codex/guides/agents-md/",
+    "retrieved_at": "2026-09-13",
+    "finding": "Official URL redirects to ChatGPT Learn; canonical AGENTS.md discovery."
+  },
+  {
+    "id": "R20",
+    "title": "Codex skills",
+    "url": "https://developers.openai.com/codex/skills/",
+    "retrieved_at": "2026-09-13",
+    "finding": "Repository .agents/skills and agents/openai.yaml allow_implicit_invocation policy."
+  },
+  {
+    "id": "R21",
+    "title": "Claude memory",
+    "url": "https://code.claude.com/docs/en/memory",
+    "retrieved_at": "2026-09-13",
+    "finding": "CLAUDE.md imports @AGENTS.md."
+  },
+  {
+    "id": "R22",
+    "title": "Claude skills",
+    "url": "https://code.claude.com/docs/en/skills",
+    "retrieved_at": "2026-09-13",
+    "finding": "Project .claude/skills, manual-only frontmatter, narrow descriptions and progressive loading."
+  },
+  {
+    "id": "R23",
+    "title": "Node test runner",
+    "url": "https://nodejs.org/api/test.html",
+    "retrieved_at": "2026-09-13",
+    "finding": "Built-in test runner; source/mock evidence distinct from native host tests."
+  }
+]

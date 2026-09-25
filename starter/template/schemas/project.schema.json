@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "slug",
+    "preset",
+    "identifier",
+    "preferences"
+  ],
+  "properties": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"
+    },
+    "preset": {
+      "enum": [
+        "command",
+        "sidebar",
+        "overlay",
+        "controller"
+      ]
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "preferences": {
+      "type": "boolean"
+    },
+    "hooks": {
+      "type": "boolean"
+    },
+    "docsProfile": {
+      "enum": [
+        "markdown",
+        "starlight"
+      ]
+    },
+    "hostTarget": {
+      "type": "string"
+    },
+    "uiTarget": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

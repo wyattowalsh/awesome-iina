@@ -1,0 +1,12 @@
+---
+description: Evidence layers for IINA plugin work — fixture is not Copier; Node VM is not JavaScriptCore; browser is not WKWebView.
+alwaysApply: false
+---
+
+# IINA evidence
+
+A Jinja fixture is not Copier. Node VM is not JavaScriptCore. Browser WebKit is not
+IINA's WKWebView. Not-run is never passed.
+
+Report source checks, mock contracts, production bundle checks, and native IINA checks
+as separate layers. `node scripts/doctor.mjs` is read-only metadata, not native proof.

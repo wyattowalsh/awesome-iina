@@ -1,0 +1,168 @@
+version: 1
+
+github:
+  repository_backend: rest
+  request_timeout_seconds: 45
+  max_requests: 2000
+  max_total_wait_seconds: 900
+  max_content_bytes: 1000000
+  repository_search_delay_seconds: 2.1
+  host: github.com
+  api_version: "2026-03-10"
+  page_size: 100
+  search_cap: 1000
+  repository_request_delay_seconds: 0.35
+  code_search_delay_seconds: 6.2
+  max_retries: 6
+  initial_backoff_seconds: 2.0
+  max_backoff_seconds: 120.0
+  max_shard_depth: 30
+  created_from: 2007-01-01
+  created_to: null
+  enrichment_batch_size: 20
+  deep_candidate_limit: 500
+
+scoring:
+  accept_threshold: 70
+  review_threshold: 35
+  archived_penalty: 20
+  fork_penalty: 12
+  empty_penalty: 40
+  disabled_penalty: 80
+  valid_manifest_bonus: 90
+  gh_repo_match_bonus: 25
+  official_org_bonus: 80
+  topic_iina_plugin_bonus: 45
+  topic_iina_bonus: 20
+  name_iina_bonus: 20
+  description_iina_bonus: 15
+
+# Official-org category shortcuts. Keep repository-specific names here, not in scoring.py.
+category_inference:
+  official_org_prefix: iina/
+  core_repositories:
+    - iina/iina
+    - iina/iina-website
+  official_plugin_name_contains:
+    - /plugin-
+  official_org_fallback: development
+
+paths:
+  discovery_output: output/discovery/latest.json
+  review_output: output/discovery/review.yaml
+  report_output: output/discovery-latest.md
+  official_plugins_snapshot: src/awesome_iina/discovery/snapshots/iina-plugins.json
+  catalog: src/awesome_iina/catalog/catalog.yaml
+  overrides: src/awesome_iina/discovery/overrides.yaml
+  readme_template: src/awesome_iina/catalog/templates/README.md.j2
+  readme: README.md
+
+# Repository search is intentionally redundant. Multiple orthogonal queries improve recall;
+# evidence scoring caps query inflation so redundancy does not imply quality.
+repository_queries:
+  - id: official-org
+    query: org:iina
+    weight: 90
+    quick: true
+  - id: topic-iina-plugin
+    query: topic:iina-plugin
+    weight: 60
+    quick: true
+  - id: topic-iina
+    query: topic:iina
+    weight: 35
+    quick: true
+  - id: name-iina
+    query: iina in:name
+    weight: 30
+    quick: true
+  - id: description-iina
+    query: IINA in:description
+    weight: 25
+  - id: readme-iina
+    query: IINA in:readme
+    weight: 18
+  - id: readme-iina-plugin
+    query: "\"IINA plugin\" in:readme"
+    weight: 35
+  - id: package-extension
+    query: "iinaplgz in:readme"
+    weight: 45
+  - id: definition-reference
+    query: "iina-plugin-definition in:readme"
+    weight: 55
+  - id: iina-mpv
+    query: "IINA mpv in:name,description,readme"
+    weight: 18
+  - id: jellyfin-iina
+    query: "IINA Jellyfin in:name,description,readme"
+    weight: 25
+  - id: subtitle-iina
+    query: "IINA subtitle in:name,description,readme"
+    weight: 25
+  - id: browser-handoff
+    query: "open in IINA in:name,description,readme"
+    weight: 25
+
+# Code search has a separate, lower request limit. Keep each query signal-rich and record any
+# query that still exceeds GitHub's 1,000-result search ceiling as an unresolved evidence gap.
+code_queries:
+  - id: manifest-ghrepo
+    query: "ghRepo filename:Info.json"
+    weight: 65
+    quick: true
+  - id: manifest-identifier-entry
+    query: "identifier entry filename:Info.json IINA"
+    weight: 60
+  - id: manifest-allowed-domains
+    query: "allowedDomains filename:Info.json ghVersion"
+    weight: 60
+  - id: npm-definition
+    query: "iina-plugin-definition filename:package.json"
+    weight: 65
+    quick: true
+  - id: plugin-package-extension
+    query: "iinaplgz"
+    weight: 50
+  - id: iina-runtime-api
+    query: "iina.core iina.console"
+    weight: 45
+  - id: iina-plugin-cli
+    query: "iina-plugin pack filename:package.json"
+    weight: 50
+
+sources:
+  - id: official-iina-plugins
+    kind: github-json
+    repository: iina/iina
+    path: plugins.json
+    ref: develop
+    destination: src/awesome_iina/discovery/snapshots/iina-plugins.json
+    weight: 110
+  - id: legacy-awesome-iina
+    kind: github-text
+    repository: cxwx/awesome-iina
+    path: README.md
+    ref: main
+    destination: src/awesome_iina/discovery/snapshots/legacy-awesome-iina.json
+    weight: 25
+
+negative_terms:
+  - liina
+  - tiina
+  - miina
+  - kiina
+  - aina
+  - marina
+
+media_context_terms:
+  - iina
+  - video
+  - media
+  - player
+  - mpv
+  - subtitle
+  - playback
+  - macos
+  - movie
+  - audio

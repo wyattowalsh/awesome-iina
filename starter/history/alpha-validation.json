@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-13",
+  "artifact_status": "source-alpha-not-release-certified",
+  "environment": {
+    "platform": "Linux",
+    "python": "3.13.5",
+    "node": "22.16.0",
+    "typescript_cli": "5.8.3",
+    "typescript_compiler_api": "5.8.3"
+  },
+  "selected_not_executed": {
+    "node": "24.21.0",
+    "pnpm": "12.4.1",
+    "typescript_cli": "7.0.2",
+    "typescript_compiler_api_package": "@typescript/typescript6@6.0.2",
+    "esbuild": "0.28.2",
+    "copier": "9.18.2",
+    "iina": "1.4.4"
+  },
+  "executed": {
+    "python_checks": {
+      "tests": 61,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 13,
+      "passed": 48
+    },
+    "fixture_variants": 8,
+    "generated_command_runs": 32,
+    "node_test_executions": 284,
+    "node_variants": [
+      {
+        "variant": "command",
+        "tests": 34,
+        "pass": 34,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "command-preferences",
+        "tests": 34,
+        "pass": 34,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "controller",
+        "tests": 36,
+        "pass": 36,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "controller-preferences",
+        "tests": 36,
+        "pass": 36,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "overlay",
+        "tests": 36,
+        "pass": 36,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "overlay-preferences",
+        "tests": 36,
+        "pass": 36,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "sidebar",
+        "tests": 36,
+        "pass": 36,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "sidebar-preferences",
+        "tests": 36,
+        "pass": 36,
+        "fail": 0,
+        "skipped": 0
+      }
+    ],
+    "node_syntax_checks": 14
+  },
+  "not_executed": [
+    "Actual Copier copy/update and Git merge semantics (13 explicitly skipped integration cases)",
+    "Pinned pnpm dependency resolution or frozen-lockfile installation",
+    "TypeScript 7.0.2 CLI and TypeScript 6 compatibility API execution",
+    "esbuild production bundles",
+    "Official IINA CLI link/unlink/pack",
+    "Native JavaScriptCore and WKWebView execution",
+    "Claude Code/Codex skill discovery and task evaluation",
+    "GitHub installation and two-version update",
+    "CI workflow or publication"
+  ],
+  "limitations": [
+    "Offline Jinja rendering is fixture testing only, never Copier evidence.",
+    "Node VM uses a small mock host; it is not a native IINA emulator.",
+    "Archive/staging tests use synthetic files, not production builds.",
+    "Repeated variant tests are test executions, not distinct feature counts.",
+    "Selected versions are not relabeled as versions executed in this environment.",
+    "No dependency lockfile or supported-macOS claim has been fabricated."
+  ],
+  "logs": "evidence/"
+}

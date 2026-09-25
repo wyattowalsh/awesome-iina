@@ -1,0 +1,787 @@
+{
+  "$defs": {
+    "Candidate": {
+      "additionalProperties": false,
+      "properties": {
+        "decision": {
+          "$ref": "#/$defs/CandidateDecision",
+          "default": "review"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/DiscoveryEvidence"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "inferred_categories": {
+          "items": {
+            "$ref": "#/$defs/Category"
+          },
+          "title": "Inferred Categories",
+          "type": "array"
+        },
+        "manifest": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PluginManifest"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "manifest_errors": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Manifest Errors",
+          "type": "array"
+        },
+        "manifest_path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Manifest Path"
+        },
+        "manual_note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Manual Note"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reasons",
+          "type": "array"
+        },
+        "repository": {
+          "$ref": "#/$defs/RepositorySnapshot"
+        },
+        "score": {
+          "default": 0,
+          "title": "Score",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "repository"
+      ],
+      "title": "Candidate",
+      "type": "object"
+    },
+    "CandidateDecision": {
+      "enum": [
+        "accept",
+        "review",
+        "reject"
+      ],
+      "title": "CandidateDecision",
+      "type": "string"
+    },
+    "Category": {
+      "enum": [
+        "core",
+        "official-plugin",
+        "playback",
+        "subtitles-language",
+        "libraries-streaming",
+        "capture-editing",
+        "enhancement-rendering",
+        "casting-integrations",
+        "tracking-scrobbling",
+        "automation-companions",
+        "development",
+        "media-tooling",
+        "historical"
+      ],
+      "title": "Category",
+      "type": "string"
+    },
+    "DiscoveryBackend": {
+      "enum": [
+        "rest",
+        "graphql",
+        "merged"
+      ],
+      "title": "DiscoveryBackend",
+      "type": "string"
+    },
+    "DiscoveryEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "details": {
+          "additionalProperties": true,
+          "title": "Details",
+          "type": "object"
+        },
+        "kind": {
+          "$ref": "#/$defs/EvidenceKind"
+        },
+        "path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Path"
+        },
+        "query": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Query"
+        },
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Url"
+        },
+        "weight": {
+          "default": 0,
+          "title": "Weight",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "kind",
+        "source_id"
+      ],
+      "title": "DiscoveryEvidence",
+      "type": "object"
+    },
+    "EvidenceKind": {
+      "enum": [
+        "repository-search",
+        "code-search",
+        "official-org",
+        "official-plugin-index",
+        "plugin-manifest",
+        "legacy-list",
+        "manual"
+      ],
+      "title": "EvidenceKind",
+      "type": "string"
+    },
+    "PluginAuthor": {
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Email"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Url"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "PluginAuthor",
+      "type": "object"
+    },
+    "PluginManifest": {
+      "additionalProperties": true,
+      "description": "Tolerant subset of IINA's Info.json plugin manifest.",
+      "properties": {
+        "allowedDomains": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Alloweddomains",
+          "type": "array"
+        },
+        "author": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PluginAuthor"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "title": "Author"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "entry": {
+          "title": "Entry",
+          "type": "string"
+        },
+        "ghRepo": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ghrepo"
+        },
+        "ghVersion": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ghversion"
+        },
+        "globalEntry": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Globalentry"
+        },
+        "helpPage": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Helppage"
+        },
+        "identifier": {
+          "title": "Identifier",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "permissions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Permissions",
+          "type": "array"
+        },
+        "preferencesPage": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Preferencespage"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "version",
+        "identifier",
+        "author",
+        "entry"
+      ],
+      "title": "PluginManifest",
+      "type": "object"
+    },
+    "QueryOutcome": {
+      "additionalProperties": false,
+      "properties": {
+        "backend": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/DiscoveryBackend"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "complete": {
+          "title": "Complete",
+          "type": "boolean"
+        },
+        "incomplete_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Incomplete Reason"
+        },
+        "kind": {
+          "$ref": "#/$defs/EvidenceKind"
+        },
+        "query": {
+          "title": "Query",
+          "type": "string"
+        },
+        "query_id": {
+          "title": "Query Id",
+          "type": "string"
+        },
+        "returned_count": {
+          "title": "Returned Count",
+          "type": "integer"
+        },
+        "total_count": {
+          "title": "Total Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "query_id",
+        "query",
+        "kind",
+        "total_count",
+        "returned_count",
+        "complete"
+      ],
+      "title": "QueryOutcome",
+      "type": "object"
+    },
+    "RepositorySnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "aliases": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Aliases",
+          "type": "array"
+        },
+        "archived": {
+          "default": false,
+          "title": "Archived",
+          "type": "boolean"
+        },
+        "created_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Created At"
+        },
+        "database_id": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Database Id"
+        },
+        "default_branch": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Default Branch"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "disabled": {
+          "default": false,
+          "title": "Disabled",
+          "type": "boolean"
+        },
+        "disk_usage_kb": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Disk Usage Kb"
+        },
+        "empty": {
+          "default": false,
+          "title": "Empty",
+          "type": "boolean"
+        },
+        "fork": {
+          "default": false,
+          "title": "Fork",
+          "type": "boolean"
+        },
+        "forks": {
+          "default": 0,
+          "title": "Forks",
+          "type": "integer"
+        },
+        "homepage_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Homepage Url"
+        },
+        "languages": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "title": "Languages",
+          "type": "object"
+        },
+        "latest_release_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Latest Release At"
+        },
+        "latest_release_tag": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Latest Release Tag"
+        },
+        "license_spdx": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "License Spdx"
+        },
+        "mirror": {
+          "default": false,
+          "title": "Mirror",
+          "type": "boolean"
+        },
+        "name_with_owner": {
+          "title": "Name With Owner",
+          "type": "string"
+        },
+        "node_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Node Id"
+        },
+        "open_issues": {
+          "default": 0,
+          "title": "Open Issues",
+          "type": "integer"
+        },
+        "open_pull_requests": {
+          "default": 0,
+          "title": "Open Pull Requests",
+          "type": "integer"
+        },
+        "parent": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Parent"
+        },
+        "primary_language": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Primary Language"
+        },
+        "private": {
+          "default": false,
+          "title": "Private",
+          "type": "boolean"
+        },
+        "pushed_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pushed At"
+        },
+        "release_count": {
+          "default": 0,
+          "title": "Release Count",
+          "type": "integer"
+        },
+        "stars": {
+          "default": 0,
+          "title": "Stars",
+          "type": "integer"
+        },
+        "template": {
+          "default": false,
+          "title": "Template",
+          "type": "boolean"
+        },
+        "topics": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Topics",
+          "type": "array"
+        },
+        "updated_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Updated At"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string"
+        },
+        "watchers": {
+          "default": 0,
+          "title": "Watchers",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "name_with_owner",
+        "url"
+      ],
+      "title": "RepositorySnapshot",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "candidates": {
+      "items": {
+        "$ref": "#/$defs/Candidate"
+      },
+      "title": "Candidates",
+      "type": "array"
+    },
+    "config_sha256": {
+      "title": "Config Sha256",
+      "type": "string"
+    },
+    "coverage_scope": {
+      "const": "configured-public-search-results",
+      "default": "configured-public-search-results",
+      "title": "Coverage Scope",
+      "type": "string"
+    },
+    "exhaustive": {
+      "const": false,
+      "default": false,
+      "title": "Exhaustive",
+      "type": "boolean"
+    },
+    "finished_at": {
+      "format": "date-time",
+      "title": "Finished At",
+      "type": "string"
+    },
+    "mode": {
+      "title": "Mode",
+      "type": "string"
+    },
+    "outcomes": {
+      "items": {
+        "$ref": "#/$defs/QueryOutcome"
+      },
+      "title": "Outcomes",
+      "type": "array"
+    },
+    "repository_backend": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/DiscoveryBackend"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "schema_version": {
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "started_at": {
+      "format": "date-time",
+      "title": "Started At",
+      "type": "string"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "started_at",
+    "finished_at",
+    "config_sha256",
+    "mode",
+    "candidates",
+    "outcomes"
+  ],
+  "title": "DiscoveryRun",
+  "type": "object"
+}

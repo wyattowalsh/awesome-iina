@@ -1,0 +1,9 @@
+plugin_name: IINA Overlay Example
+plugin_slug: iina-overlay-example
+plugin_identifier: org.example.iina-overlay-example
+user_name: Plugin Author
+description: A typed IINA overlay plugin.
+preset: overlay
+preferences: true
+docs_profile: starlight
+hooks: false

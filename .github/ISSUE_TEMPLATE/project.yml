@@ -1,0 +1,44 @@
+name: Suggest an IINA project
+description: Propose a plugin, integration, companion tool, or developer resource.
+title: "[Project]: "
+labels: [catalog, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep the IINA ecosystem discoverable. Inclusion is curated and requires direct IINA relevance.
+  - type: input
+    id: repository
+    attributes:
+      label: Canonical project URL
+      placeholder: https://github.com/owner/repository
+    validations:
+      required: true
+  - type: textarea
+    id: relevance
+    attributes:
+      label: Direct relationship to IINA
+      description: Explain whether this is a plugin, companion app, official resource, or IINA-specific workflow.
+    validations:
+      required: true
+  - type: input
+    id: identifier
+    attributes:
+      label: Plugin identifier
+      description: Copy the `identifier` from Info.json, when applicable.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and notes
+      description: Include manifest, documentation, install instructions, license, current status, and any security-relevant permissions.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmation
+      options:
+        - label: I searched the existing catalog and open issues for duplicates.
+          required: true
+        - label: This project is directly related to IINA, not merely another media player or generic mpv resource.
+          required: true

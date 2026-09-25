@@ -1,0 +1,13 @@
+{
+  "name": [[ plugin_name | tojson ]],
+  "identifier": [[ plugin_identifier | tojson ]],
+  "version": "0.1.0",
+  "description": [[ description | tojson ]],
+  "author": {"name": [[ user_name | tojson ]]},
+  "entry": "dist/main.js",
+[% if preset == 'controller' %]  "globalEntry": "dist/global.js",
+[% endif %][% if preset == 'sidebar' %]  "sidebarTab": {"name": [[ plugin_name | tojson ]]},
+[% endif %][% if preferences %]  "preferencesPage": "preferences/index.html",
+  "preferenceDefaults": {"showTitle": true},
+[% endif %]  "permissions": [% if preset == 'overlay' %]["video-overlay"][% else %][][% endif %]
+}

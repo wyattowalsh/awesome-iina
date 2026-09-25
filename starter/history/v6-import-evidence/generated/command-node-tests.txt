@@ -1,0 +1,434 @@
+TAP version 13
+# Subtest: parallel builds fail closed; releasing is idempotent
+ok 1 - parallel builds fail closed; releasing is idempotent
+  ---
+  duration_ms: 14.696294
+  type: 'test'
+  ...
+# Subtest: support report is an allowlist rather than raw-log redaction
+ok 2 - support report is an allowlist rather than raw-log redaction
+  ---
+  duration_ms: 1.556642
+  type: 'test'
+  ...
+# Subtest: preview serves only the UI namespace
+ok 3 - preview serves only the UI namespace
+  ---
+  duration_ms: 0.277694
+  type: 'test'
+  ...
+# Subtest: native evidence cannot pass for a different source commit
+ok 4 - native evidence cannot pass for a different source commit
+  ---
+  duration_ms: 0.632181
+  type: 'test'
+  ...
+# Subtest: native evidence requires executed scenarios
+ok 5 - native evidence requires executed scenarios
+  ---
+  duration_ms: 2.384529
+  type: 'test'
+  ...
+# Subtest: build queue serializes and coalesces changes during execution
+ok 6 - build queue serializes and coalesces changes during execution
+  ---
+  duration_ms: 36.752996
+  type: 'test'
+  ...
+# Subtest: stopping before debounce cancels a pending build
+ok 7 - stopping before debounce cancels a pending build
+  ---
+  duration_ms: 30.611795
+  type: 'test'
+  ...
+# Subtest: native controller and preferences evidence require their own scenarios
+ok 8 - native controller and preferences evidence require their own scenarios
+  ---
+  duration_ms: 0.785392
+  type: 'test'
+  ...
+# Subtest: preview HTTP transport restricts hosts, methods and served files
+ok 9 - preview HTTP transport restricts hosts, methods and served files
+  ---
+  duration_ms: 139.200601
+  type: 'test'
+  ...
+# Subtest: safe docs base /
+ok 10 - safe docs base /
+  ---
+  duration_ms: 1.610215
+  type: 'test'
+  ...
+# Subtest: safe docs base /my-plugin/
+ok 11 - safe docs base /my-plugin/
+  ---
+  duration_ms: 0.26863
+  type: 'test'
+  ...
+# Subtest: safe docs base /one/two/
+ok 12 - safe docs base /one/two/
+  ---
+  duration_ms: 0.129604
+  type: 'test'
+  ...
+# Subtest: reject docs base //evil/
+ok 13 - reject docs base //evil/
+  ---
+  duration_ms: 0.249495
+  type: 'test'
+  ...
+# Subtest: reject docs base ../x
+ok 14 - reject docs base ../x
+  ---
+  duration_ms: 0.097278
+  type: 'test'
+  ...
+# Subtest: reject docs base /missing-trailing-slash
+ok 15 - reject docs base /missing-trailing-slash
+  ---
+  duration_ms: 0.072908
+  type: 'test'
+  ...
+# Subtest: reject docs base https://bad/
+ok 16 - reject docs base https://bad/
+  ---
+  duration_ms: 0.124843
+  type: 'test'
+  ...
+# Subtest: reject docs base /../
+ok 17 - reject docs base /../
+  ---
+  duration_ms: 0.214848
+  type: 'test'
+  ...
+# Subtest: reject docs base /a b/
+ok 18 - reject docs base /a b/
+  ---
+  duration_ms: 0.253797
+  type: 'test'
+  ...
+# Subtest: frontmatter title preserves quoted data
+ok 19 - frontmatter title preserves quoted data
+  ---
+  duration_ms: 0.690598
+  type: 'test'
+  ...
+# Subtest: missing title fails
+ok 20 - missing title fails
+  ---
+  duration_ms: 0.325053
+  type: 'test'
+  ...
+# Subtest: code-fenced example links are ignored
+ok 21 - code-fenced example links are ignored
+  ---
+  duration_ms: 1.433781
+  type: 'test'
+  ...
+# Subtest: shipped documentation links resolve
+ok 22 - shipped documentation links resolve
+  ---
+  duration_ms: 32.869303
+  type: 'test'
+  ...
+# Subtest: docs exports are deterministic and preserve source warnings
+ok 23 - docs exports are deterministic and preserve source warnings
+  ---
+  duration_ms: 83.458084
+  type: 'test'
+  ...
+# Subtest: reject invalid manifest author null
+ok 24 - reject invalid manifest author null
+  ---
+  duration_ms: 1.45125
+  type: 'test'
+  ...
+# Subtest: reject invalid manifest author []
+ok 25 - reject invalid manifest author []
+  ---
+  duration_ms: 0.312418
+  type: 'test'
+  ...
+# Subtest: reject invalid manifest author {}
+ok 26 - reject invalid manifest author {}
+  ---
+  duration_ms: 0.167278
+  type: 'test'
+  ...
+# Subtest: reject invalid manifest author "Person"
+ok 27 - reject invalid manifest author "Person"
+  ---
+  duration_ms: 0.093521
+  type: 'test'
+  ...
+# Subtest: reject invalid manifest author {"name":""}
+ok 28 - reject invalid manifest author {"name":""}
+  ---
+  duration_ms: 0.082928
+  type: 'test'
+  ...
+# Subtest: reject invalid manifest author {"name":"A","url":42}
+ok 29 - reject invalid manifest author {"name":"A","url":42}
+  ---
+  duration_ms: 0.24982
+  type: 'test'
+  ...
+# Subtest: valid string-valued author metadata accepted
+ok 30 - valid string-valued author metadata accepted
+  ---
+  duration_ms: 0.394452
+  type: 'test'
+  ...
+# Subtest: reject unsafe reference ""
+ok 31 - reject unsafe reference ""
+  ---
+  duration_ms: 0.130607
+  type: 'test'
+  ...
+# Subtest: reject unsafe reference "--trust"
+ok 32 - reject unsafe reference "--trust"
+  ---
+  duration_ms: 0.258068
+  type: 'test'
+  ...
+# Subtest: reject unsafe reference "bad ref"
+ok 33 - reject unsafe reference "bad ref"
+  ---
+  duration_ms: 0.370402
+  type: 'test'
+  ...
+# Subtest: reject unsafe reference "v1\\nother"
+ok 34 - reject unsafe reference "v1\\nother"
+  ---
+  duration_ms: 0.125932
+  type: 'test'
+  ...
+# Subtest: explicit tag accepted
+ok 35 - explicit tag accepted
+  ---
+  duration_ms: 0.069911
+  type: 'test'
+  ...
+# Subtest: fixture lineage is rejected
+ok 36 - fixture lineage is rejected
+  ---
+  duration_ms: 20.612647
+  type: 'test'
+  ...
+# Subtest: unversioned local copy is not update-ready
+ok 37 - unversioned local copy is not update-ready
+  ---
+  duration_ms: 3.428246
+  type: 'test'
+  ...
+# AUDIT OVERRIDE: compiler API from /opt/nvm/versions/node/v22.16.0/lib/node_modules/typescript/lib/typescript.js
+# Subtest: reject escaping path "../x"
+ok 38 - reject escaping path "../x"
+  ---
+  duration_ms: 1.112499
+  type: 'test'
+  ...
+# Subtest: reject escaping path "/tmp/x"
+ok 39 - reject escaping path "/tmp/x"
+  ---
+  duration_ms: 0.141728
+  type: 'test'
+  ...
+# Subtest: reject escaping path "foo/../../bar"
+ok 40 - reject escaping path "foo/../../bar"
+  ---
+  duration_ms: 0.187238
+  type: 'test'
+  ...
+# Subtest: reject escaping path "C:\\\\file"
+ok 41 - reject escaping path "C:\\\\file"
+  ---
+  duration_ms: 0.079909
+  type: 'test'
+  ...
+# Subtest: reject escaping path ""
+ok 42 - reject escaping path ""
+  ---
+  duration_ms: 0.155368
+  type: 'test'
+  ...
+# Subtest: relative package path stays local
+ok 43 - relative package path stays local
+  ---
+  duration_ms: 0.195252
+  type: 'test'
+  ...
+# Subtest: reject runtime crossing import fs from "node:fs";
+ok 44 - reject runtime crossing import fs from "node:fs";
+  ---
+  duration_ms: 4.846813
+  type: 'test'
+  ...
+# Subtest: reject runtime crossing import "../main/index.js";
+ok 45 - reject runtime crossing import "../main/index.js";
+  ---
+  duration_ms: 0.633452
+  type: 'test'
+  ...
+# Subtest: reject runtime crossing import "../ui/index.js";
+ok 46 - reject runtime crossing import "../ui/index.js";
+  ---
+  duration_ms: 0.935631
+  type: 'test'
+  ...
+# Subtest: reject runtime crossing import("./other.js");
+ok 47 - reject runtime crossing import("./other.js");
+  ---
+  duration_ms: 2.368315
+  type: 'test'
+  ...
+# Subtest: reject runtime crossing eval("anything");
+ok 48 - reject runtime crossing eval("anything");
+  ---
+  duration_ms: 0.552704
+  type: 'test'
+  ...
+# Subtest: pure relative import accepted
+ok 49 - pure relative import accepted
+  ---
+  duration_ms: 1.010163
+  type: 'test'
+  ...
+# Subtest: comments containing forbidden text do not trip AST checks
+ok 50 - comments containing forbidden text do not trip AST checks
+  ---
+  duration_ms: 1.170016
+  type: 'test'
+  ...
+# Subtest: manifest baseline passes
+ok 51 - manifest baseline passes
+  ---
+  duration_ms: 78.531856
+  type: 'test'
+  ...
+# Subtest: permission escalation is rejected
+ok 52 - permission escalation is rejected
+  ---
+  duration_ms: 3.621842
+  type: 'test'
+  ...
+# Subtest: nested same-role import accepted
+ok 53 - nested same-role import accepted
+  ---
+  duration_ms: 1.246781
+  type: 'test'
+  ...
+# Subtest: synthetic allowlisted stage produces content hashes
+ok 54 - synthetic allowlisted stage produces content hashes
+  ---
+  duration_ms: 53.768628
+  type: 'test'
+  ...
+# Subtest: synthetic stage rejects source-code leak
+ok 55 - synthetic stage rejects source-code leak
+  ---
+  duration_ms: 70.299054
+  type: 'test'
+  ...
+# Subtest: synthetic stage rejects missing main
+ok 56 - synthetic stage rejects missing main
+  ---
+  duration_ms: 26.008937
+  type: 'test'
+  ...
+# Subtest: synthetic stage rejects symlink contents
+ok 57 - synthetic stage rejects symlink contents
+  ---
+  duration_ms: 25.190983
+  type: 'test'
+  ...
+# AUDIT OVERRIDE: compiler API from /opt/nvm/versions/node/v22.16.0/lib/node_modules/typescript/lib/typescript.js
+# Subtest: main entry registers actionable menu without external runtime
+ok 58 - main entry registers actionable menu without external runtime
+  ---
+  duration_ms: 369.291989
+  type: 'test'
+  ...
+# AUDIT OVERRIDE: compiler API from /opt/nvm/versions/node/v22.16.0/lib/node_modules/typescript/lib/typescript.js
+# AUDIT OVERRIDE: compiler API from /opt/nvm/versions/node/v22.16.0/lib/node_modules/typescript/lib/typescript.js
+# Subtest: valid JSON handshake and snapshot
+ok 59 - valid JSON handshake and snapshot
+  ---
+  duration_ms: 1.477801
+  type: 'test'
+  ...
+# Subtest: reject malformed handshake null
+ok 60 - reject malformed handshake null
+  ---
+  duration_ms: 0.232446
+  type: 'test'
+  ...
+# Subtest: reject malformed handshake []
+ok 61 - reject malformed handshake []
+  ---
+  duration_ms: 0.158124
+  type: 'test'
+  ...
+# Subtest: reject malformed handshake {}
+ok 62 - reject malformed handshake {}
+  ---
+  duration_ms: 0.111454
+  type: 'test'
+  ...
+# Subtest: reject malformed handshake "ready"
+ok 63 - reject malformed handshake "ready"
+  ---
+  duration_ms: 0.177738
+  type: 'test'
+  ...
+# Subtest: reject malformed handshake {"v":2,"kind":"ready","viewId":"x"}
+ok 64 - reject malformed handshake {"v":2,"kind":"ready","viewId":"x"}
+  ---
+  duration_ms: 0.086924
+  type: 'test'
+  ...
+# Subtest: reject malformed handshake {"v":1,"kind":"ready","viewId":"x","command":"exec"}
+ok 65 - reject malformed handshake {"v":1,"kind":"ready","viewId":"x","command":"exec"}
+  ---
+  duration_ms: 0.14697
+  type: 'test'
+  ...
+# Subtest: reject malformed handshake {"v":1,"kind":"ready","viewId":"../x"}
+ok 66 - reject malformed handshake {"v":1,"kind":"ready","viewId":"../x"}
+  ---
+  duration_ms: 0.080527
+  type: 'test'
+  ...
+# Subtest: clamps untrusted title length
+ok 67 - clamps untrusted title length
+  ---
+  duration_ms: 0.392928
+  type: 'test'
+  ...
+# Subtest: rejects old windows, duplicate and out-of-order snapshots
+ok 68 - rejects old windows, duplicate and out-of-order snapshots
+  ---
+  duration_ms: 1.390361
+  type: 'test'
+  ...
+# Subtest: invalid sequence never passes
+ok 69 - invalid sequence never passes
+  ---
+  duration_ms: 0.762163
+  type: 'test'
+  ...
+# Subtest: disposal is once-only, reverse-order and continues after failure
+ok 70 - disposal is once-only, reverse-order and continues after failure
+  ---
+  duration_ms: 16.283736
+  type: 'test'
+  ...
+1..70
+# tests 70
+# suites 0
+# pass 70
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1099.980235

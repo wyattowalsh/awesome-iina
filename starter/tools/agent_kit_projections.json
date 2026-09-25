@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "plugin_root": "starter/plugins/iina-plugin-dev",
+  "overlays_dir": "starter/tools/agent_kit_overlays",
+  "notes": [
+    "from is relative to plugin_root; to is relative to the catalog repository root.",
+    "Never suffix projected paths with .jinja. Never use [% or [[ in directory names.",
+    "Generated Copier trees must not receive iina-generate. Nested starter/.cursor/skills may.",
+    "Package skill Claude/Codex invocation policy is overlay-only, never portable frontmatter."
+  ],
+  "exclude_generate_from_template": true,
+  "projections": [
+    {
+      "id": "nested-cursor-development",
+      "from": "skills/iina-development",
+      "to": "starter/.cursor/skills/iina-development",
+      "overlay": null
+    },
+    {
+      "id": "nested-cursor-generate",
+      "from": "skills/iina-generate",
+      "to": "starter/.cursor/skills/iina-generate",
+      "overlay": null
+    },
+    {
+      "id": "nested-cursor-upgrade",
+      "from": "skills/iina-upgrade",
+      "to": "starter/.cursor/skills/iina-upgrade",
+      "overlay": null
+    },
+    {
+      "id": "template-cursor-development",
+      "from": "skills/iina-development",
+      "to": "starter/template/.cursor/skills/iina-development",
+      "overlay": null
+    },
+    {
+      "id": "template-cursor-package",
+      "from": "skills/iina-package",
+      "to": "starter/template/.cursor/skills/iina-package",
+      "overlay": null
+    },
+    {
+      "id": "template-cursor-upgrade",
+      "from": "skills/iina-upgrade",
+      "to": "starter/template/.cursor/skills/iina-upgrade",
+      "overlay": null
+    },
+    {
+      "id": "template-claude-development",
+      "from": "skills/iina-development",
+      "to": "starter/template/.claude/skills/iina-development",
+      "overlay": null
+    },
+    {
+      "id": "template-claude-package",
+      "from": "skills/iina-package",
+      "to": "starter/template/.claude/skills/iina-package",
+      "overlay": "claude-package"
+    },
+    {
+      "id": "template-claude-upgrade",
+      "from": "skills/iina-upgrade",
+      "to": "starter/template/.claude/skills/iina-upgrade",
+      "overlay": null
+    },
+    {
+      "id": "template-agents-development",
+      "from": "skills/iina-development",
+      "to": "starter/template/.agents/skills/iina-development",
+      "overlay": null
+    },
+    {
+      "id": "template-agents-package",
+      "from": "skills/iina-package",
+      "to": "starter/template/.agents/skills/iina-package",
+      "overlay": "codex-package"
+    },
+    {
+      "id": "template-agents-upgrade",
+      "from": "skills/iina-upgrade",
+      "to": "starter/template/.agents/skills/iina-upgrade",
+      "overlay": null
+    },
+    {
+      "id": "template-cursor-rules",
+      "from": "rules",
+      "to": "starter/template/.cursor/rules",
+      "overlay": null
+    },
+    {
+      "id": "template-cursor-hooks",
+      "from": "hooks/hooks.json",
+      "to": "starter/template/.cursor/hooks.json",
+      "overlay": null
+    },
+    {
+      "id": "copilot-rules",
+      "from": "rules",
+      "to": "starter/plugins/iina-plugin-dev/com.github.copilot/rules",
+      "overlay": null
+    },
+    {
+      "id": "template-agent-guard",
+      "from": "scripts/agent-guard.mjs",
+      "to": "starter/template/scripts/agent-guard.mjs",
+      "overlay": null
+    },
+    {
+      "id": "template-agent-guard-rules",
+      "from": "scripts/rules.mjs",
+      "to": "starter/template/scripts/rules.mjs",
+      "overlay": null
+    }
+  ]
+}

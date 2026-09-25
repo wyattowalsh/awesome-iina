@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "kit_revision": "2.1.0",
+  "python_files_parsed": 15,
+  "production_assets_verified": 36,
+  "current_document_links_checked": 4,
+  "errors": [],
+  "scope": "Offline current-release structure and asset hashes; not external links or deployment"
+}

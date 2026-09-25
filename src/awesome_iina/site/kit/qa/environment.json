@@ -1,0 +1,22 @@
+{
+  "kit_revision": "2.1.1",
+  "python": "3.13.5",
+  "os": "Linux",
+  "architecture": "x86_64",
+  "dependencies": {
+    "Pillow": "12.3.0",
+    "CairoSVG": "2.8.2",
+    "fonttools": "4.63.0",
+    "numpy": "2.3.5",
+    "pytest": "9.0.2",
+    "playwright": "1.57.0"
+  },
+  "tools_available": {
+    "chromium": true,
+    "just": false,
+    "ruff": false
+  },
+  "network_dependency_install_performed": false,
+  "fonts_distributed": false,
+  "browser_plugin": "not available; regular Playwright used"
+}

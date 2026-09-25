@@ -1,0 +1,12 @@
+---
+description: IINA Info.json permissions — no wildcard domains; overlay baseline is video-overlay only.
+globs: Info.json
+alwaysApply: false
+---
+
+# IINA permissions
+
+Do not add `allowedDomains` or wildcard network hosts. Overlay baseline permission is
+`video-overlay` only. Extra permissions (`network-request`, `file-system`, `show-osd`,
+`show-alert`) require an explicit permission migration requested by the user, not a
+check-pass workaround.

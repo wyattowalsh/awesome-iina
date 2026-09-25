@@ -1,0 +1,33 @@
+{
+  "canvas": [
+    1280,
+    640
+  ],
+  "mark": {
+    "x": 80,
+    "y": 100,
+    "width": 156
+  },
+  "title": {
+    "x": 284,
+    "baseline": 225,
+    "size": 112,
+    "tracking": -2.2
+  },
+  "role_lines": [
+    {
+      "text": "Independent catalog",
+      "x": 289,
+      "baseline": 311,
+      "size": 48
+    },
+    {
+      "text": "for the IINA ecosystem",
+      "x": 289,
+      "baseline": 372,
+      "size": 48
+    }
+  ],
+  "minimum_review_css_width": 320,
+  "review_status": "Designer selected test, not platform mandate or user-recognition result"
+}

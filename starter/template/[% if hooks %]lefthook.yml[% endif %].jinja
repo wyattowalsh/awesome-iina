@@ -1,0 +1,7 @@
+# Optional. Explicitly install with pnpm run hooks:install after reviewing existing hooks.
+pre-commit:
+  parallel: false
+  commands:
+    quick-checks:
+      run: pnpm run fmt:check && pnpm run lint && pnpm run boundaries
+      stage_fixed: false

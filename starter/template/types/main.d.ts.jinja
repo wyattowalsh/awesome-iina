@@ -1,0 +1,5 @@
+import type { PlayerHost } from "./contracts.js";
+declare global {
+  const iina: Pick<PlayerHost, "menu" | "console" | "preferences" | "mpv" | "event"[% if preset == 'sidebar' %] | "sidebar"[% endif %][% if preset == 'overlay' %] | "overlay"[% endif %][% if preset == 'controller' %] | "global"[% endif %]>;
+}
+export {};

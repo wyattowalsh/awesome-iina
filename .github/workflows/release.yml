@@ -1,0 +1,114 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing version tag to publish
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Resolve tag
+        id: tag
+        shell: bash
+        env:
+          REQUESTED_TAG: ${{ inputs.tag }}
+        run: |
+          if [[ "$GITHUB_EVENT_NAME" == "workflow_dispatch" ]]; then
+            tag="$REQUESTED_TAG"
+          else
+            tag="${GITHUB_REF_NAME}"
+          fi
+          [[ $tag =~ ^v[0-9]+\.[0-9]+\.[0-9]+([.-][A-Za-z0-9.-]+)?$ ]] || { echo "tag must be a version such as v0.5.0" >&2; exit 64; }
+          echo "value=$tag" >> "$GITHUB_OUTPUT"
+
+      - name: Check out tagged source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ steps.tag.outputs.value }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Verify tag exists
+        env:
+          RELEASE_TAG: ${{ steps.tag.outputs.value }}
+        run: git rev-parse --verify "refs/tags/$RELEASE_TAG"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          version: "0.12.13"
+          enable-cache: true
+          cache-dependency-glob: |
+            pyproject.toml
+            uv.lock
+
+      - name: Install Python and dependencies
+        run: |
+          uv python install 3.13
+          test -f uv.lock || { echo "Resolve, review and commit uv.lock before releasing."; exit 1; }
+          uv sync --all-groups --locked
+
+      - name: Verify release source
+        run: |
+          uv run ruff format --check .
+          uv run ruff check .
+          uv run ty check src tests
+          uv run pytest
+          uv run awesome-iina repository lint-root
+          uv run awesome-iina repository lint-awesome
+          uv run awesome-iina catalog generate src/awesome_iina/catalog/catalog.yaml --check
+          uv run awesome-iina repository verify
+          uv run awesome-iina brand sync --check
+
+      - name: Build deterministic full-source archive
+        run: |
+          mkdir -p dist
+          uv run awesome-iina repository archive \
+            --output dist/awesome-iina.zip \
+            --manifest dist/awesome-iina.manifest.sha256
+          sha256sum dist/awesome-iina.zip > dist/awesome-iina.zip.sha256
+          unzip -t dist/awesome-iina.zip
+          unzip -l dist/awesome-iina.zip | grep -F 'awesome-iina/src/awesome_iina/cli.py'
+          unzip -l dist/awesome-iina.zip | grep -F 'awesome-iina/tests/catalog/test_catalog.py'
+
+      - name: Clean-extraction smoke test
+        run: |
+          PYTHON="$(uv run python -c 'import sys; print(sys.executable)')"
+          mkdir -p /tmp/awesome-iina-release
+          unzip -q dist/awesome-iina.zip -d /tmp/awesome-iina-release
+          cd /tmp/awesome-iina-release/awesome-iina
+          PYTHONPATH=src "$PYTHON" -m awesome_iina.repo.root_policy --root .
+          PYTHONPATH=src "$PYTHON" -m awesome_iina.repo.awesome_lint --root .
+          PYTHONPATH=src "$PYTHON" -m pytest -q
+
+      - name: Create or update GitHub release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ steps.tag.outputs.value }}
+        run: |
+          tag="$RELEASE_TAG"
+          if ! gh release view "$tag" >/dev/null 2>&1; then
+            gh release create "$tag" --verify-tag --generate-notes --title "awesome-iina $tag"
+          fi
+          gh release upload "$tag" \
+            dist/awesome-iina.zip \
+            dist/awesome-iina.zip.sha256 \
+            dist/awesome-iina.manifest.sha256 \
+            --clobber

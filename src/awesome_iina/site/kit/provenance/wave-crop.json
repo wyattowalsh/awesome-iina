@@ -1,0 +1,11 @@
+{
+  "source": "archive/original-kit/originals/awesome-iina-readme-hero.png",
+  "crop_xyxy": [
+    960,
+    565,
+    2020,
+    724
+  ],
+  "transform": "Crop, uniform resize from 1060x159 to 1280x192 (same aspect to rounding), 70px top fade to v2 background. Only a secondary texture; no old player icon or baked text is used in the canonical social card.",
+  "color_interpretation": "Original untagged RGB assumed sRGB; new outputs explicitly tagged sRGB."
+}

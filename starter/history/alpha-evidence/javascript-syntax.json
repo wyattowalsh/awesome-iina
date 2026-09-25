@@ -1,0 +1,72 @@
+[
+  {
+    "path": "template/scripts/boundaries.mjs",
+    "status": "passed",
+    "detail": ""
+  },
+  {
+    "path": "template/scripts/build-lock.mjs",
+    "status": "passed",
+    "detail": ""
+  },
+  {
+    "path": "template/scripts/build.mjs",
+    "status": "passed",
+    "detail": ""
+  },
+  {
+    "path": "template/scripts/common.mjs",
+    "status": "passed",
+    "detail": ""
+  },
+  {
+    "path": "template/scripts/doctor.mjs",
+    "status": "passed",
+    "detail": ""
+  },
+  {
+    "path": "template/scripts/iina-cli.mjs",
+    "status": "passed",
+    "detail": ""
+  },
+  {
+    "path": "template/scripts/template-update.mjs",
+    "status": "passed",
+    "detail": ""
+  },
+  {
+    "path": "template/scripts/typecheck.mjs",
+    "status": "passed",
+    "detail": ""
+  },
+  {
+    "path": "template/scripts/validate.mjs",
+    "status": "passed",
+    "detail": ""
+  },
+  {
+    "path": "template/tests/contracts/build-lock.test.mjs",
+    "status": "passed",
+    "detail": ""
+  },
+  {
+    "path": "template/tests/contracts/policy.test.mjs",
+    "status": "passed",
+    "detail": ""
+  },
+  {
+    "path": "template/tests/contracts/stage.test.mjs",
+    "status": "passed",
+    "detail": ""
+  },
+  {
+    "path": "template/tests/helpers/load-ts.mjs",
+    "status": "passed",
+    "detail": ""
+  },
+  {
+    "path": "template/tests/unit/protocol.test.mjs",
+    "status": "passed",
+    "detail": ""
+  }
+]

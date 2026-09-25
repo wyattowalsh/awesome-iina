@@ -1,0 +1,117 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "awesome-iina-tools"
+version = "0.5.0"
+description = "Reproducible discovery, curation, and media-inspection tooling for awesome-iina."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Wyatt Walsh", email = "wyattowalsh@gmail.com" }]
+requires-python = ">=3.13"
+dependencies = [
+  "jinja2>=3.1.6,<4",
+  "pydantic>=2.13,<3",
+  "pyyaml>=6.0.3,<7",
+  "rich>=15,<16",
+  "typer>=0.26,<1",
+]
+
+[project.urls]
+Homepage = "https://github.com/wyattowalsh/awesome-iina"
+Issues = "https://github.com/wyattowalsh/awesome-iina/issues"
+Repository = "https://github.com/wyattowalsh/awesome-iina"
+
+[project.scripts]
+awesome-iina = "awesome_iina.cli:app"
+
+[dependency-groups]
+dev = [
+  "pytest>=9,<10",
+  "pytest-cov>=7,<8",
+  "jsonschema>=4.26,<5",
+  "ruff>=0.16.7,<1",
+  "ty>=0.0.80,<1",
+]
+
+[tool.hatch.build]
+exclude = [
+  "/src/awesome_iina/site/kit",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/awesome_iina"]
+exclude = [
+  "src/awesome_iina/site/kit",
+]
+
+[tool.uv]
+default-groups = ["dev"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+src = ["src", "tests"]
+# The embedded project has its own fixture/runtime/Copy/update CI gates.
+extend-exclude = ["starter", "src/awesome_iina/site/kit"]
+
+[tool.ruff.lint]
+select = [
+  "B",
+  "C4",
+  "DTZ",
+  "E4",
+  "E7",
+  "E9",
+  "F",
+  "I",
+  "LOG",
+  "N",
+  "PERF",
+  "PIE",
+  "PTH",
+  "RET",
+  "RSE",
+  "RUF",
+  "S",
+  "SIM",
+  "UP",
+]
+ignore = [
+  "B008",
+  "E501",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101", "S603", "S607"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["awesome_iina"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-config --strict-markers"
+minversion = "9.0"
+pythonpath = ["src", "."]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["awesome_iina"]
+omit = [
+  "src/awesome_iina/cli.py",
+  "src/awesome_iina/__main__.py",
+  "src/awesome_iina/site/kit/*",
+]
+
+[tool.coverage.report]
+fail_under = 85
+show_missing = true
+skip_covered = true
+
+[tool.ty.environment]
+python-version = "3.13"
+
+[tool.ty.src]
+exclude = ["src/awesome_iina/site/kit"]

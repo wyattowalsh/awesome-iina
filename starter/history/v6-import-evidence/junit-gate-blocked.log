@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/mnt/data/iina-integration-work/awesome-iina/templates/iina-plugin-starter/tools/check_junit.py", line 17, in <module>
+    args=parser.parse_args();print(f'Required integration cases passed: {validate(args.report,args.require_suite)}')
+                                                                         ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/iina-integration-work/awesome-iina/templates/iina-plugin-starter/tools/check_junit.py", line 13, in validate
+    if failed: raise ValueError(f'Required suite did not fully pass: {len(failed)}/{len(cases)}')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Required suite did not fully pass: 42/42

@@ -1,0 +1,24 @@
+name: Report a discovery gap
+description: Improve the GitHub query matrix, crawler, or audit coverage.
+title: "[Discovery]: "
+labels: [discovery, triage]
+body:
+  - type: textarea
+    id: missed
+    attributes:
+      label: Missed repository or repository family
+      description: Provide canonical examples and explain why configured queries do not find them.
+    validations:
+      required: true
+  - type: textarea
+    id: strategy
+    attributes:
+      label: Proposed query or evidence strategy
+      description: Prefer a narrow, reproducible strategy that avoids unrelated false positives.
+    validations:
+      required: true
+  - type: textarea
+    id: limits
+    attributes:
+      label: API limits and expected volume
+      description: Note whether the proposed query can exceed search caps or consume the lower code-search budget.

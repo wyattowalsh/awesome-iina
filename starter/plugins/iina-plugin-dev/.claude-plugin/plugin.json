@@ -1,0 +1,13 @@
+{
+  "name": "iina-plugin-dev",
+  "description": "User-installed plugin for IINA plugin authors: generate from a Copier source (git URL or ZIP), then develop in the generated IINA plugin repo. No MCP.",
+  "version": "0.2.0-a2",
+  "author": {
+    "name": "Wyatt Walsh and awesome-iina contributors"
+  },
+  "homepage": "https://github.com/wyattowalsh/awesome-iina",
+  "repository": "https://github.com/wyattowalsh/awesome-iina",
+  "license": "MIT",
+  "keywords": ["iina", "copier", "javascriptcore"],
+  "skills": "./skills/"
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "revision": "2.1.1",
+  "identity_revision": "2.0.0-review.1",
+  "date": "2026-09-16",
+  "archive_root": "awesome-iina-brand-kit-v2.1.1",
+  "status": "maintenance patch; local evidence recorded separately from owner and platform acceptance",
+  "predecessor": {
+    "file": "awesome-iina-brand-kit-v2.1.0.zip",
+    "sha256": "13594f1061fa43d241b4e230611a97ac500aeb40bb447be1ec4f806dd1d95ec3"
+  },
+  "visual_change_policy": "Preserve all 35 PNG/SVG/ICO production artwork files byte-for-byte. Correct website identity, editable SVG CSS, and default shipping/demo selection."
+}

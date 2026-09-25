@@ -1,0 +1,78 @@
+@layer base, starlight, theme, components, utilities;
+
+@import '@astrojs/starlight-tailwind';
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+:root {
+  --brand-background: #080f2b;
+  --brand-surface: #101b3c;
+  --brand-foreground: #f5faff;
+  --brand-secondary: #d8e6fa;
+  --brand-cyan: #43d9f5;
+  --brand-blue: #648cff;
+  --brand-violet: #a392ff;
+  --brand-ink: #132555;
+  --brand-light-cyan: #1749c4;
+  --brand-light-violet: #643bb5;
+  --background: var(--brand-foreground);
+  --foreground: var(--brand-ink);
+  --card: color-mix(in srgb, var(--brand-ink) 5%, var(--brand-foreground));
+  --primary: var(--brand-light-cyan);
+  --muted: color-mix(in srgb, var(--brand-ink) 8%, var(--brand-foreground));
+  --border: color-mix(in srgb, var(--brand-ink) 52%, var(--brand-foreground));
+  --ring: var(--brand-light-cyan);
+  --radius: 7px;
+}
+
+:root[data-theme='dark'] {
+  --background: var(--brand-background);
+  --foreground: var(--brand-foreground);
+  --card: var(--brand-surface);
+  --primary: var(--brand-cyan);
+  --muted: color-mix(in srgb, var(--brand-secondary) 28%, var(--brand-background));
+  --border: color-mix(in srgb, var(--brand-secondary) 45%, var(--brand-background));
+  --ring: var(--brand-cyan);
+}
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --color-accent-50: color-mix(in srgb, var(--brand-light-cyan) 12%, white);
+  --color-accent-100: color-mix(in srgb, var(--brand-light-cyan) 22%, white);
+  --color-accent-200: var(--brand-light-cyan);
+  --color-accent-300: color-mix(in srgb, var(--brand-light-cyan) 35%, var(--brand-cyan));
+  --color-accent-400: color-mix(in srgb, var(--brand-light-cyan) 70%, var(--brand-cyan));
+  --color-accent-500: var(--brand-light-cyan);
+  --color-accent-600: var(--brand-light-cyan);
+  --color-accent-700: color-mix(in srgb, var(--brand-ink) 28%, var(--brand-light-cyan));
+  --color-accent-800: color-mix(in srgb, var(--brand-ink) 55%, var(--brand-light-cyan));
+  --color-accent-900: var(--brand-ink);
+  --color-accent-950: var(--brand-background);
+  --color-gray-50: var(--brand-foreground);
+  --color-gray-100: color-mix(in srgb, var(--brand-ink) 6%, var(--brand-foreground));
+  --color-gray-200: color-mix(in srgb, var(--brand-ink) 12%, var(--brand-foreground));
+  --color-gray-300: color-mix(in srgb, var(--brand-ink) 22%, var(--brand-foreground));
+  --color-gray-400: color-mix(in srgb, var(--brand-ink) 42%, var(--brand-foreground));
+  --color-gray-500: color-mix(in srgb, var(--brand-ink) 62%, var(--brand-foreground));
+  --color-gray-600: color-mix(in srgb, var(--brand-ink) 78%, var(--brand-foreground));
+  --color-gray-700: color-mix(in srgb, var(--brand-surface) 40%, var(--brand-ink));
+  --color-gray-800: var(--brand-surface);
+  --color-gray-900: var(--brand-background);
+  --color-gray-950: var(--brand-background);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a, button, summary {
+    transition-property: color, background-color, border-color, outline-color;
+    transition-duration: 120ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}

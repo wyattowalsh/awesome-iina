@@ -1,0 +1,212 @@
+{
+  "review_date": "2026-09-16",
+  "source_sha256": "13594f1061fa43d241b4e230611a97ac500aeb40bb447be1ec4f806dd1d95ec3",
+  "severity_model": {
+    "P0": "Critical required-use trust/usability/delivery failure",
+    "P1": "Fix before release of affected intended scope",
+    "P2": "Worthwhile correction or explicitly managed evidence gap",
+    "P3": "Optional polish"
+  },
+  "findings": [
+    {
+      "id": "F01",
+      "title": "Website manifest identity resolves to the origin root",
+      "priority": "P1",
+      "scope": "Only release of the supplied website manifest; not GitHub-only artwork",
+      "evidence_types": [
+        "Measured",
+        "Researched",
+        "Inferred"
+      ],
+      "confidence": "High for file contents and documented resolution; native browser processing untested",
+      "paths": [
+        "assets/brand/site.webmanifest",
+        "source/manifest.template.json",
+        "scripts/brandkit/core.py"
+      ],
+      "location": "id member; render_site around lines 151-156",
+      "condition": "Manifest hosted at the intended /awesome-iina/assets/brand/ path",
+      "observation": "id, start_url and scope all contain ../../. Applying their different specified base URLs gives start_url/scope /awesome-iina/ but id /. render_site reads the template without giving id project-specific semantics.",
+      "interpretation": "Valid JSON and valid same-origin identity, but not project-specific. Other root-identified apps on the shared origin can collide.",
+      "consequence": "Website application identity can be shared unintentionally across projects. No collision was observed and installation is not assumed.",
+      "correction": "Decide whether a manifest is needed. Omit its link when out of scope, or assign a stable configured root-relative project id, /awesome-iina/ for the default. Keep it independent of release version; update the authoritative template/generator, not just the generated file.",
+      "acceptance_test": "At /awesome-iina/, /nested/catalog/ and root deployments, independently resolve id/start_url/scope and confirm intended same-origin stable identities, matching icon URLs, and no identity reuse across distinct project manifests. Inspect actual processed manifest before making a browser approval claim.",
+      "source_ids": [
+        "S02",
+        "S03"
+      ],
+      "evidence_files": [
+        "additional-measurements.json",
+        "browser-measurements.json"
+      ],
+      "release_blocker": true,
+      "blocker_condition": "Website manifest included in intended release"
+    },
+    {
+      "id": "F02",
+      "title": "Editable SVG kerning diverges from outlined production text",
+      "priority": "P2",
+      "scope": "Editable source fidelity and future maintenance; existing outlined GitHub/README exports remain usable",
+      "evidence_types": [
+        "Measured",
+        "Visually observed",
+        "Researched"
+      ],
+      "confidence": "High for Chromium 144 with recorded exact fonts; other SVG editors untested",
+      "paths": [
+        "source/wordmark-dark-editable.svg",
+        "source/wordmark-light-editable.svg",
+        "source/social-card-editable.svg",
+        "scripts/build_assets.py"
+      ],
+      "location": "text elements; Type.text editable branch",
+      "condition": "Chromium 144, Inter Display Bold/Medium with archive-recorded hashes",
+      "observation": "The SVG attribute font-kerning=\"none\" computes as CSS font-kerning:auto. The 43px wordmark text advances 280.90625px; an in-memory CSS diagnostic setting none yields 284.421875px. Production glyph paths use manual unkerned advances.",
+      "interpretation": "This is a real source/export layout mismatch, not a missing font or proof that production text looks bad.",
+      "consequence": "A contributor can approve a live-text exchange preview whose spacing is not the spacing exported by the builder.",
+      "correction": "Express the chosen kerning behavior through supported CSS and verify shaping/letter spacing against outlines, or use a shared shaping result for both source and export. Preserve the current typography unless separately approved.",
+      "acceptance_test": "Computed font-kerning is none in the tested source renderer; corresponding character origins agree with production within a declared tolerance, proposed 0.25 CSS px at native size. Review both wordmarks and all social text lines, with missing-font failure explicit. Pixel identity across different font rasterizers is not required.",
+      "source_ids": [
+        "S08"
+      ],
+      "evidence_files": [
+        "additional-measurements.json",
+        "text-position-measurements.json",
+        "previews/editable-vs-outlined.png"
+      ],
+      "release_blocker": false
+    },
+    {
+      "id": "F03",
+      "title": "The optional retained hero should not re-enter the primary shipping identity",
+      "priority": "P2",
+      "scope": "Shipping selection and demo clarity, not an allegation that all archived concepts are inconsistent",
+      "evidence_types": [
+        "Measured",
+        "Visually observed",
+        "Inferred"
+      ],
+      "confidence": "High for artifact differences; medium for audience effect",
+      "paths": [
+        "assets/brand/readme-hero-retained.png",
+        "integration/demo/index.html",
+        "docs/STYLE.md",
+        "archive/original-kit/"
+      ],
+      "location": "Retained hero and demo primary illustration",
+      "condition": "Hero at 640px and 342px wide; alongside the new identity or used instead of its primary lockup",
+      "observation": "The retained hero is byte-identical to the archived export. Its old 3D player/puzzle/sparkle mark differs materially from the current offset-card symbol, and its baked descriptor is not usefully readable at 342px in this review. The docs already call it supplementary; the demo nonetheless foregrounds it.",
+      "interpretation": "Preservation is intentional and legitimate. Deployment ambiguity arises only when a consumer treats every file in assets/brand as equally canonical.",
+      "consequence": "An optional illustration can accidentally become a second primary logo and weaken the catalog message.",
+      "correction": "Use current wordmark plus live copy as the default header; keep the old hero as a clearly optional reference/supplement, never essential text. Make the shipping allowlist and primary demo agree. No replacement hero is required.",
+      "acceptance_test": "Default header, social card and icon use only the current symbol. The historical hero is excluded from the primary allowlist and is not the only carrier of project name or purpose in any optional placement.",
+      "source_ids": [],
+      "evidence_files": [
+        "integrity-checks.json",
+        "previews/wordmarks-hero-dpr1.png",
+        "previews/historical-directions.png"
+      ],
+      "release_blocker": false
+    },
+    {
+      "id": "F04",
+      "title": "Catalog differentiation is carried more by context than by the standalone play symbol",
+      "priority": "P2",
+      "scope": "Brand distinctiveness and user recognition, not a measured legal or usability failure",
+      "evidence_types": [
+        "Visually observed",
+        "Inferred",
+        "Untested"
+      ],
+      "confidence": "Medium; no user-recognition study",
+      "paths": [
+        "assets/brand/symbol-dark.svg",
+        "assets/brand/favicon-16.png",
+        "assets/brand/github-social-preview-1280x640.png",
+        "REPO-README-PREFIX.md"
+      ],
+      "location": "Offset tab, rounded media frame and play triangle",
+      "condition": "Uncaptioned icon versus complete first-contact card/header",
+      "observation": "The offset tab gives a collection cue, but the play triangle remains the most immediately familiar feature. The current card explicitly says Independent catalog / for the IINA ecosystem.",
+      "interpretation": "The mark is more differentiated in silhouette than the old illustration but does not independently explain curation or independence. That is a limitation, not a requirement that an icon encode the full project.",
+      "consequence": "Uncontextualized placements can read as a player, playlist or media utility.",
+      "correction": "Keep the current mark with independent-catalog wording at first contact. Run small formative comparison/recognition sessions before commissioning new geometry. Do not add tiny lists, lettering or extra motifs to the favicon.",
+      "acceptance_test": "Record unprompted descriptions of both symbol-only and contextual placements from representative users. Resolve recurring official-player or AI-player interpretations of the full contextual identity; report answers and uncertainty rather than a fabricated statistical pass rate.",
+      "source_ids": [
+        "S10",
+        "S11",
+        "S12"
+      ],
+      "evidence_files": [
+        "previews/icons-native-dpr1.png",
+        "previews/social-stress-dpr1.png"
+      ],
+      "release_blocker": false
+    },
+    {
+      "id": "F05",
+      "title": "Platform-native rendering remains an evidence gap, not a passed test",
+      "priority": "P2",
+      "scope": "Any claim of deployed GitHub/Safari/iOS/X or browser-chrome approval",
+      "evidence_types": [
+        "Measured",
+        "Untested"
+      ],
+      "confidence": "High about the limits of this audit",
+      "paths": [
+        "REPO-README-PREFIX.md",
+        "integration/website-head.html",
+        "assets/brand/favicon.ico",
+        "assets/brand/favicon.svg",
+        "assets/brand/site.webmanifest",
+        "qa/"
+      ],
+      "location": "Host rendering, favicon selection and manifest processing",
+      "condition": "Actual GitHub theme/mobile layout, browser tabs, Apple web clips and social unfurl",
+      "observation": "Own Chromium content proofs load and render the relevant assets. A native manifest-processing attempt was blocked by environment policy. No actual GitHub upload, Safari, Firefox, iOS or X card test was performed. Bundled QA is not an independently rerun test suite.",
+      "interpretation": "Static and browser-content evidence cannot certify all host integrations. Supplied docs already acknowledge important limits, so this is not a false-claim finding.",
+      "consequence": "A release announcement could overstate compatibility if it converts these partial results into a universal readiness claim.",
+      "correction": "Keep release wording scoped to inspected assets. Before claiming a particular deployed integration works, record its actual viewport/theme/browser and capture its output. Preserve live text and appropriate image alternatives.",
+      "acceptance_test": "For each claimed destination, retain a dated host-native capture and dimensions, verify image requests and metadata, and label all destinations not tested. No need to block a repository-only image release on optional Apple or PWA tests.",
+      "source_ids": [
+        "S01",
+        "S04",
+        "S06"
+      ],
+      "evidence_files": [
+        "browser-measurements.json",
+        "previews/readme-simulation-light-max-width-only.png",
+        "previews/readme-simulation-light-preserve-ratio.png"
+      ],
+      "release_blocker": false
+    },
+    {
+      "id": "F06",
+      "title": "Public artwork reuse terms are proposed, not adopted",
+      "priority": "P2",
+      "scope": "Redistribution/reuse claims and owner adoption, not automatic legal clearance for a repository launch",
+      "evidence_types": [
+        "Measured",
+        "Untested"
+      ],
+      "confidence": "High that the supplied policy is explicitly a proposal; ownership not adjudicated",
+      "paths": [
+        "docs/ASSET-USE.md",
+        "docs/FONT-DEPENDENCIES.md",
+        "provenance/font-inventory.json"
+      ],
+      "location": "Asset-use policy and type dependency records",
+      "condition": "Publishing the kit for broad third-party brand reuse",
+      "observation": "docs/ASSET-USE.md expressly does not grant a new public artwork reuse license or certify ownership. Exact Inter dependencies are documented and their upstream font license is available.",
+      "interpretation": "The package is honest, but a public reusable brand kit needs an owner decision about what people may reuse and how. Font licensing is separate from artwork policy.",
+      "consequence": "Contributors or downstream projects may infer permissions that the owner has not granted.",
+      "correction": "Record owner selection of the identity and intended reuse terms, preserving upstream font attribution. Seek legal review only for a concrete rights concern or a requested clearance, not as an invented universal launch gate.",
+      "acceptance_test": "Public instructions accurately state adopted permissions or their limitations and make no unverified official affiliation, endorsement, originality or clearance claims.",
+      "source_ids": [
+        "S09"
+      ],
+      "evidence_files": [],
+      "release_blocker": false
+    }
+  ]
+}

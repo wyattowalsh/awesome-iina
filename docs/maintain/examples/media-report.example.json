@@ -1,0 +1,168 @@
+{
+  "attachments": 1,
+  "chapters": 2,
+  "container": "Matroska / WebM",
+  "duration_seconds": 7265.125,
+  "generated_at": "2026-09-12T12:00:00Z",
+  "overall_bit_rate": 5432100,
+  "path": "/Users/example/Movies/example.mkv",
+  "raw": {
+    "ffprobe": {
+      "chapters": [
+        {
+          "id": 0
+        },
+        {
+          "id": 1
+        }
+      ],
+      "format": {
+        "bit_rate": "5432100",
+        "duration": "7265.125000",
+        "filename": "fixture.mkv",
+        "format_long_name": "Matroska / WebM",
+        "format_name": "matroska,webm",
+        "size": "123456789"
+      },
+      "streams": [
+        {
+          "avg_frame_rate": "24000/1001",
+          "codec_long_name": "H.265 / HEVC",
+          "codec_name": "hevc",
+          "codec_type": "video",
+          "color_primaries": "bt2020",
+          "color_space": "bt2020nc",
+          "color_transfer": "smpte2084",
+          "disposition": {
+            "default": 1,
+            "forced": 0
+          },
+          "height": 2160,
+          "index": 0,
+          "pix_fmt": "yuv420p10le",
+          "side_data_list": [
+            {
+              "side_data_type": "Mastering display metadata"
+            },
+            {
+              "side_data_type": "DOVI configuration record"
+            }
+          ],
+          "tags": {
+            "language": "und",
+            "title": "Main"
+          },
+          "width": 3840
+        },
+        {
+          "bit_rate": "768000",
+          "channel_layout": "5.1(side)",
+          "channels": 6,
+          "codec_long_name": "ATSC A/52B (AC-3, E-AC-3)",
+          "codec_name": "eac3",
+          "codec_type": "audio",
+          "disposition": {
+            "default": 1,
+            "forced": 0
+          },
+          "index": 1,
+          "sample_rate": "48000",
+          "tags": {
+            "language": "eng",
+            "title": "English 5.1"
+          }
+        },
+        {
+          "codec_long_name": "ASS (Advanced SSA) subtitle",
+          "codec_name": "ass",
+          "codec_type": "subtitle",
+          "disposition": {
+            "default": 0,
+            "forced": 1
+          },
+          "index": 2,
+          "tags": {
+            "language": "eng",
+            "title": "Signs"
+          }
+        },
+        {
+          "codec_name": "ttf",
+          "codec_type": "attachment",
+          "index": 3,
+          "tags": {
+            "filename": "Example.ttf"
+          }
+        }
+      ]
+    }
+  },
+  "schema_version": 1,
+  "size_bytes": 1234567890,
+  "suffix": ".mkv",
+  "tools": [
+    {
+      "available": true,
+      "executable": "/opt/homebrew/bin/ffprobe",
+      "name": "ffprobe",
+      "version": "ffprobe example"
+    }
+  ],
+  "tracks": [
+    {
+      "codec": "hevc",
+      "codec_long_name": "H.265 / HEVC",
+      "color_primaries": "bt2020",
+      "color_space": "bt2020nc",
+      "color_transfer": "smpte2084",
+      "default": true,
+      "forced": false,
+      "frame_rate": "24000/1001",
+      "hdr": [
+        "Dolby Vision",
+        "HDR10/PQ",
+        "Mastering display metadata"
+      ],
+      "height": 2160,
+      "index": 0,
+      "kind": "video",
+      "language": "und",
+      "pixel_format": "yuv420p10le",
+      "title": "Main",
+      "width": 3840
+    },
+    {
+      "bit_rate": 768000,
+      "channel_layout": "5.1(side)",
+      "channels": 6,
+      "codec": "eac3",
+      "codec_long_name": "ATSC A/52B (AC-3, E-AC-3)",
+      "default": true,
+      "forced": false,
+      "hdr": [],
+      "index": 1,
+      "kind": "audio",
+      "language": "eng",
+      "sample_rate": 48000,
+      "title": "English 5.1"
+    },
+    {
+      "codec": "ass",
+      "codec_long_name": "ASS (Advanced SSA) subtitle",
+      "default": false,
+      "forced": true,
+      "hdr": [],
+      "index": 2,
+      "kind": "subtitle",
+      "language": "eng",
+      "title": "Signs"
+    },
+    {
+      "codec": "ttf",
+      "hdr": [],
+      "index": 3,
+      "kind": "attachment"
+    }
+  ],
+  "warnings": []
+}

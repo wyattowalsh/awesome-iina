@@ -1,0 +1,932 @@
+{
+  "schema_version": 1,
+  "kit_revision": "2.1.1",
+  "status": "passed",
+  "browser": "Chromium 144.0.7559.96",
+  "browser_plugin": "not available; regular Playwright used",
+  "method": "In-memory SVG with exact hash-checked local fonts; compare SVG character origins to existing outlined path translations",
+  "fonts": [
+    {
+      "file": "InterDisplay-Bold.otf",
+      "sha256": "d7a7394984bbb3bc3c3e507a6618d34e006c94f27c7105d0ef4376667aeaf4ee",
+      "hash_verified": true,
+      "weight": 700
+    },
+    {
+      "file": "InterDisplay-Medium.otf",
+      "sha256": "9a17712bbd6da13b7ce9beb056d19fe15648799a11d5c35f8086a1270a0d13b2",
+      "hash_verified": true,
+      "weight": 500
+    }
+  ],
+  "fonts_distributed": false,
+  "source_files_checked": 3,
+  "distinct_text_elements": 6,
+  "text_observations": 24,
+  "checks_passed": 38,
+  "checks_total": 38,
+  "maximum_origin_error_css_px": 0.10867638281251857,
+  "observations": [
+    {
+      "source": "source/wordmark-dark-editable.svg",
+      "production": "assets/brand/wordmark-dark.svg",
+      "text_index": 0,
+      "text": "Awesome IINA",
+      "css_width": 400,
+      "dpr": 1,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 284.421875,
+      "maximum_origin_error_css_px": 0.01435500000002321,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 11,
+      "passed": true
+    },
+    {
+      "source": "source/wordmark-dark-editable.svg",
+      "production": "assets/brand/wordmark-dark.svg",
+      "text_index": 0,
+      "text": "Awesome IINA",
+      "css_width": 320,
+      "dpr": 1,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 284.28814697265625,
+      "maximum_origin_error_css_px": 0.10867638281251857,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 11,
+      "passed": true
+    },
+    {
+      "source": "source/wordmark-light-editable.svg",
+      "production": "assets/brand/wordmark-light.svg",
+      "text_index": 0,
+      "text": "Awesome IINA",
+      "css_width": 400,
+      "dpr": 1,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 284.421875,
+      "maximum_origin_error_css_px": 0.01435500000002321,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 11,
+      "passed": true
+    },
+    {
+      "source": "source/wordmark-light-editable.svg",
+      "production": "assets/brand/wordmark-light.svg",
+      "text_index": 0,
+      "text": "Awesome IINA",
+      "css_width": 320,
+      "dpr": 1,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 284.28814697265625,
+      "maximum_origin_error_css_px": 0.10867638281251857,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 11,
+      "passed": true
+    },
+    {
+      "source": "source/social-card-editable.svg",
+      "production": "assets/brand/github-social-preview.svg",
+      "text_index": 0,
+      "text": "Awesome ",
+      "css_width": 1280,
+      "dpr": 1,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 526,
+      "maximum_origin_error_css_px": 0.014065000000016425,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 7,
+      "passed": true
+    },
+    {
+      "source": "source/social-card-editable.svg",
+      "production": "assets/brand/github-social-preview.svg",
+      "text_index": 1,
+      "text": "IINA",
+      "css_width": 1280,
+      "dpr": 1,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 210.28125,
+      "maximum_origin_error_css_px": 0.0062255859375,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 4,
+      "passed": true
+    },
+    {
+      "source": "source/social-card-editable.svg",
+      "production": "assets/brand/github-social-preview.svg",
+      "text_index": 2,
+      "text": "Independent catalog",
+      "css_width": 1280,
+      "dpr": 1,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 431.46875,
+      "maximum_origin_error_css_px": 0.014059999999972206,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 18,
+      "passed": true
+    },
+    {
+      "source": "source/social-card-editable.svg",
+      "production": "assets/brand/github-social-preview.svg",
+      "text_index": 3,
+      "text": "for the IINA ecosystem",
+      "css_width": 1280,
+      "dpr": 1,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 477.953125,
+      "maximum_origin_error_css_px": 0.014064999999959582,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 19,
+      "passed": true
+    },
+    {
+      "source": "source/social-card-editable.svg",
+      "production": "assets/brand/github-social-preview.svg",
+      "text_index": 0,
+      "text": "Awesome ",
+      "css_width": 320,
+      "dpr": 1,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 526,
+      "maximum_origin_error_css_px": 0.01445250000000442,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 7,
+      "passed": true
+    },
+    {
+      "source": "source/social-card-editable.svg",
+      "production": "assets/brand/github-social-preview.svg",
+      "text_index": 1,
+      "text": "IINA",
+      "css_width": 320,
+      "dpr": 1,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 210.3125,
+      "maximum_origin_error_css_px": 0.008586396484361103,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 4,
+      "passed": true
+    },
+    {
+      "source": "source/social-card-editable.svg",
+      "production": "assets/brand/github-social-preview.svg",
+      "text_index": 2,
+      "text": "Independent catalog",
+      "css_width": 320,
+      "dpr": 1,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 431.5,
+      "maximum_origin_error_css_px": 0.014842499999986103,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 18,
+      "passed": true
+    },
+    {
+      "source": "source/social-card-editable.svg",
+      "production": "assets/brand/github-social-preview.svg",
+      "text_index": 3,
+      "text": "for the IINA ecosystem",
+      "css_width": 320,
+      "dpr": 1,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 478,
+      "maximum_origin_error_css_px": 0.014842499999986103,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 19,
+      "passed": true
+    },
+    {
+      "source": "source/wordmark-dark-editable.svg",
+      "production": "assets/brand/wordmark-dark.svg",
+      "text_index": 0,
+      "text": "Awesome IINA",
+      "css_width": 400,
+      "dpr": 2,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 284.421875,
+      "maximum_origin_error_css_px": 0.01435500000002321,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 11,
+      "passed": true
+    },
+    {
+      "source": "source/wordmark-dark-editable.svg",
+      "production": "assets/brand/wordmark-dark.svg",
+      "text_index": 0,
+      "text": "Awesome IINA",
+      "css_width": 320,
+      "dpr": 2,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 284.28814697265625,
+      "maximum_origin_error_css_px": 0.10867638281251857,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 11,
+      "passed": true
+    },
+    {
+      "source": "source/wordmark-light-editable.svg",
+      "production": "assets/brand/wordmark-light.svg",
+      "text_index": 0,
+      "text": "Awesome IINA",
+      "css_width": 400,
+      "dpr": 2,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 284.421875,
+      "maximum_origin_error_css_px": 0.01435500000002321,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 11,
+      "passed": true
+    },
+    {
+      "source": "source/wordmark-light-editable.svg",
+      "production": "assets/brand/wordmark-light.svg",
+      "text_index": 0,
+      "text": "Awesome IINA",
+      "css_width": 320,
+      "dpr": 2,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 284.28814697265625,
+      "maximum_origin_error_css_px": 0.10867638281251857,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 11,
+      "passed": true
+    },
+    {
+      "source": "source/social-card-editable.svg",
+      "production": "assets/brand/github-social-preview.svg",
+      "text_index": 0,
+      "text": "Awesome ",
+      "css_width": 1280,
+      "dpr": 2,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 526,
+      "maximum_origin_error_css_px": 0.014065000000016425,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 7,
+      "passed": true
+    },
+    {
+      "source": "source/social-card-editable.svg",
+      "production": "assets/brand/github-social-preview.svg",
+      "text_index": 1,
+      "text": "IINA",
+      "css_width": 1280,
+      "dpr": 2,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 210.28125,
+      "maximum_origin_error_css_px": 0.0062255859375,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 4,
+      "passed": true
+    },
+    {
+      "source": "source/social-card-editable.svg",
+      "production": "assets/brand/github-social-preview.svg",
+      "text_index": 2,
+      "text": "Independent catalog",
+      "css_width": 1280,
+      "dpr": 2,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 431.46875,
+      "maximum_origin_error_css_px": 0.014059999999972206,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 18,
+      "passed": true
+    },
+    {
+      "source": "source/social-card-editable.svg",
+      "production": "assets/brand/github-social-preview.svg",
+      "text_index": 3,
+      "text": "for the IINA ecosystem",
+      "css_width": 1280,
+      "dpr": 2,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 477.953125,
+      "maximum_origin_error_css_px": 0.014064999999959582,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 19,
+      "passed": true
+    },
+    {
+      "source": "source/social-card-editable.svg",
+      "production": "assets/brand/github-social-preview.svg",
+      "text_index": 0,
+      "text": "Awesome ",
+      "css_width": 320,
+      "dpr": 2,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 526,
+      "maximum_origin_error_css_px": 0.01445250000000442,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 7,
+      "passed": true
+    },
+    {
+      "source": "source/social-card-editable.svg",
+      "production": "assets/brand/github-social-preview.svg",
+      "text_index": 1,
+      "text": "IINA",
+      "css_width": 320,
+      "dpr": 2,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 210.3125,
+      "maximum_origin_error_css_px": 0.008586396484361103,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 4,
+      "passed": true
+    },
+    {
+      "source": "source/social-card-editable.svg",
+      "production": "assets/brand/github-social-preview.svg",
+      "text_index": 2,
+      "text": "Independent catalog",
+      "css_width": 320,
+      "dpr": 2,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 431.5,
+      "maximum_origin_error_css_px": 0.014842499999986103,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 18,
+      "passed": true
+    },
+    {
+      "source": "source/social-card-editable.svg",
+      "production": "assets/brand/github-social-preview.svg",
+      "text_index": 3,
+      "text": "for the IINA ecosystem",
+      "css_width": 320,
+      "dpr": 2,
+      "kerning": "none",
+      "font_loaded": true,
+      "text_advance_user_units": 478,
+      "maximum_origin_error_css_px": 0.014842499999986103,
+      "tolerance_css_px": 0.25,
+      "visible_character_count": 19,
+      "passed": true
+    }
+  ],
+  "checks": [
+    {
+      "id": "count:wordmark-dark-editable.svg:400:dpr1",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "id": "origins:wordmark-dark-editable.svg:400:dpr1:0",
+      "pass": true,
+      "detail": {
+        "source": "source/wordmark-dark-editable.svg",
+        "production": "assets/brand/wordmark-dark.svg",
+        "text_index": 0,
+        "text": "Awesome IINA",
+        "css_width": 400,
+        "dpr": 1,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 284.421875,
+        "maximum_origin_error_css_px": 0.01435500000002321,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 11,
+        "passed": true
+      }
+    },
+    {
+      "id": "count:wordmark-dark-editable.svg:320:dpr1",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "id": "origins:wordmark-dark-editable.svg:320:dpr1:0",
+      "pass": true,
+      "detail": {
+        "source": "source/wordmark-dark-editable.svg",
+        "production": "assets/brand/wordmark-dark.svg",
+        "text_index": 0,
+        "text": "Awesome IINA",
+        "css_width": 320,
+        "dpr": 1,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 284.28814697265625,
+        "maximum_origin_error_css_px": 0.10867638281251857,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 11,
+        "passed": true
+      }
+    },
+    {
+      "id": "count:wordmark-light-editable.svg:400:dpr1",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "id": "origins:wordmark-light-editable.svg:400:dpr1:0",
+      "pass": true,
+      "detail": {
+        "source": "source/wordmark-light-editable.svg",
+        "production": "assets/brand/wordmark-light.svg",
+        "text_index": 0,
+        "text": "Awesome IINA",
+        "css_width": 400,
+        "dpr": 1,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 284.421875,
+        "maximum_origin_error_css_px": 0.01435500000002321,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 11,
+        "passed": true
+      }
+    },
+    {
+      "id": "count:wordmark-light-editable.svg:320:dpr1",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "id": "origins:wordmark-light-editable.svg:320:dpr1:0",
+      "pass": true,
+      "detail": {
+        "source": "source/wordmark-light-editable.svg",
+        "production": "assets/brand/wordmark-light.svg",
+        "text_index": 0,
+        "text": "Awesome IINA",
+        "css_width": 320,
+        "dpr": 1,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 284.28814697265625,
+        "maximum_origin_error_css_px": 0.10867638281251857,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 11,
+        "passed": true
+      }
+    },
+    {
+      "id": "count:social-card-editable.svg:1280:dpr1",
+      "pass": true,
+      "detail": 4
+    },
+    {
+      "id": "origins:social-card-editable.svg:1280:dpr1:0",
+      "pass": true,
+      "detail": {
+        "source": "source/social-card-editable.svg",
+        "production": "assets/brand/github-social-preview.svg",
+        "text_index": 0,
+        "text": "Awesome ",
+        "css_width": 1280,
+        "dpr": 1,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 526,
+        "maximum_origin_error_css_px": 0.014065000000016425,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 7,
+        "passed": true
+      }
+    },
+    {
+      "id": "origins:social-card-editable.svg:1280:dpr1:1",
+      "pass": true,
+      "detail": {
+        "source": "source/social-card-editable.svg",
+        "production": "assets/brand/github-social-preview.svg",
+        "text_index": 1,
+        "text": "IINA",
+        "css_width": 1280,
+        "dpr": 1,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 210.28125,
+        "maximum_origin_error_css_px": 0.0062255859375,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 4,
+        "passed": true
+      }
+    },
+    {
+      "id": "origins:social-card-editable.svg:1280:dpr1:2",
+      "pass": true,
+      "detail": {
+        "source": "source/social-card-editable.svg",
+        "production": "assets/brand/github-social-preview.svg",
+        "text_index": 2,
+        "text": "Independent catalog",
+        "css_width": 1280,
+        "dpr": 1,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 431.46875,
+        "maximum_origin_error_css_px": 0.014059999999972206,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 18,
+        "passed": true
+      }
+    },
+    {
+      "id": "origins:social-card-editable.svg:1280:dpr1:3",
+      "pass": true,
+      "detail": {
+        "source": "source/social-card-editable.svg",
+        "production": "assets/brand/github-social-preview.svg",
+        "text_index": 3,
+        "text": "for the IINA ecosystem",
+        "css_width": 1280,
+        "dpr": 1,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 477.953125,
+        "maximum_origin_error_css_px": 0.014064999999959582,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 19,
+        "passed": true
+      }
+    },
+    {
+      "id": "count:social-card-editable.svg:320:dpr1",
+      "pass": true,
+      "detail": 4
+    },
+    {
+      "id": "origins:social-card-editable.svg:320:dpr1:0",
+      "pass": true,
+      "detail": {
+        "source": "source/social-card-editable.svg",
+        "production": "assets/brand/github-social-preview.svg",
+        "text_index": 0,
+        "text": "Awesome ",
+        "css_width": 320,
+        "dpr": 1,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 526,
+        "maximum_origin_error_css_px": 0.01445250000000442,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 7,
+        "passed": true
+      }
+    },
+    {
+      "id": "origins:social-card-editable.svg:320:dpr1:1",
+      "pass": true,
+      "detail": {
+        "source": "source/social-card-editable.svg",
+        "production": "assets/brand/github-social-preview.svg",
+        "text_index": 1,
+        "text": "IINA",
+        "css_width": 320,
+        "dpr": 1,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 210.3125,
+        "maximum_origin_error_css_px": 0.008586396484361103,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 4,
+        "passed": true
+      }
+    },
+    {
+      "id": "origins:social-card-editable.svg:320:dpr1:2",
+      "pass": true,
+      "detail": {
+        "source": "source/social-card-editable.svg",
+        "production": "assets/brand/github-social-preview.svg",
+        "text_index": 2,
+        "text": "Independent catalog",
+        "css_width": 320,
+        "dpr": 1,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 431.5,
+        "maximum_origin_error_css_px": 0.014842499999986103,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 18,
+        "passed": true
+      }
+    },
+    {
+      "id": "origins:social-card-editable.svg:320:dpr1:3",
+      "pass": true,
+      "detail": {
+        "source": "source/social-card-editable.svg",
+        "production": "assets/brand/github-social-preview.svg",
+        "text_index": 3,
+        "text": "for the IINA ecosystem",
+        "css_width": 320,
+        "dpr": 1,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 478,
+        "maximum_origin_error_css_px": 0.014842499999986103,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 19,
+        "passed": true
+      }
+    },
+    {
+      "id": "count:wordmark-dark-editable.svg:400:dpr2",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "id": "origins:wordmark-dark-editable.svg:400:dpr2:0",
+      "pass": true,
+      "detail": {
+        "source": "source/wordmark-dark-editable.svg",
+        "production": "assets/brand/wordmark-dark.svg",
+        "text_index": 0,
+        "text": "Awesome IINA",
+        "css_width": 400,
+        "dpr": 2,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 284.421875,
+        "maximum_origin_error_css_px": 0.01435500000002321,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 11,
+        "passed": true
+      }
+    },
+    {
+      "id": "count:wordmark-dark-editable.svg:320:dpr2",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "id": "origins:wordmark-dark-editable.svg:320:dpr2:0",
+      "pass": true,
+      "detail": {
+        "source": "source/wordmark-dark-editable.svg",
+        "production": "assets/brand/wordmark-dark.svg",
+        "text_index": 0,
+        "text": "Awesome IINA",
+        "css_width": 320,
+        "dpr": 2,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 284.28814697265625,
+        "maximum_origin_error_css_px": 0.10867638281251857,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 11,
+        "passed": true
+      }
+    },
+    {
+      "id": "count:wordmark-light-editable.svg:400:dpr2",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "id": "origins:wordmark-light-editable.svg:400:dpr2:0",
+      "pass": true,
+      "detail": {
+        "source": "source/wordmark-light-editable.svg",
+        "production": "assets/brand/wordmark-light.svg",
+        "text_index": 0,
+        "text": "Awesome IINA",
+        "css_width": 400,
+        "dpr": 2,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 284.421875,
+        "maximum_origin_error_css_px": 0.01435500000002321,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 11,
+        "passed": true
+      }
+    },
+    {
+      "id": "count:wordmark-light-editable.svg:320:dpr2",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "id": "origins:wordmark-light-editable.svg:320:dpr2:0",
+      "pass": true,
+      "detail": {
+        "source": "source/wordmark-light-editable.svg",
+        "production": "assets/brand/wordmark-light.svg",
+        "text_index": 0,
+        "text": "Awesome IINA",
+        "css_width": 320,
+        "dpr": 2,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 284.28814697265625,
+        "maximum_origin_error_css_px": 0.10867638281251857,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 11,
+        "passed": true
+      }
+    },
+    {
+      "id": "count:social-card-editable.svg:1280:dpr2",
+      "pass": true,
+      "detail": 4
+    },
+    {
+      "id": "origins:social-card-editable.svg:1280:dpr2:0",
+      "pass": true,
+      "detail": {
+        "source": "source/social-card-editable.svg",
+        "production": "assets/brand/github-social-preview.svg",
+        "text_index": 0,
+        "text": "Awesome ",
+        "css_width": 1280,
+        "dpr": 2,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 526,
+        "maximum_origin_error_css_px": 0.014065000000016425,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 7,
+        "passed": true
+      }
+    },
+    {
+      "id": "origins:social-card-editable.svg:1280:dpr2:1",
+      "pass": true,
+      "detail": {
+        "source": "source/social-card-editable.svg",
+        "production": "assets/brand/github-social-preview.svg",
+        "text_index": 1,
+        "text": "IINA",
+        "css_width": 1280,
+        "dpr": 2,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 210.28125,
+        "maximum_origin_error_css_px": 0.0062255859375,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 4,
+        "passed": true
+      }
+    },
+    {
+      "id": "origins:social-card-editable.svg:1280:dpr2:2",
+      "pass": true,
+      "detail": {
+        "source": "source/social-card-editable.svg",
+        "production": "assets/brand/github-social-preview.svg",
+        "text_index": 2,
+        "text": "Independent catalog",
+        "css_width": 1280,
+        "dpr": 2,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 431.46875,
+        "maximum_origin_error_css_px": 0.014059999999972206,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 18,
+        "passed": true
+      }
+    },
+    {
+      "id": "origins:social-card-editable.svg:1280:dpr2:3",
+      "pass": true,
+      "detail": {
+        "source": "source/social-card-editable.svg",
+        "production": "assets/brand/github-social-preview.svg",
+        "text_index": 3,
+        "text": "for the IINA ecosystem",
+        "css_width": 1280,
+        "dpr": 2,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 477.953125,
+        "maximum_origin_error_css_px": 0.014064999999959582,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 19,
+        "passed": true
+      }
+    },
+    {
+      "id": "count:social-card-editable.svg:320:dpr2",
+      "pass": true,
+      "detail": 4
+    },
+    {
+      "id": "origins:social-card-editable.svg:320:dpr2:0",
+      "pass": true,
+      "detail": {
+        "source": "source/social-card-editable.svg",
+        "production": "assets/brand/github-social-preview.svg",
+        "text_index": 0,
+        "text": "Awesome ",
+        "css_width": 320,
+        "dpr": 2,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 526,
+        "maximum_origin_error_css_px": 0.01445250000000442,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 7,
+        "passed": true
+      }
+    },
+    {
+      "id": "origins:social-card-editable.svg:320:dpr2:1",
+      "pass": true,
+      "detail": {
+        "source": "source/social-card-editable.svg",
+        "production": "assets/brand/github-social-preview.svg",
+        "text_index": 1,
+        "text": "IINA",
+        "css_width": 320,
+        "dpr": 2,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 210.3125,
+        "maximum_origin_error_css_px": 0.008586396484361103,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 4,
+        "passed": true
+      }
+    },
+    {
+      "id": "origins:social-card-editable.svg:320:dpr2:2",
+      "pass": true,
+      "detail": {
+        "source": "source/social-card-editable.svg",
+        "production": "assets/brand/github-social-preview.svg",
+        "text_index": 2,
+        "text": "Independent catalog",
+        "css_width": 320,
+        "dpr": 2,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 431.5,
+        "maximum_origin_error_css_px": 0.014842499999986103,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 18,
+        "passed": true
+      }
+    },
+    {
+      "id": "origins:social-card-editable.svg:320:dpr2:3",
+      "pass": true,
+      "detail": {
+        "source": "source/social-card-editable.svg",
+        "production": "assets/brand/github-social-preview.svg",
+        "text_index": 3,
+        "text": "for the IINA ecosystem",
+        "css_width": 320,
+        "dpr": 2,
+        "kerning": "none",
+        "font_loaded": true,
+        "text_advance_user_units": 478,
+        "maximum_origin_error_css_px": 0.014842499999986103,
+        "tolerance_css_px": 0.25,
+        "visible_character_count": 19,
+        "passed": true
+      }
+    },
+    {
+      "id": "no-unexpected-network",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "id": "no-browser-errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "screenshots": [
+    "wordmark-dark-editable-400.png",
+    "wordmark-dark-editable-320.png",
+    "wordmark-light-editable-400.png",
+    "wordmark-light-editable-320.png",
+    "social-card-editable-1280.png",
+    "social-card-editable-320.png"
+  ],
+  "limitations": [
+    "Not identical antialiasing across renderers",
+    "Not public-site navigation or a user study",
+    "Production art was not modified"
+  ]
+}

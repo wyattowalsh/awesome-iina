@@ -1,0 +1,33 @@
+{
+  "environment": "synthetic temporary repository, not a user checkout",
+  "plan_operation_count": 39,
+  "dry_run_target_writes": 0,
+  "apply": {
+    "status": "applied",
+    "files_written": 39
+  },
+  "check": {
+    "status": "passed",
+    "receipt_status": "applied",
+    "checked_files": 39,
+    "differences": []
+  },
+  "second_apply": {
+    "status": "already-applied",
+    "files_written": 0
+  },
+  "undo": {
+    "status": "undone",
+    "restored_or_removed": 39,
+    "note": "Empty directories and the audit receipt remain; no untracked content was deleted."
+  },
+  "post_undo_check": {
+    "status": "passed",
+    "receipt_status": "undone",
+    "checked_files": 39,
+    "differences": []
+  },
+  "readme_bytes_restored": true,
+  "catalog_untouched": true,
+  "network_or_GitHub_writes": false
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "basis": "Supplied September 16 audit and reviewed amendments",
+  "findings": [
+    {
+      "id": "F01",
+      "title": "Micro-icon hierarchy",
+      "status": "Implemented",
+      "evidence": "New compact mark, optical geometry and exact-frame icon exports. Native renderer checks supplied. Human recognition and actual tab selection still pending."
+    },
+    {
+      "id": "F02",
+      "title": "Role and independence",
+      "status": "Implemented with perception boundary",
+      "evidence": "Short role line plus live explicit independence copy. Possible confusion is not treated as proven; no recognition study conducted."
+    },
+    {
+      "id": "F03",
+      "title": "Small raster copy",
+      "status": "Implemented",
+      "evidence": "Long descriptor and category row replaced by two short readable-role lines. Existing hero meaning provided as live text; images-disabled demo checked."
+    },
+    {
+      "id": "F04",
+      "title": "Website metadata",
+      "status": "Implemented locally; public test pending",
+      "evidence": "Required OG fields and paths supplied. Local routing and dimensions tested; no deployed-site claim."
+    },
+    {
+      "id": "F05",
+      "title": "Editability",
+      "status": "Implemented",
+      "evidence": "Path-based symbols, JSON geometry/layout and editable-text SVG counterparts. Hybrid social artwork explicitly identified."
+    },
+    {
+      "id": "F06",
+      "title": "Background adaptability",
+      "status": "Implemented for selected uses",
+      "evidence": "True transparent light/dark and monochrome marks. Opaque icon tiles intentional; no extra maskable/native-app scope added."
+    },
+    {
+      "id": "F07",
+      "title": "Reuse/provenance",
+      "status": "Documented; owner policy adoption pending",
+      "evidence": "Originals preserved, source linkage documented. No automatic public license or credential trust validation claimed."
+    },
+    {
+      "id": "F08",
+      "title": "Color interpretation",
+      "status": "Implemented with assumption recorded",
+      "evidence": "New exports tagged sRGB. Original RGB interpreted, not colorimetrically recovered. Retained original bytes unchanged."
+    }
+  ],
+  "new_asset_score": null,
+  "previous_score_interpretation": "Historical rubric result; not transferred to this revision",
+  "complete_public_release_approval": false
+}

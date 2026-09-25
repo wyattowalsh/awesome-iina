@@ -1,0 +1,354 @@
+{
+  "$defs": {
+    "CatalogMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "generated_notice": {
+          "default": "Catalog sections are generated from src/awesome_iina/catalog/catalog.yaml. Edit the catalog, not README.md.",
+          "title": "Generated Notice",
+          "type": "string"
+        },
+        "repository": {
+          "default": "wyattowalsh/awesome-iina",
+          "title": "Repository",
+          "type": "string"
+        },
+        "title": {
+          "default": "Awesome IINA",
+          "title": "Title",
+          "type": "string"
+        },
+        "version": {
+          "default": 1,
+          "title": "Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "description"
+      ],
+      "title": "CatalogMetadata",
+      "type": "object"
+    },
+    "CatalogProject": {
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "properties": {
+            "repo": {
+              "type": "string"
+            },
+            "url": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "repo"
+          ]
+        },
+        {
+          "properties": {
+            "repo": {
+              "type": "null"
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url"
+          ]
+        }
+      ],
+      "properties": {
+        "category": {
+          "$ref": "#/$defs/Category"
+        },
+        "description": {
+          "maxLength": 240,
+          "minLength": 20,
+          "title": "Description",
+          "type": "string"
+        },
+        "featured": {
+          "default": false,
+          "title": "Featured",
+          "type": "boolean"
+        },
+        "identifier_collision_allowed": {
+          "default": false,
+          "title": "Identifier Collision Allowed",
+          "type": "boolean"
+        },
+        "install": {
+          "items": {
+            "$ref": "#/$defs/InstallMethod"
+          },
+          "title": "Install",
+          "type": "array"
+        },
+        "kind": {
+          "$ref": "#/$defs/ProjectKind"
+        },
+        "license": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "License"
+        },
+        "minimum_iina": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum Iina"
+        },
+        "name": {
+          "maxLength": 100,
+          "minLength": 2,
+          "title": "Name",
+          "type": "string"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notes"
+        },
+        "official": {
+          "default": false,
+          "title": "Official",
+          "type": "boolean"
+        },
+        "plugin_identifier": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Plugin Identifier"
+        },
+        "repo": {
+          "anyOf": [
+            {
+              "pattern": "^[^/\\s]+/[^/\\s]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Repo"
+        },
+        "slug": {
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "title": "Slug",
+          "type": "string"
+        },
+        "sources": {
+          "items": {
+            "$ref": "#/$defs/SourceReference"
+          },
+          "title": "Sources",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/ProjectStatus",
+          "default": "unknown"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Tags",
+          "type": "array"
+        },
+        "url": {
+          "anyOf": [
+            {
+              "not": {
+                "pattern": "(?i)^https?://([^/?#]*@)?(([^/?#]*\\.)?github\\.com|([^/?#]*\\.)?githubusercontent\\.com)([:/?#]|$)"
+              },
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Url"
+        }
+      },
+      "required": [
+        "slug",
+        "name",
+        "description",
+        "category",
+        "kind"
+      ],
+      "title": "CatalogProject",
+      "type": "object"
+    },
+    "Category": {
+      "enum": [
+        "core",
+        "official-plugin",
+        "playback",
+        "subtitles-language",
+        "libraries-streaming",
+        "capture-editing",
+        "enhancement-rendering",
+        "casting-integrations",
+        "tracking-scrobbling",
+        "automation-companions",
+        "development",
+        "media-tooling",
+        "historical"
+      ],
+      "title": "Category",
+      "type": "string"
+    },
+    "InstallKind": {
+      "enum": [
+        "iina-github",
+        "iina-package",
+        "homebrew",
+        "manual",
+        "bundled",
+        "external"
+      ],
+      "title": "InstallKind",
+      "type": "string"
+    },
+    "InstallMethod": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "$ref": "#/$defs/InstallKind"
+        },
+        "note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Note"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "title": "InstallMethod",
+      "type": "object"
+    },
+    "ProjectKind": {
+      "enum": [
+        "app",
+        "plugin",
+        "companion",
+        "development-tool",
+        "media-tool",
+        "script",
+        "shader",
+        "config",
+        "guide",
+        "library",
+        "service"
+      ],
+      "title": "ProjectKind",
+      "type": "string"
+    },
+    "ProjectStatus": {
+      "enum": [
+        "active",
+        "beta",
+        "experimental",
+        "historical",
+        "archived",
+        "unknown"
+      ],
+      "title": "ProjectStatus",
+      "type": "string"
+    },
+    "SourceReference": {
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "label",
+        "url"
+      ],
+      "title": "SourceReference",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "metadata": {
+      "$ref": "#/$defs/CatalogMetadata"
+    },
+    "projects": {
+      "items": {
+        "$ref": "#/$defs/CatalogProject"
+      },
+      "title": "Projects",
+      "type": "array"
+    }
+  },
+  "required": [
+    "metadata",
+    "projects"
+  ],
+  "title": "Catalog",
+  "type": "object"
+}

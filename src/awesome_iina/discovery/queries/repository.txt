@@ -1,0 +1,15 @@
+# Human-readable mirror of the repository-query strategy in config/discovery.yaml.
+# The YAML file is the executable source of truth.
+org:iina
+topic:iina-plugin
+topic:iina
+iina in:name
+IINA in:description
+IINA in:readme
+"IINA plugin" in:readme
+iinaplgz in:readme
+iina-plugin-definition in:readme
+IINA mpv in:name,description,readme
+IINA Jellyfin in:name,description,readme
+IINA subtitle in:name,description,readme
+"open in IINA" in:name,description,readme

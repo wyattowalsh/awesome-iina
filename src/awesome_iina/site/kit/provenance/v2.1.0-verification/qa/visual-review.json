@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-16",
+  "kit_revision": "2.1.0",
+  "identity_revision": "2.0.0-review.1",
+  "reviewed": [
+    "assets/brand/github-social-preview-1280x640.png",
+    "qa/previews/gallery-desktop-dpr1.png",
+    "qa/previews/gallery-mobile-390.png"
+  ],
+  "observations": [
+    "The same primary symbol, social type and wave image are preserved.",
+    "Desktop and 390px gallery views show readable live text and no observed horizontal clipping.",
+    "The theme control remains functional in the recorded browser checks.",
+    "Kit-version labels and safe-integration link are interface documentation changes, not a new identity."
+  ],
+  "changes_from_predecessor": [
+    "Gallery status label updated to kit 2.1; integration link added.",
+    "README installer defaults to the existing canonical wordmark rather than the optional retained illustration."
+  ],
+  "remaining_gates": [
+    "Owner adoption",
+    "Human recognition",
+    "Public upload/deployment",
+    "Browser-tab and Safari/iOS selection"
+  ],
+  "type_of_claim": "Reviewer visual inspection, not agency approval or user-study result"
+}

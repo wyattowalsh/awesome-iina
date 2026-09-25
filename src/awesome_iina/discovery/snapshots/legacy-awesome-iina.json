@@ -1,0 +1,8 @@
+{
+  "content": "# Awesome IINA\n\nIINA is the modern media player for macOS.\n\n## Contents\n\n- [Plugins](#Plugins) \n\n## Plugins\n\n- [iina/plugin-opensub](https://github.com/iina/plugin-opensub) for opensubtitles.com\n- [iina/plugin-more-seeking](https://github.com/iina/plugin-more-seeking) Add more seeking options\n- [iina/plugin-online-media](https://github.com/iina/plugin-online-media) \n- [5thDimensionalVader/recorder-iina](https://github.com/5thDimensionalVader/recorder-iina) clip a video using ffmpeg\n- [bbeny123/iina-save-subs-with-delay](https://github.com/bbeny123/iina-save-subs-with-delay) Save subtitles with delay\n- [bbeny123/iina-hdr-screenshot](https://github.com/bbeny123/iina-hdr-screenshot) Capture HDR Screenshot using FFmpeg\n- [Robpol86/iina-file-name-search](https://github.com/Robpol86/iina-file-name-search) search the currently playing file's name on a website\n- [bbeny123/iina-jump-to-frame](https://github.com/bbeny123/iina-jump-to-frame) Jump to Frame\n- [mhajder/iina-jellyfin](https://github.com/mhajder/iina-jellyfin) for Jellyfin: automatic subtitles and media browser sidebar\n- [wyattowalsh/iina-plugin-bookmarks](https://github.com/wyattowalsh/iina-plugin-bookmarks) media bookmark manager plugin for the iina video player\n\n",
+  "content_sha256": "1d4c83dfeb504d2062506f3fdcb4c47601e66259fe6bfb351f5d0a5db945bfd6",
+  "fetched_at": "2026-09-13T02:00:00Z",
+  "sha256": "1d4c83dfeb504d2062506f3fdcb4c47601e66259fe6bfb351f5d0a5db945bfd6",
+  "source_id": "legacy-awesome-iina",
+  "source_url": "https://github.com/cxwx/awesome-iina/blob/main/README.md"
+}

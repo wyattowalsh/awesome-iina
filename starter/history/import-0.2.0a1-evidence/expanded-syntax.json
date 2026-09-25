@@ -1,0 +1,135 @@
+[
+  {
+    "file": "prettier.config.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "scripts/bootstrap.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "scripts/boundaries.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "scripts/build-lock.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "scripts/build.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "scripts/check.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "scripts/common.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "scripts/dev.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "scripts/docs.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "scripts/doctor.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "scripts/hooks.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "scripts/iina-cli.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "scripts/preview.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "scripts/quality.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "scripts/release.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "scripts/template-update.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "scripts/typecheck.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "scripts/validate.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "site/astro.config.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "tests/contracts/build-lock.test.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "tests/contracts/developer-tools.test.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "tests/contracts/docs.test.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "tests/contracts/policy.test.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "tests/contracts/stage.test.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "tests/helpers/load-ts.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "tests/unit/entry.test.mjs",
+    "returncode": 0
+  },
+  {
+    "file": "tests/unit/protocol.test.mjs",
+    "returncode": 0
+  },
+  {
+    "command": [
+      "node",
+      "scripts/docs.mjs",
+      "check"
+    ],
+    "returncode": 0
+  },
+  {
+    "command": [
+      "node",
+      "scripts/docs.mjs",
+      "prepare"
+    ],
+    "returncode": 0
+  },
+  {
+    "command": [
+      "node",
+      "scripts/doctor.mjs",
+      "--support",
+      "--json"
+    ],
+    "returncode": 0
+  }
+]

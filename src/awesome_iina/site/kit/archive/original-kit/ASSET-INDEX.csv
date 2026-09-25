@@ -1,0 +1,24 @@
+path,kind,source,format,width,height,bytes,mode,has_transparency,embedded_icc_profile,intended_role
+originals/awesome-iina-master-icon.png,original,neon_media_player_plugin_icon.png,PNG,1254,1254,1332957,RGB,False,False,master
+originals/awesome-iina-simplified-icon.png,original,neon_media_player_icon.png,PNG,1254,1254,1035772,RGB,False,False,simple
+originals/awesome-iina-social-artwork.png,original,awesome_iina_neon_ecosystem_banner.png,PNG,1774,887,1466272,RGB,False,False,social
+originals/awesome-iina-readme-hero.png,original,awesome_iina_neon_plugin_hero.png,PNG,2172,724,1326566,RGB,False,False,hero
+exports/icons/brand-icon-1024.png,derived-export,originals/awesome-iina-master-icon.png,PNG,1024,1024,891651,RGB,False,False,Large brand illustration/icon; opaque background
+exports/icons/brand-icon-512.png,derived-export,originals/awesome-iina-master-icon.png,PNG,512,512,231795,RGB,False,False,Large brand illustration/icon; opaque background
+exports/icons/brand-icon-256.png,derived-export,originals/awesome-iina-master-icon.png,PNG,256,256,62054,RGB,False,False,Large brand illustration/icon; opaque background
+exports/icons/brand-icon-128.png,derived-export,originals/awesome-iina-master-icon.png,PNG,128,128,19022,RGB,False,False,Large brand illustration/icon; opaque background
+exports/icons/simplified-icon-512.png,derived-export,originals/awesome-iina-simplified-icon.png,PNG,512,512,203536,RGB,False,False,"Simplified source icon, not a vector/flat master"
+exports/icons/simplified-icon-256.png,derived-export,originals/awesome-iina-simplified-icon.png,PNG,256,256,54347,RGB,False,False,"Simplified source icon, not a vector/flat master"
+exports/social/github-social-preview-1280x640.png,derived-export,originals/awesome-iina-social-artwork.png,PNG,1280,640,794030,RGB,False,False,GitHub social upload; dimensions and byte budget checked
+exports/social/open-graph-1200x630-padded.png,derived-export,originals/awesome-iina-social-artwork.png,PNG,1200,630,706048,RGB,False,False,"Optional website share-card composition; padded, not a universal platform requirement"
+exports/headers/readme-hero-1800x600.png,derived-export,originals/awesome-iina-readme-hero.png,PNG,1800,600,931563,RGB,False,False,README/website header; contains rasterized typography
+exports/headers/readme-hero-1200x400.png,derived-export,originals/awesome-iina-readme-hero.png,PNG,1200,400,439553,RGB,False,False,README/website header; contains rasterized typography
+exports/web/favicon-16x16.png,derived-export,originals/awesome-iina-simplified-icon.png,PNG,16,16,594,RGB,False,False,"Evaluation favicon: resized source, not optically redesigned"
+exports/web/favicon-24x24.png,derived-export,originals/awesome-iina-simplified-icon.png,PNG,24,24,972,RGB,False,False,"Evaluation favicon: resized source, not optically redesigned"
+exports/web/favicon-32x32.png,derived-export,originals/awesome-iina-simplified-icon.png,PNG,32,32,1467,RGB,False,False,"Evaluation favicon: resized source, not optically redesigned"
+exports/web/favicon-48x48.png,derived-export,originals/awesome-iina-simplified-icon.png,PNG,48,48,2640,RGB,False,False,"Evaluation favicon: resized source, not optically redesigned"
+exports/web/favicon-64x64.png,derived-export,originals/awesome-iina-simplified-icon.png,PNG,64,64,4175,RGB,False,False,"Evaluation favicon: resized source, not optically redesigned"
+exports/web/apple-touch-icon.png,derived-export,originals/awesome-iina-simplified-icon.png,PNG,180,180,27297,RGB,False,False,Touch icon; opaque square source
+exports/web/icon-192.png,derived-export,originals/awesome-iina-simplified-icon.png,PNG,192,192,30837,RGB,False,False,"Web manifest icon; purpose any, not maskable"
+exports/web/icon-512.png,derived-export,originals/awesome-iina-simplified-icon.png,PNG,512,512,203536,RGB,False,False,"Web manifest icon; purpose any, not maskable"
+exports/web/favicon.ico,derived-export,originals/awesome-iina-simplified-icon.png,ICO,64,64,10699,RGB,False,False,Browser favicon; 16/24/32/48/64 frames

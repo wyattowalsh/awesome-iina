@@ -1,0 +1,974 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-16",
+  "browser": "Chromium 144.0.7559.96",
+  "render_mode": "Playwright set_content + inlined local image bytes. Managed Chromium blocked localhost navigation with ERR_BLOCKED_BY_ADMINISTRATOR; no policy was changed. Loopback serving checked separately with Python urllib.",
+  "status": "passed",
+  "checks_passed": 24,
+  "checks_total": 24,
+  "checks": [
+    {
+      "id": "gallery-images-dpr1",
+      "pass": true,
+      "details": "All current and control images loaded locally."
+    },
+    {
+      "id": "gallery-no-overflow-dpr1",
+      "pass": true,
+      "details": "Desktop body has no horizontal overflow; native strips may intentionally scroll on mobile."
+    },
+    {
+      "id": "theme-toggle",
+      "pass": true,
+      "details": "Toggle updates visible theme and accessibility state."
+    },
+    {
+      "id": "gallery-mobile-overflow",
+      "pass": true,
+      "details": "390px viewport, no page-wide overflow."
+    },
+    {
+      "id": "native-size-declarations-dpr1",
+      "pass": true,
+      "details": "24 placements match stated CSS sizes."
+    },
+    {
+      "id": "readme-live-copy-390",
+      "pass": true,
+      "details": "Name, role and independence are live HTML."
+    },
+    {
+      "id": "readme-overflow-390",
+      "pass": true,
+      "details": "No horizontal page overflow."
+    },
+    {
+      "id": "readme-live-copy-1200",
+      "pass": true,
+      "details": "Name, role and independence are live HTML."
+    },
+    {
+      "id": "readme-overflow-1200",
+      "pass": true,
+      "details": "No horizontal page overflow."
+    },
+    {
+      "id": "images-disabled-meaning",
+      "pass": true,
+      "details": "Image bytes suppressed in local inline proof; essential meaning remains visible."
+    },
+    {
+      "id": "browser-og-fields",
+      "pass": true,
+      "details": {
+        "og:title": "Awesome IINA",
+        "og:type": "website",
+        "og:url": "https://wyattowalsh.github.io/awesome-iina/",
+        "og:description": "Independent catalog for the IINA ecosystem.",
+        "og:image": "https://wyattowalsh.github.io/awesome-iina/assets/brand/github-social-preview-1280x640.png",
+        "og:image:type": "image/png",
+        "og:image:width": "1280",
+        "og:image:height": "640",
+        "og:image:alt": "Awesome IINA \u2014 independent catalog for the IINA ecosystem."
+      }
+    },
+    {
+      "id": "local-http-route:favicon.ico",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "content_type": "image/vnd.microsoft.icon",
+        "method": "Python urllib loopback HTTP; browser policy does not allow localhost navigation",
+        "public_host_tested": false
+      }
+    },
+    {
+      "id": "local-http-route:favicon.svg",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "content_type": "image/svg+xml",
+        "method": "Python urllib loopback HTTP; browser policy does not allow localhost navigation",
+        "public_host_tested": false
+      }
+    },
+    {
+      "id": "local-http-route:apple-touch-icon.png",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "content_type": "image/png",
+        "method": "Python urllib loopback HTTP; browser policy does not allow localhost navigation",
+        "public_host_tested": false
+      }
+    },
+    {
+      "id": "local-http-route:icon-192.png",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "content_type": "image/png",
+        "method": "Python urllib loopback HTTP; browser policy does not allow localhost navigation",
+        "public_host_tested": false
+      }
+    },
+    {
+      "id": "local-http-route:icon-512.png",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "content_type": "image/png",
+        "method": "Python urllib loopback HTTP; browser policy does not allow localhost navigation",
+        "public_host_tested": false
+      }
+    },
+    {
+      "id": "local-http-route:site.webmanifest",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "content_type": "application/manifest+json",
+        "method": "Python urllib loopback HTTP; browser policy does not allow localhost navigation",
+        "public_host_tested": false
+      }
+    },
+    {
+      "id": "local-http-route:github-social-preview-1280x640.png",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "content_type": "image/png",
+        "method": "Python urllib loopback HTTP; browser policy does not allow localhost navigation",
+        "public_host_tested": false
+      }
+    },
+    {
+      "id": "editable-text-bounds",
+      "pass": true,
+      "details": [
+        {
+          "text": "Awesome ",
+          "bbox": [
+            284,
+            116,
+            516.875,
+            136
+          ],
+          "family": "\"Inter Display\""
+        },
+        {
+          "text": "IINA",
+          "bbox": [
+            809.9937744140625,
+            116,
+            212.5797119140625,
+            136
+          ],
+          "family": "\"Inter Display\""
+        },
+        {
+          "text": "Independent catalog",
+          "bbox": [
+            289,
+            264,
+            432.359375,
+            59
+          ],
+          "family": "\"Inter Display\""
+        },
+        {
+          "text": "for the IINA ecosystem",
+          "bbox": [
+            289,
+            325,
+            476.40625,
+            59
+          ],
+          "family": "\"Inter Display\""
+        }
+      ]
+    },
+    {
+      "id": "gallery-images-dpr2",
+      "pass": true,
+      "details": "All current and control images loaded locally."
+    },
+    {
+      "id": "gallery-no-overflow-dpr2",
+      "pass": true,
+      "details": "Desktop body has no horizontal overflow; native strips may intentionally scroll on mobile."
+    },
+    {
+      "id": "native-size-declarations-dpr2",
+      "pass": true,
+      "details": "24 placements match stated CSS sizes."
+    },
+    {
+      "id": "no-page-script-errors",
+      "pass": true,
+      "details": []
+    },
+    {
+      "id": "no-external-network-requests",
+      "pass": true,
+      "details": {
+        "blocked_urls": [],
+        "policy": "No browser network navigation. Data URLs contain exact local asset bytes; unexpected requests blocked."
+      }
+    }
+  ],
+  "screenshots": [
+    "qa/previews/gallery-desktop-dpr1.png",
+    "qa/previews/gallery-light.png",
+    "qa/previews/gallery-mobile-390.png",
+    "qa/previews/native-icons-dpr1.png",
+    "qa/previews/icons-simulated-achromatopsia.png",
+    "qa/previews/icons-simulated-protanopia.png",
+    "qa/previews/icons-simulated-deuteranopia.png",
+    "qa/previews/icons-simulated-tritanopia.png",
+    "qa/previews/readme-live-390.png",
+    "qa/previews/readme-live-1200.png",
+    "qa/previews/readme-images-disabled-390.png",
+    "qa/previews/editable-social-source.png",
+    "qa/previews/gallery-desktop-dpr2.png",
+    "qa/previews/native-icons-dpr2.png"
+  ],
+  "native_image_measurements": [
+    {
+      "dpr": 1,
+      "images": [
+        {
+          "label": "Original control 16px",
+          "natural": [
+            16,
+            16
+          ],
+          "css": [
+            16,
+            16
+          ],
+          "declared": [
+            16,
+            16
+          ]
+        },
+        {
+          "label": "Original control 24px",
+          "natural": [
+            24,
+            24
+          ],
+          "css": [
+            24,
+            24
+          ],
+          "declared": [
+            24,
+            24
+          ]
+        },
+        {
+          "label": "Original control 32px",
+          "natural": [
+            32,
+            32
+          ],
+          "css": [
+            32,
+            32
+          ],
+          "declared": [
+            32,
+            32
+          ]
+        },
+        {
+          "label": "Original control 48px",
+          "natural": [
+            48,
+            48
+          ],
+          "css": [
+            48,
+            48
+          ],
+          "declared": [
+            48,
+            48
+          ]
+        },
+        {
+          "label": "Original control 64px",
+          "natural": [
+            64,
+            64
+          ],
+          "css": [
+            64,
+            64
+          ],
+          "declared": [
+            64,
+            64
+          ]
+        },
+        {
+          "label": "Original control 128px",
+          "natural": [
+            256,
+            256
+          ],
+          "css": [
+            128,
+            128
+          ],
+          "declared": [
+            128,
+            128
+          ]
+        },
+        {
+          "label": "Revised \u2014 light surround 16px",
+          "natural": [
+            16,
+            16
+          ],
+          "css": [
+            16,
+            16
+          ],
+          "declared": [
+            16,
+            16
+          ]
+        },
+        {
+          "label": "Revised \u2014 light surround 24px",
+          "natural": [
+            24,
+            24
+          ],
+          "css": [
+            24,
+            24
+          ],
+          "declared": [
+            24,
+            24
+          ]
+        },
+        {
+          "label": "Revised \u2014 light surround 32px",
+          "natural": [
+            32,
+            32
+          ],
+          "css": [
+            32,
+            32
+          ],
+          "declared": [
+            32,
+            32
+          ]
+        },
+        {
+          "label": "Revised \u2014 light surround 48px",
+          "natural": [
+            48,
+            48
+          ],
+          "css": [
+            48,
+            48
+          ],
+          "declared": [
+            48,
+            48
+          ]
+        },
+        {
+          "label": "Revised \u2014 light surround 64px",
+          "natural": [
+            64,
+            64
+          ],
+          "css": [
+            64,
+            64
+          ],
+          "declared": [
+            64,
+            64
+          ]
+        },
+        {
+          "label": "Revised \u2014 light surround 128px",
+          "natural": [
+            128,
+            128
+          ],
+          "css": [
+            128,
+            128
+          ],
+          "declared": [
+            128,
+            128
+          ]
+        },
+        {
+          "label": "Revised \u2014 dark surround 16px",
+          "natural": [
+            16,
+            16
+          ],
+          "css": [
+            16,
+            16
+          ],
+          "declared": [
+            16,
+            16
+          ]
+        },
+        {
+          "label": "Revised \u2014 dark surround 24px",
+          "natural": [
+            24,
+            24
+          ],
+          "css": [
+            24,
+            24
+          ],
+          "declared": [
+            24,
+            24
+          ]
+        },
+        {
+          "label": "Revised \u2014 dark surround 32px",
+          "natural": [
+            32,
+            32
+          ],
+          "css": [
+            32,
+            32
+          ],
+          "declared": [
+            32,
+            32
+          ]
+        },
+        {
+          "label": "Revised \u2014 dark surround 48px",
+          "natural": [
+            48,
+            48
+          ],
+          "css": [
+            48,
+            48
+          ],
+          "declared": [
+            48,
+            48
+          ]
+        },
+        {
+          "label": "Revised \u2014 dark surround 64px",
+          "natural": [
+            64,
+            64
+          ],
+          "css": [
+            64,
+            64
+          ],
+          "declared": [
+            64,
+            64
+          ]
+        },
+        {
+          "label": "Revised \u2014 dark surround 128px",
+          "natural": [
+            128,
+            128
+          ],
+          "css": [
+            128,
+            128
+          ],
+          "declared": [
+            128,
+            128
+          ]
+        },
+        {
+          "label": "16 CSS px from 1x source",
+          "natural": [
+            16,
+            16
+          ],
+          "css": [
+            16,
+            16
+          ],
+          "declared": [
+            16,
+            16
+          ]
+        },
+        {
+          "label": "16 CSS px from 2x source",
+          "natural": [
+            32,
+            32
+          ],
+          "css": [
+            16,
+            16
+          ],
+          "declared": [
+            16,
+            16
+          ]
+        },
+        {
+          "label": "24 CSS px from 1x source",
+          "natural": [
+            24,
+            24
+          ],
+          "css": [
+            24,
+            24
+          ],
+          "declared": [
+            24,
+            24
+          ]
+        },
+        {
+          "label": "24 CSS px from 2x source",
+          "natural": [
+            48,
+            48
+          ],
+          "css": [
+            24,
+            24
+          ],
+          "declared": [
+            24,
+            24
+          ]
+        },
+        {
+          "label": "32 CSS px from 1x source",
+          "natural": [
+            32,
+            32
+          ],
+          "css": [
+            32,
+            32
+          ],
+          "declared": [
+            32,
+            32
+          ]
+        },
+        {
+          "label": "32 CSS px from 2x source",
+          "natural": [
+            64,
+            64
+          ],
+          "css": [
+            32,
+            32
+          ],
+          "declared": [
+            32,
+            32
+          ]
+        }
+      ]
+    },
+    {
+      "dpr": 2,
+      "images": [
+        {
+          "label": "Original control 16px",
+          "natural": [
+            16,
+            16
+          ],
+          "css": [
+            16,
+            16
+          ],
+          "declared": [
+            16,
+            16
+          ]
+        },
+        {
+          "label": "Original control 24px",
+          "natural": [
+            24,
+            24
+          ],
+          "css": [
+            24,
+            24
+          ],
+          "declared": [
+            24,
+            24
+          ]
+        },
+        {
+          "label": "Original control 32px",
+          "natural": [
+            32,
+            32
+          ],
+          "css": [
+            32,
+            32
+          ],
+          "declared": [
+            32,
+            32
+          ]
+        },
+        {
+          "label": "Original control 48px",
+          "natural": [
+            48,
+            48
+          ],
+          "css": [
+            48,
+            48
+          ],
+          "declared": [
+            48,
+            48
+          ]
+        },
+        {
+          "label": "Original control 64px",
+          "natural": [
+            64,
+            64
+          ],
+          "css": [
+            64,
+            64
+          ],
+          "declared": [
+            64,
+            64
+          ]
+        },
+        {
+          "label": "Original control 128px",
+          "natural": [
+            256,
+            256
+          ],
+          "css": [
+            128,
+            128
+          ],
+          "declared": [
+            128,
+            128
+          ]
+        },
+        {
+          "label": "Revised \u2014 light surround 16px",
+          "natural": [
+            16,
+            16
+          ],
+          "css": [
+            16,
+            16
+          ],
+          "declared": [
+            16,
+            16
+          ]
+        },
+        {
+          "label": "Revised \u2014 light surround 24px",
+          "natural": [
+            24,
+            24
+          ],
+          "css": [
+            24,
+            24
+          ],
+          "declared": [
+            24,
+            24
+          ]
+        },
+        {
+          "label": "Revised \u2014 light surround 32px",
+          "natural": [
+            32,
+            32
+          ],
+          "css": [
+            32,
+            32
+          ],
+          "declared": [
+            32,
+            32
+          ]
+        },
+        {
+          "label": "Revised \u2014 light surround 48px",
+          "natural": [
+            48,
+            48
+          ],
+          "css": [
+            48,
+            48
+          ],
+          "declared": [
+            48,
+            48
+          ]
+        },
+        {
+          "label": "Revised \u2014 light surround 64px",
+          "natural": [
+            64,
+            64
+          ],
+          "css": [
+            64,
+            64
+          ],
+          "declared": [
+            64,
+            64
+          ]
+        },
+        {
+          "label": "Revised \u2014 light surround 128px",
+          "natural": [
+            128,
+            128
+          ],
+          "css": [
+            128,
+            128
+          ],
+          "declared": [
+            128,
+            128
+          ]
+        },
+        {
+          "label": "Revised \u2014 dark surround 16px",
+          "natural": [
+            16,
+            16
+          ],
+          "css": [
+            16,
+            16
+          ],
+          "declared": [
+            16,
+            16
+          ]
+        },
+        {
+          "label": "Revised \u2014 dark surround 24px",
+          "natural": [
+            24,
+            24
+          ],
+          "css": [
+            24,
+            24
+          ],
+          "declared": [
+            24,
+            24
+          ]
+        },
+        {
+          "label": "Revised \u2014 dark surround 32px",
+          "natural": [
+            32,
+            32
+          ],
+          "css": [
+            32,
+            32
+          ],
+          "declared": [
+            32,
+            32
+          ]
+        },
+        {
+          "label": "Revised \u2014 dark surround 48px",
+          "natural": [
+            48,
+            48
+          ],
+          "css": [
+            48,
+            48
+          ],
+          "declared": [
+            48,
+            48
+          ]
+        },
+        {
+          "label": "Revised \u2014 dark surround 64px",
+          "natural": [
+            64,
+            64
+          ],
+          "css": [
+            64,
+            64
+          ],
+          "declared": [
+            64,
+            64
+          ]
+        },
+        {
+          "label": "Revised \u2014 dark surround 128px",
+          "natural": [
+            128,
+            128
+          ],
+          "css": [
+            128,
+            128
+          ],
+          "declared": [
+            128,
+            128
+          ]
+        },
+        {
+          "label": "16 CSS px from 1x source",
+          "natural": [
+            16,
+            16
+          ],
+          "css": [
+            16,
+            16
+          ],
+          "declared": [
+            16,
+            16
+          ]
+        },
+        {
+          "label": "16 CSS px from 2x source",
+          "natural": [
+            32,
+            32
+          ],
+          "css": [
+            16,
+            16
+          ],
+          "declared": [
+            16,
+            16
+          ]
+        },
+        {
+          "label": "24 CSS px from 1x source",
+          "natural": [
+            24,
+            24
+          ],
+          "css": [
+            24,
+            24
+          ],
+          "declared": [
+            24,
+            24
+          ]
+        },
+        {
+          "label": "24 CSS px from 2x source",
+          "natural": [
+            48,
+            48
+          ],
+          "css": [
+            24,
+            24
+          ],
+          "declared": [
+            24,
+            24
+          ]
+        },
+        {
+          "label": "32 CSS px from 1x source",
+          "natural": [
+            32,
+            32
+          ],
+          "css": [
+            32,
+            32
+          ],
+          "declared": [
+            32,
+            32
+          ]
+        },
+        {
+          "label": "32 CSS px from 2x source",
+          "natural": [
+            64,
+            64
+          ],
+          "css": [
+            32,
+            32
+          ],
+          "declared": [
+            32,
+            32
+          ]
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Screenshots use image elements, not browser chrome favicon selection.",
+    "Color-vision views are browser simulations, not tests with users.",
+    "Canonical URLs are intended configuration. Loopback routes were checked with Python urllib, not browser navigation.",
+    "No GitHub upload/unfurl, Safari/iOS device test, calibrated physical-display test or user recognition study."
+  ]
+}

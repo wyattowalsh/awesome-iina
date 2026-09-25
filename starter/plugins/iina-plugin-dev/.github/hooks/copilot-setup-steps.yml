@@ -1,0 +1,20 @@
+# Copilot agent hook wiring for iina-plugin-dev.
+# Copilot has no documented beforeFileEdit equivalent. Do not add that event.
+# Fail closed on Info.json permission expansion via the command matcher and
+# preToolUseCommand (documented equivalent). afterFileEdit lives on the Cursor
+# hooks.json surface and is compensatory only.
+version: 1
+hooks:
+  beforeShellExecution:
+    - command: node ./scripts/agent-guard.mjs
+      timeout: 10
+      failClosed: true
+      matcher: '--trust|killall\s+[^\n]*IINA|osascript[\s\S]*IINA|gh\s+release|(?:^|\s)(?:pnpm|npm)(?:\s+\S+)*\s+pack(?:\s|$)|copier\s+[\s\S]*\bcopy\b|Info\.json'
+    - command: node ./scripts/agent-guard.mjs
+      timeout: 10
+      failClosed: false
+  preToolUseCommand:
+    - command: node ./scripts/agent-guard.mjs
+      timeout: 10
+      failClosed: true
+      matcher: 'Info\.json'

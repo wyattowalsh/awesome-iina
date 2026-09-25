@@ -1,0 +1,23 @@
+version: 1
+repositories:
+  # Keep explicit decisions here so repeated discovery runs remain reproducible.
+  iina/promiseKit:
+    decision: reject
+    score_delta: 0
+    categories: [historical]
+    note: Forked dependency in the IINA organization, not an IINA ecosystem project.
+  iina/grmustache.swift:
+    decision: reject
+    score_delta: 0
+    categories: [historical]
+    note: Forked dependency in the IINA organization, not an end-user or plugin resource.
+  iina/just:
+    decision: reject
+    score_delta: 0
+    categories: [historical]
+    note: Forked dependency in the IINA organization, not an IINA-specific project.
+  wyattowalsh/iina-plugin-bookmarks:
+    decision: accept
+    score_delta: 10
+    categories: [playback]
+    note: Listed in IINA's official plugin index.

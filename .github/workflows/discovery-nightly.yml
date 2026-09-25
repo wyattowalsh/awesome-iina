@@ -1,0 +1,172 @@
+name: Nightly IINA ecosystem discovery
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+      timezone: "America/New_York"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: discovery-nightly
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          version: "0.12.13"
+          enable-cache: true
+          cache-dependency-glob: |
+            pyproject.toml
+            uv.lock
+
+      - name: Install Python and dependencies
+        run: |
+          uv python install 3.13
+          if [[ -f uv.lock ]]; then
+            uv sync --all-groups --locked
+          else
+            uv sync --all-groups
+          fi
+
+      - name: Prepare evidence directories
+        run: mkdir -p output/nightly output/baseline
+
+      - name: Restore the most recent nightly snapshot
+        id: baseline
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: output/baseline/nightly.json
+          key: iina-discovery-nightly-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            iina-discovery-nightly-
+
+      - name: Refresh authoritative source evidence
+        id: sources
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          uv run awesome-iina sources sync --config src/awesome_iina/discovery/discovery.yaml \
+            2>&1 | tee output/nightly/source-refresh.log
+
+      - name: Preserve source and configuration evidence
+        id: context
+        continue-on-error: true
+        if: always()
+        run: |
+          mkdir -p output/nightly/sources
+          cp src/awesome_iina/discovery/discovery.yaml output/nightly/discovery-config.yaml
+          find src/awesome_iina/discovery/snapshots -maxdepth 1 -type f -name '*.json' -exec cp {} output/nightly/sources/ \;
+          git diff --no-ext-diff -- src/awesome_iina/discovery/snapshots > output/nightly/source-changes.patch
+
+      - name: Run the bounded quick REST scan
+        id: discovery
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          uv run awesome-iina discover --config src/awesome_iina/discovery/discovery.yaml \
+            --mode quick --backend rest \
+            --output output/nightly/discovery.json \
+            --checkpoint output/nightly/discovery.checkpoint.json \
+            --strict 2>&1 | tee output/nightly/discovery.log
+
+      - name: Produce the review report and candidate queue
+        id: report
+        continue-on-error: true
+        if: always() && hashFiles('output/nightly/discovery.json') != ''
+        run: |
+          uv run awesome-iina report output/nightly/discovery.json \
+            --output output/nightly/report.md \
+            --review-output output/nightly/review.yaml
+
+      - name: Compare with the previous successful nightly snapshot
+        id: history_diff
+        continue-on-error: true
+        if: >-
+          always() &&
+          hashFiles('output/baseline/nightly.json') != '' &&
+          hashFiles('output/nightly/discovery.json') != ''
+        run: |
+          uv run awesome-iina diff-snapshots \
+            output/baseline/nightly.json output/nightly/discovery.json \
+            --output output/nightly/change-summary.md
+          uv run awesome-iina diff-snapshots \
+            output/baseline/nightly.json output/nightly/discovery.json \
+            --json --output output/nightly/change-summary.json
+
+      - name: Publish a concise workflow summary
+        if: always()
+        run: |
+          {
+            echo "## Nightly IINA ecosystem discovery"
+            echo
+            echo "This scan produces review evidence only. It never edits the curated catalog."
+            if [[ -f output/nightly/change-summary.md ]]; then
+              echo
+              sed -n '1,180p' output/nightly/change-summary.md
+            elif [[ -f output/nightly/report.md ]]; then
+              echo
+              sed -n '1,120p' output/nightly/report.md
+            else
+              echo
+              echo "No discovery result was produced; inspect the uploaded logs."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Stage the current result as the next nightly baseline
+        if: >-
+          always() &&
+          steps.sources.outcome == 'success' &&
+          steps.context.outcome == 'success' &&
+          steps.discovery.outcome == 'success' &&
+          steps.report.outcome == 'success' &&
+          hashFiles('output/nightly/discovery.json') != ''
+        run: cp output/nightly/discovery.json output/baseline/nightly.json
+
+      - name: Save the nightly baseline
+        if: >-
+          always() &&
+          steps.sources.outcome == 'success' &&
+          steps.context.outcome == 'success' &&
+          steps.discovery.outcome == 'success' &&
+          steps.report.outcome == 'success' &&
+          hashFiles('output/baseline/nightly.json') != ''
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: output/baseline/nightly.json
+          key: iina-discovery-nightly-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Upload evidence even when discovery is incomplete
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: iina-discovery-nightly-${{ github.run_id }}
+          path: output/nightly/
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Surface incomplete or failed work
+        if: >-
+          always() &&
+          (steps.sources.outcome != 'success' ||
+           steps.context.outcome != 'success' ||
+           steps.discovery.outcome != 'success' ||
+           steps.report.outcome != 'success' ||
+           steps.history_diff.outcome == 'failure')
+        run: |
+          echo "Nightly discovery was incomplete. Review the uploaded evidence; the catalog was not changed."
+          exit 1

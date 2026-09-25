@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "kit_version": "2.1.1",
+  "kit_path": "src/awesome_iina/site/kit",
+  "input_archive": "awesome-iina-brand-kit-v2.1.1(1).zip",
+  "input_sha256": "587900c6462a8f8c0603ba3d574298f06b49d9278f9843ec54366de6c8156fac",
+  "selection_path": "source/shipping-selection.json",
+  "tokens_path": "source/tokens.json",
+  "deployment_path": "source/deployment.json",
+  "role": "Independent IINA ecosystem catalog and developer tooling",
+  "consumer_plugins_receive_catalog_identity": false
+}

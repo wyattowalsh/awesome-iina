@@ -1,0 +1,11 @@
+node_modules/
+.build/
+reports/
+artifacts/
+site/dist/
+site/.astro/
+site/src/content/docs/
+site/public/
+.copier-answers.yml
+pnpm-lock.yaml
+mise.lock

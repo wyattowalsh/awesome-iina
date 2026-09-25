@@ -1,0 +1,13 @@
+# Informational environment snapshot, not a dependency lock.
+hatchling>=1.27
+jinja2==3.1.6
+jsonschema==4.26.0
+pydantic==2.13.4
+pytest==9.0.2
+pytest-cov>=7,<8
+pyyaml==6.0.3
+rich>=15,<16
+ruff==0.16.7
+ty==0.0.80
+typer==0.26.3
+uv==0.10.0

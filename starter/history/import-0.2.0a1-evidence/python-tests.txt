@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-9.0.2, pluggy-1.6.0
+rootdir: /mnt/data/iina-plugin-starter
+configfile: pyproject.toml
+plugins: anyio-4.13.0, ddtrace-4.4.0, Faker-40.1.2, asyncio-1.3.0, cov-7.0.0, json-report-1.5.0, metadata-3.1.1
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 129 items
+
+tests/test_archive.py .........                                          [  6%]
+tests/test_expansion.py ............................................     [ 41%]
+tests/test_real_copier.py sssssssssssssssssssssssssssssssssssss          [ 69%]
+tests/test_render.py ............................                        [ 91%]
+tests/test_runtime_negative.py ...........                               [100%]
+
+- generated xml file: /mnt/data/iina-plugin-starter/evidence/current/python-junit.xml -
+=========================== short test summary info ============================
+SKIPPED [32] tests/test_real_copier.py:18: Copier unavailable: real generation/merge/trust NOT tested
+SKIPPED [4] tests/test_real_copier.py:30: Copier unavailable: real generation/merge/trust NOT tested
+SKIPPED [1] tests/test_real_copier.py:51: Copier unavailable: real generation/merge/trust NOT tested
+======================= 92 passed, 37 skipped in 11.78s ========================

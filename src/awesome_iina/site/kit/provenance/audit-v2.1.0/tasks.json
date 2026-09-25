@@ -1,0 +1,258 @@
+{
+  "review_date": "2026-09-16",
+  "tasks_are_recommendations_not_executed_changes": true,
+  "effort_bands": "Small: bounded single-discipline change; medium: cross-file/renderer validation or human coordination. Not elapsed-time promises.",
+  "tasks": [
+    {
+      "id": "T01",
+      "title": "Select release scope and primary identity",
+      "priority": "P1 decision",
+      "finding_ids": [
+        "F03",
+        "F04",
+        "F06"
+      ],
+      "depends_on": [],
+      "discipline": "Owner + brand strategy",
+      "effort": "Small",
+      "deliverables": [
+        {
+          "path": "docs/BRAND-RELEASE.md",
+          "proposed": true
+        }
+      ],
+      "acceptance": [
+        "Record whether release is GitHub-only or includes website metadata",
+        "Select current Indexed Media symbol and lockups or explicitly decline adoption",
+        "Identify old hero as optional reference, not a competing default"
+      ],
+      "blocking_condition": "Needed to define the release being approved"
+    },
+    {
+      "id": "T02",
+      "title": "Correct manifest identity or omit unused manifest",
+      "priority": "P1 conditional",
+      "finding_ids": [
+        "F01"
+      ],
+      "depends_on": [
+        "T01"
+      ],
+      "discipline": "Frontend/platform integration",
+      "effort": "Small",
+      "deliverables": [
+        {
+          "path": "source/manifest.template.json",
+          "proposed": false
+        },
+        {
+          "path": "scripts/brandkit/core.py",
+          "proposed": false
+        },
+        {
+          "path": "assets/brand/site.webmanifest",
+          "proposed": false
+        },
+        {
+          "path": "tests/test_manifest_identity.py",
+          "proposed": true
+        }
+      ],
+      "acceptance": [
+        "At /awesome-iina/, /nested/catalog/ and root deployments, independently resolve id/start_url/scope and confirm intended same-origin stable identities, matching icon URLs, and no identity reuse across distinct project manifests. Inspect actual processed manifest before making a browser approval claim."
+      ],
+      "blocking_condition": "Only if website manifest is included"
+    },
+    {
+      "id": "T03",
+      "title": "Align editable text kerning with outlined exports",
+      "priority": "P2",
+      "finding_ids": [
+        "F02"
+      ],
+      "depends_on": [
+        "T01"
+      ],
+      "discipline": "Type/identity production + tooling",
+      "effort": "Small to medium",
+      "deliverables": [
+        {
+          "path": "scripts/build_assets.py",
+          "proposed": false
+        },
+        {
+          "path": "source/wordmark-dark-editable.svg",
+          "proposed": false
+        },
+        {
+          "path": "source/wordmark-light-editable.svg",
+          "proposed": false
+        },
+        {
+          "path": "source/social-card-editable.svg",
+          "proposed": false
+        }
+      ],
+      "acceptance": [
+        "Computed font-kerning is none in the tested source renderer; corresponding character origins agree with production within a declared tolerance, proposed 0.25 CSS px at native size. Review both wordmarks and all social text lines, with missing-font failure explicit. Pixel identity across different font rasterizers is not required."
+      ],
+      "blocking_condition": "Not a blocker for unchanged production image exports"
+    },
+    {
+      "id": "T04",
+      "title": "Align primary demo and shipping allowlist",
+      "priority": "P2",
+      "finding_ids": [
+        "F03"
+      ],
+      "depends_on": [
+        "T01"
+      ],
+      "discipline": "Brand systems + documentation",
+      "effort": "Small",
+      "deliverables": [
+        {
+          "path": "docs/BRAND-RELEASE.md",
+          "proposed": true
+        },
+        {
+          "path": "integration/demo/index.html",
+          "proposed": false
+        },
+        {
+          "path": "REPO-README-PREFIX.md",
+          "proposed": false
+        }
+      ],
+      "acceptance": [
+        "Default header, social card and icon use only the current symbol. The historical hero is excluded from the primary allowlist and is not the only carrier of project name or purpose in any optional placement."
+      ],
+      "blocking_condition": "Only if optional historical imagery is being made a primary placement"
+    },
+    {
+      "id": "T05",
+      "title": "Verify the actual destination contexts being claimed",
+      "priority": "P2 validation; required before compatibility claims",
+      "finding_ids": [
+        "F01",
+        "F05"
+      ],
+      "depends_on": [
+        "T01",
+        "T02",
+        "T04"
+      ],
+      "dependency_condition": "T02 may be marked not applicable for a GitHub-only release",
+      "discipline": "Frontend QA + accessibility review",
+      "effort": "Medium",
+      "deliverables": [
+        {
+          "path": "qa/host-native-validation.json",
+          "proposed": true
+        },
+        {
+          "path": "qa/host-native-previews/",
+          "proposed": true
+        }
+      ],
+      "acceptance": [
+        "For each claimed destination, retain a dated host-native capture and dimensions, verify image requests and metadata, and label all destinations not tested. No need to block a repository-only image release on optional Apple or PWA tests.",
+        "At narrow README widths confirm natural SVG aspect and live copy, with images disabled as well",
+        "Inspect light/dark host themes separately from OS theme assumptions"
+      ],
+      "blocking_condition": "Only for the integrations represented as tested"
+    },
+    {
+      "id": "T06",
+      "title": "Run a small formative recognition check",
+      "priority": "P2 optional before broader redesign",
+      "finding_ids": [
+        "F04"
+      ],
+      "depends_on": [
+        "T01"
+      ],
+      "discipline": "UX research + brand strategy",
+      "effort": "Medium, participant-dependent",
+      "deliverables": [
+        {
+          "path": "qa/recognition-notes.md",
+          "proposed": true
+        }
+      ],
+      "acceptance": [
+        "Record unprompted descriptions of both symbol-only and contextual placements from representative users. Resolve recurring official-player or AI-player interpretations of the full contextual identity; report answers and uncertainty rather than a fabricated statistical pass rate."
+      ],
+      "blocking_condition": "Not required for shipping current scoped artwork; needed to justify a larger redesign recommendation"
+    },
+    {
+      "id": "T07",
+      "title": "Adopt or clarify public artwork-use terms",
+      "priority": "P2",
+      "finding_ids": [
+        "F06"
+      ],
+      "depends_on": [
+        "T01"
+      ],
+      "discipline": "Owner + project governance; counsel only where needed",
+      "effort": "Small, owner-dependent",
+      "deliverables": [
+        {
+          "path": "docs/ASSET-USE.md",
+          "proposed": false
+        }
+      ],
+      "acceptance": [
+        "Public instructions accurately state adopted permissions or their limitations and make no unverified official affiliation, endorsement, originality or clearance claims."
+      ],
+      "blocking_condition": "Before advertising permissions not already established"
+    },
+    {
+      "id": "T08",
+      "title": "Validate and bind the selected release",
+      "priority": "P1 for changed release artifact",
+      "finding_ids": [
+        "F01",
+        "F02",
+        "F03",
+        "F05"
+      ],
+      "depends_on": [
+        "T02",
+        "T03",
+        "T04",
+        "T05",
+        "T07"
+      ],
+      "dependency_condition": "Only changed or in-scope branches are required; T02 can be not applicable, optional T03/T07 may be explicitly deferred with limitations",
+      "discipline": "Release/asset production QA",
+      "effort": "Small to medium",
+      "deliverables": [
+        {
+          "path": "ASSET-MANIFEST.json",
+          "proposed": false
+        },
+        {
+          "path": "BUNDLE-MANIFEST.json",
+          "proposed": false
+        },
+        {
+          "path": "SHA256SUMS",
+          "proposed": false
+        },
+        {
+          "path": "docs/BRAND-RELEASE.md",
+          "proposed": true
+        }
+      ],
+      "acceptance": [
+        "Hash the actual release artifacts, not just source configuration",
+        "Decode every shipped image, inspect all ICO frames and references",
+        "Repeat native-size proofs for changed assets and document platform evidence gaps",
+        "Ensure no font binaries, unsupported approval claims or accidental old primary mark are introduced"
+      ],
+      "blocking_condition": "Any new release package after modifications"
+    }
+  ]
+}

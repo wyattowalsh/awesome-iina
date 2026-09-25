@@ -1,0 +1,44 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "content": {
+      "title": "Content"
+    },
+    "content_sha256": {
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "fetched_at": {
+      "format": "date-time",
+      "title": "Fetched At",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "sha256": {
+      "title": "Sha256",
+      "type": "string"
+    },
+    "source_id": {
+      "title": "Source Id",
+      "type": "string"
+    },
+    "source_url": {
+      "title": "Source Url",
+      "type": "string"
+    }
+  },
+  "required": [
+    "source_id",
+    "fetched_at",
+    "source_url",
+    "sha256",
+    "content_sha256",
+    "content"
+  ],
+  "title": "SourceSnapshot",
+  "type": "object"
+}

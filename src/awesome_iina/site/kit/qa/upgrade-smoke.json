@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "predecessor_zip_sha256": "13594f1061fa43d241b4e230611a97ac500aeb40bb447be1ec4f806dd1d95ec3",
+  "method": "Actual old and new installer CLI commands in a temporary synthetic project; not the user repository",
+  "old_files_written": 39,
+  "patch_files_written": 3,
+  "patch_changed_paths": [
+    "assets/brand/site.webmanifest",
+    "integration/awesome-iina-brand/deployment.json",
+    "integration/awesome-iina-brand/website-head.html"
+  ],
+  "checks": {
+    "old_manifest_defect_observed": true,
+    "new_manifest_id_correct": true,
+    "check_and_repeat_passed": true,
+    "catalog_unchanged": true,
+    "readme_bom_crlf_and_original_content_preserved": true,
+    "patch_undo_restores_old_installation_exactly": true,
+    "old_undo_restores_original_project": true,
+    "unselected_old_asset_not_silently_deleted": true
+  },
+  "notes": [
+    "Upgrading an existing installation does not garbage-collect unselected historical files. New plans and primary markup no longer select them.",
+    "If users already installed a root-ID web app, review identity migration separately; no installed-user population is claimed."
+  ]
+}

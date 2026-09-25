@@ -1,0 +1,1260 @@
+metadata:
+  title: Awesome IINA
+  description: A deeply curated, reproducible index of IINA plugins, integrations, developer resources,
+    workflows, and foundational media tooling.
+  version: 1
+  repository: wyattowalsh/awesome-iina
+  generated_notice: Catalog sections are generated from src/awesome_iina/catalog/catalog.yaml. Edit the catalog, not README.md.
+projects:
+- slug: iina
+  name: IINA
+  description: The modern open-source media player for macOS, powered by mpv and designed for native Mac
+    workflows.
+  category: core
+  kind: app
+  status: active
+  official: true
+  featured: true
+  repo: iina/iina
+  license: GPL-3.0
+  tags:
+  - macOS
+  - media player
+  - mpv
+  sources:
+  - label: Official IINA organization
+    url: https://github.com/iina
+- slug: iina-website
+  name: IINA website
+  description: Source for the official IINA website, documentation entry points, downloads, and public
+    project pages.
+  category: core
+  kind: development-tool
+  status: active
+  official: true
+  featured: false
+  repo: iina/iina-website
+  tags:
+  - documentation
+  - website
+  sources:
+  - label: Official IINA organization
+    url: https://github.com/iina
+- slug: official-user-scripts
+  name: User Scripts
+  description: Runs user-authored JavaScript in IINA and exposes official examples for scripting, overlays,
+    menus, and global hooks.
+  category: official-plugin
+  kind: plugin
+  status: active
+  official: true
+  featured: true
+  repo: iina/plugin-userscript
+  plugin_identifier: io.iina.user-script
+  tags:
+  - automation
+  - javascript
+  - userscripts
+  sources:
+  - label: Official IINA organization
+    url: https://github.com/iina
+- slug: official-online-media
+  name: Online Media
+  description: Plays supported online media through yt-dlp and provides the official network-media integration
+    for IINA.
+  category: official-plugin
+  kind: plugin
+  status: active
+  official: true
+  featured: true
+  repo: iina/plugin-online-media
+  plugin_identifier: io.iina.ytdl
+  identifier_collision_allowed: true
+  tags:
+  - online media
+  - yt-dlp
+  sources:
+  - label: Official IINA organization
+    url: https://github.com/iina
+  notes: Shares plugin identifier io.iina.ytdl with slug legacy-plugin-ytdl, the archived predecessor.
+- slug: official-opensubtitles
+  name: OpenSubtitles
+  description: Searches OpenSubtitles from IINA through the official subtitle-provider and sidebar integration.
+  category: official-plugin
+  kind: plugin
+  status: active
+  official: true
+  featured: true
+  repo: iina/plugin-opensub
+  plugin_identifier: io.iina.opensub
+  tags:
+  - opensubtitles
+  - subtitles
+  sources:
+  - label: Official IINA organization
+    url: https://github.com/iina
+- slug: official-more-seeking
+  name: More Seeking
+  description: Adds extra seek controls and configurable seeking behavior through an official IINA plugin.
+  category: official-plugin
+  kind: plugin
+  status: active
+  official: true
+  featured: false
+  repo: iina/plugin-more-seeking
+  plugin_identifier: io.iina.plugin.seeking
+  tags:
+  - navigation
+  - seeking
+  sources:
+  - label: Official IINA organization
+    url: https://github.com/iina
+- slug: auto-skip
+  name: Auto Skip
+  description: Lets users mark intro and outro ranges with an overlay, then skips those segments automatically.
+  category: playback
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: pangziqiang/iina-auto-skip
+  plugin_identifier: io.iina.auto-skip
+  tags:
+  - intro skip
+  - outro skip
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: bookmarks
+  name: Bookmarks
+  description: Saves named timestamps and makes them manageable and reusable across IINA playback sessions.
+  category: playback
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: wyattowalsh/iina-plugin-bookmarks
+  plugin_identifier: com.wyattowalsh.iina-plugin-bookmarks
+  tags:
+  - bookmarks
+  - timestamps
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: detached-playlist
+  name: Detached Playlist
+  description: Displays the active IINA playlist in a separate floating window for multi-window workflows.
+  category: playback
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: HowDidTheCatGetSoFat/iina-detached-playlist
+  plugin_identifier: com.fxd0h.detached-playlist
+  tags:
+  - playlist
+  - window
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: file-viewer
+  name: File Viewer
+  description: Bookmarks folders, browses directory contents, and opens local videos without leaving IINA.
+  category: playback
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: qktechies/iina-plugin-file-viewer
+  plugin_identifier: com.qkong.iina-plugin-file-viewer
+  tags:
+  - file browser
+  - folders
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: jump-to-frame
+  name: Jump to Frame
+  description: Seeks directly to a requested frame number for frame-oriented inspection and navigation.
+  category: playback
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: bbeny123/iina-jump-to-frame
+  plugin_identifier: io.iina.jump-to-frame
+  tags:
+  - frame accurate
+  - seeking
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: hold-to-speed
+  name: Hold to Speed
+  description: Temporarily switches playback to 2× while the Space key is held.
+  category: playback
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: Tommy12356F/iina-hold-to-speed
+  plugin_identifier: com.vedant.hold-to-speed
+  tags:
+  - keyboard
+  - speed
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: pip-toggle
+  name: PiP Toggle for IINA
+  description: Adds a focused command for switching between Picture in Picture and fullscreen playback.
+  category: playback
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: nastarandarjani/iina-pip-toggle
+  plugin_identifier: com.user.piptoggle
+  tags:
+  - fullscreen
+  - picture in picture
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: playlist-pro
+  name: Playlist Pro
+  description: Improves management of local and online playlists inside IINA.
+  category: playback
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: CatCodeDanix/iina-playlist-pro
+  plugin_identifier: com.danialabdoli.playlistpro
+  tags:
+  - online media
+  - playlist
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: playlist-searchbox
+  name: Playlist Searchbox
+  description: Searches the current playlist by title and artist to speed up navigation in long queues.
+  category: playback
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: icsarisakal/iina-playlist-searchbox
+  plugin_identifier: com.icsarisakal.iina-searchbox
+  tags:
+  - playlist
+  - search
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: skip-intro
+  name: Skip Intro
+  description: Detects and skips intros, recaps, and credits during episodic playback.
+  category: playback
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: pparanoiidd/iina-skip-intro
+  plugin_identifier: com.pparanoiidd.skipintro
+  tags:
+  - credits
+  - intro skip
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: playlist-sortings
+  name: Playlist Sortings
+  description: Adds alternative playlist sorting controls for IINA.
+  category: playback
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: dotWee/iina-playlist-sortings
+  tags:
+  - playlist
+  - sorting
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: quick-folders
+  name: Quick Folders
+  description: Provides quicker access to frequently used media folders from IINA.
+  category: playback
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: JakeCalkins/iina-quick-folders-plugin
+  tags:
+  - folders
+  - navigation
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: az-loop
+  name: A–Z Loop
+  description: Adds a compact A–B style looping workflow for repeating selected playback ranges.
+  category: playback
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: micro-JAY/iina-az-loop
+  tags:
+  - loop
+  - repeat
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: multi-segment-repeat
+  name: Multi Segment Repeat
+  description: Stores and repeats multiple selected media segments during one IINA session.
+  category: playback
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: nobuo-miura/iina-multi-segment-repeat
+  tags:
+  - loop
+  - segments
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: iina-continue
+  name: IINA Continue
+  description: Adds a continue-watching workflow for resuming previously opened media.
+  category: playback
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: muzipin/iina-continue
+  tags:
+  - resume
+  - watch history
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: bilingual-audio
+  name: Bilingual Audio
+  description: Routes two audio tracks to separate left and right channels for bilingual viewing.
+  category: subtitles-language
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: glechic/iina-bilingual-audio
+  plugin_identifier: com.bilingual-audio.iina-plugin
+  tags:
+  - audio tracks
+  - language learning
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: clickable-subtitles
+  name: Clickable Subtitles
+  description: Makes subtitle words clickable and sends them to the macOS Look Up interface.
+  category: subtitles-language
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: kerim/iina-clickable-subtitles
+  plugin_identifier: io.github.niyaro.iina-clickable-subtitles
+  tags:
+  - dictionary
+  - language learning
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: danmaku
+  name: Danmaku
+  description: Overlays time-synchronized scrolling comments from supported danmaku sources.
+  category: subtitles-language
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: xjbeta/iina-plugin-danmaku
+  plugin_identifier: com.xjbeta.danmaku
+  tags:
+  - bilibili
+  - danmaku
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: danmaku-cosmos
+  name: Danmaku Cosmos
+  description: Renders Niconico and Bilibili comments with CSS or Canvas and supports advanced comment
+    art.
+  category: subtitles-language
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: karappo-yu/iina-plugin-danmaku-cosmos
+  plugin_identifier: com.danmaku-cosmos.iina-plugin
+  tags:
+  - bilibili
+  - comment art
+  - danmaku
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: polyscript
+  name: PolyScript
+  description: Combines dual subtitles, hover definitions, and AI-assisted translation for language study.
+  category: subtitles-language
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: SammoMichael/polyplugin-release
+  plugin_identifier: app.polyscript.iina-plugin
+  tags:
+  - ai translation
+  - dictionary
+  - dual subtitles
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: subtandem
+  name: SubTandem
+  description: Translates embedded or external text subtitles and renders the translated track in IINA.
+  category: subtitles-language
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: janwee-sha/SubTandem
+  plugin_identifier: io.subtandem.iina
+  tags:
+  - ass
+  - srt
+  - translation
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+  notes: SubLingo was a predecessor name; its Info.json identifier was unrecovered.
+- slug: iinatan
+  name: iinatan
+  description: Adds subtitle dictionary popups, local OCR, profiles, controller navigation, and optional
+    Anki export to IINA.
+  category: subtitles-language
+  kind: plugin
+  status: experimental
+  official: false
+  featured: false
+  repo: afn478/iinatan
+  plugin_identifier: com.afn478.iinatan
+  license: GPL-3.0-only
+  tags:
+  - anki
+  - dictionary
+  - language learning
+  - ocr
+  - subtitles
+  sources:
+  - label: Project README
+    url: https://github.com/afn478/iinatan/blob/main/README.md
+  - label: Plugin manifest
+    url: https://github.com/afn478/iinatan/blob/main/Info.json
+  notes: The project describes itself as experimental; dictionary and OCR behavior varies by language
+    and media.
+- slug: subtitle-navigator
+  name: Subtitle Navigator
+  description: Provides a standalone subtitle browser with search, seek, line looping, and copy workflows
+    for language study.
+  category: subtitles-language
+  kind: plugin
+  status: experimental
+  official: false
+  featured: false
+  repo: CoderChen01/IINA-subtitle-navigator
+  plugin_identifier: info.junjie-chen.subtitle-navigator
+  minimum_iina: 1.4.0
+  license: MIT
+  tags:
+  - language learning
+  - looping
+  - subtitle navigation
+  - subtitles
+  sources:
+  - label: Project README
+    url: https://github.com/CoderChen01/IINA-subtitle-navigator/blob/main/README.md
+  - label: Plugin manifest
+    url: https://github.com/CoderChen01/IINA-subtitle-navigator/blob/main/Info.json
+  notes: The author explicitly does not promise long-term maintenance; current parsing is focused on external
+    SRT files.
+- slug: whisperina
+  name: Whisperina
+  description: Generates subtitle tracks from local media by connecting IINA to FFmpeg and whisper.cpp
+    models.
+  category: subtitles-language
+  kind: plugin
+  status: experimental
+  official: false
+  featured: false
+  repo: yuxiqian/whisperina
+  plugin_identifier: io.github.yuxiqian.whisperina
+  tags:
+  - ffmpeg
+  - speech recognition
+  - subtitles
+  - whisper.cpp
+  sources:
+  - label: Project README
+    url: https://github.com/yuxiqian/whisperina/blob/main/README.md
+  - label: Plugin manifest
+    url: https://github.com/yuxiqian/whisperina/blob/main/Info.json
+  notes: Requires local FFmpeg and whisper.cpp command-line tools plus separately downloaded models.
+- slug: realtime-speech-translator
+  name: Realtime Speech Translator
+  description: Explores live speech translation for media playing in IINA.
+  category: subtitles-language
+  kind: plugin
+  status: experimental
+  official: false
+  featured: false
+  repo: isparkyou-github/iina-realtime-speech-translator
+  tags:
+  - speech recognition
+  - translation
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: submaster
+  name: IINA SubMaster
+  description: Provides subtitle-oriented controls and workflows for IINA.
+  category: subtitles-language
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: ivLis-Studio/IINA-SubMaster
+  tags:
+  - subtitles
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: save-subs
+  name: Save Subs
+  description: Extracts or saves subtitle tracks from the current IINA media item.
+  category: subtitles-language
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: bbeny123/iina-save-subs
+  tags:
+  - export
+  - subtitles
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: jellyfin
+  name: Jellyfin
+  description: Browses a Jellyfin server and plays its media directly in IINA.
+  category: libraries-streaming
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: mhajder/iina-jellyfin
+  plugin_identifier: com.mhajder.iina-jellyfin
+  tags:
+  - jellyfin
+  - media server
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: episode-info
+  name: Episode Info
+  description: Shows TMDB movie or episode details on pause and includes subtitle-search support.
+  category: libraries-streaming
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: Zain-Imam/iina-episode-info
+  plugin_identifier: com.Zain-Imam.episodeinfo
+  tags:
+  - tmdb
+  - metadata
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: youtube-iina
+  name: YouTube IINA
+  description: Connects YouTube-oriented browsing or playback workflows with IINA.
+  category: libraries-streaming
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: ada-bee/youtube-iina
+  tags:
+  - online media
+  - youtube
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: jellyfin-iina-alt
+  name: Jellyfin IINA
+  description: Provides another community implementation for using Jellyfin with IINA.
+  category: libraries-streaming
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: ada-bee/jellyfin-iina
+  tags:
+  - jellyfin
+  - media server
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: jellyfin-companion
+  name: IINA Jellyfin Companion
+  description: Adds companion functionality around Jellyfin playback in IINA.
+  category: libraries-streaming
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: yxwyoyoyo/iina-jellyfin-companion
+  tags:
+  - companion
+  - jellyfin
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: cinema-plugin
+  name: Cinema IINA Plugin
+  description: Experiments with a cinema-oriented media experience inside IINA.
+  category: libraries-streaming
+  kind: plugin
+  status: experimental
+  official: false
+  featured: false
+  repo: hailp-vn38/cinema-iina-plugin
+  tags:
+  - cinema
+  - media browsing
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: multiple-clips
+  name: Multiple Clips
+  description: Uses FFmpeg to batch-create clips, including vertical output and selectable formats.
+  category: capture-editing
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: karthisnk/multi-cutter-iina
+  plugin_identifier: com.recorder.iina-plugin
+  identifier_collision_allowed: true
+  tags:
+  - batch clipping
+  - ffmpeg
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+  notes: Shares plugin identifier com.recorder.iina-plugin with slug recorder; review before installing
+    both.
+- slug: recorder
+  name: Recorder
+  description: Creates video clips from IINA playback by invoking FFmpeg.
+  category: capture-editing
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: 5thDimensionalVader/recorder-iina
+  plugin_identifier: com.recorder.iina-plugin
+  identifier_collision_allowed: true
+  tags:
+  - clipping
+  - ffmpeg
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+  notes: Shares plugin identifier com.recorder.iina-plugin with slug multiple-clips; review before installing
+    both.
+- slug: hdr-screenshot
+  name: HDR Screenshot
+  description: Captures tone-mapped SDR screenshots from HDR media using FFmpeg within an IINA workflow.
+  category: capture-editing
+  kind: plugin
+  status: active
+  official: false
+  featured: false
+  repo: bbeny123/iina-hdr-screenshot
+  tags:
+  - ffmpeg
+  - hdr
+  - screenshots
+  - tone mapping
+  sources:
+  - label: Project README
+    url: https://github.com/bbeny123/iina-hdr-screenshot/blob/main/README.md
+  - label: Plugin manifest
+    url: https://github.com/bbeny123/iina-hdr-screenshot/blob/main/Info.json
+  plugin_identifier: io.iina.hdr-screenshot
+  minimum_iina: 1.4.0
+  notes: Requires FFmpeg; zscale mode additionally requires an FFmpeg build with libzimg.
+- slug: clip-maker
+  name: IINA Clip Maker
+  description: Adds a lightweight clip-creation workflow for the current IINA media item.
+  category: capture-editing
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: gridness/iina-clip-maker-plugin
+  tags:
+  - clipping
+  - editing
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: dv-timecode
+  name: DV Timecode
+  description: Surfaces DV-oriented timecode information while inspecting media in IINA.
+  category: capture-editing
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: xingrz/iina-dv-timecode
+  tags:
+  - dv
+  - timecode
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: anime4k
+  name: Anime4K for IINA
+  description: Applies Anime4K shaders for real-time anime upscaling during IINA playback.
+  category: enhancement-rendering
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: yorkyang2333/iina-anime4k
+  plugin_identifier: com.yorkyang2333.anime4k
+  tags:
+  - anime4k
+  - shader
+  - upscaling
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: vr2d
+  name: VR2D
+  description: Converts common 180° and 360° VR layouts into a pannable flat view for IINA.
+  category: enhancement-rendering
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: fetzu/iina-plugin-vr2d
+  plugin_identifier: io.github.fetzu.vr2d
+  tags:
+  - 180 video
+  - 360 video
+  - vr
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: video-upscaler
+  name: IINA Video Upscaler
+  description: Applies FSRCNNX, Anime4K, CAS, and SSim shaders through IINA’s mpv rendering pipeline.
+  category: enhancement-rendering
+  kind: plugin
+  status: experimental
+  official: false
+  featured: false
+  repo: Fhlisherman/iina-video-upscaler
+  tags:
+  - anime4k
+  - fsrcnnx
+  - glsl shaders
+  - super resolution
+  - upscaling
+  sources:
+  - label: Project README
+    url: https://github.com/Fhlisherman/iina-video-upscaler/blob/main/README.md
+  - label: Plugin manifest
+    url: https://github.com/Fhlisherman/iina-video-upscaler/blob/main/Info.json
+  plugin_identifier: com.github.Fhlisherman.iina-video-upscaler
+  minimum_iina: 1.4.0
+- slug: audio-normalize
+  name: Audio Normalize
+  description: Analyzes playback audio with FFmpeg and applies cached peak or EBU R128 normalization in
+    IINA.
+  category: enhancement-rendering
+  kind: plugin
+  status: active
+  official: false
+  featured: false
+  repo: Gabe-LS/iina-audio-normalize
+  tags:
+  - audio
+  - ebu r128
+  - ffmpeg
+  - loudness normalization
+  sources:
+  - label: Project README
+    url: https://github.com/Gabe-LS/iina-audio-normalize/blob/main/README.md
+  - label: Plugin manifest
+    url: https://github.com/Gabe-LS/iina-audio-normalize/blob/main/Info.json
+  plugin_identifier: io.github.audio-normalize
+  minimum_iina: 1.4.0
+  license: MIT
+  notes: Requires FFmpeg; optional BLAKE3 or xxHash tools accelerate cache fingerprinting.
+- slug: video-cleaner
+  name: IINA Video Cleaner
+  description: Automates cleanup actions around video files opened in IINA.
+  category: enhancement-rendering
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: adamhl8/iina-video-cleaner
+  tags:
+  - cleanup
+  - video
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: nightshift-fullscreen
+  name: IINA Night Shift Fullscreen
+  description: Coordinates macOS Night Shift behavior with IINA fullscreen playback.
+  category: enhancement-rendering
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: leo-mathurin/iina-nightshift-fs
+  tags:
+  - display
+  - night shift
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: airplay
+  name: IINA AirPlay
+  description: Adds an AirPlay-oriented handoff or casting workflow for IINA.
+  category: casting-integrations
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: ozykhan/iina-airplay
+  tags:
+  - airplay
+  - casting
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+  - label: IINA plugin index, reviewed 2026-09-16
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+  plugin_identifier: dev.faruk.iina-airplay
+- slug: chromecast
+  name: IINA Chromecast
+  description: Explores casting IINA media to Chromecast-compatible devices.
+  category: casting-integrations
+  kind: plugin
+  status: experimental
+  official: false
+  featured: false
+  repo: dpacmittal/iina-chromecast
+  tags:
+  - casting
+  - chromecast
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: home-assistant
+  name: IINA Home Assistant
+  description: Connects IINA playback events or controls with Home Assistant.
+  category: casting-integrations
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: smintlife/iina-plugin-homeassistant
+  tags:
+  - home assistant
+  - smart home
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: trakt-scrobbler
+  name: Trakt Scrobbler
+  description: Scrobbles IINA playback progress to Trakt.
+  category: tracking-scrobbling
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: i3p9/iina-trakt-scrobbler
+  plugin_identifier: io.github.fahim.iinatraktscrobbler
+  tags:
+  - scrobbling
+  - trakt
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: listenbrainz-scrobbler
+  name: ListenBrainz Scrobbler
+  description: Submits music-listening activity from IINA to ListenBrainz.
+  category: tracking-scrobbling
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  url: https://git.notfire.cc/notfire/iina-listenbrainz
+  plugin_identifier: cc.notfire.iina-listenbrainz
+  tags:
+  - listenbrainz
+  - music
+  - scrobbling
+  install:
+  - kind: external
+    value: https://git.notfire.cc/notfire/iina-listenbrainz
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+- slug: anilist-sync
+  name: AniList Sync
+  description: Synchronizes anime-watching progress from IINA with AniList.
+  category: tracking-scrobbling
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: gridness/anilist-sync
+  tags:
+  - anilist
+  - anime
+  - tracking
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: myshows
+  name: MyShows
+  description: Integrates IINA playback with the MyShows tracking service.
+  category: tracking-scrobbling
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: amiv1/iina-plugin-myshows
+  tags:
+  - myshows
+  - tracking
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: file-name-search
+  name: IINA File Name Search
+  description: Searches for related media filenames from an IINA-centered workflow.
+  category: automation-companions
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: Robpol86/iina-file-name-search
+  tags:
+  - file search
+  - workflow
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: delete-video
+  name: Delete Video
+  description: Adds an explicit action for deleting the current video from an IINA workflow.
+  category: automation-companions
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: Vahor/iina-delete-video
+  tags:
+  - file management
+  sources:
+  - label: GitHub iina-plugin topic
+    url: https://github.com/topics/iina-plugin
+- slug: plugin-template
+  name: IINA Plugin Template
+  description: Minimal official repository structure for starting a new IINA plugin.
+  category: development
+  kind: development-tool
+  status: active
+  official: true
+  featured: true
+  repo: iina/iina-plugin-template
+  tags:
+  - scaffolding
+  - template
+  sources:
+  - label: Official IINA organization
+    url: https://github.com/iina
+- slug: plugin-definition
+  name: IINA Plugin Definition
+  description: Official TypeScript definitions and generated API documentation for IINA plugin authors.
+  category: development
+  kind: development-tool
+  status: active
+  official: true
+  featured: true
+  repo: iina/iina-plugin-definition
+  tags:
+  - api
+  - typescript
+  - types
+  sources:
+  - label: Official IINA organization
+    url: https://github.com/iina
+- slug: parcel-optimizer-webview
+  name: Parcel Optimizer Webview
+  description: Official Parcel optimizer used when packaging webview assets for IINA plugins.
+  category: development
+  kind: development-tool
+  status: active
+  official: true
+  featured: false
+  repo: iina/parcel-optimizer-webview
+  tags:
+  - parcel
+  - webview
+  sources:
+  - label: Official IINA organization
+    url: https://github.com/iina
+- slug: deps-buildscripts
+  name: IINA Dependency Build Scripts
+  description: Build scripts used by IINA to prepare native media dependencies.
+  category: development
+  kind: development-tool
+  status: active
+  official: true
+  featured: false
+  repo: iina/deps-buildscripts
+  tags:
+  - build
+  - dependencies
+  sources:
+  - label: Official IINA organization
+    url: https://github.com/iina
+- slug: mpv
+  name: mpv
+  description: The command-line media player and playback engine embedded by IINA.
+  category: media-tooling
+  kind: media-tool
+  status: active
+  official: false
+  featured: false
+  repo: mpv-player/mpv
+  license: GPL-2.0-or-later
+  tags:
+  - media player
+  - playback engine
+  sources:
+  - label: Upstream repository
+    url: https://github.com/mpv-player/mpv
+- slug: ffmpeg
+  name: FFmpeg
+  description: The core multimedia toolkit used by many IINA plugins for probing, transcoding, clipping,
+    and filtering.
+  category: media-tooling
+  kind: media-tool
+  status: active
+  official: false
+  featured: false
+  repo: FFmpeg/FFmpeg
+  tags:
+  - clipping
+  - encoding
+  - ffprobe
+  sources:
+  - label: Upstream repository
+    url: https://github.com/FFmpeg/FFmpeg
+- slug: mkvtoolnix
+  name: MKVToolNix
+  description: Inspects, multiplexes, edits, and validates Matroska containers with mkvmerge, mkvinfo,
+    and related tools.
+  category: media-tooling
+  kind: media-tool
+  status: active
+  official: false
+  featured: false
+  repo: mkvtoolnix/mkvtoolnix
+  tags:
+  - matroska
+  - mkv
+  - metadata
+  sources:
+  - label: Upstream repository
+    url: https://github.com/mkvtoolnix/mkvtoolnix
+- slug: mediainfo
+  name: MediaInfo
+  description: Reports detailed container, codec, stream, HDR, language, and tag metadata for media files.
+  category: media-tooling
+  kind: media-tool
+  status: active
+  official: false
+  featured: false
+  repo: MediaArea/MediaInfo
+  tags:
+  - codecs
+  - metadata
+  - probing
+  sources:
+  - label: Upstream repository
+    url: https://github.com/MediaArea/MediaInfo
+- slug: yt-dlp
+  name: yt-dlp
+  description: Resolves and downloads online media and is used by IINA’s official Online Media plugin.
+  category: media-tooling
+  kind: media-tool
+  status: active
+  official: false
+  featured: false
+  repo: yt-dlp/yt-dlp
+  tags:
+  - downloader
+  - online media
+  sources:
+  - label: Upstream repository
+    url: https://github.com/yt-dlp/yt-dlp
+- slug: libass
+  name: libass
+  description: Renders ASS and SSA subtitles and underpins advanced subtitle presentation in mpv-based
+    players.
+  category: media-tooling
+  kind: library
+  status: active
+  official: false
+  featured: false
+  repo: libass/libass
+  tags:
+  - ass
+  - rendering
+  - subtitles
+  sources:
+  - label: Upstream repository
+    url: https://github.com/libass/libass
+- slug: libplacebo
+  name: libplacebo
+  description: Provides GPU-accelerated rendering primitives used by modern video players and shader pipelines.
+  category: media-tooling
+  kind: library
+  status: active
+  official: false
+  featured: false
+  repo: haasn/libplacebo
+  tags:
+  - gpu
+  - rendering
+  - shaders
+  sources:
+  - label: Upstream repository
+    url: https://github.com/haasn/libplacebo
+- slug: anime4k-upstream
+  name: Anime4K
+  description: Provides the upstream real-time anime upscaling algorithms and shaders used by compatible
+    integrations.
+  category: media-tooling
+  kind: shader
+  status: active
+  official: false
+  featured: false
+  repo: bloc97/Anime4K
+  tags:
+  - anime
+  - shader
+  - upscaling
+  sources:
+  - label: Upstream repository
+    url: https://github.com/bloc97/Anime4K
+- slug: legacy-plugin-ytdl
+  name: Legacy YouTube-dl Plugin
+  description: Archived predecessor to the current official Online Media plugin, retained for migration
+    history.
+  category: historical
+  kind: plugin
+  status: archived
+  official: true
+  featured: false
+  repo: iina/plugin-ytdl
+  plugin_identifier: io.iina.ytdl
+  identifier_collision_allowed: true
+  tags:
+  - archived
+  - online media
+  sources:
+  - label: Official IINA organization
+    url: https://github.com/iina
+  notes: Shares plugin identifier io.iina.ytdl with slug official-online-media. Use iina/plugin-online-media
+    for current installations.
+- slug: legacy-homebrew-mpv
+  name: Legacy mpv-IINA Homebrew Tap
+  description: Archived Homebrew tap once used for IINA-specific mpv builds.
+  category: historical
+  kind: development-tool
+  status: archived
+  official: true
+  featured: false
+  repo: iina/homebrew-mpv-iina
+  tags:
+  - archived
+  - homebrew
+  sources:
+  - label: Official IINA organization
+    url: https://github.com/iina
+  notes: Retained for historical build research only.
+- slug: cinemode
+  name: CineMode
+  repo: D0CA/iina-cinemode
+  description: Fullscreen pause overlay and intro skipping, with an optional Stremio next-episode shortcut.
+  category: playback
+  kind: plugin
+  status: unknown
+  plugin_identifier: com.doca.iina-cinemode
+  tags:
+  - fullscreen
+  - skip-intro
+  sources:
+  - label: IINA plugin index, reviewed 2026-09-16
+    url: https://github.com/iina/iina/blob/develop/plugins.json
+  notes: Listed upstream; native compatibility has not been tested here.
+- slug: iina-store
+  name: IINA Store
+  repo: Kuameh/iina-store
+  description: Browse, search, and install community IINA plugins from a standalone window and companion
+    sidebar.
+  category: libraries-streaming
+  kind: plugin
+  status: unknown
+  plugin_identifier: com.example.iina-store
+  tags:
+  - discovery
+  - catalog
+  sources:
+  - label: Upstream README, reviewed 2026-09-16
+    url: https://github.com/Kuameh/iina-store/blob/main/README.md
+  notes: Independent third-party installer; its package and remote catalog were not executed or security-certified
+    here. Info.json identifier com.example.iina-store is the upstream placeholder reverse-DNS id, not listed
+    in IINA's official plugins.json index.

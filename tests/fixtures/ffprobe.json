@@ -1,0 +1,58 @@
+{
+  "streams": [
+    {
+      "index": 0,
+      "codec_name": "hevc",
+      "codec_long_name": "H.265 / HEVC",
+      "codec_type": "video",
+      "width": 3840,
+      "height": 2160,
+      "pix_fmt": "yuv420p10le",
+      "avg_frame_rate": "24000/1001",
+      "color_space": "bt2020nc",
+      "color_transfer": "smpte2084",
+      "color_primaries": "bt2020",
+      "disposition": {"default": 1, "forced": 0},
+      "tags": {"language": "und", "title": "Main"},
+      "side_data_list": [
+        {"side_data_type": "Mastering display metadata"},
+        {"side_data_type": "DOVI configuration record"}
+      ]
+    },
+    {
+      "index": 1,
+      "codec_name": "eac3",
+      "codec_long_name": "ATSC A/52B (AC-3, E-AC-3)",
+      "codec_type": "audio",
+      "channels": 6,
+      "channel_layout": "5.1(side)",
+      "sample_rate": "48000",
+      "bit_rate": "768000",
+      "disposition": {"default": 1, "forced": 0},
+      "tags": {"language": "eng", "title": "English 5.1"}
+    },
+    {
+      "index": 2,
+      "codec_name": "ass",
+      "codec_long_name": "ASS (Advanced SSA) subtitle",
+      "codec_type": "subtitle",
+      "disposition": {"default": 0, "forced": 1},
+      "tags": {"language": "eng", "title": "Signs"}
+    },
+    {
+      "index": 3,
+      "codec_name": "ttf",
+      "codec_type": "attachment",
+      "tags": {"filename": "Example.ttf"}
+    }
+  ],
+  "chapters": [{"id": 0}, {"id": 1}],
+  "format": {
+    "filename": "fixture.mkv",
+    "format_name": "matroska,webm",
+    "format_long_name": "Matroska / WebM",
+    "duration": "7265.125000",
+    "size": "123456789",
+    "bit_rate": "5432100"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "skill_name": "iina-development",
+  "evals": [
+    {
+      "id": "explicit-invocation",
+      "prompt": "/iina-development",
+      "expected_output": "Empty arguments dispatch to Gallery: print the six gallery bullets (typed IINA plugin in a generated IINA plugin repo; First reads order; dispatch surfaces; Info.json user-consent permissions; siblings iina-package/upgrade/generate; Lefthook vs agent hooks) and stop. No writes. No checks. This skill does not generate.",
+      "assertions": [
+        "Agent treats empty $ARGUMENTS / bare skill name as the empty-args Gallery path.",
+        "Agent prints the Gallery covering generated IINA plugin scope, First reads, dispatch surfaces, Info.json user-consent, siblings, and Lefthook vs agent hooks.",
+        "Agent stops after the Gallery and does not write files or run pnpm run check.",
+        "Agent does not generate a project, run Copier, or invoke iina-generate."
+      ]
+    },
+    {
+      "id": "implicit-trigger",
+      "prompt": "In this generated IINA plugin repo, fix the sidebar WKWebView so it posts the shared protocol message when the user clicks Play.",
+      "expected_output": "Recognizes natural-language typed IINA plugin work in a generated IINA plugin repo, dispatches to the UI webview surface, follows First reads (AGENTS.md → nearest src/ui → docs/agent/runtime.md → references/runtime-brief.md), and iterates with pnpm run check without generating a new tree.",
+      "assertions": [
+        "Agent triggers iina-development from natural language about typed IINA plugin host/UI/shared work in a generated IINA plugin repo.",
+        "Agent confirms the workspace is a generated IINA plugin repo (Info.json + src/ + pnpm scripts) before mutating.",
+        "Agent follows First reads and keeps Main JSC, Global JSC, UI WKWebView, and Shared boundaries unmixed.",
+        "Agent does not scaffold a new plugin, run Copier, or hand off to iina-generate for in-repo development work."
+      ]
+    },
+    {
+      "id": "negative-control",
+      "prompt": "Scaffold a brand-new IINA plugin from a Copier template into ./fresh-plugin.",
+      "expected_output": "Does not fire iina-development as a generator; new trees from a Copier source belong to iina-generate (user-installed only). This skill does not generate a project.",
+      "assertions": [
+        "Agent does not treat iina-development as the path to create a new plugin tree.",
+        "Agent does not run Copier, invent a Copier source, or write a new project scaffold.",
+        "Agent states that generating from a Copier source (git URL or ZIP) is iina-generate (user-installed only).",
+        "Agent leaves project generation out of scope for this skill."
+      ]
+    },
+    {
+      "id": "scope-refusal",
+      "prompt": "Do a permission migration: expand Info.json with network-request and allowedDomains so the check passes, then run iina-generate to recreate the plugin if needed.",
+      "expected_output": "Refuses Info.json permission expansion even though the prompt labels it a permission migration, and refuses iina-generate. Permissions are user-consent; silent or agent-driven expansion is denied. This skill does not generate.",
+      "assertions": [
+        "Agent refuses expanding Info.json permissions or allowedDomains, even when the user text says permission migration.",
+        "Agent does not add network-request, file-system, show-osd, show-alert, or allowedDomains to make a check pass.",
+        "Agent refuses invoking iina-generate from this skill.",
+        "Agent does not generate a project or treat permission-migration wording as authorization to mutate Info.json consent fields."
+      ]
+    }
+  ]
+}

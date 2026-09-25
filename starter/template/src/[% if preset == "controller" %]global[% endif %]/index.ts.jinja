@@ -1,0 +1,13 @@
+import {CHANNEL, isReady, makeSnapshot} from "../shared/protocol.js";
+const surface = iina.standaloneWindow;
+surface.setProperty({title: [[ plugin_name | tojson ]], resizable: true});
+surface.onMessage(CHANNEL, (message: unknown) => {
+  if (!isReady(message)) return;
+  surface.postMessage(CHANNEL, makeSnapshot(message.viewId, 1, "Global controller ready", false));
+});
+surface.loadFile("ui/index.html");
+iina.menu.addItem(iina.menu.item("Open controller", () => surface.open()));
+iina.global.onMessage("iina-starter:open:v1", (value: unknown) => {
+  if (typeof value === "object" && value !== null && "v" in value && value.v === 1 && Object.keys(value).length === 1) surface.open();
+});
+// Player inventory and restoration are intentionally not invented by this starter.

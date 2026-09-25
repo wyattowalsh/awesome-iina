@@ -1,0 +1,16 @@
+import {CHANNEL, createReceiver, type Ready} from "../shared/protocol.js";
+const title = document.getElementById("title");
+const status = document.getElementById("status");
+if (!title || !status) throw new Error("Missing UI elements");
+if (typeof iina === "undefined") {
+  status.textContent = "Preview only: IINA bridge unavailable";
+} else {
+  const viewId = `view-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+  const receive = createReceiver(viewId, (snapshot) => {
+    title.textContent = (snapshot.title ?? "").trim() ? snapshot.title : "No media";
+    status.textContent = [% if preset == 'controller' %]"Connected to global context"[% else %]snapshot.paused ? "Paused" : "Playing"[% endif %];
+  });
+  iina.onMessage(CHANNEL, receive);
+  const ready: Ready = {v: 1, kind: "ready", viewId};
+  iina.postMessage(CHANNEL, ready);
+}

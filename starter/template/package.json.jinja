@@ -1,0 +1,51 @@
+{
+  "name": [[ plugin_slug | tojson ]],
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.4.1",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+      "doctor": "node scripts/doctor.mjs",
+      "fixture:media": "python3 scripts/create-fixture.py",
+      "support:report": "node scripts/doctor.mjs --support --json",
+      "bootstrap": "node scripts/bootstrap.mjs",
+      "fmt": "node scripts/quality.mjs format",
+      "fmt:check": "node scripts/quality.mjs format-check",
+      "lint": "node scripts/quality.mjs lint",
+      "typecheck": "node scripts/typecheck.mjs",
+      "boundaries": "node scripts/boundaries.mjs",
+      "test": "node --test tests/unit/*.test.mjs tests/contracts/*.test.mjs tests/contracts/*.test.ts",
+      "check": "node scripts/check.mjs",
+      "build": "node scripts/build.mjs",
+      "dev": "node scripts/dev.mjs",
+      "preview": "node scripts/preview.mjs",
+      "verify:stage": "node scripts/validate.mjs --stage",
+      "link": "node scripts/iina-cli.mjs link",
+      "unlink": "node scripts/iina-cli.mjs unlink",
+      "pack": "node scripts/iina-cli.mjs pack",
+      "docs:check": "node scripts/docs.ts check",
+      "docs:prepare": "node scripts/docs.ts prepare",
+      "docs:dev": "node scripts/docs.ts dev",
+      "docs:build": "node scripts/docs.ts build",
+      "hooks:install": "node scripts/hooks.mjs",
+      "template:check": "uvx --from copier==9.18.2 copier check-update --output-format json",
+      "template:update": "node scripts/template-update.mjs",
+      "release:check": "node scripts/release.mjs check",
+      "release:prepare": "node scripts/release.mjs prepare"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "@typescript/typescript6": "6.0.2",
+    "esbuild": "0.28.2",
+    "prettier": "3.6.2",
+    "@biomejs/biome": "2.5.13"[% if docs_profile == "starlight" %],
+    "astro": "7.2.10",
+    "@astrojs/starlight": "0.42.0",
+    "@astrojs/starlight-tailwind": "5.0.0",
+    "tailwindcss": "4.3.3",
+    "@tailwindcss/vite": "4.3.3"[% endif %]
+  }
+}

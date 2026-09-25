@@ -1,0 +1,21 @@
+name: Bug report
+description: Report reproducible plugin behavior without exposing personal media.
+body:
+  - type: textarea
+    id: versions
+    attributes:
+      label: Plugin, IINA and macOS versions
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction and expected behavior
+      description: Prefer first-party test media; omit private file paths and URLs.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Reviewed diagnostics
+      description: Optional output of pnpm run support:report. Do not paste raw logs or tokens.

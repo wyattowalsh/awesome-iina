@@ -1,0 +1,217 @@
+name: Weekly deep IINA ecosystem discovery
+
+on:
+  schedule:
+    - cron: "43 4 * * 0"
+      timezone: "America/New_York"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: discovery-deep
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          version: "0.12.13"
+          enable-cache: true
+          cache-dependency-glob: |
+            pyproject.toml
+            uv.lock
+
+      - name: Install Python and dependencies
+        run: |
+          uv python install 3.13
+          if [[ -f uv.lock ]]; then
+            uv sync --all-groups --locked
+          else
+            uv sync --all-groups
+          fi
+
+      - name: Prepare evidence directories
+        run: mkdir -p output/deep output/baseline
+
+      - name: Restore the most recent merged deep snapshot
+        id: baseline
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: output/baseline/deep.json
+          key: iina-discovery-deep-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            iina-discovery-deep-
+
+      - name: Refresh authoritative source evidence
+        id: sources
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          uv run awesome-iina sources sync --config src/awesome_iina/discovery/discovery.yaml \
+            2>&1 | tee output/deep/source-refresh.log
+
+      - name: Preserve source and configuration evidence
+        id: context
+        continue-on-error: true
+        if: always()
+        run: |
+          mkdir -p output/deep/sources
+          cp src/awesome_iina/discovery/discovery.yaml output/deep/discovery-config.yaml
+          find src/awesome_iina/discovery/snapshots -maxdepth 1 -type f -name '*.json' -exec cp {} output/deep/sources/ \;
+          git diff --no-ext-diff -- src/awesome_iina/discovery/snapshots > output/deep/source-changes.patch
+
+      - name: Run the full REST scan
+        id: rest
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          uv run awesome-iina discover --config src/awesome_iina/discovery/discovery.yaml \
+            --mode full --backend rest \
+            --output output/deep/rest.json \
+            --checkpoint output/deep/rest.checkpoint.json \
+            --strict 2>&1 | tee output/deep/rest.log
+
+      - name: Run the full GraphQL scan
+        id: graphql
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          uv run awesome-iina discover --config src/awesome_iina/discovery/discovery.yaml \
+            --mode full --backend graphql \
+            --output output/deep/graphql.json \
+            --checkpoint output/deep/graphql.checkpoint.json \
+            --strict 2>&1 | tee output/deep/graphql.log
+
+      - name: Produce backend-specific reports
+        id: backend_reports
+        continue-on-error: true
+        if: always()
+        run: |
+          if [[ -f output/deep/rest.json ]]; then
+            uv run awesome-iina report output/deep/rest.json \
+              --output output/deep/rest-report.md \
+              --review-output output/deep/rest-review.yaml
+          fi
+          if [[ -f output/deep/graphql.json ]]; then
+            uv run awesome-iina report output/deep/graphql.json \
+              --output output/deep/graphql-report.md \
+              --review-output output/deep/graphql-review.yaml
+          fi
+
+      - name: Merge REST and GraphQL evidence for one review queue
+        id: merge
+        continue-on-error: true
+        if: >-
+          always() &&
+          hashFiles('output/deep/rest.json') != '' &&
+          hashFiles('output/deep/graphql.json') != ''
+        run: |
+          uv run awesome-iina merge-discovery \
+            output/deep/rest.json output/deep/graphql.json \
+            --output output/deep/merged.json
+          uv run awesome-iina report output/deep/merged.json \
+            --output output/deep/merged-report.md \
+            --review-output output/deep/merged-review.yaml
+          uv run awesome-iina diff-snapshots \
+            output/deep/rest.json output/deep/graphql.json \
+            --output output/deep/backend-diff.md
+          uv run awesome-iina diff-snapshots \
+            output/deep/rest.json output/deep/graphql.json \
+            --json --output output/deep/backend-diff.json
+
+      - name: Compare with the previous successful deep snapshot
+        id: history_diff
+        continue-on-error: true
+        if: >-
+          always() &&
+          hashFiles('output/baseline/deep.json') != '' &&
+          hashFiles('output/deep/merged.json') != ''
+        run: |
+          uv run awesome-iina diff-snapshots \
+            output/baseline/deep.json output/deep/merged.json \
+            --output output/deep/change-summary.md
+          uv run awesome-iina diff-snapshots \
+            output/baseline/deep.json output/deep/merged.json \
+            --json --output output/deep/change-summary.json
+
+      - name: Publish a concise workflow summary
+        if: always()
+        run: |
+          {
+            echo "## Weekly deep IINA ecosystem discovery"
+            echo
+            echo "REST and GraphQL evidence are reconciled for review; no catalog entry is promoted automatically."
+            for file in output/deep/change-summary.md output/deep/backend-diff.md output/deep/merged-report.md; do
+              if [[ -f "$file" ]]; then
+                echo
+                sed -n '1,180p' "$file"
+              fi
+            done
+            if [[ ! -f output/deep/merged-report.md ]]; then
+              echo
+              echo "No merged result was produced; inspect the uploaded logs."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Stage the merged result as the next deep baseline
+        if: >-
+          always() &&
+          steps.sources.outcome == 'success' &&
+          steps.context.outcome == 'success' &&
+          steps.rest.outcome == 'success' &&
+          steps.graphql.outcome == 'success' &&
+          steps.backend_reports.outcome == 'success' &&
+          steps.merge.outcome == 'success' &&
+          hashFiles('output/deep/merged.json') != ''
+        run: cp output/deep/merged.json output/baseline/deep.json
+
+      - name: Save the deep baseline
+        if: >-
+          always() &&
+          steps.sources.outcome == 'success' &&
+          steps.context.outcome == 'success' &&
+          steps.rest.outcome == 'success' &&
+          steps.graphql.outcome == 'success' &&
+          steps.backend_reports.outcome == 'success' &&
+          steps.merge.outcome == 'success' &&
+          hashFiles('output/baseline/deep.json') != ''
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: output/baseline/deep.json
+          key: iina-discovery-deep-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Upload evidence even when a backend is incomplete
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: iina-discovery-deep-${{ github.run_id }}
+          path: output/deep/
+          if-no-files-found: warn
+          retention-days: 60
+
+      - name: Surface incomplete or failed work
+        if: >-
+          always() &&
+          (steps.sources.outcome != 'success' ||
+           steps.context.outcome != 'success' ||
+           steps.rest.outcome != 'success' ||
+           steps.graphql.outcome != 'success' ||
+           steps.backend_reports.outcome != 'success' ||
+           steps.merge.outcome != 'success' ||
+           steps.history_diff.outcome == 'failure')
+        run: |
+          echo "Deep discovery was incomplete. Review the uploaded evidence; the catalog was not changed."
+          exit 1

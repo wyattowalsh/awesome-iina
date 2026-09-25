@@ -1,0 +1,82 @@
+# [[ plugin_slug ]]: engineering contract
+
+This tree is a **generated IINA plugin repo**: a [[ preset ]] IINA plugin, with
+preferences [[ preferences | lower ]]. Audience: IINA plugin authors in this
+checkout. Not catalog maintainers.
+
+User code lives in `src/`. Copier maintains `scripts/`, `types/`, contract tests
+and base configuration. Read nearby implementation before changing architecture.
+
+## Canonical terms
+
+Use these names only. Do not invent synonyms.
+
+| Term | In this repo |
+| --- | --- |
+| generated IINA plugin repo | This tree. Workspace skills are development, package, and upgrade only. It must not contain `iina-generate`, must not nest the Agent Plugins kit, and must not receive catalog-root `.cursor/` or catalog-root `plugin.json`. |
+| Agent Plugins kit | Closed Agent Plugins v1.0.0 `plugin.json`, skills, rules, agents, and agent hooks. No `mcp.json`. Downstream IINA plugin authors install it into their own harness. It is not catalog-maintainer tooling. Do not embed it here: no nested `plugins/iina-plugin-dev`. |
+| user-installed plugin | The Agent Plugins kit after the author installs it locally in their harness. Generate lives there, not in this tree. |
+| Copier source (git URL or ZIP) | The template the **author names** when creating a new tree. Generate never invents the source, never runs `git init`, and never executes Copier itself. |
+| catalog maintainer | Someone working in the awesome-iina checkout (`awesome-iina-maintainer` only). This repo is not that checkout. Catalog-root `skills/` is maintainer-only. Do not add a catalog-root `iina-plugin-starter` router. |
+| native IINA plugin package | The `.iinaplugin` / `.iinaplgz` archive from `pnpm run pack`. Agent files must never appear in that archive. This is not the Agent Plugins kit. |
+| Lefthook vs agent hooks | Copier `hooks:` installs optional **Lefthook** git-hook configuration. Cursor/Copilot `hooks.json` files are **agent hooks**. Do not use one name for both. Copier `hooks:` is not an agent hook. |
+| `iina-generate` (user-installed only) | Lives only on the user-installed plugin. This generated IINA plugin repo must not include it. Happy path is `copy_argv.py` then `uvx copier copy` on that plugin, not `just starter-generate` and not `repo_wrapper.py`. |
+
+## Skills in this workspace
+
+`iina-development`, `iina-package`, and `iina-upgrade` live in this repo. Cursor
+discovers `.cursor/skills`, `.cursor/rules`, and `.cursor/hooks.json` here (no
+plugin install required for those workspace files). `iina-generate` is not
+present here.
+
+| Skill | Lives here | Use |
+| --- | --- | --- |
+| `iina-development` | yes | Typed host / UI / Info.json work |
+| `iina-package` | yes | native IINA plugin package via `pnpm run pack` |
+| `iina-upgrade` | yes | Reviewed Copier template update of this tree |
+| `iina-generate` (user-installed only) | **no** | New tree from a Copier source (git URL or ZIP) the author names |
+
+Do not run `just starter-generate`. That is not the author path. Do not look for
+`plugins/iina-plugin-dev/` or a catalog-root `iina-plugin-starter` router in this
+repo. To create another plugin, install the Agent Plugins kit as a
+**user-installed plugin** and follow `iina-generate` (user-installed only).
+
+[% if hooks %]
+Lefthook configuration is included but not activated. Review `lefthook.yml`, then
+run `pnpm run hooks:install` only when the author asked. Copier `hooks:` is
+Lefthook, not an agent hook. Workspace `.cursor/hooks.json` files are agent hooks.
+[% endif %]
+
+## Commands
+
+Use `pnpm run check`, `pnpm run build`, `pnpm run verify:stage`. `node scripts/doctor.mjs` is read-only.
+`pnpm run link`, `pnpm run unlink`, and `pnpm run pack` are explicit native operations.
+Do not substitute `pnpm pack` (npm package archive) for `pnpm run pack` (native IINA plugin package).
+
+## Runtimes
+
+Main JSC is not Node or a browser. Global JSC has no player `mpv`, event or core.
+UI has DOM plus a narrow message port, not host APIs. Shared code has neither.
+Never bypass this with `any`, `@ts-ignore`, dynamic evaluation or a broad ambient import.
+Confirm exact API names against `docs/agent/runtime.md` and the pinned host source.
+
+No network, helper execution or credentials are needed by the baseline. Do not add
+wildcard domains or expand permissions just to make a check pass. Info.json permissions
+are user-consent. No unsolicited application restart, dependency install, template
+trust flag (`--trust` / `--UNSAFE`), `--overwrite`, remote write or publication.
+
+## Evidence
+
+Report separately: source checks, mock contracts, production bundle checks and native
+IINA checks. A Jinja fixture is not Copier; Node VM is not JavaScriptCore; browser
+WebKit is not IINA's WKWebView. Not-run is never passed.
+
+See `docs/agent/runtime.md`, `docs/agent/updating.md`, and `docs/agent/native.md`.
+
+Documentation profile: [[ docs_profile ]]. Edit docs/content, not derived site copies.
+Formatting/bootstrap/hooks are explicit operations. Do not install packages from check.
+`support:report` emits allowlisted metadata, not raw logs. The native release-evidence
+checker validates a human report; it does not launch or test IINA itself.
+
+Agent files (`AGENTS.md`, `.cursor/**`, skills, `plugin.json`, `scripts/agent-guard.mjs`,
+`scripts/rules.mjs`) must never appear in a native IINA plugin package.

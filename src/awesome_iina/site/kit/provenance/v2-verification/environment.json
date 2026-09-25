@@ -1,0 +1,14 @@
+{
+  "python": "3.13.5",
+  "os": "Linux",
+  "packages": {
+    "Pillow": "12.3.0",
+    "CairoSVG": "2.8.2",
+    "fonttools": "4.63.0",
+    "numpy": "2.3.5",
+    "playwright": "1.57.0"
+  },
+  "browser": "Chromium 144.0.7559.96",
+  "browser_transport": "offline set_content with inlined local bytes; localhost navigation blocked by managed policy",
+  "fonts": "See provenance/font-inventory.json; no binaries distributed"
+}

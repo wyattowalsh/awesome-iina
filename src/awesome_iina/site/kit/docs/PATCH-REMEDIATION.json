@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "kit_revision": "2.1.1",
+  "identity_revision": "2.0.0-review.1",
+  "audit_target": "awesome-iina-brand-kit-v2.1.0(1).zip",
+  "audit_source_sha256": "13594f1061fa43d241b4e230611a97ac500aeb40bb447be1ec4f806dd1d95ec3",
+  "visual_policy": "No redesign; all 35 supplied production artwork files preserved exactly",
+  "findings": [
+    {
+      "id": "F01",
+      "title": "Manifest identity base",
+      "implementation": "fixed",
+      "source_paths": [
+        "source/deployment.json",
+        "source/manifest.template.json",
+        "scripts/brandkit/core.py",
+        "scripts/configure_site.py",
+        "scripts/brandkit/install.py"
+      ],
+      "tests": [
+        "tests/test_manifest_identity.py",
+        "qa/browser-results.json"
+      ],
+      "remaining": "Native processed manifest, installed-app migration and public deployment are not asserted."
+    },
+    {
+      "id": "F02",
+      "title": "Editable kerning parity",
+      "implementation": "fixed",
+      "source_paths": [
+        "scripts/build_assets.py",
+        "source/wordmark-dark-editable.svg",
+        "source/wordmark-light-editable.svg",
+        "source/social-card-editable.svg"
+      ],
+      "tests": [
+        "tests/test_type_and_selection.py",
+        "scripts/verify_type_parity.py",
+        "qa/type-parity/type-parity.json"
+      ],
+      "remaining": "Other renderers and arbitrary text modifications are not guaranteed by the six-element proof."
+    },
+    {
+      "id": "F03",
+      "title": "Default shipping identity",
+      "implementation": "fixed",
+      "source_paths": [
+        "source/shipping-selection.json",
+        "integration/demo/index.html",
+        "scripts/brandkit/install.py",
+        "scripts/package_kit.py"
+      ],
+      "tests": [
+        "tests/test_type_and_selection.py",
+        "qa/browser-results.json",
+        "qa/upgrade-smoke.json"
+      ],
+      "remaining": "Previously installed optional files are not silently garbage-collected; primary markup does not select them."
+    },
+    {
+      "id": "F04",
+      "title": "Contextual clarity versus recognition",
+      "implementation": "contextual_copy_preserved",
+      "tests": [
+        "qa/browser-results.json"
+      ],
+      "remaining": "Formative human recognition is optional and unperformed; no new geometry commissioned."
+    },
+    {
+      "id": "F05",
+      "title": "Platform evidence boundaries",
+      "implementation": "documented_and_locally_tested",
+      "tests": [
+        "qa/browser-results.json",
+        "qa/navigation-attempt.json"
+      ],
+      "remaining": "Actual GitHub, Safari/iOS, native tab selection/cache and public manifest behavior remain untested."
+    },
+    {
+      "id": "F06",
+      "title": "Artwork reuse terms",
+      "implementation": "limits_clarified",
+      "source_paths": [
+        "docs/ASSET-USE.md"
+      ],
+      "remaining": "Owner adoption of a broad public reuse license is not an implementation action and is not claimed."
+    }
+  ],
+  "public_release_approved": false,
+  "automatic_score_change": null,
+  "external_decisions": [
+    "Public identity adoption",
+    "Broad artwork-reuse terms, if desired",
+    "Relevant real-host/browser acceptance"
+  ],
+  "gates": {
+    "local_patch": "F01/F02/F03 implementation and regression tests; bytes preserved; hashes/rebuild/extraction verified",
+    "github_artwork": "No new visual defect established; actual upload/placement is a separate user action",
+    "website": "Use configured stable app_id; validate actual host before claiming platform acceptance"
+  }
+}

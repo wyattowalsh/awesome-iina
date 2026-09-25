@@ -1,0 +1,99 @@
+{
+  "$defs": {
+    "CandidateDecision": {
+      "enum": [
+        "accept",
+        "review",
+        "reject"
+      ],
+      "title": "CandidateDecision",
+      "type": "string"
+    },
+    "Category": {
+      "enum": [
+        "core",
+        "official-plugin",
+        "playback",
+        "subtitles-language",
+        "libraries-streaming",
+        "capture-editing",
+        "enhancement-rendering",
+        "casting-integrations",
+        "tracking-scrobbling",
+        "automation-companions",
+        "development",
+        "media-tooling",
+        "historical"
+      ],
+      "title": "Category",
+      "type": "string"
+    },
+    "OverrideRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "categories": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/Category"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Categories"
+        },
+        "decision": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CandidateDecision"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Note"
+        },
+        "score_delta": {
+          "default": 0,
+          "title": "Score Delta",
+          "type": "integer"
+        }
+      },
+      "title": "OverrideRecord",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "repositories": {
+      "additionalProperties": {
+        "$ref": "#/$defs/OverrideRecord"
+      },
+      "title": "Repositories",
+      "type": "object"
+    },
+    "version": {
+      "default": 1,
+      "title": "Version",
+      "type": "integer"
+    }
+  },
+  "title": "OverrideFile",
+  "type": "object"
+}

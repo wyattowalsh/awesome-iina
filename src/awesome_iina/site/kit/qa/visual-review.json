@@ -1,0 +1,27 @@
+{
+  "kit_revision": "2.1.1",
+  "status": "reviewed locally",
+  "method": "Direct inspection of current generated screenshots and byte-identical artwork; not a user study",
+  "reference_policy": "All 35 artwork files must match the predecessor; the demo is an intentional integration correction, not a redesign",
+  "checks": [
+    {
+      "file": "assets/brand/github-social-preview-1280x640.png",
+      "observation": "Existing title, role lines, icon and wave composition unchanged."
+    },
+    {
+      "file": "qa/type-parity/wordmark-dark-editable-400.png",
+      "observation": "Live text matches the existing wordmark layout; no fallback or missing visible glyphs in the checked render."
+    },
+    {
+      "file": "qa/previews/readme-live-390.png",
+      "observation": "Current wordmark is visible above live name, scope and independence text. No historical hero competes with it; no horizontal overflow."
+    },
+    {
+      "file": "qa/previews/readme-dark-1200.png",
+      "observation": "Dark current wordmark/theme pairing, legible hierarchy and intact live copy; old hero is absent."
+    }
+  ],
+  "intentional_change": "Default demo foregrounds current identity while preserved old illustrations remain in review/archive material.",
+  "human_recognition_tested": false,
+  "platform_acceptance_claimed": false
+}

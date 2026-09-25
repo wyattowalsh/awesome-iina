@@ -1,0 +1,526 @@
+{
+  "$defs": {
+    "CategoryInferenceConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "core_repositories": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Core Repositories",
+          "type": "array"
+        },
+        "official_org_fallback": {
+          "default": "development",
+          "title": "Official Org Fallback",
+          "type": "string"
+        },
+        "official_org_prefix": {
+          "default": "iina/",
+          "title": "Official Org Prefix",
+          "type": "string"
+        },
+        "official_plugin_name_contains": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Official Plugin Name Contains",
+          "type": "array"
+        }
+      },
+      "title": "CategoryInferenceConfig",
+      "type": "object"
+    },
+    "CodeQueryConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "default": true,
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "query": {
+          "title": "Query",
+          "type": "string"
+        },
+        "quick": {
+          "default": false,
+          "title": "Quick",
+          "type": "boolean"
+        },
+        "weight": {
+          "default": 45,
+          "title": "Weight",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "query"
+      ],
+      "title": "CodeQueryConfig",
+      "type": "object"
+    },
+    "GithubConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "api_version": {
+          "default": "2026-03-10",
+          "title": "Api Version",
+          "type": "string"
+        },
+        "code_search_delay_seconds": {
+          "default": 6.2,
+          "minimum": 0,
+          "title": "Code Search Delay Seconds",
+          "type": "number"
+        },
+        "created_from": {
+          "default": "2007-01-01",
+          "format": "date",
+          "title": "Created From",
+          "type": "string"
+        },
+        "created_to": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Created To"
+        },
+        "deep_candidate_limit": {
+          "default": 500,
+          "minimum": 1,
+          "title": "Deep Candidate Limit",
+          "type": "integer"
+        },
+        "enrichment_batch_size": {
+          "default": 20,
+          "maximum": 50,
+          "minimum": 1,
+          "title": "Enrichment Batch Size",
+          "type": "integer"
+        },
+        "host": {
+          "default": "github.com",
+          "title": "Host",
+          "type": "string"
+        },
+        "initial_backoff_seconds": {
+          "default": 2.0,
+          "minimum": 0,
+          "title": "Initial Backoff Seconds",
+          "type": "number"
+        },
+        "max_backoff_seconds": {
+          "default": 120.0,
+          "minimum": 1,
+          "title": "Max Backoff Seconds",
+          "type": "number"
+        },
+        "max_content_bytes": {
+          "default": 1000000,
+          "maximum": 10000000,
+          "minimum": 1,
+          "title": "Max Content Bytes",
+          "type": "integer"
+        },
+        "max_requests": {
+          "default": 2000,
+          "minimum": 1,
+          "title": "Max Requests",
+          "type": "integer"
+        },
+        "max_retries": {
+          "default": 6,
+          "minimum": 0,
+          "title": "Max Retries",
+          "type": "integer"
+        },
+        "max_shard_depth": {
+          "default": 30,
+          "minimum": 1,
+          "title": "Max Shard Depth",
+          "type": "integer"
+        },
+        "max_total_wait_seconds": {
+          "default": 900.0,
+          "minimum": 0,
+          "title": "Max Total Wait Seconds",
+          "type": "number"
+        },
+        "page_size": {
+          "default": 100,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Page Size",
+          "type": "integer"
+        },
+        "repository_backend": {
+          "default": "graphql",
+          "enum": [
+            "graphql",
+            "rest"
+          ],
+          "title": "Repository Backend",
+          "type": "string"
+        },
+        "repository_request_delay_seconds": {
+          "default": 0.35,
+          "minimum": 0,
+          "title": "Repository Request Delay Seconds",
+          "type": "number"
+        },
+        "repository_search_delay_seconds": {
+          "default": 2.1,
+          "minimum": 0,
+          "title": "Repository Search Delay Seconds",
+          "type": "number"
+        },
+        "request_timeout_seconds": {
+          "default": 45.0,
+          "exclusiveMinimum": 0,
+          "maximum": 300,
+          "title": "Request Timeout Seconds",
+          "type": "number"
+        },
+        "search_cap": {
+          "default": 1000,
+          "maximum": 1000,
+          "minimum": 1,
+          "title": "Search Cap",
+          "type": "integer"
+        }
+      },
+      "title": "GithubConfig",
+      "type": "object"
+    },
+    "PathsConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "catalog": {
+          "default": "src/awesome_iina/catalog/catalog.yaml",
+          "format": "path",
+          "title": "Catalog",
+          "type": "string"
+        },
+        "discovery_output": {
+          "default": "output/discovery/latest.json",
+          "format": "path",
+          "title": "Discovery Output",
+          "type": "string"
+        },
+        "official_plugins_snapshot": {
+          "default": "src/awesome_iina/discovery/snapshots/iina-plugins.json",
+          "format": "path",
+          "title": "Official Plugins Snapshot",
+          "type": "string"
+        },
+        "overrides": {
+          "default": "src/awesome_iina/discovery/overrides.yaml",
+          "format": "path",
+          "title": "Overrides",
+          "type": "string"
+        },
+        "readme": {
+          "default": "README.md",
+          "format": "path",
+          "title": "Readme",
+          "type": "string"
+        },
+        "readme_template": {
+          "default": "src/awesome_iina/catalog/templates/README.md.j2",
+          "format": "path",
+          "title": "Readme Template",
+          "type": "string"
+        },
+        "report_output": {
+          "default": "output/discovery-latest.md",
+          "format": "path",
+          "title": "Report Output",
+          "type": "string"
+        },
+        "review_output": {
+          "default": "output/discovery/review.yaml",
+          "format": "path",
+          "title": "Review Output",
+          "type": "string"
+        }
+      },
+      "title": "PathsConfig",
+      "type": "object"
+    },
+    "RepositoryQueryConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "date_sharding": {
+          "default": true,
+          "title": "Date Sharding",
+          "type": "boolean"
+        },
+        "enabled": {
+          "default": true,
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "query": {
+          "title": "Query",
+          "type": "string"
+        },
+        "quick": {
+          "default": false,
+          "title": "Quick",
+          "type": "boolean"
+        },
+        "weight": {
+          "default": 20,
+          "title": "Weight",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "query"
+      ],
+      "title": "RepositoryQueryConfig",
+      "type": "object"
+    },
+    "ScoringConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "accept_threshold": {
+          "default": 70,
+          "title": "Accept Threshold",
+          "type": "integer"
+        },
+        "archived_penalty": {
+          "default": 20,
+          "title": "Archived Penalty",
+          "type": "integer"
+        },
+        "description_iina_bonus": {
+          "default": 15,
+          "title": "Description Iina Bonus",
+          "type": "integer"
+        },
+        "disabled_penalty": {
+          "default": 80,
+          "title": "Disabled Penalty",
+          "type": "integer"
+        },
+        "empty_penalty": {
+          "default": 40,
+          "title": "Empty Penalty",
+          "type": "integer"
+        },
+        "fork_penalty": {
+          "default": 12,
+          "title": "Fork Penalty",
+          "type": "integer"
+        },
+        "gh_repo_match_bonus": {
+          "default": 25,
+          "title": "Gh Repo Match Bonus",
+          "type": "integer"
+        },
+        "name_iina_bonus": {
+          "default": 20,
+          "title": "Name Iina Bonus",
+          "type": "integer"
+        },
+        "official_org_bonus": {
+          "default": 80,
+          "title": "Official Org Bonus",
+          "type": "integer"
+        },
+        "review_threshold": {
+          "default": 35,
+          "title": "Review Threshold",
+          "type": "integer"
+        },
+        "topic_iina_bonus": {
+          "default": 20,
+          "title": "Topic Iina Bonus",
+          "type": "integer"
+        },
+        "topic_iina_plugin_bonus": {
+          "default": 45,
+          "title": "Topic Iina Plugin Bonus",
+          "type": "integer"
+        },
+        "valid_manifest_bonus": {
+          "default": 90,
+          "title": "Valid Manifest Bonus",
+          "type": "integer"
+        }
+      },
+      "title": "ScoringConfig",
+      "type": "object"
+    },
+    "SourceConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "destination": {
+          "anyOf": [
+            {
+              "format": "path",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Destination"
+        },
+        "enabled": {
+          "default": true,
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "title": "Kind",
+          "type": "string"
+        },
+        "path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Path"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ref"
+        },
+        "repository": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Repository"
+        },
+        "url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Url"
+        },
+        "weight": {
+          "default": 80,
+          "title": "Weight",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "kind"
+      ],
+      "title": "SourceConfig",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "category_inference": {
+      "$ref": "#/$defs/CategoryInferenceConfig"
+    },
+    "code_queries": {
+      "items": {
+        "$ref": "#/$defs/CodeQueryConfig"
+      },
+      "title": "Code Queries",
+      "type": "array"
+    },
+    "github": {
+      "$ref": "#/$defs/GithubConfig"
+    },
+    "media_context_terms": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Media Context Terms",
+      "type": "array"
+    },
+    "negative_terms": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Negative Terms",
+      "type": "array"
+    },
+    "paths": {
+      "$ref": "#/$defs/PathsConfig"
+    },
+    "repository_queries": {
+      "items": {
+        "$ref": "#/$defs/RepositoryQueryConfig"
+      },
+      "title": "Repository Queries",
+      "type": "array"
+    },
+    "scoring": {
+      "$ref": "#/$defs/ScoringConfig"
+    },
+    "sources": {
+      "items": {
+        "$ref": "#/$defs/SourceConfig"
+      },
+      "title": "Sources",
+      "type": "array"
+    },
+    "version": {
+      "default": 1,
+      "title": "Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "repository_queries",
+    "code_queries"
+  ],
+  "title": "DiscoveryConfig",
+  "type": "object"
+}

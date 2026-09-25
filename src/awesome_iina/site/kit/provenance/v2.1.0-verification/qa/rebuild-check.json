@@ -1,0 +1,8 @@
+{
+  "artwork_files": 35,
+  "before_rebuild_matches": true,
+  "v2_predecessor_matches": true,
+  "changed_artwork": [],
+  "font_files_distributed": false,
+  "method": "Real build_assets.py with local Inter OTFs, exact recorded hashes checked before use"
+}

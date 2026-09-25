@@ -1,0 +1,1 @@
+Interview follow-up (2026-09-24): `out-of-scope` only had awesome.re + kit artwork checked. Treat React/shadcn on the catalog and category regrouping as still out of scope (recommended; those two facts are in facts-review.json so they can be removed in the UI).

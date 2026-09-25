@@ -1,0 +1,344 @@
+{
+  "effort_bands": {
+    "Small": "Bounded copy, documentation or configuration work",
+    "Medium": "One coherent asset/integration workstream with QA",
+    "Large": "Identity decision and optical construction requiring alternatives and judgment"
+  },
+  "tasks": [
+    {
+      "id": "T01",
+      "title": "Choose repository-only or full identity/web release and approve independence copy",
+      "priority": "P1",
+      "depends_on": [],
+      "finding_ids": [
+        "F02"
+      ],
+      "responsible_disciplines": [
+        "Maintainer",
+        "Brand strategy"
+      ],
+      "effort_band": "Small",
+      "deliverables": [
+        {
+          "path": "brand/RELEASE-SCOPE.md",
+          "status": "proposed, not created in this audit"
+        }
+      ],
+      "acceptance_tests": [
+        "Select required placements and explicitly defer optional ones.",
+        "Approve independent-community wording and art versus primary-symbol roles."
+      ],
+      "release_scope": "All public releases"
+    },
+    {
+      "id": "T02",
+      "title": "Develop and select one distinctive compact-symbol construction",
+      "priority": "P1",
+      "depends_on": [
+        "T01"
+      ],
+      "finding_ids": [
+        "F01",
+        "F02",
+        "F05"
+      ],
+      "responsible_disciplines": [
+        "Identity designer",
+        "Maintainer"
+      ],
+      "effort_band": "Large",
+      "deliverables": [
+        {
+          "path": "brand/source/symbol.svg",
+          "status": "proposed, not created in this audit"
+        },
+        {
+          "path": "brand/IDENTITY-DECISION.md",
+          "status": "proposed, not created in this audit"
+        }
+      ],
+      "acceptance_tests": [
+        "Letter-free; independent from official IINA silhouette.",
+        "Compare unchanged current art and candidate at identical sizes.",
+        "One stable cue works without traffic dots, glow or secondary sparkle."
+      ],
+      "release_scope": "Primary identity/web-icon release only"
+    },
+    {
+      "id": "T03",
+      "title": "Draw optical small-size variants and export the approved icon family",
+      "priority": "P1",
+      "depends_on": [
+        "T02"
+      ],
+      "finding_ids": [
+        "F01",
+        "F06"
+      ],
+      "responsible_disciplines": [
+        "Icon designer",
+        "Production"
+      ],
+      "effort_band": "Medium",
+      "deliverables": [
+        {
+          "path": "brand/source/symbol-small.svg",
+          "status": "proposed, not created in this audit"
+        },
+        {
+          "path": "assets/brand/web/favicon.ico",
+          "status": "proposed, not created in this audit"
+        },
+        {
+          "path": "assets/brand/web/favicon-16x16.png",
+          "status": "proposed, not created in this audit"
+        },
+        {
+          "path": "assets/brand/web/favicon-32x32.png",
+          "status": "proposed, not created in this audit"
+        }
+      ],
+      "acceptance_tests": [
+        "Test 16/24/32/48/64 CSS sizes at DPR1/2; label actual source sizes.",
+        "All ICO frames decode and match approved PNGs.",
+        "Record intended background treatment and tested browser-tab selection."
+      ],
+      "release_scope": "Website/icon release only"
+    },
+    {
+      "id": "T04",
+      "title": "Refine social card with editable title and one readable role line",
+      "priority": "P1",
+      "depends_on": [
+        "T01"
+      ],
+      "finding_ids": [
+        "F02",
+        "F03",
+        "F05"
+      ],
+      "responsible_disciplines": [
+        "Brand designer",
+        "Content designer"
+      ],
+      "effort_band": "Medium",
+      "deliverables": [
+        {
+          "path": "brand/source/social-card.svg",
+          "status": "proposed, not created in this audit"
+        },
+        {
+          "path": "assets/brand/github-social-preview.png",
+          "status": "proposed, not created in this audit"
+        }
+      ],
+      "acceptance_tests": [
+        "Retain existing raster illustration only as supporting art.",
+        "Name plus role line readable at proposed 320x160 stress test without zoom.",
+        "1280x640 PNG/JPG/GIF under1MB, then actual GitHub preview check.",
+        "No required meaning depends on tiny category row."
+      ],
+      "release_scope": "Repository social-card release"
+    },
+    {
+      "id": "T05",
+      "title": "Integrate existing hero with live title and independent-catalog description",
+      "priority": "P1",
+      "depends_on": [
+        "T01"
+      ],
+      "finding_ids": [
+        "F02",
+        "F03"
+      ],
+      "responsible_disciplines": [
+        "Repository maintainer",
+        "Accessibility review"
+      ],
+      "effort_band": "Small",
+      "deliverables": [
+        {
+          "path": "README.md",
+          "status": "proposed, not created in this audit"
+        },
+        {
+          "path": "assets/brand/readme-hero.png",
+          "status": "proposed, not created in this audit"
+        }
+      ],
+      "acceptance_tests": [
+        "Meaning and scope remain clear with image disabled.",
+        "Check actual narrow/wide README rendering; no dependency on raster tagline.",
+        "Choose correct alt treatment for decorative/informative usage."
+      ],
+      "release_scope": "Repository release"
+    },
+    {
+      "id": "T06",
+      "title": "Complete website metadata and served asset routes",
+      "priority": "P1",
+      "depends_on": [
+        "T01",
+        "T03",
+        "T04"
+      ],
+      "finding_ids": [
+        "F04"
+      ],
+      "responsible_disciplines": [
+        "Web developer"
+      ],
+      "effort_band": "Small",
+      "deliverables": [
+        {
+          "path": "site/head-template (path to be chosen)",
+          "status": "proposed, not created in this audit"
+        },
+        {
+          "path": "site/public/brand/site.webmanifest",
+          "status": "proposed, not created in this audit"
+        }
+      ],
+      "acceptance_tests": [
+        "All four OG basic properties; no placeholder; correct absolute image URL.",
+        "Dimensions match selected 1280x640 or intentionally chosen1200x630 image.",
+        "Manifest/icons resolve under actual deployed base path.",
+        "Do not claim maskable/PWA behavior not requested or tested."
+      ],
+      "release_scope": "Website release only"
+    },
+    {
+      "id": "T07",
+      "title": "Document provenance, maintainer authorization and asset reuse policy",
+      "priority": "P2",
+      "depends_on": [
+        "T01"
+      ],
+      "finding_ids": [
+        "F07"
+      ],
+      "responsible_disciplines": [
+        "Maintainer",
+        "Release management"
+      ],
+      "effort_band": "Small",
+      "deliverables": [
+        {
+          "path": "brand/PROVENANCE.md",
+          "status": "proposed, not created in this audit"
+        },
+        {
+          "path": "brand/ASSET-USE.md",
+          "status": "proposed, not created in this audit"
+        }
+      ],
+      "acceptance_tests": [
+        "Record original hashes and C2PA metadata status without overstating validation.",
+        "Record that raster derivatives omit credential chunks.",
+        "Approve public selection and explicit reuse terms; seek qualified legal review only if a concrete rights concern or legal assurance is required."
+      ],
+      "release_scope": "Governance; complete applicable authorization before public selection"
+    },
+    {
+      "id": "T08",
+      "title": "Establish editable-source, typography and color export conventions",
+      "priority": "P2",
+      "depends_on": [
+        "T01"
+      ],
+      "finding_ids": [
+        "F05",
+        "F08"
+      ],
+      "responsible_disciplines": [
+        "Production designer",
+        "Developer"
+      ],
+      "effort_band": "Medium",
+      "deliverables": [
+        {
+          "path": "brand/STYLE.md",
+          "status": "proposed, not created in this audit"
+        },
+        {
+          "path": "brand/FONT-DEPENDENCIES.md",
+          "status": "proposed, not created in this audit"
+        },
+        {
+          "path": "brand/EXPORTS.json",
+          "status": "proposed, not created in this audit"
+        }
+      ],
+      "acceptance_tests": [
+        "Specify approved color interpretation, named roles, font source/license and editable layout.",
+        "Keep illustration raster where justified; do not auto-trace it as a fake vector master.",
+        "Record tool versions and source-to-export graph."
+      ],
+      "release_scope": "Maintenance, parallel with T02/T04; required conventions applied to revised exports"
+    },
+    {
+      "id": "T09",
+      "title": "Run scoped recognition review and final release checks",
+      "priority": "P1",
+      "depends_on": [
+        "T01",
+        "T04",
+        "T05"
+      ],
+      "finding_ids": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F07"
+      ],
+      "responsible_disciplines": [
+        "Maintainer",
+        "Design reviewer",
+        "Accessibility reviewer",
+        "Representative users"
+      ],
+      "effort_band": "Medium",
+      "deliverables": [
+        {
+          "path": "brand/RELEASE-CHECKS.md",
+          "status": "proposed, not created in this audit"
+        }
+      ],
+      "acceptance_tests": [
+        "Repository gate: T04/T05 plus documented authorization decision.",
+        "Full identity/web gate additionally waits for T02/T03/T06 and chosen source conventions.",
+        "No applicable P1 remains; checksum selected outputs; inspect native sizes and real deployment.",
+        "Record small formative matching/first-impression review separately from technical tests; do not extrapolate market success."
+      ],
+      "release_scope": "All release scopes; conditional prerequisites recorded",
+      "conditional_dependencies": {
+        "full_identity_web": [
+          "T02",
+          "T03",
+          "T06"
+        ],
+        "public_reuse_claim": [
+          "T07"
+        ],
+        "revised_source_conventions": [
+          "T08"
+        ]
+      }
+    }
+  ],
+  "repository_critical_path": [
+    "T01",
+    "T04",
+    "T05",
+    "T09"
+  ],
+  "full_identity_web_critical_path": [
+    "T01",
+    "T02",
+    "T03",
+    "T06",
+    "T09"
+  ],
+  "note": "T04 may retain current illustration as secondary art; it does not require completion of T02 for the repository-only release. T06 also depends on T04. These are proposed tasks, not implemented changes."
+}

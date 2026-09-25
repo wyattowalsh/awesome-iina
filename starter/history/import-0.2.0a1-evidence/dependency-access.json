@@ -1,0 +1,7 @@
+{
+  "probe": "HEAD https://pypi.org/simple/copier/",
+  "returncode": 6,
+  "stdout": "",
+  "stderr": "curl: (6) Could not resolve host: pypi.org\n",
+  "consequence": "Package installation not executed; no lockfile fabricated."
+}

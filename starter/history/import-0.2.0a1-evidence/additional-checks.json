@@ -1,0 +1,376 @@
+[
+  {
+    "label": "generated syntax prettier.config.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/prettier.config.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax scripts/bootstrap.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/scripts/bootstrap.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax scripts/boundaries.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/scripts/boundaries.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax scripts/build-lock.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/scripts/build-lock.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax scripts/build.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/scripts/build.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax scripts/check.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/scripts/check.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax scripts/common.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/scripts/common.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax scripts/dev.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/scripts/dev.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax scripts/docs.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/scripts/docs.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax scripts/doctor.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/scripts/doctor.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax scripts/hooks.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/scripts/hooks.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax scripts/iina-cli.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/scripts/iina-cli.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax scripts/preview.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/scripts/preview.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax scripts/quality.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/scripts/quality.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax scripts/release.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/scripts/release.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax scripts/template-update.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/scripts/template-update.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax scripts/typecheck.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/scripts/typecheck.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax scripts/validate.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/scripts/validate.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax site/astro.config.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/site/astro.config.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax tests/contracts/build-lock.test.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/tests/contracts/build-lock.test.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax tests/contracts/developer-tools.test.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/tests/contracts/developer-tools.test.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax tests/contracts/docs.test.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/tests/contracts/docs.test.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax tests/contracts/policy.test.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/tests/contracts/policy.test.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax tests/contracts/stage.test.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/tests/contracts/stage.test.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax tests/helpers/load-ts.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/tests/helpers/load-ts.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax tests/unit/entry.test.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/tests/unit/entry.test.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated syntax tests/unit/protocol.test.mjs",
+    "command": [
+      "node",
+      "--check",
+      "/tmp/iina-docs-audit-jcvje6ma/plugin/tests/unit/protocol.test.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "generated scripts/docs.mjs check",
+    "command": [
+      "node",
+      "scripts/docs.mjs",
+      "check"
+    ],
+    "returncode": 0,
+    "stdout": "{\"layer\":\"markdown-local-links\",\"pages\":7,\"status\":\"passed\",\"anchors\":\"not-validated\"}\n",
+    "stderr": ""
+  },
+  {
+    "label": "generated scripts/docs.mjs prepare",
+    "command": [
+      "node",
+      "scripts/docs.mjs",
+      "prepare"
+    ],
+    "returncode": 0,
+    "stdout": "{\"profile\":\"starlight\",\"pages\":8,\"base\":\"/\"}\n",
+    "stderr": ""
+  },
+  {
+    "label": "generated scripts/doctor.mjs --support",
+    "command": [
+      "node",
+      "scripts/doctor.mjs",
+      "--support",
+      "--json"
+    ],
+    "returncode": 0,
+    "stdout": "{\n  \"schemaVersion\": 1,\n  \"platform\": \"linux\",\n  \"arch\": \"x64\",\n  \"versions\": {\n    \"node\": \"22.16.0\",\n    \"pnpm\": null\n  },\n  \"checks\": [\n    {\n      \"check\": \"node\",\n      \"status\": \"mismatch\"\n    },\n    {\n      \"check\": \"pnpm\",\n      \"status\": \"missing-or-mismatch\"\n    },\n    {\n      \"check\": \"lockfile\",\n      \"status\": \"missing\"\n    },\n    {\n      \"check\": \"iina-cli\",\n      \"status\": \"missing\"\n    },\n    {\n      \"check\": \"dev-link\",\n      \"status\": \"absent\"\n    },\n    {\n      \"check\": \"IINA-native-execution\",\n      \"status\": \"not-run\"\n    }\n  ],\n  \"privacy\": \"No media paths, file contents, environment values, URLs, or raw logs included.\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "label": "maintainer scripts/docs.mjs check",
+    "command": [
+      "node",
+      "scripts/docs.mjs",
+      "check"
+    ],
+    "returncode": 0,
+    "stdout": "{\"status\":\"passed\",\"pages\":6}\n",
+    "stderr": ""
+  },
+  {
+    "label": "maintainer scripts/docs.mjs prepare",
+    "command": [
+      "node",
+      "scripts/docs.mjs",
+      "prepare"
+    ],
+    "returncode": 0,
+    "stdout": "{\"profile\":\"starlight\",\"pages\":7,\"base\":\"/\"}\n",
+    "stderr": ""
+  },
+  {
+    "label": "maintainer tools/verify_workflows.py ",
+    "command": [
+      "/opt/pyvenv/bin/python",
+      "tools/verify_workflows.py"
+    ],
+    "returncode": 0,
+    "stdout": "{\"layer\": \"structural-workflow-check\", \"files\": 2, \"errors\": 0, \"actionlint\": \"not-run\", \"zizmor\": \"not-run\"}\n",
+    "stderr": ""
+  },
+  {
+    "label": "maintainer syntax site/astro.config.mjs",
+    "command": [
+      "node",
+      "--check",
+      "site/astro.config.mjs"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

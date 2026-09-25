@@ -1,0 +1,86 @@
+{
+  "rubric": "User default, unchanged",
+  "scope": "Supplied single-direction package in its documented repository and optional website roles; website findings remain conditional. Not a comparison with another revision.",
+  "dimensions": [
+    {
+      "dimension": "Distinctiveness and strategic fit",
+      "weight": 25,
+      "score": 2.5,
+      "weighted_points": 12.5,
+      "confidence": "Medium",
+      "rationale": "Media relevance and welcoming tone; player-first proposition and insufficient independent/community signal.",
+      "finding_ids": [
+        "F02"
+      ]
+    },
+    {
+      "dimension": "Recognition and scalability across intended uses",
+      "weight": 25,
+      "score": 2,
+      "weighted_points": 10.0,
+      "confidence": "Medium-high",
+      "rationale": "Large illustrations read well; 16-32 icon detail and reduced descriptive copy lose required usefulness.",
+      "finding_ids": [
+        "F01",
+        "F03"
+      ]
+    },
+    {
+      "dimension": "Coherence of intended shipping system",
+      "weight": 15,
+      "score": 4,
+      "weighted_points": 12.0,
+      "confidence": "High",
+      "rationale": "Consistent palette, window/plugin cues and derivations; no penalty for legitimate composition differences. Primary-vs-illustrative roles not settled.",
+      "finding_ids": [
+        "F02",
+        "F05"
+      ]
+    },
+    {
+      "dimension": "Typography, hierarchy and composition",
+      "weight": 15,
+      "score": 3,
+      "weighted_points": 9.0,
+      "confidence": "Medium-high",
+      "rationale": "Name and desktop composition are strong; long small raster descriptions do not adapt. No exact font identified.",
+      "finding_ids": [
+        "F03",
+        "F05"
+      ]
+    },
+    {
+      "dimension": "Accessibility and contextual adaptability",
+      "weight": 10,
+      "score": 3,
+      "weighted_points": 6.0,
+      "confidence": "Medium",
+      "rationale": "Bright-on-dark structures survive grayscale and CVD simulation; live-text deployment, cutout contexts and small details unresolved.",
+      "finding_ids": [
+        "F01",
+        "F03",
+        "F06",
+        "F08"
+      ]
+    },
+    {
+      "dimension": "Technical delivery and maintainability",
+      "weight": 10,
+      "score": 4.5,
+      "weighted_points": 9.0,
+      "confidence": "High for encoding; medium for release integration",
+      "rationale": "Excellent hash/format/derivation checks and candid documentation; editable source, metadata integration and provenance policy gaps remain.",
+      "finding_ids": [
+        "F04",
+        "F05",
+        "F07",
+        "F08"
+      ]
+    }
+  ],
+  "assessed_points": 58.5,
+  "assessed_weight": 100,
+  "assessment_coverage_percent": 100,
+  "not_assessed_dimensions": [],
+  "warning": "Dimension coverage is not platform test coverage or market validation. P1 failures override the aggregate."
+}

@@ -1,0 +1,110 @@
+{
+  "stage": "interview",
+  "title": "UI/UX enhance across catalog and docs surfaces",
+  "goalSlug": "ui-ux-audit",
+  "questions": [
+    {
+      "id": "surface-order",
+      "prompt": "Which surfaces are in-scope, in polish order?",
+      "description": "Audits already ran. Catalog is the awesome web app (no-bundler HTML/CSS/JS). docs/ is GFM handbook, not a site. Starlight may use Tailwind tokens. Generated plugins must not receive catalog identity. Origin github.com is still a stub README with no Actions workflows.",
+      "answerMode": "multi-custom",
+      "recommendedAnswer": "Catalog site first, then generated GitHub README, then origin stub publish (unblocks live README proof and Actions badges), then maintainer Starlight, Copier Starlight/CSS, plugin webview, kit HTML last.",
+      "recommendedOptionIds": [
+        "catalog-site",
+        "github-readme",
+        "github-origin-stub",
+        "maintainer-starlight",
+        "copier-starlight",
+        "plugin-webview",
+        "kit-html"
+      ],
+      "options": [
+        { "id": "catalog-site", "label": "Catalog site (src/awesome_iina/site → dist/site)" },
+        { "id": "github-readme", "label": "Generated GitHub README (README.md.j2)" },
+        { "id": "maintainer-starlight", "label": "Maintainer Starlight (starter/site, kit tokens allowed)" },
+        { "id": "copier-starlight", "label": "Copier Starlight/CSS (zinc/blue only; no catalog identity)" },
+        { "id": "plugin-webview", "label": "Plugin webview (starter template src/ui)" },
+        { "id": "kit-html", "label": "Kit HTML (START-HERE.html / review/index.html)" },
+        { "id": "github-origin-stub", "label": "GitHub origin stub publish (live README + Actions badge.svg)" }
+      ],
+      "required": true
+    },
+    {
+      "id": "catalog-p1s",
+      "prompt": "Which catalog P1s are in-scope this goal?",
+      "description": "Start here is 19 rows (~1748px) above #filters, so search is not in the first viewport. Light Reset/Catalog-label borders are 2.96:1 on --card (need ≥3:1). Dark already passes. Recommend both.",
+      "answerMode": "multi",
+      "recommendedAnswer": "Both: move search/filters above Start here, and raise light-theme control contrast to ≥3:1.",
+      "recommendedOptionIds": ["filters-above-start", "light-control-contrast"],
+      "options": [
+        { "id": "filters-above-start", "label": "Move search/filters above Start here" },
+        { "id": "light-control-contrast", "label": "Light-theme control contrast ≥3:1 (border and/or button fill)" }
+      ],
+      "required": true
+    },
+    {
+      "id": "start-here-density",
+      "prompt": "How dense should Start here be on the catalog site and the generated README?",
+      "description": "One catalog.yaml featured set drives both. design.md wants a short name + one-liner list, not a second catalog. Today: 19 featured (10 active, 9 unknown).",
+      "answerMode": "single",
+      "recommendedAnswer": "Shrink featured to a short onboarding list (~5–8 name + one-liner) on both catalog and README; leave the rest in provenance / Curated ecosystem only.",
+      "recommendedOptionIds": ["short-5-8"],
+      "options": [
+        { "id": "short-5-8", "label": "Short featured list (~5–8 name + one-liner) on catalog AND README" },
+        { "id": "keep-19", "label": "Keep 19 featured rows on catalog AND README" }
+      ],
+      "required": true
+    },
+    {
+      "id": "readme-p1s",
+      "prompt": "Which README P1s should this goal fix (unselected = document only)?",
+      "description": "Awesome badge still links awesome.re though the list is not a listing. Four Actions badge.svg URLs 404 because origin has no workflows. lint-awesome does not resolve picture/srcset/img (paths exist today).",
+      "answerMode": "multi-custom",
+      "recommendedAnswer": "Fix all three: relink Awesome badge to the list policy (keep the image if local lint requires it); omit 404 Actions chips until origin workflows exist, then keep native GitHub badge URLs; extend lint-awesome to resolve picture/srcset/img.",
+      "recommendedOptionIds": [
+        "awesome-badge-fix",
+        "actions-badges-fix",
+        "picture-srcset-lint"
+      ],
+      "options": [
+        { "id": "awesome-badge-fix", "label": "Fix: relink Awesome badge away from awesome.re (keep image if lint requires)" },
+        { "id": "actions-badges-fix", "label": "Fix: omit 404 Actions chips until origin workflows exist (native URLs after publish)" },
+        { "id": "picture-srcset-lint", "label": "Fix: lint-awesome resolves picture/srcset/img paths" }
+      ],
+      "required": true
+    },
+    {
+      "id": "beautify-depth",
+      "prompt": "How far should this goal beautify in-scope surfaces?",
+      "description": "Stay on existing kit tokens. Catalog remains vanilla HTML/CSS/JS (no React, no bundler). Theme control stays named Dark theme. Not a kit artwork rewrite.",
+      "answerMode": "single",
+      "recommendedAnswer": "Noticeable visual polish within existing kit tokens (spacing, type, chrome, density) plus the contrast/IA/a11y P1s — not a new visual language.",
+      "recommendedOptionIds": ["kit-polish"],
+      "options": [
+        { "id": "restrained", "label": "Restrained refine: contrast, IA, and a11y only" },
+        { "id": "kit-polish", "label": "Noticeable visual polish within existing kit tokens" }
+      ],
+      "required": true
+    },
+    {
+      "id": "out-of-scope",
+      "prompt": "Confirm these stay out of scope.",
+      "description": "Locked: no React/shadcn on the catalog; catalog stays provenance-grouped (not category regroup); not an awesome.re submission; kit artwork is SSOT and is not redrawn here. Uncheck any item that should become in-scope.",
+      "answerMode": "multi-custom",
+      "recommendedAnswer": "All four remain out of scope.",
+      "recommendedOptionIds": [
+        "no-react-catalog",
+        "no-category-regroup",
+        "no-awesome-re-submit",
+        "no-kit-artwork-rewrite"
+      ],
+      "options": [
+        { "id": "no-react-catalog", "label": "No React / shadcn on the catalog" },
+        { "id": "no-category-regroup", "label": "Do not regroup the catalog by category" },
+        { "id": "no-awesome-re-submit", "label": "No awesome.re listing submission" },
+        { "id": "no-kit-artwork-rewrite", "label": "Do not rewrite kit artwork" }
+      ],
+      "required": true
+    }
+  ]
+}

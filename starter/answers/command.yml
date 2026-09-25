@@ -1,0 +1,9 @@
+plugin_name: IINA Command Example
+plugin_slug: iina-command-example
+plugin_identifier: org.example.iina-command-example
+user_name: Plugin Author
+description: A typed IINA command plugin.
+preset: command
+preferences: true
+docs_profile: starlight
+hooks: false

@@ -1,0 +1,70 @@
+name: Template CI
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+permissions:
+  contents: read
+concurrency:
+  group: template-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  template:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.13.15'
+      - name: Install template test dependencies
+        run: python -m pip install 'copier==9.18.2' 'pytest==8.4.2' 'PyYAML==6.0.2'
+      - name: Static template and actual Copier tests
+        env:
+          REQUIRE_COPIER: '1'
+        run: |
+          python tools/verify_workflows.py
+          python -m pytest tests --junitxml=reports/template-tests.xml
+          python tools/check_junit.py reports/template-tests.xml --require-suite real-copier
+  generated:
+    strategy:
+      fail-fast: false
+      matrix:
+        preset: [command, sidebar, overlay, controller]
+        preferences: ['false', 'true']
+        docs: [markdown, starlight]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.13.15'
+      - name: Install template test dependencies
+        run: python -m pip install 'copier==9.18.2' 'pytest==8.4.2' 'PyYAML==6.0.2'
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .node-version
+          package-manager-cache: false
+      - run: npm install --global pnpm@12.4.1
+      - name: Generate with real Copier and exercise the documented first-use workflow
+        env:
+          TEST_PRESET: ${{ matrix.preset }}
+          TEST_PREFERENCES: ${{ matrix.preferences }}
+          TEST_DOCS: ${{ matrix.docs }}
+        run: python tools/integration_matrix.py --preset "$TEST_PRESET" --preferences "$TEST_PREFERENCES" --docs "$TEST_DOCS"
+  required:
+    if: always()
+    needs: [template, generated]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - env:
+          TEMPLATE_RESULT: ${{ needs.template.result }}
+          GENERATED_RESULT: ${{ needs.generated.result }}
+        run: test "$TEMPLATE_RESULT" = success && test "$GENERATED_RESULT" = success

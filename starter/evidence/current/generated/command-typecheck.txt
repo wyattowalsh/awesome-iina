@@ -1,0 +1,2 @@
+{"layer":"typecheck","compiler":"Version 5.8.3","configs":["tsconfig.main.json"],"status":"passed"}
+AUDIT OVERRIDE: typechecker /opt/nvm/versions/node/v22.16.0/bin/tsc

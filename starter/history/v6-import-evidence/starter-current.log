@@ -1,0 +1,9 @@
+.............................................................sssssssssss [ 50%]
+sssssssssssssssssssssssssssssss.......................................   [100%]
+=========================== short test summary info ============================
+SKIPPED [32] tests/test_real_copier.py:19: Copier unavailable: real generation/merge/trust NOT tested
+SKIPPED [4] tests/test_real_copier.py:31: Copier unavailable: real generation/merge/trust NOT tested
+SKIPPED [1] tests/test_real_copier.py:52: Copier unavailable: real generation/merge/trust NOT tested
+SKIPPED [4] tests/test_real_copier.py:61: Copier unavailable: real generation/merge/trust NOT tested
+SKIPPED [1] tests/test_real_copier.py:99: Copier unavailable: real generation/merge/trust NOT tested
+100 passed, 42 skipped in 23.18s

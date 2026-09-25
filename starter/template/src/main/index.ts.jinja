@@ -1,0 +1,53 @@
+[% if preset in ['sidebar', 'overlay'] %]
+import {CHANNEL, isReady, makeSnapshot} from "../shared/protocol.js";
+import {Disposables} from "../shared/disposables.js";
+
+const subscriptions = new Disposables();
+const surface = iina.[[ preset ]];
+let viewId: string | undefined;
+let sequence = 0;
+let active = true;
+function publish(): void {
+  if (!active || !viewId) return;
+  try {
+    const rawTitle = iina.mpv.getString("media-title");
+    const title = [% if preferences %]iina.preferences.get("showTitle") === false ? "Media" : [% endif %]rawTitle;
+    surface.postMessage(CHANNEL, makeSnapshot(viewId, ++sequence, typeof title === "string" ? title : "No media", iina.mpv.getFlag("pause")));
+  } catch {
+    // Do not leak media filenames, URLs or credentials into shared logs.
+    iina.console.warn("Unable to read player state");
+  }
+}
+surface.onMessage(CHANNEL, (message: unknown) => {
+  if (!active || !isReady(message)) return;
+  if (viewId !== message.viewId) sequence = 0;
+  viewId = message.viewId;
+  publish();
+});
+for (const event of ["iina.file-loaded", "mpv.pause.changed"]) {
+  const id = iina.event.on(event, publish);
+  subscriptions.add(() => iina.event.off(event, id));
+}
+surface.loadFile("ui/index.html");
+[% if preset == 'overlay' %]surface.setClickable(false);
+[% endif %]iina.menu.addItem(iina.menu.item("Show / refresh [[ preset ]]", () => {
+  surface.show();
+  publish();
+}));
+iina.menu.addItem(iina.menu.item("Stop example session", () => {
+  active = false;
+  viewId = undefined;
+  subscriptions.dispose();
+  surface.hide();
+}));
+// Deliberately no invented unload event. Re-enable the plugin to restart this session.
+[% elif preset == 'controller' %]
+iina.menu.addItem(iina.menu.item("Open controller", () => {
+  iina.global.postMessage("iina-starter:open:v1", {v: 1});
+}));
+[% else %]
+iina.menu.addItem(iina.menu.item("Log plugin readiness", () => {
+  iina.console.log("Plugin ready");
+[% if preferences %]  iina.console.log("showTitle:", iina.preferences.get("showTitle") !== false);
+[% endif %]}));
+[% endif %]

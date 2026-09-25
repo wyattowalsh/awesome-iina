@@ -1,0 +1,44 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":pinDevDependencies"
+  ],
+  "automerge": false,
+  "dependencyDashboard": true,
+  "prConcurrentLimit": 3,
+  "minimumReleaseAge": "3 days",
+  "packageRules": [
+    {
+      "matchManagers": [
+        "copier"
+      ],
+      "groupName": "template infrastructure",
+      "automerge": false
+    },
+    {
+      "matchPackageNames": [
+        "typescript",
+        "@typescript/typescript6"
+      ],
+      "groupName": "compiler toolchain",
+      "automerge": false
+    },
+    {
+      "matchPackageNames": [
+        "astro",
+        "@astrojs/starlight"
+      ],
+      "groupName": "documentation framework",
+      "automerge": false
+    },
+    {
+      "matchManagers": [
+        "github-actions"
+      ],
+      "groupName": "workflow actions",
+      "pinDigests": true,
+      "automerge": false
+    }
+  ]
+}

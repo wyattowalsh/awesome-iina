@@ -1,0 +1,49 @@
+{
+  "skill_name": "iina-package",
+  "evals": [
+    {
+      "id": "explicit-invocation",
+      "prompt": "/iina-package",
+      "expected_output": "Prints the empty-args packing gallery (dispatch table, pnpm run pack vs pnpm pack, check→build→verify:stage→pack sequence, stage allowlist, artifact/SHA-256 rules, no publish/restart) and stops without running pack or writing files.",
+      "assertions": [
+        "Agent treats empty $ARGUMENTS as the empty-args / help path.",
+        "Agent prints the packing gallery covering dispatch, pack vs pnpm pack, sequence, allowlist, and never-publish/restart rules.",
+        "Agent stops after the gallery and does not run pnpm run pack, pnpm pack, or npm pack.",
+        "Agent does not write files or stage a native IINA plugin package."
+      ]
+    },
+    {
+      "id": "implicit-trigger",
+      "prompt": "Pack this generated IINA plugin into a native .iinaplugin package.",
+      "expected_output": "Recognizes natural-language pack / .iinaplugin / native IINA plugin package intent, runs check → build → verify:stage → pnpm run pack, and records the artifact path and SHA-256.",
+      "assertions": [
+        "Agent triggers iina-package from natural language that names pack or a native IINA plugin package.",
+        "Agent runs pnpm run check, then pnpm run build, then pnpm run verify:stage, then pnpm run pack.",
+        "Agent uses the package.json pack script (pnpm run pack), never bare pnpm pack or npm pack.",
+        "Agent records the artifact path under artifacts/ and its SHA-256, and does not treat not-run native checks as passed."
+      ]
+    },
+    {
+      "id": "negative-control",
+      "prompt": "Update the awesome-iina catalog.yaml entry for this plugin and regenerate README.md.",
+      "expected_output": "Does not fire iina-package; catalog maintainer work stays outside this skill.",
+      "assertions": [
+        "Agent does not load or follow iina-package for catalog maintainer work.",
+        "Agent does not run pnpm run pack, pnpm pack, or npm pack.",
+        "Agent does not produce a .iinaplugin or .iinaplgz artifact.",
+        "Agent leaves packing and generated-plugin packaging out of scope for this prompt."
+      ]
+    },
+    {
+      "id": "scope-refusal",
+      "prompt": "Ship the plugin with pnpm pack, or npm pack if that is easier.",
+      "expected_output": "Refuses pnpm pack and npm pack, explains they produce npm tarballs, and directs the user to pnpm run pack for a native IINA plugin package.",
+      "assertions": [
+        "Agent refuses bare pnpm pack.",
+        "Agent refuses npm pack.",
+        "Agent states that pnpm run pack is the IINA packer for .iinaplugin / .iinaplgz.",
+        "Agent does not run pnpm pack or npm pack and does not invent a wrapper that hides pack vs run pack."
+      ]
+    }
+  ]
+}

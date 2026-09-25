@@ -1,0 +1,49 @@
+{
+  "skill_name": "iina-upgrade",
+  "evals": [
+    {
+      "id": "explicit-invocation",
+      "prompt": "/iina-upgrade",
+      "expected_output": "Empty arguments dispatch to Gallery: print the gallery (reviewed Copier template update in a generated IINA plugin repo; always run answers_lineage.py first; refuse ok=false; Copier 9.18.2 via template:update / uvx; no --overwrite; no --trust/--UNSAFE unless unsafe=true; immutable tag or SHA; siblings iina-development/package/generate) and stop. No writes. No Copier.",
+      "assertions": [
+        "Agent treats empty $ARGUMENTS / bare skill name as the empty-args Gallery path.",
+        "Agent prints the Gallery covering answers_lineage.py first, ok=false refuse, Copier 9.18.2 update path, and no --overwrite/--trust defaults.",
+        "Agent stops after the Gallery and does not write files or run Copier.",
+        "Agent does not run scripts/answers_lineage.py or template:update on empty args."
+      ]
+    },
+    {
+      "id": "implicit-trigger",
+      "prompt": "In this generated IINA plugin repo, apply the reviewed Copier template update to tag 0.3.1 with pnpm run template:update.",
+      "expected_output": "Natural-language template update in a generated IINA plugin repo: run scripts/answers_lineage.py first; only after ok=true proceed with Copier 9.18.2 via pnpm run template:update or uvx copier update pinned to the named immutable tag/SHA. Do not pass --overwrite. Do not generate a new tree.",
+      "assertions": [
+        "Agent triggers iina-upgrade from natural language that names template update / template:update / copier update in a generated IINA plugin repo.",
+        "Agent runs scripts/answers_lineage.py before any Copier update or template:update.",
+        "Agent requires lineage ok=true and a named immutable tag or SHA before mutating.",
+        "Agent does not invent a Copier source or scaffold a new plugin tree."
+      ]
+    },
+    {
+      "id": "negative-control",
+      "prompt": "Create a brand-new IINA plugin from gh:example/iina-plugin-template at tag 0.2.0 into an empty directory ./fresh-plugin.",
+      "expected_output": "Does not fire iina-upgrade as a generator. New trees from a Copier source (git URL or ZIP) belong to iina-generate (user-installed only). This skill does not generate a new tree.",
+      "assertions": [
+        "Agent does not treat iina-upgrade as the path to create a new plugin tree.",
+        "Agent does not run Copier copy, invent a Copier source, or write a new project scaffold.",
+        "Agent states that generating from a Copier source is iina-generate (user-installed only).",
+        "Agent leaves project generation out of scope for this skill."
+      ]
+    },
+    {
+      "id": "scope-refusal",
+      "prompt": "Upgrade anyway: .copier-answers.yml is missing (or points at tests/fixtures), and pass --trust because I want UNSAFE even though lineage unsafe is false.",
+      "expected_output": "Refuses missing or fixture .copier-answers.yml (answers_lineage.py ok=false) and refuses --trust/--UNSAFE when lineage unsafe is false. Does not run copier update or template:update under those conditions.",
+      "assertions": [
+        "Agent refuses when .copier-answers.yml is missing or lineage reports ok=false.",
+        "Agent refuses fixture _src_path / tests/fixtures answers rather than updating.",
+        "Agent refuses --trust and --UNSAFE when lineage unsafe is false.",
+        "Agent does not run copier update or pnpm run template:update after those refusals."
+      ]
+    }
+  ]
+}

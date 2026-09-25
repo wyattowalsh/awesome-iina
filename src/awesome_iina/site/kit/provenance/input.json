@@ -1,0 +1,12 @@
+{
+  "source_archive": "awesome-iina-brand-assets.zip",
+  "source_sha256": "88df69ad75dd231dcb8f8fed6e4e69bbdd781102cb51e163fb546b54d7b75d59",
+  "preserved_payloads": 37,
+  "source_root": "archive/original-kit",
+  "source_artwork_unmodified": true,
+  "date": "2026-09-16",
+  "status": "implementation candidate; no human recognition or hosted deployment approval",
+  "audit_archive": "awesome-iina-complete-2026-09-16(1).zip",
+  "audit_archive_sha256": "50e30a01968dab9fd4a92037aa8f382c4e599472ea1e3d190430751e97a9fb41",
+  "audit_text_copies": "provenance/audit-input (unchanged selected source records; complete source archive not duplicated)"
+}

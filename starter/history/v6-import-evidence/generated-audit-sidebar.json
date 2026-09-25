@@ -1,0 +1,99 @@
+{
+  "node": "v22.16.0",
+  "ts_api_override": "/opt/nvm/versions/node/v22.16.0/lib/node_modules/typescript/lib/typescript.js",
+  "ts_cli_override": "/opt/nvm/versions/node/v22.16.0/bin/tsc",
+  "results": [
+    {
+      "preset": "sidebar",
+      "preferences": false,
+      "command": [
+        "node",
+        "scripts/typecheck.mjs"
+      ],
+      "returncode": 0
+    },
+    {
+      "preset": "sidebar",
+      "preferences": false,
+      "command": [
+        "node",
+        "scripts/boundaries.mjs"
+      ],
+      "returncode": 0
+    },
+    {
+      "preset": "sidebar",
+      "preferences": false,
+      "command": [
+        "node",
+        "scripts/validate.mjs"
+      ],
+      "returncode": 0
+    },
+    {
+      "preset": "sidebar",
+      "preferences": false,
+      "command": [
+        "node",
+        "--test",
+        "tests/contracts/build-lock.test.mjs",
+        "tests/contracts/developer-tools.test.mjs",
+        "tests/contracts/docs.test.mjs",
+        "tests/contracts/integration.test.mjs",
+        "tests/contracts/policy.test.mjs",
+        "tests/contracts/stage.test.mjs",
+        "tests/unit/entry.test.mjs",
+        "tests/unit/protocol.test.mjs"
+      ],
+      "returncode": 0
+    },
+    {
+      "preset": "sidebar",
+      "preferences": true,
+      "command": [
+        "node",
+        "scripts/typecheck.mjs"
+      ],
+      "returncode": 0
+    },
+    {
+      "preset": "sidebar",
+      "preferences": true,
+      "command": [
+        "node",
+        "scripts/boundaries.mjs"
+      ],
+      "returncode": 0
+    },
+    {
+      "preset": "sidebar",
+      "preferences": true,
+      "command": [
+        "node",
+        "scripts/validate.mjs"
+      ],
+      "returncode": 0
+    },
+    {
+      "preset": "sidebar",
+      "preferences": true,
+      "command": [
+        "node",
+        "--test",
+        "tests/contracts/build-lock.test.mjs",
+        "tests/contracts/developer-tools.test.mjs",
+        "tests/contracts/docs.test.mjs",
+        "tests/contracts/integration.test.mjs",
+        "tests/contracts/policy.test.mjs",
+        "tests/contracts/stage.test.mjs",
+        "tests/unit/entry.test.mjs",
+        "tests/unit/protocol.test.mjs"
+      ],
+      "returncode": 0
+    }
+  ],
+  "copier": "not-run",
+  "pnpm_install": "not-run",
+  "esbuild_production_build": "not-run",
+  "IINA_native": "not-run"
+}

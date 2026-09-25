@@ -1,0 +1,61 @@
+# Awesome IINA
+
+[![Awesome](https://awesome.re/badge.svg)](docs/catalog/policy/awesome-list-policy.md)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
+> {{ catalog.metadata.description }}
+
+Independent of the IINA project. The Awesome badge marks list style only; this catalog is not an [awesome.re](https://awesome.re) listing.
+
+**{{ stats.projects }}** projects · **{{ stats.plugins }}** plugins · **{{ stats.official }}** official · **{{ stats.featured }}** featured · [Handbook](docs/README.md)
+
+## Contents
+
+- [Start here](#start-here)
+- [Curated ecosystem](#curated-ecosystem)
+{% for section in sections %}- [{{ section.title }}](#{{ section.title | lower | replace(' ', '-') | replace(',', '') | replace('/', '') }})
+{% endfor %}- [Handbook](#handbook)
+- [Contributing](#contributing)
+
+## Start here
+
+{% for project in featured %}{{ project | project }}
+{% endfor %}
+First-party plugin path: [plugin template](https://github.com/iina/iina-plugin-template), [TypeScript definitions](https://github.com/iina/iina-plugin-definition), and [plugin documentation](https://docs.iina.io/pages/creating-plugins.html). Workflow notes: [Plugin development](docs/catalog/authoring/plugin-development.md).
+
+## Curated ecosystem
+
+<!-- This section is generated from src/awesome_iina/catalog/catalog.yaml. Do not edit entries directly. -->
+{% for section in sections %}
+### {{ section.title }}
+
+{{ section.description }}
+
+{% for project in section.projects %}{{ project | project }}
+{% endfor %}
+{% endfor %}
+## Handbook
+
+Contributor map and runbooks live under [`docs/`](docs/README.md). Machine interfaces:
+
+- Catalog SSOT: [`src/awesome_iina/catalog/catalog.yaml`](src/awesome_iina/catalog/catalog.yaml)
+- Export + schemas: [`catalog.json`](src/awesome_iina/catalog/exports/catalog.json), [`schemas/`](src/awesome_iina/catalog/schemas/README.md)
+- Copier starter: [`starter/`](starter/README.md) · [guide](docs/catalog/authoring/plugin-starter.md)
+- Discovery: [`docs/discovery/`](docs/discovery/discovery.md)
+- Scope and review: [`scope.md`](docs/catalog/policy/scope.md), [`curation-playbook.md`](docs/catalog/policy/curation-playbook.md)
+- Agents: [`AGENTS.md`](AGENTS.md) · [`awesome-iina-maintainer`](skills/awesome-iina-maintainer/SKILL.md)
+- Browser catalog: [`src/awesome_iina/site/`](src/awesome_iina/site/README.md) · identity kit notes in [`docs/maintain/brand.md`](docs/maintain/brand.md)
+
+```bash
+just validate && just generate && just check
+just discover-nightly   # read-only GitHub scan; does not edit the catalog
+just starter-info
+```
+
+## Contributing
+
+Read [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.md), edit `src/awesome_iina/catalog/catalog.yaml`, then run `just validate && just generate && just check`. Suggest projects via the [project form](https://github.com/{{ catalog.metadata.repository }}/issues/new?template=project.yml).
+
+## License
+
+Original curation, documentation, and tooling are [MIT](LICENSE). Linked projects keep their own licenses. Attribution and independence: [`docs/history/NOTICE.md`](docs/history/NOTICE.md).

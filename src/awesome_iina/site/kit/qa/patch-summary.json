@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "kit_revision": "2.1.1",
+  "identity_revision": "2.0.0-review.1",
+  "status": "implemented and locally verified; external acceptance not asserted",
+  "source_zip_sha256": "13594f1061fa43d241b4e230611a97ac500aeb40bb447be1ec4f806dd1d95ec3",
+  "regression_tests": {
+    "schema_version": 1,
+    "kit_revision": "2.1.1",
+    "status": "passed",
+    "tests": 114,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "duration_seconds": 6.304,
+    "run_timestamp": "2026-09-16T13:42:37.164376+00:00",
+    "command": "python -m pytest -q",
+    "baseline_tests_passed": 70,
+    "new_regressions": 44,
+    "scope": "Offline temporary-project, source, packaging and integration regression tests; separate browser/typography evidence is not folded into this count."
+  },
+  "asset_checks": {
+    "passed": 82,
+    "total": 82
+  },
+  "rendering_and_http_checks": {
+    "passed": 35,
+    "total": 35,
+    "http_probes": 7,
+    "method": "Offline byte-inlined Chromium rendering, plus separate Python loopback HTTP probes"
+  },
+  "typography_checks": {
+    "passed": 38,
+    "total": 38,
+    "distinct_text_elements": 6,
+    "observations": 24,
+    "maximum_native_error_css_px": 0.01435500000002321,
+    "maximum_all_sizes_error_css_px": 0.10867638281251857,
+    "tolerance_css_px": 0.25
+  },
+  "rebuild_files_identical": 68,
+  "artworks_identical_to_predecessor": 35,
+  "original_kit_files_preserved": 37,
+  "upgrade_smoke_status": "passed",
+  "default_primary_delivery_assets": 35,
+  "optional_legacy_assets": 1,
+  "not_performed": [
+    "Applying to the user repository",
+    "Public deployment or GitHub upload/unfurl",
+    "Native processed-manifest installation or existing-user migration",
+    "Browser-tab icon selection/cache",
+    "Safari/iOS or other browsers",
+    "Human recognition study",
+    "Owner adoption of broad artwork-reuse terms",
+    "Ruff and just executables (not available)"
+  ],
+  "font_binaries_included": false,
+  "public_release_approved": false,
+  "new_design_score": null
+}

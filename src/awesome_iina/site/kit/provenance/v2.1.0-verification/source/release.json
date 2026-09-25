@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "revision": "2.1.0",
+  "identity_revision": "2.0.0-review.1",
+  "date": "2026-09-16",
+  "archive_root": "awesome-iina-brand-kit-v2.1.0",
+  "status": "locally verified tooling revision; design adoption and public deployment not asserted",
+  "predecessor": {
+    "file": "awesome-iina-brand-kit-v2-fixed.zip",
+    "sha256": "df307bf2286df4c88e3dde3631437a6eb3c34a0bfc4dea8ced85597aa18c3af8"
+  },
+  "visual_change_policy": "Preserve all production artwork bytes; this release improves integration, rebuilding and release checks."
+}

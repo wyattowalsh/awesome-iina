@@ -1,0 +1,16 @@
+Using Python 3.13.5 environment at: /mnt/data/iina-audit-work/venv
+WARN Retry attempt #0. Sleeping 542.526486ms before the next attempt
+WARN Retry attempt #0. Sleeping 631.238019ms before the next attempt
+WARN Retry attempt #0. Sleeping 515.115583ms before the next attempt
+WARN Retry attempt #1. Sleeping 845.388601ms before the next attempt
+WARN Retry attempt #1. Sleeping 1.148566808s before the next attempt
+WARN Retry attempt #1. Sleeping 429.364863ms before the next attempt
+WARN Retry attempt #2. Sleeping 3.041690421s before the next attempt
+WARN Retry attempt #2. Sleeping 1.892391381s before the next attempt
+WARN Retry attempt #2. Sleeping 2.915228637s before the next attempt
+error: Request failed after 3 retries
+  Caused by: Failed to fetch: `https://pypi.org/simple/pyyaml/`
+  Caused by: error sending request for url (https://pypi.org/simple/pyyaml/)
+  Caused by: client error (Connect)
+  Caused by: dns error
+  Caused by: failed to lookup address information: Temporary failure in name resolution

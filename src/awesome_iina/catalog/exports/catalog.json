@@ -1,0 +1,1960 @@
+{
+  "metadata": {
+    "description": "A deeply curated, reproducible index of IINA plugins, integrations, developer resources, workflows, and foundational media tooling.",
+    "generated_notice": "Catalog sections are generated from src/awesome_iina/catalog/catalog.yaml. Edit the catalog, not README.md.",
+    "repository": "wyattowalsh/awesome-iina",
+    "title": "Awesome IINA",
+    "version": 1
+  },
+  "projects": [
+    {
+      "category": "tracking-scrobbling",
+      "description": "Synchronizes anime-watching progress from IINA with AniList.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "AniList Sync",
+      "official": false,
+      "project_url": "https://github.com/gridness/anilist-sync",
+      "repo": "gridness/anilist-sync",
+      "slug": "anilist-sync",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "anilist",
+        "anime",
+        "tracking"
+      ]
+    },
+    {
+      "category": "media-tooling",
+      "description": "Provides the upstream real-time anime upscaling algorithms and shaders used by compatible integrations.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "shader",
+      "name": "Anime4K",
+      "official": false,
+      "project_url": "https://github.com/bloc97/Anime4K",
+      "repo": "bloc97/Anime4K",
+      "slug": "anime4k-upstream",
+      "sources": [
+        {
+          "label": "Upstream repository",
+          "url": "https://github.com/bloc97/Anime4K"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "anime",
+        "shader",
+        "upscaling"
+      ]
+    },
+    {
+      "category": "enhancement-rendering",
+      "description": "Applies Anime4K shaders for real-time anime upscaling during IINA playback.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Anime4K for IINA",
+      "official": false,
+      "plugin_identifier": "com.yorkyang2333.anime4k",
+      "project_url": "https://github.com/yorkyang2333/iina-anime4k",
+      "repo": "yorkyang2333/iina-anime4k",
+      "slug": "anime4k",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "anime4k",
+        "shader",
+        "upscaling"
+      ]
+    },
+    {
+      "category": "enhancement-rendering",
+      "description": "Analyzes playback audio with FFmpeg and applies cached peak or EBU R128 normalization in IINA.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "license": "MIT",
+      "minimum_iina": "1.4.0",
+      "name": "Audio Normalize",
+      "notes": "Requires FFmpeg; optional BLAKE3 or xxHash tools accelerate cache fingerprinting.",
+      "official": false,
+      "plugin_identifier": "io.github.audio-normalize",
+      "project_url": "https://github.com/Gabe-LS/iina-audio-normalize",
+      "repo": "Gabe-LS/iina-audio-normalize",
+      "slug": "audio-normalize",
+      "sources": [
+        {
+          "label": "Project README",
+          "url": "https://github.com/Gabe-LS/iina-audio-normalize/blob/main/README.md"
+        },
+        {
+          "label": "Plugin manifest",
+          "url": "https://github.com/Gabe-LS/iina-audio-normalize/blob/main/Info.json"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "audio",
+        "ebu r128",
+        "ffmpeg",
+        "loudness normalization"
+      ]
+    },
+    {
+      "category": "playback",
+      "description": "Lets users mark intro and outro ranges with an overlay, then skips those segments automatically.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Auto Skip",
+      "official": false,
+      "plugin_identifier": "io.iina.auto-skip",
+      "project_url": "https://github.com/pangziqiang/iina-auto-skip",
+      "repo": "pangziqiang/iina-auto-skip",
+      "slug": "auto-skip",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "intro skip",
+        "outro skip"
+      ]
+    },
+    {
+      "category": "playback",
+      "description": "Adds a compact A–B style looping workflow for repeating selected playback ranges.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "A–Z Loop",
+      "official": false,
+      "project_url": "https://github.com/micro-JAY/iina-az-loop",
+      "repo": "micro-JAY/iina-az-loop",
+      "slug": "az-loop",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "loop",
+        "repeat"
+      ]
+    },
+    {
+      "category": "subtitles-language",
+      "description": "Routes two audio tracks to separate left and right channels for bilingual viewing.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Bilingual Audio",
+      "official": false,
+      "plugin_identifier": "com.bilingual-audio.iina-plugin",
+      "project_url": "https://github.com/glechic/iina-bilingual-audio",
+      "repo": "glechic/iina-bilingual-audio",
+      "slug": "bilingual-audio",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "audio tracks",
+        "language learning"
+      ]
+    },
+    {
+      "category": "playback",
+      "description": "Saves named timestamps and makes them manageable and reusable across IINA playback sessions.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Bookmarks",
+      "official": false,
+      "plugin_identifier": "com.wyattowalsh.iina-plugin-bookmarks",
+      "project_url": "https://github.com/wyattowalsh/iina-plugin-bookmarks",
+      "repo": "wyattowalsh/iina-plugin-bookmarks",
+      "slug": "bookmarks",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "bookmarks",
+        "timestamps"
+      ]
+    },
+    {
+      "category": "libraries-streaming",
+      "description": "Experiments with a cinema-oriented media experience inside IINA.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Cinema IINA Plugin",
+      "official": false,
+      "project_url": "https://github.com/hailp-vn38/cinema-iina-plugin",
+      "repo": "hailp-vn38/cinema-iina-plugin",
+      "slug": "cinema-plugin",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "experimental",
+      "tags": [
+        "cinema",
+        "media browsing"
+      ]
+    },
+    {
+      "category": "playback",
+      "description": "Fullscreen pause overlay and intro skipping, with an optional Stremio next-episode shortcut.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "CineMode",
+      "notes": "Listed upstream; native compatibility has not been tested here.",
+      "official": false,
+      "plugin_identifier": "com.doca.iina-cinemode",
+      "project_url": "https://github.com/D0CA/iina-cinemode",
+      "repo": "D0CA/iina-cinemode",
+      "slug": "cinemode",
+      "sources": [
+        {
+          "label": "IINA plugin index, reviewed 2026-09-16",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "fullscreen",
+        "skip-intro"
+      ]
+    },
+    {
+      "category": "subtitles-language",
+      "description": "Makes subtitle words clickable and sends them to the macOS Look Up interface.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Clickable Subtitles",
+      "official": false,
+      "plugin_identifier": "io.github.niyaro.iina-clickable-subtitles",
+      "project_url": "https://github.com/kerim/iina-clickable-subtitles",
+      "repo": "kerim/iina-clickable-subtitles",
+      "slug": "clickable-subtitles",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "dictionary",
+        "language learning"
+      ]
+    },
+    {
+      "category": "subtitles-language",
+      "description": "Overlays time-synchronized scrolling comments from supported danmaku sources.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Danmaku",
+      "official": false,
+      "plugin_identifier": "com.xjbeta.danmaku",
+      "project_url": "https://github.com/xjbeta/iina-plugin-danmaku",
+      "repo": "xjbeta/iina-plugin-danmaku",
+      "slug": "danmaku",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "bilibili",
+        "danmaku"
+      ]
+    },
+    {
+      "category": "subtitles-language",
+      "description": "Renders Niconico and Bilibili comments with CSS or Canvas and supports advanced comment art.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Danmaku Cosmos",
+      "official": false,
+      "plugin_identifier": "com.danmaku-cosmos.iina-plugin",
+      "project_url": "https://github.com/karappo-yu/iina-plugin-danmaku-cosmos",
+      "repo": "karappo-yu/iina-plugin-danmaku-cosmos",
+      "slug": "danmaku-cosmos",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "bilibili",
+        "comment art",
+        "danmaku"
+      ]
+    },
+    {
+      "category": "automation-companions",
+      "description": "Adds an explicit action for deleting the current video from an IINA workflow.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Delete Video",
+      "official": false,
+      "project_url": "https://github.com/Vahor/iina-delete-video",
+      "repo": "Vahor/iina-delete-video",
+      "slug": "delete-video",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "file management"
+      ]
+    },
+    {
+      "category": "playback",
+      "description": "Displays the active IINA playlist in a separate floating window for multi-window workflows.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Detached Playlist",
+      "official": false,
+      "plugin_identifier": "com.fxd0h.detached-playlist",
+      "project_url": "https://github.com/HowDidTheCatGetSoFat/iina-detached-playlist",
+      "repo": "HowDidTheCatGetSoFat/iina-detached-playlist",
+      "slug": "detached-playlist",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "playlist",
+        "window"
+      ]
+    },
+    {
+      "category": "capture-editing",
+      "description": "Surfaces DV-oriented timecode information while inspecting media in IINA.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "DV Timecode",
+      "official": false,
+      "project_url": "https://github.com/xingrz/iina-dv-timecode",
+      "repo": "xingrz/iina-dv-timecode",
+      "slug": "dv-timecode",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "dv",
+        "timecode"
+      ]
+    },
+    {
+      "category": "libraries-streaming",
+      "description": "Shows TMDB movie or episode details on pause and includes subtitle-search support.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Episode Info",
+      "official": false,
+      "plugin_identifier": "com.Zain-Imam.episodeinfo",
+      "project_url": "https://github.com/Zain-Imam/iina-episode-info",
+      "repo": "Zain-Imam/iina-episode-info",
+      "slug": "episode-info",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "metadata",
+        "tmdb"
+      ]
+    },
+    {
+      "category": "media-tooling",
+      "description": "The core multimedia toolkit used by many IINA plugins for probing, transcoding, clipping, and filtering.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "media-tool",
+      "name": "FFmpeg",
+      "official": false,
+      "project_url": "https://github.com/FFmpeg/FFmpeg",
+      "repo": "FFmpeg/FFmpeg",
+      "slug": "ffmpeg",
+      "sources": [
+        {
+          "label": "Upstream repository",
+          "url": "https://github.com/FFmpeg/FFmpeg"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "clipping",
+        "encoding",
+        "ffprobe"
+      ]
+    },
+    {
+      "category": "playback",
+      "description": "Bookmarks folders, browses directory contents, and opens local videos without leaving IINA.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "File Viewer",
+      "official": false,
+      "plugin_identifier": "com.qkong.iina-plugin-file-viewer",
+      "project_url": "https://github.com/qktechies/iina-plugin-file-viewer",
+      "repo": "qktechies/iina-plugin-file-viewer",
+      "slug": "file-viewer",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "file browser",
+        "folders"
+      ]
+    },
+    {
+      "category": "capture-editing",
+      "description": "Captures tone-mapped SDR screenshots from HDR media using FFmpeg within an IINA workflow.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "minimum_iina": "1.4.0",
+      "name": "HDR Screenshot",
+      "notes": "Requires FFmpeg; zscale mode additionally requires an FFmpeg build with libzimg.",
+      "official": false,
+      "plugin_identifier": "io.iina.hdr-screenshot",
+      "project_url": "https://github.com/bbeny123/iina-hdr-screenshot",
+      "repo": "bbeny123/iina-hdr-screenshot",
+      "slug": "hdr-screenshot",
+      "sources": [
+        {
+          "label": "Project README",
+          "url": "https://github.com/bbeny123/iina-hdr-screenshot/blob/main/README.md"
+        },
+        {
+          "label": "Plugin manifest",
+          "url": "https://github.com/bbeny123/iina-hdr-screenshot/blob/main/Info.json"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "ffmpeg",
+        "hdr",
+        "screenshots",
+        "tone mapping"
+      ]
+    },
+    {
+      "category": "playback",
+      "description": "Temporarily switches playback to 2× while the Space key is held.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Hold to Speed",
+      "official": false,
+      "plugin_identifier": "com.vedant.hold-to-speed",
+      "project_url": "https://github.com/Tommy12356F/iina-hold-to-speed",
+      "repo": "Tommy12356F/iina-hold-to-speed",
+      "slug": "hold-to-speed",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "keyboard",
+        "speed"
+      ]
+    },
+    {
+      "category": "core",
+      "description": "The modern open-source media player for macOS, powered by mpv and designed for native Mac workflows.",
+      "featured": true,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "app",
+      "license": "GPL-3.0",
+      "name": "IINA",
+      "official": true,
+      "project_url": "https://github.com/iina/iina",
+      "repo": "iina/iina",
+      "slug": "iina",
+      "sources": [
+        {
+          "label": "Official IINA organization",
+          "url": "https://github.com/iina"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "macos",
+        "media player",
+        "mpv"
+      ]
+    },
+    {
+      "category": "casting-integrations",
+      "description": "Adds an AirPlay-oriented handoff or casting workflow for IINA.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "IINA AirPlay",
+      "official": false,
+      "plugin_identifier": "dev.faruk.iina-airplay",
+      "project_url": "https://github.com/ozykhan/iina-airplay",
+      "repo": "ozykhan/iina-airplay",
+      "slug": "airplay",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        },
+        {
+          "label": "IINA plugin index, reviewed 2026-09-16",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "airplay",
+        "casting"
+      ]
+    },
+    {
+      "category": "casting-integrations",
+      "description": "Explores casting IINA media to Chromecast-compatible devices.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "IINA Chromecast",
+      "official": false,
+      "project_url": "https://github.com/dpacmittal/iina-chromecast",
+      "repo": "dpacmittal/iina-chromecast",
+      "slug": "chromecast",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "experimental",
+      "tags": [
+        "casting",
+        "chromecast"
+      ]
+    },
+    {
+      "category": "capture-editing",
+      "description": "Adds a lightweight clip-creation workflow for the current IINA media item.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "IINA Clip Maker",
+      "official": false,
+      "project_url": "https://github.com/gridness/iina-clip-maker-plugin",
+      "repo": "gridness/iina-clip-maker-plugin",
+      "slug": "clip-maker",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "clipping",
+        "editing"
+      ]
+    },
+    {
+      "category": "playback",
+      "description": "Adds a continue-watching workflow for resuming previously opened media.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "IINA Continue",
+      "official": false,
+      "project_url": "https://github.com/muzipin/iina-continue",
+      "repo": "muzipin/iina-continue",
+      "slug": "iina-continue",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "resume",
+        "watch history"
+      ]
+    },
+    {
+      "category": "development",
+      "description": "Build scripts used by IINA to prepare native media dependencies.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "development-tool",
+      "name": "IINA Dependency Build Scripts",
+      "official": true,
+      "project_url": "https://github.com/iina/deps-buildscripts",
+      "repo": "iina/deps-buildscripts",
+      "slug": "deps-buildscripts",
+      "sources": [
+        {
+          "label": "Official IINA organization",
+          "url": "https://github.com/iina"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "build",
+        "dependencies"
+      ]
+    },
+    {
+      "category": "automation-companions",
+      "description": "Searches for related media filenames from an IINA-centered workflow.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "IINA File Name Search",
+      "official": false,
+      "project_url": "https://github.com/Robpol86/iina-file-name-search",
+      "repo": "Robpol86/iina-file-name-search",
+      "slug": "file-name-search",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "file search",
+        "workflow"
+      ]
+    },
+    {
+      "category": "casting-integrations",
+      "description": "Connects IINA playback events or controls with Home Assistant.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "IINA Home Assistant",
+      "official": false,
+      "project_url": "https://github.com/smintlife/iina-plugin-homeassistant",
+      "repo": "smintlife/iina-plugin-homeassistant",
+      "slug": "home-assistant",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "home assistant",
+        "smart home"
+      ]
+    },
+    {
+      "category": "libraries-streaming",
+      "description": "Adds companion functionality around Jellyfin playback in IINA.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "IINA Jellyfin Companion",
+      "official": false,
+      "project_url": "https://github.com/yxwyoyoyo/iina-jellyfin-companion",
+      "repo": "yxwyoyoyo/iina-jellyfin-companion",
+      "slug": "jellyfin-companion",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "companion",
+        "jellyfin"
+      ]
+    },
+    {
+      "category": "enhancement-rendering",
+      "description": "Coordinates macOS Night Shift behavior with IINA fullscreen playback.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "IINA Night Shift Fullscreen",
+      "official": false,
+      "project_url": "https://github.com/leo-mathurin/iina-nightshift-fs",
+      "repo": "leo-mathurin/iina-nightshift-fs",
+      "slug": "nightshift-fullscreen",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "display",
+        "night shift"
+      ]
+    },
+    {
+      "category": "development",
+      "description": "Official TypeScript definitions and generated API documentation for IINA plugin authors.",
+      "featured": true,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "development-tool",
+      "name": "IINA Plugin Definition",
+      "official": true,
+      "project_url": "https://github.com/iina/iina-plugin-definition",
+      "repo": "iina/iina-plugin-definition",
+      "slug": "plugin-definition",
+      "sources": [
+        {
+          "label": "Official IINA organization",
+          "url": "https://github.com/iina"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "api",
+        "types",
+        "typescript"
+      ]
+    },
+    {
+      "category": "development",
+      "description": "Minimal official repository structure for starting a new IINA plugin.",
+      "featured": true,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "development-tool",
+      "name": "IINA Plugin Template",
+      "official": true,
+      "project_url": "https://github.com/iina/iina-plugin-template",
+      "repo": "iina/iina-plugin-template",
+      "slug": "plugin-template",
+      "sources": [
+        {
+          "label": "Official IINA organization",
+          "url": "https://github.com/iina"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "scaffolding",
+        "template"
+      ]
+    },
+    {
+      "category": "libraries-streaming",
+      "description": "Browse, search, and install community IINA plugins from a standalone window and companion sidebar.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "IINA Store",
+      "notes": "Independent third-party installer; its package and remote catalog were not executed or security-certified here. Info.json identifier com.example.iina-store is the upstream placeholder reverse-DNS id, not listed in IINA's official plugins.json index.",
+      "official": false,
+      "plugin_identifier": "com.example.iina-store",
+      "project_url": "https://github.com/Kuameh/iina-store",
+      "repo": "Kuameh/iina-store",
+      "slug": "iina-store",
+      "sources": [
+        {
+          "label": "Upstream README, reviewed 2026-09-16",
+          "url": "https://github.com/Kuameh/iina-store/blob/main/README.md"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "catalog",
+        "discovery"
+      ]
+    },
+    {
+      "category": "subtitles-language",
+      "description": "Provides subtitle-oriented controls and workflows for IINA.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "IINA SubMaster",
+      "official": false,
+      "project_url": "https://github.com/ivLis-Studio/IINA-SubMaster",
+      "repo": "ivLis-Studio/IINA-SubMaster",
+      "slug": "submaster",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "subtitles"
+      ]
+    },
+    {
+      "category": "enhancement-rendering",
+      "description": "Automates cleanup actions around video files opened in IINA.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "IINA Video Cleaner",
+      "official": false,
+      "project_url": "https://github.com/adamhl8/iina-video-cleaner",
+      "repo": "adamhl8/iina-video-cleaner",
+      "slug": "video-cleaner",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "cleanup",
+        "video"
+      ]
+    },
+    {
+      "category": "enhancement-rendering",
+      "description": "Applies FSRCNNX, Anime4K, CAS, and SSim shaders through IINA’s mpv rendering pipeline.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "minimum_iina": "1.4.0",
+      "name": "IINA Video Upscaler",
+      "official": false,
+      "plugin_identifier": "com.github.Fhlisherman.iina-video-upscaler",
+      "project_url": "https://github.com/Fhlisherman/iina-video-upscaler",
+      "repo": "Fhlisherman/iina-video-upscaler",
+      "slug": "video-upscaler",
+      "sources": [
+        {
+          "label": "Project README",
+          "url": "https://github.com/Fhlisherman/iina-video-upscaler/blob/main/README.md"
+        },
+        {
+          "label": "Plugin manifest",
+          "url": "https://github.com/Fhlisherman/iina-video-upscaler/blob/main/Info.json"
+        }
+      ],
+      "status": "experimental",
+      "tags": [
+        "anime4k",
+        "fsrcnnx",
+        "glsl shaders",
+        "super resolution",
+        "upscaling"
+      ]
+    },
+    {
+      "category": "core",
+      "description": "Source for the official IINA website, documentation entry points, downloads, and public project pages.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "development-tool",
+      "name": "IINA website",
+      "official": true,
+      "project_url": "https://github.com/iina/iina-website",
+      "repo": "iina/iina-website",
+      "slug": "iina-website",
+      "sources": [
+        {
+          "label": "Official IINA organization",
+          "url": "https://github.com/iina"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "documentation",
+        "website"
+      ]
+    },
+    {
+      "category": "subtitles-language",
+      "description": "Adds subtitle dictionary popups, local OCR, profiles, controller navigation, and optional Anki export to IINA.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "license": "GPL-3.0-only",
+      "name": "iinatan",
+      "notes": "The project describes itself as experimental; dictionary and OCR behavior varies by language and media.",
+      "official": false,
+      "plugin_identifier": "com.afn478.iinatan",
+      "project_url": "https://github.com/afn478/iinatan",
+      "repo": "afn478/iinatan",
+      "slug": "iinatan",
+      "sources": [
+        {
+          "label": "Project README",
+          "url": "https://github.com/afn478/iinatan/blob/main/README.md"
+        },
+        {
+          "label": "Plugin manifest",
+          "url": "https://github.com/afn478/iinatan/blob/main/Info.json"
+        }
+      ],
+      "status": "experimental",
+      "tags": [
+        "anki",
+        "dictionary",
+        "language learning",
+        "ocr",
+        "subtitles"
+      ]
+    },
+    {
+      "category": "libraries-streaming",
+      "description": "Browses a Jellyfin server and plays its media directly in IINA.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Jellyfin",
+      "official": false,
+      "plugin_identifier": "com.mhajder.iina-jellyfin",
+      "project_url": "https://github.com/mhajder/iina-jellyfin",
+      "repo": "mhajder/iina-jellyfin",
+      "slug": "jellyfin",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "jellyfin",
+        "media server"
+      ]
+    },
+    {
+      "category": "libraries-streaming",
+      "description": "Provides another community implementation for using Jellyfin with IINA.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Jellyfin IINA",
+      "official": false,
+      "project_url": "https://github.com/ada-bee/jellyfin-iina",
+      "repo": "ada-bee/jellyfin-iina",
+      "slug": "jellyfin-iina-alt",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "jellyfin",
+        "media server"
+      ]
+    },
+    {
+      "category": "playback",
+      "description": "Seeks directly to a requested frame number for frame-oriented inspection and navigation.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Jump to Frame",
+      "official": false,
+      "plugin_identifier": "io.iina.jump-to-frame",
+      "project_url": "https://github.com/bbeny123/iina-jump-to-frame",
+      "repo": "bbeny123/iina-jump-to-frame",
+      "slug": "jump-to-frame",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "frame accurate",
+        "seeking"
+      ]
+    },
+    {
+      "category": "historical",
+      "description": "Archived Homebrew tap once used for IINA-specific mpv builds.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "development-tool",
+      "name": "Legacy mpv-IINA Homebrew Tap",
+      "notes": "Retained for historical build research only.",
+      "official": true,
+      "project_url": "https://github.com/iina/homebrew-mpv-iina",
+      "repo": "iina/homebrew-mpv-iina",
+      "slug": "legacy-homebrew-mpv",
+      "sources": [
+        {
+          "label": "Official IINA organization",
+          "url": "https://github.com/iina"
+        }
+      ],
+      "status": "archived",
+      "tags": [
+        "archived",
+        "homebrew"
+      ]
+    },
+    {
+      "category": "historical",
+      "description": "Archived predecessor to the current official Online Media plugin, retained for migration history.",
+      "featured": false,
+      "identifier_collision_allowed": true,
+      "install": [],
+      "kind": "plugin",
+      "name": "Legacy YouTube-dl Plugin",
+      "notes": "Shares plugin identifier io.iina.ytdl with slug official-online-media. Use iina/plugin-online-media for current installations.",
+      "official": true,
+      "plugin_identifier": "io.iina.ytdl",
+      "project_url": "https://github.com/iina/plugin-ytdl",
+      "repo": "iina/plugin-ytdl",
+      "slug": "legacy-plugin-ytdl",
+      "sources": [
+        {
+          "label": "Official IINA organization",
+          "url": "https://github.com/iina"
+        }
+      ],
+      "status": "archived",
+      "tags": [
+        "archived",
+        "online media"
+      ]
+    },
+    {
+      "category": "media-tooling",
+      "description": "Renders ASS and SSA subtitles and underpins advanced subtitle presentation in mpv-based players.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "library",
+      "name": "libass",
+      "official": false,
+      "project_url": "https://github.com/libass/libass",
+      "repo": "libass/libass",
+      "slug": "libass",
+      "sources": [
+        {
+          "label": "Upstream repository",
+          "url": "https://github.com/libass/libass"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "ass",
+        "rendering",
+        "subtitles"
+      ]
+    },
+    {
+      "category": "media-tooling",
+      "description": "Provides GPU-accelerated rendering primitives used by modern video players and shader pipelines.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "library",
+      "name": "libplacebo",
+      "official": false,
+      "project_url": "https://github.com/haasn/libplacebo",
+      "repo": "haasn/libplacebo",
+      "slug": "libplacebo",
+      "sources": [
+        {
+          "label": "Upstream repository",
+          "url": "https://github.com/haasn/libplacebo"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "gpu",
+        "rendering",
+        "shaders"
+      ]
+    },
+    {
+      "category": "tracking-scrobbling",
+      "description": "Submits music-listening activity from IINA to ListenBrainz.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [
+        {
+          "kind": "external",
+          "value": "https://git.notfire.cc/notfire/iina-listenbrainz"
+        }
+      ],
+      "kind": "plugin",
+      "name": "ListenBrainz Scrobbler",
+      "official": false,
+      "plugin_identifier": "cc.notfire.iina-listenbrainz",
+      "project_url": "https://git.notfire.cc/notfire/iina-listenbrainz",
+      "slug": "listenbrainz-scrobbler",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "listenbrainz",
+        "music",
+        "scrobbling"
+      ],
+      "url": "https://git.notfire.cc/notfire/iina-listenbrainz"
+    },
+    {
+      "category": "media-tooling",
+      "description": "Reports detailed container, codec, stream, HDR, language, and tag metadata for media files.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "media-tool",
+      "name": "MediaInfo",
+      "official": false,
+      "project_url": "https://github.com/MediaArea/MediaInfo",
+      "repo": "MediaArea/MediaInfo",
+      "slug": "mediainfo",
+      "sources": [
+        {
+          "label": "Upstream repository",
+          "url": "https://github.com/MediaArea/MediaInfo"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "codecs",
+        "metadata",
+        "probing"
+      ]
+    },
+    {
+      "category": "media-tooling",
+      "description": "Inspects, multiplexes, edits, and validates Matroska containers with mkvmerge, mkvinfo, and related tools.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "media-tool",
+      "name": "MKVToolNix",
+      "official": false,
+      "project_url": "https://github.com/mkvtoolnix/mkvtoolnix",
+      "repo": "mkvtoolnix/mkvtoolnix",
+      "slug": "mkvtoolnix",
+      "sources": [
+        {
+          "label": "Upstream repository",
+          "url": "https://github.com/mkvtoolnix/mkvtoolnix"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "matroska",
+        "metadata",
+        "mkv"
+      ]
+    },
+    {
+      "category": "official-plugin",
+      "description": "Adds extra seek controls and configurable seeking behavior through an official IINA plugin.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "More Seeking",
+      "official": true,
+      "plugin_identifier": "io.iina.plugin.seeking",
+      "project_url": "https://github.com/iina/plugin-more-seeking",
+      "repo": "iina/plugin-more-seeking",
+      "slug": "official-more-seeking",
+      "sources": [
+        {
+          "label": "Official IINA organization",
+          "url": "https://github.com/iina"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "navigation",
+        "seeking"
+      ]
+    },
+    {
+      "category": "media-tooling",
+      "description": "The command-line media player and playback engine embedded by IINA.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "media-tool",
+      "license": "GPL-2.0-or-later",
+      "name": "mpv",
+      "official": false,
+      "project_url": "https://github.com/mpv-player/mpv",
+      "repo": "mpv-player/mpv",
+      "slug": "mpv",
+      "sources": [
+        {
+          "label": "Upstream repository",
+          "url": "https://github.com/mpv-player/mpv"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "media player",
+        "playback engine"
+      ]
+    },
+    {
+      "category": "playback",
+      "description": "Stores and repeats multiple selected media segments during one IINA session.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Multi Segment Repeat",
+      "official": false,
+      "project_url": "https://github.com/nobuo-miura/iina-multi-segment-repeat",
+      "repo": "nobuo-miura/iina-multi-segment-repeat",
+      "slug": "multi-segment-repeat",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "loop",
+        "segments"
+      ]
+    },
+    {
+      "category": "capture-editing",
+      "description": "Uses FFmpeg to batch-create clips, including vertical output and selectable formats.",
+      "featured": false,
+      "identifier_collision_allowed": true,
+      "install": [],
+      "kind": "plugin",
+      "name": "Multiple Clips",
+      "notes": "Shares plugin identifier com.recorder.iina-plugin with slug recorder; review before installing both.",
+      "official": false,
+      "plugin_identifier": "com.recorder.iina-plugin",
+      "project_url": "https://github.com/karthisnk/multi-cutter-iina",
+      "repo": "karthisnk/multi-cutter-iina",
+      "slug": "multiple-clips",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "batch clipping",
+        "ffmpeg"
+      ]
+    },
+    {
+      "category": "tracking-scrobbling",
+      "description": "Integrates IINA playback with the MyShows tracking service.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "MyShows",
+      "official": false,
+      "project_url": "https://github.com/amiv1/iina-plugin-myshows",
+      "repo": "amiv1/iina-plugin-myshows",
+      "slug": "myshows",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "myshows",
+        "tracking"
+      ]
+    },
+    {
+      "category": "official-plugin",
+      "description": "Plays supported online media through yt-dlp and provides the official network-media integration for IINA.",
+      "featured": true,
+      "identifier_collision_allowed": true,
+      "install": [],
+      "kind": "plugin",
+      "name": "Online Media",
+      "notes": "Shares plugin identifier io.iina.ytdl with slug legacy-plugin-ytdl, the archived predecessor.",
+      "official": true,
+      "plugin_identifier": "io.iina.ytdl",
+      "project_url": "https://github.com/iina/plugin-online-media",
+      "repo": "iina/plugin-online-media",
+      "slug": "official-online-media",
+      "sources": [
+        {
+          "label": "Official IINA organization",
+          "url": "https://github.com/iina"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "online media",
+        "yt-dlp"
+      ]
+    },
+    {
+      "category": "official-plugin",
+      "description": "Searches OpenSubtitles from IINA through the official subtitle-provider and sidebar integration.",
+      "featured": true,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "OpenSubtitles",
+      "official": true,
+      "plugin_identifier": "io.iina.opensub",
+      "project_url": "https://github.com/iina/plugin-opensub",
+      "repo": "iina/plugin-opensub",
+      "slug": "official-opensubtitles",
+      "sources": [
+        {
+          "label": "Official IINA organization",
+          "url": "https://github.com/iina"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "opensubtitles",
+        "subtitles"
+      ]
+    },
+    {
+      "category": "development",
+      "description": "Official Parcel optimizer used when packaging webview assets for IINA plugins.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "development-tool",
+      "name": "Parcel Optimizer Webview",
+      "official": true,
+      "project_url": "https://github.com/iina/parcel-optimizer-webview",
+      "repo": "iina/parcel-optimizer-webview",
+      "slug": "parcel-optimizer-webview",
+      "sources": [
+        {
+          "label": "Official IINA organization",
+          "url": "https://github.com/iina"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "parcel",
+        "webview"
+      ]
+    },
+    {
+      "category": "playback",
+      "description": "Adds a focused command for switching between Picture in Picture and fullscreen playback.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "PiP Toggle for IINA",
+      "official": false,
+      "plugin_identifier": "com.user.piptoggle",
+      "project_url": "https://github.com/nastarandarjani/iina-pip-toggle",
+      "repo": "nastarandarjani/iina-pip-toggle",
+      "slug": "pip-toggle",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "fullscreen",
+        "picture in picture"
+      ]
+    },
+    {
+      "category": "playback",
+      "description": "Improves management of local and online playlists inside IINA.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Playlist Pro",
+      "official": false,
+      "plugin_identifier": "com.danialabdoli.playlistpro",
+      "project_url": "https://github.com/CatCodeDanix/iina-playlist-pro",
+      "repo": "CatCodeDanix/iina-playlist-pro",
+      "slug": "playlist-pro",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "online media",
+        "playlist"
+      ]
+    },
+    {
+      "category": "playback",
+      "description": "Searches the current playlist by title and artist to speed up navigation in long queues.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Playlist Searchbox",
+      "official": false,
+      "plugin_identifier": "com.icsarisakal.iina-searchbox",
+      "project_url": "https://github.com/icsarisakal/iina-playlist-searchbox",
+      "repo": "icsarisakal/iina-playlist-searchbox",
+      "slug": "playlist-searchbox",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "playlist",
+        "search"
+      ]
+    },
+    {
+      "category": "playback",
+      "description": "Adds alternative playlist sorting controls for IINA.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Playlist Sortings",
+      "official": false,
+      "project_url": "https://github.com/dotWee/iina-playlist-sortings",
+      "repo": "dotWee/iina-playlist-sortings",
+      "slug": "playlist-sortings",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "playlist",
+        "sorting"
+      ]
+    },
+    {
+      "category": "subtitles-language",
+      "description": "Combines dual subtitles, hover definitions, and AI-assisted translation for language study.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "PolyScript",
+      "official": false,
+      "plugin_identifier": "app.polyscript.iina-plugin",
+      "project_url": "https://github.com/SammoMichael/polyplugin-release",
+      "repo": "SammoMichael/polyplugin-release",
+      "slug": "polyscript",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "ai translation",
+        "dictionary",
+        "dual subtitles"
+      ]
+    },
+    {
+      "category": "playback",
+      "description": "Provides quicker access to frequently used media folders from IINA.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Quick Folders",
+      "official": false,
+      "project_url": "https://github.com/JakeCalkins/iina-quick-folders-plugin",
+      "repo": "JakeCalkins/iina-quick-folders-plugin",
+      "slug": "quick-folders",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "folders",
+        "navigation"
+      ]
+    },
+    {
+      "category": "subtitles-language",
+      "description": "Explores live speech translation for media playing in IINA.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Realtime Speech Translator",
+      "official": false,
+      "project_url": "https://github.com/isparkyou-github/iina-realtime-speech-translator",
+      "repo": "isparkyou-github/iina-realtime-speech-translator",
+      "slug": "realtime-speech-translator",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "experimental",
+      "tags": [
+        "speech recognition",
+        "translation"
+      ]
+    },
+    {
+      "category": "capture-editing",
+      "description": "Creates video clips from IINA playback by invoking FFmpeg.",
+      "featured": false,
+      "identifier_collision_allowed": true,
+      "install": [],
+      "kind": "plugin",
+      "name": "Recorder",
+      "notes": "Shares plugin identifier com.recorder.iina-plugin with slug multiple-clips; review before installing both.",
+      "official": false,
+      "plugin_identifier": "com.recorder.iina-plugin",
+      "project_url": "https://github.com/5thDimensionalVader/recorder-iina",
+      "repo": "5thDimensionalVader/recorder-iina",
+      "slug": "recorder",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "clipping",
+        "ffmpeg"
+      ]
+    },
+    {
+      "category": "subtitles-language",
+      "description": "Extracts or saves subtitle tracks from the current IINA media item.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Save Subs",
+      "official": false,
+      "project_url": "https://github.com/bbeny123/iina-save-subs",
+      "repo": "bbeny123/iina-save-subs",
+      "slug": "save-subs",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "export",
+        "subtitles"
+      ]
+    },
+    {
+      "category": "playback",
+      "description": "Detects and skips intros, recaps, and credits during episodic playback.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Skip Intro",
+      "official": false,
+      "plugin_identifier": "com.pparanoiidd.skipintro",
+      "project_url": "https://github.com/pparanoiidd/iina-skip-intro",
+      "repo": "pparanoiidd/iina-skip-intro",
+      "slug": "skip-intro",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "credits",
+        "intro skip"
+      ]
+    },
+    {
+      "category": "subtitles-language",
+      "description": "Translates embedded or external text subtitles and renders the translated track in IINA.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "SubTandem",
+      "notes": "SubLingo was a predecessor name; its Info.json identifier was unrecovered.",
+      "official": false,
+      "plugin_identifier": "io.subtandem.iina",
+      "project_url": "https://github.com/janwee-sha/SubTandem",
+      "repo": "janwee-sha/SubTandem",
+      "slug": "subtandem",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "ass",
+        "srt",
+        "translation"
+      ]
+    },
+    {
+      "category": "subtitles-language",
+      "description": "Provides a standalone subtitle browser with search, seek, line looping, and copy workflows for language study.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "license": "MIT",
+      "minimum_iina": "1.4.0",
+      "name": "Subtitle Navigator",
+      "notes": "The author explicitly does not promise long-term maintenance; current parsing is focused on external SRT files.",
+      "official": false,
+      "plugin_identifier": "info.junjie-chen.subtitle-navigator",
+      "project_url": "https://github.com/CoderChen01/IINA-subtitle-navigator",
+      "repo": "CoderChen01/IINA-subtitle-navigator",
+      "slug": "subtitle-navigator",
+      "sources": [
+        {
+          "label": "Project README",
+          "url": "https://github.com/CoderChen01/IINA-subtitle-navigator/blob/main/README.md"
+        },
+        {
+          "label": "Plugin manifest",
+          "url": "https://github.com/CoderChen01/IINA-subtitle-navigator/blob/main/Info.json"
+        }
+      ],
+      "status": "experimental",
+      "tags": [
+        "language learning",
+        "looping",
+        "subtitle navigation",
+        "subtitles"
+      ]
+    },
+    {
+      "category": "tracking-scrobbling",
+      "description": "Scrobbles IINA playback progress to Trakt.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Trakt Scrobbler",
+      "official": false,
+      "plugin_identifier": "io.github.fahim.iinatraktscrobbler",
+      "project_url": "https://github.com/i3p9/iina-trakt-scrobbler",
+      "repo": "i3p9/iina-trakt-scrobbler",
+      "slug": "trakt-scrobbler",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "scrobbling",
+        "trakt"
+      ]
+    },
+    {
+      "category": "official-plugin",
+      "description": "Runs user-authored JavaScript in IINA and exposes official examples for scripting, overlays, menus, and global hooks.",
+      "featured": true,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "User Scripts",
+      "official": true,
+      "plugin_identifier": "io.iina.user-script",
+      "project_url": "https://github.com/iina/plugin-userscript",
+      "repo": "iina/plugin-userscript",
+      "slug": "official-user-scripts",
+      "sources": [
+        {
+          "label": "Official IINA organization",
+          "url": "https://github.com/iina"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "automation",
+        "javascript",
+        "userscripts"
+      ]
+    },
+    {
+      "category": "enhancement-rendering",
+      "description": "Converts common 180° and 360° VR layouts into a pannable flat view for IINA.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "VR2D",
+      "official": false,
+      "plugin_identifier": "io.github.fetzu.vr2d",
+      "project_url": "https://github.com/fetzu/iina-plugin-vr2d",
+      "repo": "fetzu/iina-plugin-vr2d",
+      "slug": "vr2d",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "180 video",
+        "360 video",
+        "vr"
+      ]
+    },
+    {
+      "category": "subtitles-language",
+      "description": "Generates subtitle tracks from local media by connecting IINA to FFmpeg and whisper.cpp models.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "Whisperina",
+      "notes": "Requires local FFmpeg and whisper.cpp command-line tools plus separately downloaded models.",
+      "official": false,
+      "plugin_identifier": "io.github.yuxiqian.whisperina",
+      "project_url": "https://github.com/yuxiqian/whisperina",
+      "repo": "yuxiqian/whisperina",
+      "slug": "whisperina",
+      "sources": [
+        {
+          "label": "Project README",
+          "url": "https://github.com/yuxiqian/whisperina/blob/main/README.md"
+        },
+        {
+          "label": "Plugin manifest",
+          "url": "https://github.com/yuxiqian/whisperina/blob/main/Info.json"
+        }
+      ],
+      "status": "experimental",
+      "tags": [
+        "ffmpeg",
+        "speech recognition",
+        "subtitles",
+        "whisper.cpp"
+      ]
+    },
+    {
+      "category": "libraries-streaming",
+      "description": "Connects YouTube-oriented browsing or playback workflows with IINA.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "YouTube IINA",
+      "official": false,
+      "project_url": "https://github.com/ada-bee/youtube-iina",
+      "repo": "ada-bee/youtube-iina",
+      "slug": "youtube-iina",
+      "sources": [
+        {
+          "label": "GitHub iina-plugin topic",
+          "url": "https://github.com/topics/iina-plugin"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "online media",
+        "youtube"
+      ]
+    },
+    {
+      "category": "media-tooling",
+      "description": "Resolves and downloads online media and is used by IINA’s official Online Media plugin.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "media-tool",
+      "name": "yt-dlp",
+      "official": false,
+      "project_url": "https://github.com/yt-dlp/yt-dlp",
+      "repo": "yt-dlp/yt-dlp",
+      "slug": "yt-dlp",
+      "sources": [
+        {
+          "label": "Upstream repository",
+          "url": "https://github.com/yt-dlp/yt-dlp"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "downloader",
+        "online media"
+      ]
+    }
+  ],
+  "stats": {
+    "categories": {
+      "automation-companions": 2,
+      "capture-editing": 5,
+      "casting-integrations": 3,
+      "core": 2,
+      "development": 4,
+      "enhancement-rendering": 6,
+      "historical": 2,
+      "libraries-streaming": 7,
+      "media-tooling": 8,
+      "official-plugin": 4,
+      "playback": 16,
+      "subtitles-language": 12,
+      "tracking-scrobbling": 4
+    },
+    "external": 1,
+    "featured": 6,
+    "official": 12,
+    "plugins": 60,
+    "projects": 75,
+    "statuses": {
+      "active": 20,
+      "archived": 2,
+      "experimental": 7,
+      "unknown": 46
+    }
+  }
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "role": "bold",
+    "file": "InterDisplay-Bold.otf",
+    "sha256": "d7a7394984bbb3bc3c3e507a6618d34e006c94f27c7105d0ef4376667aeaf4ee",
+    "family": "Inter Display",
+    "style": "Bold",
+    "version": "Version 4.001;git-9221beed3",
+    "distributed": false
+  },
+  {
+    "role": "medium",
+    "file": "InterDisplay-Medium.otf",
+    "sha256": "9a17712bbd6da13b7ce9beb056d19fe15648799a11d5c35f8086a1270a0d13b2",
+    "family": "Inter Display Medium",
+    "style": "Regular",
+    "version": "Version 4.001;git-9221beed3",
+    "distributed": false
+  }
+]

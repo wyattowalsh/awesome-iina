@@ -1,0 +1,40 @@
+# Optional convenience wrapper; direct Python commands are documented in README.md.
+set shell := ["bash", "-euo", "pipefail", "-c"]
+set positional-arguments
+python := env_var_or_default("PYTHON", "python3")
+
+default:
+    @just --list
+
+verify:
+    {{python}} scripts/verify_assets.py --root .
+    {{python}} scripts/check_release.py
+    {{python}} -m pytest -q
+
+plan target:
+    @{{python}} scripts/install_brand.py plan --target "$1"
+
+apply plan:
+    @{{python}} scripts/install_brand.py apply --plan "$1"
+
+check receipt:
+    @{{python}} scripts/install_brand.py check --receipt "$1"
+
+undo receipt:
+    @{{python}} scripts/install_brand.py undo --receipt "$1"
+
+build fonts:
+    {{python}} scripts/build_assets.py --root . --font-dir "$1"
+
+site url:
+    @{{python}} scripts/configure_site.py --site-url "$1"
+
+type-parity fonts chromium:
+    {{python}} scripts/verify_type_parity.py --root . --font-dir "$1" --chromium "$2"
+
+browser chromium:
+    {{python}} scripts/browser_checks.py --root . --chromium "$1"
+
+bundle:
+    {{python}} scripts/package_kit.py --root . --output ../awesome-iina-brand-kit-v2.1.1.zip
+    {{python}} scripts/package_kit.py --root . --delivery-only --output ../awesome-iina-production-assets-v2.1.1.zip

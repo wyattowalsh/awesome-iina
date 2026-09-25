@@ -1,0 +1,11 @@
+{
+  "reviewed_at": "2026-09-16T16:22:31.839727+00:00",
+  "plugin_index": {
+    "url": "https://github.com/iina/iina/blob/develop/plugins.json",
+    "git_blob_sha": "18a16a6712e8600401f22e67e8c94bf67a517b57",
+    "sha256": "499f5b6501f853632ea65d30c74d8d260fbd788934348b54845d6c91ce65deff",
+    "entry_count": 26,
+    "raw_snapshot": "src/awesome_iina/discovery/snapshots/iina-plugins.raw.json"
+  },
+  "runtime_tested": false
+}

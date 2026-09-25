@@ -1,0 +1,25 @@
+/* System fonts and chrome. Theme tokens live in global.css. */
+.sl-markdown-content pre { border-radius: 0.65rem; }
+
+starlight-menu-button button,
+.sl-nav-button {
+  min-inline-size: 44px;
+  min-block-size: 44px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  summary {
+    transition: color 120ms ease, background-color 120ms ease;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  summary {
+    transition: none;
+  }
+}

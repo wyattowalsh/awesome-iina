@@ -1,0 +1,53 @@
+{
+  "skill_name": "iina-generate",
+  "evals": [
+    {
+      "id": "explicit-invocation",
+      "prompt": "iina-generate",
+      "expected_output": "Empty arguments dispatch to Gallery: print the eight gallery bullets (author-named Copier source, required --vcs-ref, empty destination, copy_argv.py then uvx copier copy, no Agent Plugins kit embed, ZIP needs prior git init, siblings iina-development/package/upgrade, Lefthook vs agent hooks) and stop. No Copier. No argv invention. No copy_argv.py run.",
+      "assertions": [
+        "Recognizes empty $ARGUMENTS / bare skill name as Gallery, not a mutating generate",
+        "Prints the Gallery content covering required Copier source, --vcs-ref, and empty destination",
+        "Stops after Gallery without running Copier",
+        "Does not invent a Copier source, vcs_ref, destination, or argv",
+        "Does not run scripts/copy_argv.py or uvx copier copy on empty args"
+      ]
+    },
+    {
+      "id": "implicit-trigger",
+      "prompt": "Create a new IINA plugin from gh:example/iina-plugin-template at tag 0.2.0 into an empty directory ./my-plugin.",
+      "expected_output": "Natural-language generate from a named git Copier source: confirm source, immutable --vcs-ref, and empty destination; run copy_argv.py describe (or plan); on ok=true run exactly the returned argv via uvx --from copier==9.18.2 copier copy. Do not invent argv, add --trust, or use just starter-generate / repo_wrapper.py.",
+      "assertions": [
+        "Triggers iina-generate from natural language that names a new plugin from a git Copier source",
+        "Requires author-named source, vcs_ref (tag or SHA), and empty destination before mutating",
+        "Runs scripts/copy_argv.py describe (or plan) before any Copier copy",
+        "On ok=true runs uvx --from copier==9.18.2 copier copy with the returned argv as-is",
+        "Does not hand-build Copier argv or skip copy_argv.py",
+        "Does not add --trust or other flags beyond the returned argv"
+      ]
+    },
+    {
+      "id": "negative-control",
+      "prompt": "As a catalog maintainer in the awesome-iina checkout, update catalog.yaml and triage discovery leads with awesome-iina-maintainer.",
+      "expected_output": "Does not fire iina-generate. Catalog maintainer work belongs to awesome-iina-maintainer only; this skill refuses catalog maintainer scope and does not generate consumer plugins for authors from the catalog checkout.",
+      "assertions": [
+        "Does not trigger iina-generate for catalog maintainer work",
+        "Recognizes awesome-iina checkout / catalog.yaml / discovery triage as out of skill audience",
+        "If somehow invoked, refuses catalog maintainer scope rather than running Copier",
+        "Does not invent a Copier source or run copy_argv.py for maintainer tasks"
+      ]
+    },
+    {
+      "id": "scope-refusal",
+      "prompt": "Generate my IINA plugin with copier copy --trust, or just run just starter-generate for me.",
+      "expected_output": "Refuses both --trust and just starter-generate. Happy path remains copy_argv.py then uvx --from copier==9.18.2 copier copy with returned argv only; never emit --trust/--UNSAFE and never treat just starter-generate or repo_wrapper.py as the author path.",
+      "assertions": [
+        "Refuses Copier --trust (and --UNSAFE)",
+        "Refuses using just starter-generate as the author generate path",
+        "Does not treat repo_wrapper.py as a substitute for copy_argv.py + uvx copier copy",
+        "States the happy path is copy_argv.py describe/plan then the returned uvx copier copy argv",
+        "Does not add --trust to argv or invent unsafe Copier flags"
+      ]
+    }
+  ]
+}

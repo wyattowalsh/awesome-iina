@@ -1,0 +1,9 @@
+plugin_name: IINA Controller Example
+plugin_slug: iina-controller-example
+plugin_identifier: org.example.iina-controller-example
+user_name: Plugin Author
+description: A typed IINA controller plugin.
+preset: controller
+preferences: true
+docs_profile: starlight
+hooks: false

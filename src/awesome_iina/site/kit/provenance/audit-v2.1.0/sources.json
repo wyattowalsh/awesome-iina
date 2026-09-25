@@ -1,0 +1,117 @@
+[
+  {
+    "id": "S01",
+    "title": "GitHub: Customizing your repository social media preview",
+    "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview",
+    "authority": "GitHub official documentation",
+    "use": "Documented upload guidance, recommended dimensions, separate Settings upload. Server enforcement and crops not tested.",
+    "accessed_on": "2026-09-16"
+  },
+  {
+    "id": "S02",
+    "title": "Web Application Manifest, id member",
+    "url": "https://www.w3.org/TR/appmanifest/#id-member",
+    "authority": "W3C Working Draft, 13 August 2026",
+    "use": "Specified URL bases and app identity semantics; draft status explicitly retained.",
+    "accessed_on": "2026-09-16"
+  },
+  {
+    "id": "S03",
+    "title": "MDN: Web app manifest id",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest/Reference/id",
+    "authority": "MDN browser documentation",
+    "use": "Corroborates origin-relative id resolution and identity collision consequences; limited availability noted.",
+    "accessed_on": "2026-09-16"
+  },
+  {
+    "id": "S04",
+    "title": "WHATWG HTML: Link type icon",
+    "url": "https://html.spec.whatwg.org/multipage/links.html#rel-icon",
+    "authority": "HTML Living Standard",
+    "use": "Icon metadata and selection semantics; not a tested claim about browser chrome.",
+    "accessed_on": "2026-09-16"
+  },
+  {
+    "id": "S05",
+    "title": "WCAG 2.2",
+    "url": "https://www.w3.org/TR/WCAG22/",
+    "authority": "W3C Recommendation",
+    "use": "Context-specific contrast, logo exceptions, text alternatives and images of text; not a whole-site compliance certification.",
+    "accessed_on": "2026-09-16"
+  },
+  {
+    "id": "S06",
+    "title": "WAI Images Tutorial",
+    "url": "https://www.w3.org/WAI/tutorials/images/",
+    "authority": "W3C WAI, updated 8 April 2026",
+    "use": "Alternative text depends on image role; decorative/redundant vs functional uses.",
+    "accessed_on": "2026-09-16"
+  },
+  {
+    "id": "S07",
+    "title": "Open Graph protocol",
+    "url": "https://ogp.me/",
+    "authority": "Open Graph protocol documentation",
+    "use": "Basic metadata and image properties; does not establish a universal 1200 by 630 requirement.",
+    "accessed_on": "2026-09-16"
+  },
+  {
+    "id": "S08",
+    "title": "MDN: font-kerning CSS property",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-kerning",
+    "authority": "MDN browser documentation",
+    "use": "CSS kerning control. Chromium attribute behavior was independently measured, not inferred for all renderers.",
+    "accessed_on": "2026-09-16"
+  },
+  {
+    "id": "S09",
+    "title": "Inter official font license",
+    "url": "https://raw.githubusercontent.com/rsms/inter/master/LICENSE.txt",
+    "authority": "Inter upstream project",
+    "use": "SIL Open Font License 1.1 evidence. No font files redistributed.",
+    "accessed_on": "2026-09-16"
+  },
+  {
+    "id": "S10",
+    "title": "IINA official website and icon",
+    "url": "https://iina.io/",
+    "artwork_url": "https://iina.io/images/iina-icon-60.png",
+    "authority": "IINA project",
+    "use": "Official product positioning and limited visual comparison of the 60-pixel website icon; not a trademark search.",
+    "accessed_on": "2026-09-16"
+  },
+  {
+    "id": "S11",
+    "title": "mpv official website and logo",
+    "url": "https://mpv.io/",
+    "artwork_url": "https://mpv.io/images/mpv-logo-128-0baae5aa.png",
+    "authority": "mpv project",
+    "use": "Visual comparison of circular purple player mark.",
+    "accessed_on": "2026-09-16"
+  },
+  {
+    "id": "S12",
+    "title": "Awesome upstream identity",
+    "url": "https://github.com/sindresorhus/awesome",
+    "artwork_url": "https://raw.githubusercontent.com/sindresorhus/awesome/main/media/logo.png",
+    "authority": "Awesome upstream project",
+    "use": "Visual comparison of pink sunglasses and wordmark, not a request to imitate or reproduce.",
+    "accessed_on": "2026-09-16"
+  },
+  {
+    "id": "S13",
+    "title": "MDN: Manifest icons",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest/Reference/icons",
+    "authority": "MDN browser documentation",
+    "use": "Relative paths, declared dimensions and purpose semantics. No maskable requirement imposed.",
+    "accessed_on": "2026-09-16"
+  },
+  {
+    "id": "S14",
+    "title": "Apple: Configuring Web Applications",
+    "url": "https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html",
+    "authority": "Apple archived documentation",
+    "use": "Web clip link context only. Not treated as current exhaustive Apple icon requirements.",
+    "accessed_on": "2026-09-16"
+  }
+]

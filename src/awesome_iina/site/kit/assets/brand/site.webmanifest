@@ -1,0 +1,25 @@
+{
+  "background_color": "#080F2B",
+  "description": "Independent IINA ecosystem catalog",
+  "display": "browser",
+  "icons": [
+    {
+      "purpose": "any",
+      "sizes": "192x192",
+      "src": "icon-192.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "512x512",
+      "src": "icon-512.png",
+      "type": "image/png"
+    }
+  ],
+  "id": "/awesome-iina/",
+  "name": "Awesome IINA",
+  "scope": "../../",
+  "short_name": "Awesome IINA",
+  "start_url": "../../",
+  "theme_color": "#080F2B"
+}

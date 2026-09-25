@@ -1,0 +1,137 @@
+{
+  "schema_version": 2,
+  "date": "2026-09-16",
+  "source_version": "0.2.0a2",
+  "artifact_status": "complete-source-candidate-not-release-certified",
+  "actual_environment": {
+    "platform": "Linux",
+    "python": "3.13.5",
+    "node": "v22.16.0",
+    "typescript_cli": "5.8.3",
+    "typescript_compiler_api": "5.8.3",
+    "pytest": "9.0.2",
+    "uv": "uv 0.10.0"
+  },
+  "selected_toolchain_not_certified": {
+    "node": "24.21.0",
+    "pnpm": "12.4.1",
+    "python": "3.13.15",
+    "copier": "9.18.2",
+    "typescript": "7.0.2",
+    "compilerApi": "6.0.2",
+    "esbuild": "0.28.2",
+    "prettier": "3.6.2",
+    "biome": "2.5.13",
+    "astro": "7.2.10",
+    "starlight": "0.42.0",
+    "just": "1.58.0",
+    "uv": "0.12.13"
+  },
+  "executed": {
+    "python": {
+      "collected": 142,
+      "passed": 100,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 42
+    },
+    "offline_fixture_shapes": 32,
+    "fixture_variant_count": 8,
+    "generated_command_runs": 32,
+    "generated_command_failures": 0,
+    "node_test_executions": 572,
+    "node_test_failures": 0,
+    "node_test_skips": 0,
+    "node_variants": [
+      {
+        "variant": "command",
+        "tests": 70,
+        "pass": 70,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "command-preferences",
+        "tests": 70,
+        "pass": 70,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "sidebar",
+        "tests": 72,
+        "pass": 72,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "sidebar-preferences",
+        "tests": 72,
+        "pass": 72,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "overlay",
+        "tests": 72,
+        "pass": 72,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "overlay-preferences",
+        "tests": 72,
+        "pass": 72,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "controller",
+        "tests": 72,
+        "pass": 72,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "controller-preferences",
+        "tests": 72,
+        "pass": 72,
+        "fail": 0,
+        "skipped": 0
+      }
+    ],
+    "negative_typescript_compilation_cases": 11,
+    "required_copier_gate": {
+      "expected_block": true,
+      "exit_code": 2,
+      "reason": "Copier is not installed; no real integration pass claimed"
+    },
+    "required_junit_gate": {
+      "expected_block": true,
+      "exit_code": 1,
+      "reason": "Required Copier suite contains 42 skipped cases"
+    }
+  },
+  "real_copier": {
+    "status": "blocked",
+    "cases": 42,
+    "passed": 0,
+    "reason": "No installed Copier package; attempted registry access failed DNS."
+  },
+  "not_executed": [
+    "Real Copier copy/update/merge execution: Copier unavailable, 42 cases skipped in offline runs; required mode rejects this environment.",
+    "Selected Node 24, TypeScript 7 CLI / compiler API 6, pnpm, and full dependency resolution are not installed-toolchain evidence.",
+    "Production esbuild bundles, real Starlight/Astro builds, Prettier/Biome, native just, Ruff, ty, Hatchling distributions, actionlint/zizmor and hosted CI were not run.",
+    "Native macOS IINA install/link/reload/pack, GUI behavior, and plugin updater acceptance were not run.",
+    "Authenticated GitHub discovery was not run. No remote repository, plugin installation, release or attestation was published."
+  ],
+  "limitations": [
+    "Offline fixture rendering does not implement Copier and does not validate merge/update history.",
+    "572 Node test executions repeat shared contracts across eight variants; they are not 572 independent features.",
+    "Explicit TypeScript/Node audit substitutes were used and recorded; selected versions are not certified by these checks.",
+    "Source-bound native evidence validators do not perform native tests.",
+    "No resolved dependency lockfiles or historical Git commits were fabricated."
+  ],
+  "evidence_directory": "evidence/current/",
+  "historical_import": "history/import-0.2.0a1-validation.json and history/import-0.2.0a1-evidence/"
+}

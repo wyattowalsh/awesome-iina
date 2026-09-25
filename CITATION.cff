@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If this catalog or its discovery methodology supports your work, cite the repository."
+title: "awesome-iina"
+type: software
+authors:
+  - family-names: Walsh
+    given-names: Wyatt
+repository-code: "https://github.com/wyattowalsh/awesome-iina"
+url: "https://github.com/wyattowalsh/awesome-iina"
+license: MIT
+version: 0.5.0

@@ -1,0 +1,10 @@
+import {resolve} from 'node:path';
+import {ROOT,json,run} from './common.mjs';
+const project = await json('.iina-project.json');
+const configs = ['tsconfig.main.json'];
+if (project.preset === 'controller') configs.push('tsconfig.global.json');
+if (project.preset !== 'command') configs.push('tsconfig.ui.json');
+const tsc = process.env.IINA_AUDIT_TSC || resolve(ROOT, 'node_modules/.bin/tsc');
+if (process.env.IINA_AUDIT_TSC) process.stderr.write(`AUDIT OVERRIDE: typechecker ${tsc}\n`);
+for (const config of configs) run(tsc, ['--project', config, '--pretty', 'false']);
+console.log(JSON.stringify({layer:'typecheck',compiler:run(tsc,['--version']).trim(),configs,status:'passed'}));

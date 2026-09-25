@@ -1,0 +1,12 @@
+---
+description: pnpm run pack builds an IINA plugin archive; pnpm pack builds an npm tarball. Do not substitute them.
+globs: package.json,scripts/**
+alwaysApply: false
+---
+
+# Pack name
+
+`pnpm run pack` is the IINA plugin packer. `pnpm pack` / `npm pack` create an npm
+package tarball and must not be used as a substitute.
+
+Do not publish, `gh release`, or restart IINA as a side effect of packing.

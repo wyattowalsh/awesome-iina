@@ -1,0 +1,8 @@
+{
+  "method": "Ordinary Playwright navigation to local HTTP demo; no security or network policy changes",
+  "browser_plugin": "absent; regular Playwright used",
+  "public_host_tested": false,
+  "navigation_succeeded": false,
+  "error": "Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at http://127.0.0.1:<port>/integration/demo/index.html\nCall log:\n  - navigating to \"http://127.0.0.1:<port>/integration/demo/index.html\", waiting until \"load\"\n",
+  "notes": "No bypass attempted. Remaining rendering proofs use in-memory exact asset bytes, with separate urllib HTTP checks."
+}

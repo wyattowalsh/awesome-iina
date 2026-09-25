@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "project_url": "https://wyattowalsh.github.io/awesome-iina/",
+  "repository_url": "https://github.com/wyattowalsh/awesome-iina",
+  "base_path": "/awesome-iina/",
+  "status": "intended configuration, not confirmed public deployment",
+  "social_image": "assets/brand/open-graph-1200x630.png",
+  "app_id": "/awesome-iina/",
+  "identity_policy": "Stable origin-relative application identity. Kept across ordinary kit versions and site-path relocations; use an explicit different app_id for another independent project on the same origin."
+}

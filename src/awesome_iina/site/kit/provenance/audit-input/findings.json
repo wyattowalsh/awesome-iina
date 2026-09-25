@@ -1,0 +1,371 @@
+{
+  "severity_scale": {
+    "P0": "Critical required-use usability, trust or delivery failure",
+    "P1": "Fix before affected release scope",
+    "P2": "Worthwhile improvement or conditional maintenance gap",
+    "P3": "Optional polish"
+  },
+  "p0_findings": 0,
+  "findings": [
+    {
+      "id": "F01",
+      "title": "The small icon is a reduction of an illustration, not a reliable distinctive micro-mark",
+      "priority": "P1",
+      "release_scope": "Primary symbol / favicon launch; not a repository-only hero blocker",
+      "affected_paths": [
+        "originals/awesome-iina-simplified-icon.png",
+        "exports/icons/simplified-icon-256.png",
+        "exports/web/favicon-16x16.png",
+        "exports/web/favicon-24x24.png",
+        "exports/web/favicon-32x32.png",
+        "exports/web/favicon-48x48.png",
+        "exports/web/favicon-64x64.png",
+        "exports/web/favicon.ico"
+      ],
+      "condition": "16, 24 and 32 CSS pixels, light/dark surroundings; DPR 1 and 2",
+      "evidence": [
+        {
+          "type": "Measured",
+          "reference": "evidence/asset-details.json",
+          "detail": "Favicon PNGs are exact decoded-pixel matches of Lanczos reductions; ICO frames equal those PNGs."
+        },
+        {
+          "type": "Measured",
+          "reference": "evidence/icon-geometry-diagnostic.json",
+          "detail": "Bright-content proxy in 1254-square source occupies approximately 11.05 x 8.74 pixels when scaled to 16; this is not a semantic silhouette measurement."
+        },
+        {
+          "type": "Visually observed",
+          "reference": "previews/08-browser-icon-section-dpr1.png",
+          "detail": "Play/window remain; puzzle detail loses identity at 16 and remains weak at 24/32."
+        }
+      ],
+      "confidence": "High on detail loss; medium on unfamiliar-user recognition",
+      "observation": "The plugin cue becomes a small bright patch while frame/play and sparkle dominate.",
+      "interpretation": "The retained details identify a media-player category better than this catalog.",
+      "consequence": "A tab/avatar can be technically visible yet weakly identifiable.",
+      "correction": "Design a bounded optical small-size family from a chosen invariant cue; increase useful occupied area and remove details that cannot survive.",
+      "acceptance_tests": [
+        "Inspect exported 16/24/32 CSS sizes at 100% and DPR 1/2, separately recording source pixels.",
+        "A distinctive non-letter cue must remain identifiable without sparkle or color alone.",
+        "Compare before/after under identical backgrounds; run small human matching/confusion review before approving the primary symbol."
+      ],
+      "requirement_ids": [
+        "R02",
+        "R10"
+      ]
+    },
+    {
+      "id": "F02",
+      "title": "The primary visual proposition is a player with plugins rather than an independent catalog",
+      "priority": "P1",
+      "release_scope": "Public positioning; primary identity approval; mitigable for repository-only release",
+      "affected_paths": [
+        "originals/awesome-iina-master-icon.png",
+        "originals/awesome-iina-simplified-icon.png",
+        "exports/social/github-social-preview-1280x640.png",
+        "exports/headers/readme-hero-1800x600.png",
+        "integration/website-head.example.html"
+      ],
+      "condition": "Standalone symbols and reduced public compositions",
+      "evidence": [
+        {
+          "type": "Visually observed",
+          "reference": "previews/06-all-image-files.png",
+          "detail": "Play triangle, application window, traffic-light dots, puzzle panel and sparkle recur. Full-size social text does say curated catalog, but no public composition explicitly says independent/community."
+        },
+        {
+          "type": "Researched",
+          "reference": "sources.json#S08-S11",
+          "detail": "Official IINA uses dark rounded-square/cyan play/purple bars; mpv a purple circular play mark; Awesome uses pink sunglasses and a wordmark."
+        },
+        {
+          "type": "Inferred",
+          "reference": "AUDIT.md#c-prioritized-findings-and-disagreements",
+          "detail": "Possible app/official-product interpretation. Not evidence of actual user confusion, copying, infringement or AI-product identity."
+        }
+      ],
+      "confidence": "Medium",
+      "observation": "The art prominently depicts a media application and extensions.",
+      "interpretation": "Context is relevant, but it overstates playback and understates curation/discovery.",
+      "consequence": "The intended independent-community role may disappear when descriptive text is unreadable.",
+      "correction": "Add an explicit independent-community descriptor; choose a primary silhouette distinguishable from an app-window/play icon. Keep player art as secondary illustration.",
+      "acceptance_tests": [
+        "Approve exact role copy against current project brief.",
+        "Full card/README context must identify the project as an independent catalog, not an official store/player.",
+        "Review actual IINA/mpv/Awesome references side by side; seek human first impressions, not a legal originality certificate."
+      ],
+      "requirement_ids": [
+        "R01",
+        "R11"
+      ]
+    },
+    {
+      "id": "F03",
+      "title": "Supporting raster copy loses utility at plausible small presentation widths",
+      "priority": "P1",
+      "release_scope": "Social-card release; README only if required meaning depends on image text",
+      "affected_paths": [
+        "exports/social/github-social-preview-1280x640.png",
+        "exports/social/open-graph-1200x630-padded.png",
+        "exports/headers/readme-hero-1200x400.png",
+        "exports/headers/readme-hero-1800x600.png",
+        "integration/readme-snippet.md"
+      ],
+      "condition": "Social 320x160 and 640x320; README 390-pixel and 960-pixel columns",
+      "evidence": [
+        {
+          "type": "Measured",
+          "reference": "evidence/text-size-and-contrast-diagnostics.json",
+          "detail": "Threshold-detected ink spans: social descriptor 23px/1280 => 5.75 CSS px at 320; category line 15 => 3.75; hero descriptor 24px/1800 => 5.2 at 390. These are glyph-ink spans, not font sizes."
+        },
+        {
+          "type": "Visually observed",
+          "reference": "previews/03-social-reduced.png",
+          "detail": "Name remains readable; category row and long descriptor cease to be reliable reading content."
+        },
+        {
+          "type": "Visually observed",
+          "reference": "previews/04-readme-reduced.png",
+          "detail": "Mobile-width hero title remains, descriptor is too small to carry required meaning."
+        }
+      ],
+      "confidence": "High for geometry and reviewer legibility judgment",
+      "observation": "The longest explanatory text is also the smallest content.",
+      "interpretation": "More source pixels do not enlarge CSS-presented words.",
+      "consequence": "The explanation needed to correct player-first positioning is the first element lost.",
+      "correction": "Use a shorter, larger role line on the social card; remove the tiny category inventory or move it to live text. Keep README meaning outside the illustration.",
+      "acceptance_tests": [
+        "Read name plus role line without zoom at the agreed minimum social presentation; 320x160 is the proposed stress test.",
+        "At a 390-pixel README column and with the image disabled, the live title and complete independent-catalog description remain available.",
+        "Check visual hierarchy and ordinary-text contrast in actual integration; do not treat logotype exemption as a whole-banner exemption."
+      ],
+      "requirement_ids": [
+        "R08",
+        "R09",
+        "R11"
+      ]
+    },
+    {
+      "id": "F04",
+      "title": "Website example is not a complete deployed Open Graph integration",
+      "priority": "P1",
+      "release_scope": "Conditional: website launch only",
+      "affected_paths": [
+        "integration/website-head.example.html",
+        "exports/web/site.webmanifest"
+      ],
+      "condition": "Example head lines 10-17 and deployed route resolution",
+      "evidence": [
+        {
+          "type": "Measured",
+          "reference": "evidence/source-text-review.txt",
+          "detail": "Example includes title, description, image placeholder, image dimensions and alt; no og:type or og:url."
+        },
+        {
+          "type": "Researched",
+          "reference": "sources.json#S02",
+          "detail": "Open Graph defines title/type/image/url as four basic required properties."
+        },
+        {
+          "type": "Untested",
+          "reference": "evidence/inspection-results.json",
+          "detail": "No actual site, absolute public URL, route fetch or social unfurl is supplied/tested."
+        }
+      ],
+      "confidence": "High for snippet; not assessed for any unseen site",
+      "observation": "The example intentionally contains placeholders and is missing two basic OG properties.",
+      "interpretation": "This is an incomplete example, not evidence that a published site is broken.",
+      "consequence": "Copying it unchanged can produce incomplete metadata and unresolved image/icon references.",
+      "correction": "Supply canonical URL/type, resolve placeholders/base path, and match image dimensions to whichever export is actually served.",
+      "acceptance_tests": [
+        "Rendered head contains title/type/image/url with no unresolved placeholder.",
+        "All served icon/manifest/image URLs return appropriate resources and dimensions.",
+        "Verify actual GitHub setting separately from website metadata; test selected browsers/platforms only once a deployment exists."
+      ],
+      "requirement_ids": [
+        "R05",
+        "R06",
+        "R07"
+      ]
+    },
+    {
+      "id": "F05",
+      "title": "Brand art and typography are not available as editable production masters",
+      "priority": "P2",
+      "release_scope": "Ongoing maintenance; a dependency of any approved redesign, not a one-off upload blocker",
+      "affected_paths": [
+        "originals/awesome-iina-master-icon.png",
+        "originals/awesome-iina-simplified-icon.png",
+        "originals/awesome-iina-social-artwork.png",
+        "originals/awesome-iina-readme-hero.png",
+        "scripts/export_assets.py"
+      ],
+      "condition": "Future text/layout/shape edits and new exports",
+      "evidence": [
+        {
+          "type": "Measured",
+          "reference": "asset-inventory.csv",
+          "detail": "Four RGB artwork originals; no layered brand source, text-layout source or font binaries. Banner text is rasterized."
+        },
+        {
+          "type": "Measured",
+          "reference": "evidence/embedded-provenance.json",
+          "detail": "An SVG inside credential metadata is a generator icon, not vector construction of Awesome IINA artwork."
+        }
+      ],
+      "confidence": "High",
+      "observation": "The exporter can resize artwork but cannot edit the baked-in headline, descriptor or icon geometry.",
+      "interpretation": "Repeatable resizing is not an editable identity system.",
+      "consequence": "Every meaningful correction needs reconstruction or regeneration without a stable design master.",
+      "correction": "Create an editable compact-symbol source and card layout with live editable text. Preserve complex hero illustration as raster where appropriate; record chosen font and license.",
+      "acceptance_tests": [
+        "Change descriptor text and regenerate without repainting underlying glyph pixels.",
+        "Inspect brand vector source for actual editable paths, not a whole-image raster wrapper.",
+        "Record licensed font dependency without redistributing font binaries in this audit.",
+        "Keep original hashes and map each revised export to its new source."
+      ],
+      "requirement_ids": [
+        "R12"
+      ]
+    },
+    {
+      "id": "F06",
+      "title": "The only background treatment is an opaque dark canvas",
+      "priority": "P2",
+      "release_scope": "Inline brand placement or neutral-background reuse, only when selected",
+      "affected_paths": [
+        "exports/icons/brand-icon-128.png",
+        "exports/icons/brand-icon-256.png",
+        "exports/icons/simplified-icon-256.png",
+        "exports/web/icon-192.png",
+        "exports/web/icon-512.png"
+      ],
+      "condition": "White/light surroundings and proposed single-color use",
+      "evidence": [
+        {
+          "type": "Measured",
+          "reference": "evidence/asset-details.json",
+          "detail": "All 23 images/containers are fully opaque. ICO alpha is 255 throughout. No transparent or genuine one-color brand variant."
+        },
+        {
+          "type": "Visually observed",
+          "reference": "previews/05-grayscale-and-alpha.png",
+          "detail": "Grayscale keeps geometry, but an alpha-only mask is a solid rectangle; light surroundings expose a dark rectangular tile."
+        }
+      ],
+      "confidence": "High",
+      "observation": "A dark rectangular backing is part of every icon asset.",
+      "interpretation": "This can be an intentional tile, but not a transparent universal-placement logo.",
+      "consequence": "Inline use can look boxed; a mask or knockout cannot be inferred from existing alpha.",
+      "correction": "Document dark-tile use as intentional. Add an actual cutout/light-background variant only for a confirmed placement; design one-color artwork only for a confirmed use.",
+      "acceptance_tests": [
+        "Inspect any new transparency with measured zero/partial alpha and on light/dark checkerboards.",
+        "No matte halo or disappearing silhouette at approved display sizes.",
+        "Do not add maskable purpose or claim monochrome support merely by changing metadata."
+      ],
+      "requirement_ids": [
+        "R07",
+        "R10",
+        "R12"
+      ]
+    },
+    {
+      "id": "F07",
+      "title": "Reuse governance and credential-preservation policy are unresolved",
+      "priority": "P2",
+      "release_scope": "Public asset reuse; escalate only if release asserts rights/verified credentials not established",
+      "affected_paths": [
+        "docs/PROVENANCE.md",
+        "ASSET-MANIFEST.json",
+        "originals/awesome-iina-master-icon.png",
+        "originals/awesome-iina-simplified-icon.png",
+        "originals/awesome-iina-social-artwork.png",
+        "originals/awesome-iina-readme-hero.png"
+      ],
+      "condition": "Source provenance, derivative metadata and public reuse claims",
+      "evidence": [
+        {
+          "type": "Measured",
+          "reference": "evidence/embedded-provenance.json",
+          "detail": "All four originals contain caBX metadata with claimed gpt-image 2.0 creation and OpenAI Media Service API generator; allActionsIncluded=false. Four declared data hashes independently match; signature/trust/timestamp validation not performed."
+        },
+        {
+          "type": "Measured",
+          "reference": "evidence/asset-details.json",
+          "detail": "Derivative PNGs have IHDR/IDAT/IEND only; no caBX. Source originals remain preserved."
+        },
+        {
+          "type": "Measured",
+          "reference": "evidence/source-text-review.txt",
+          "detail": "Provenance docs acknowledge no approved standard or determined third-party licensing; no asset reuse license provided."
+        },
+        {
+          "type": "Researched",
+          "reference": "sources.json#S13",
+          "detail": "Content binding, signature verification and trust evaluation are different validation steps."
+        }
+      ],
+      "confidence": "High for presence/absence and parsed fields; unverified authorship/rights",
+      "observation": "The kit has more embedded provenance than its overview explains, but neither the signatures nor rights were established here.",
+      "interpretation": "Preserved credentials and hashes are useful evidence, not a license or originality certificate.",
+      "consequence": "Maintainers could overstate provenance or public reuse permissions; metadata loss in resized copies is undocumented in detail.",
+      "correction": "Record parsed credential scope/status and omitted derivative metadata; retain original credentials untouched. Record maintainer authorization and explicit asset reuse terms. Use a proper validator only if making a verified-credential claim.",
+      "acceptance_tests": [
+        "Document which metadata persists in originals and which does not survive exports.",
+        "Never transplant an original signature onto altered pixels.",
+        "Maintainer approves selected assets and states reuse policy without claiming legal clearance.",
+        "Any verified-C2PA claim is accompanied by an actual validator report with trust/signature/time scope."
+      ],
+      "requirement_ids": [
+        "R13",
+        "R14"
+      ]
+    },
+    {
+      "id": "F08",
+      "title": "Color space and exact palette roles are not established",
+      "priority": "P2",
+      "release_scope": "Cross-tool export maintenance and color-critical reuse",
+      "affected_paths": [
+        "originals/awesome-iina-master-icon.png",
+        "originals/awesome-iina-simplified-icon.png",
+        "originals/awesome-iina-social-artwork.png",
+        "originals/awesome-iina-readme-hero.png",
+        "scripts/export_assets.py"
+      ],
+      "condition": "Source interpretation and future output conversion",
+      "evidence": [
+        {
+          "type": "Measured",
+          "reference": "evidence/asset-details.json",
+          "detail": "No ICC/sRGB/gAMA/cHRM/cICP color declaration found in any PNG."
+        },
+        {
+          "type": "Measured",
+          "reference": "evidence/text-size-and-contrast-diagnostics.json",
+          "detail": "Representative text-core/background ratios are 12.88,16.43,18.44 under explicit sRGB assumption; not whole-text minimum or display calibration."
+        },
+        {
+          "type": "Visually observed",
+          "reference": "previews/09-color-vision-simulations.png",
+          "detail": "Major frame/play geometry remains in Chromium color-vision simulations; small-detail loss persists."
+        }
+      ],
+      "confidence": "High for metadata; medium for color consistency risk",
+      "observation": "RGB values exist but source encoding and reusable palette tokens are undocumented.",
+      "interpretation": "The images are not demonstrated color-broken, but color-critical reproduction is not established.",
+      "consequence": "Future tools may choose inconsistent interpretation or undocumented accent colors.",
+      "correction": "Select and document the intended output color space after visual confirmation; define named color roles from approved source samples or explicitly proposed colors.",
+      "acceptance_tests": [
+        "Record color-space assignment/conversion, tool version and approved before/after visual comparison.",
+        "Do not label an existing unknown source profile as measured sRGB.",
+        "Retest ordinary supporting text contrast and grayscale recognition in revised assets."
+      ],
+      "requirement_ids": [
+        "R08",
+        "R12"
+      ]
+    }
+  ]
+}

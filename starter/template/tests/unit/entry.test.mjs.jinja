@@ -1,0 +1,37 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {loadTS} from '../helpers/load-ts.mjs';
+
+function mock(){
+  const menu=[],handlers=new Map(),messages=[],events=new Map(),calls=[];
+  const surface={loadFile:p=>calls.push(['load',p]),show:()=>calls.push(['show']),hide:()=>calls.push(['hide']),setClickable:v=>calls.push(['clickable',v]),open:()=>calls.push(['open']),setProperty:p=>calls.push(['property',p]),
+    postMessage:(name,data)=>messages.push({name,data}),onMessage:(name,cb)=>handlers.set(name,cb)};
+  const host={menu:{item:(title,action)=>({title,action}),addItem:item=>menu.push(item)},console:{log:()=>{},warn:()=>{},error:()=>{}},preferences:{get:()=>true},
+    mpv:{getString:()=> 'Example media',getFlag:()=>false},event:{on:(name,fn)=>{events.set(name,fn);return name;},off:(name,id)=>{assert.equal(name,id);events.delete(name);}},
+    sidebar:surface,overlay:surface,standaloneWindow:surface,global:{postMessage:(name,data)=>messages.push({name,data}),onMessage:(name,cb)=>handlers.set(name,cb)}};
+  return {host,menu,handlers,messages,events,calls};
+}
+test('main entry registers actionable menu without external runtime',()=>{
+  const m=mock();loadTS('src/main/index.ts',{iina:m.host});assert.ok(m.menu.length>=1);m.menu[0].action();
+});
+[% if preset in ['sidebar','overlay'] %]
+test('state waits for readiness and stop cleans owned event handlers',()=>{
+  const m=mock();loadTS('src/main/index.ts',{iina:m.host});assert.equal(m.messages.length,0);
+  m.handlers.get('iina-starter:state:v1')({v:1,kind:'ready',viewId:'test-view'});
+  assert.equal(m.messages.at(-1).data.title,'Example media');
+  m.events.get('mpv.pause.changed')();assert.equal(m.messages.at(-1).data.sequence,2);
+  m.handlers.get('iina-starter:state:v1')({v:1,kind:'ready',viewId:'test-view'});
+  assert.equal(m.messages.at(-1).data.sequence,3);
+  m.menu.find(item=>item.title==='Stop example session').action();assert.equal(m.events.size,0);
+  const before=m.messages.length;
+  m.handlers.get('iina-starter:state:v1')({v:1,kind:'ready',viewId:'new-view'});
+  assert.equal(m.messages.length,before);
+});
+[% endif %]
+[% if preset == 'controller' %]
+test('global entry opens a controller without reading player APIs',()=>{
+  const m=mock();delete m.host.mpv;delete m.host.event;
+  loadTS('src/global/index.ts',{iina:m.host});m.menu[0].action();assert.ok(m.calls.some(call=>call[0]==='open'));
+  m.handlers.get('iina-starter:open:v1')({v:1});
+});
+[% endif %]

@@ -1,0 +1,1169 @@
+{
+  "schema_version": 1,
+  "release": "2.1.1",
+  "date": "2026-09-16",
+  "checks_passed": 82,
+  "checks_total": 82,
+  "status": "passed",
+  "checks": [
+    {
+      "id": "original-checksums",
+      "pass": true,
+      "detail": {
+        "matching": 36,
+        "expected": 36
+      }
+    },
+    {
+      "id": "preserved-hero",
+      "pass": true,
+      "detail": "Retained export is byte-identical."
+    },
+    {
+      "id": "srgb:apple-touch-icon.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "srgb:avatar-1024.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "srgb:favicon-128.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "dimensions:favicon-128.png",
+      "pass": true,
+      "detail": [
+        128,
+        128
+      ]
+    },
+    {
+      "id": "srgb:favicon-16.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "dimensions:favicon-16.png",
+      "pass": true,
+      "detail": [
+        16,
+        16
+      ]
+    },
+    {
+      "id": "srgb:favicon-16@2x.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "dimensions:favicon-16@2x.png",
+      "pass": true,
+      "detail": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "srgb:favicon-24.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "dimensions:favicon-24.png",
+      "pass": true,
+      "detail": [
+        24,
+        24
+      ]
+    },
+    {
+      "id": "srgb:favicon-24@2x.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "dimensions:favicon-24@2x.png",
+      "pass": true,
+      "detail": [
+        48,
+        48
+      ]
+    },
+    {
+      "id": "srgb:favicon-256.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "dimensions:favicon-256.png",
+      "pass": true,
+      "detail": [
+        256,
+        256
+      ]
+    },
+    {
+      "id": "srgb:favicon-32.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "dimensions:favicon-32.png",
+      "pass": true,
+      "detail": [
+        32,
+        32
+      ]
+    },
+    {
+      "id": "srgb:favicon-32@2x.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "dimensions:favicon-32@2x.png",
+      "pass": true,
+      "detail": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "srgb:favicon-48.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "dimensions:favicon-48.png",
+      "pass": true,
+      "detail": [
+        48,
+        48
+      ]
+    },
+    {
+      "id": "srgb:favicon-512.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "dimensions:favicon-512.png",
+      "pass": true,
+      "detail": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "srgb:favicon-64.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "dimensions:favicon-64.png",
+      "pass": true,
+      "detail": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "srgb:github-social-preview-1280x640.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "srgb:icon-192.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "srgb:icon-512.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "srgb:open-graph-1200x630.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "srgb:symbol-dark-1024.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "alpha:symbol-dark-1024.png",
+      "pass": true,
+      "detail": "Symbol export includes real transparency and opaque artwork."
+    },
+    {
+      "id": "srgb:symbol-dark-128.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "alpha:symbol-dark-128.png",
+      "pass": true,
+      "detail": "Symbol export includes real transparency and opaque artwork."
+    },
+    {
+      "id": "srgb:symbol-dark-256.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "alpha:symbol-dark-256.png",
+      "pass": true,
+      "detail": "Symbol export includes real transparency and opaque artwork."
+    },
+    {
+      "id": "srgb:symbol-dark-512.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "alpha:symbol-dark-512.png",
+      "pass": true,
+      "detail": "Symbol export includes real transparency and opaque artwork."
+    },
+    {
+      "id": "srgb:symbol-light-1024.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "alpha:symbol-light-1024.png",
+      "pass": true,
+      "detail": "Symbol export includes real transparency and opaque artwork."
+    },
+    {
+      "id": "srgb:symbol-light-128.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "alpha:symbol-light-128.png",
+      "pass": true,
+      "detail": "Symbol export includes real transparency and opaque artwork."
+    },
+    {
+      "id": "srgb:symbol-light-256.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "alpha:symbol-light-256.png",
+      "pass": true,
+      "detail": "Symbol export includes real transparency and opaque artwork."
+    },
+    {
+      "id": "srgb:symbol-light-512.png",
+      "pass": true,
+      "detail": "New PNG has explicit ICC profile."
+    },
+    {
+      "id": "alpha:symbol-light-512.png",
+      "pass": true,
+      "detail": "Symbol export includes real transparency and opaque artwork."
+    },
+    {
+      "id": "github-image",
+      "pass": true,
+      "detail": {
+        "dimensions": [
+          1280,
+          640
+        ],
+        "bytes": 198593,
+        "reference": "GitHub social-preview guidance"
+      }
+    },
+    {
+      "id": "ico-sizes",
+      "pass": true,
+      "detail": [
+        [
+          16,
+          16
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          32,
+          32
+        ],
+        [
+          48,
+          48
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          128,
+          128
+        ],
+        [
+          256,
+          256
+        ]
+      ]
+    },
+    {
+      "id": "ico-pixels:16",
+      "pass": true,
+      "detail": "Frame equals the corresponding optically selected PNG, not an automatic resample of one master."
+    },
+    {
+      "id": "ico-pixels:24",
+      "pass": true,
+      "detail": "Frame equals the corresponding optically selected PNG, not an automatic resample of one master."
+    },
+    {
+      "id": "ico-pixels:32",
+      "pass": true,
+      "detail": "Frame equals the corresponding optically selected PNG, not an automatic resample of one master."
+    },
+    {
+      "id": "ico-pixels:48",
+      "pass": true,
+      "detail": "Frame equals the corresponding optically selected PNG, not an automatic resample of one master."
+    },
+    {
+      "id": "ico-pixels:64",
+      "pass": true,
+      "detail": "Frame equals the corresponding optically selected PNG, not an automatic resample of one master."
+    },
+    {
+      "id": "ico-pixels:128",
+      "pass": true,
+      "detail": "Frame equals the corresponding optically selected PNG, not an automatic resample of one master."
+    },
+    {
+      "id": "ico-pixels:256",
+      "pass": true,
+      "detail": "Frame equals the corresponding optically selected PNG, not an automatic resample of one master."
+    },
+    {
+      "id": "distinct-optical:16",
+      "pass": true,
+      "detail": "Small export is not the 32px image resampled."
+    },
+    {
+      "id": "distinct-optical:24",
+      "pass": true,
+      "detail": "Small export is not the 32px image resampled."
+    },
+    {
+      "id": "path-source:symbol-dark.svg",
+      "pass": true,
+      "detail": "No raster, no visible text and no external font in standalone mark."
+    },
+    {
+      "id": "path-source:symbol-ink.svg",
+      "pass": true,
+      "detail": "No raster, no visible text and no external font in standalone mark."
+    },
+    {
+      "id": "path-source:symbol-light.svg",
+      "pass": true,
+      "detail": "No raster, no visible text and no external font in standalone mark."
+    },
+    {
+      "id": "path-source:symbol-white.svg",
+      "pass": true,
+      "detail": "No raster, no visible text and no external font in standalone mark."
+    },
+    {
+      "id": "editable-social-text",
+      "pass": true,
+      "detail": [
+        "Awesome ",
+        "IINA",
+        "Independent catalog",
+        "for the IINA ecosystem"
+      ]
+    },
+    {
+      "id": "outlined-social-type",
+      "pass": true,
+      "detail": "Outlined production type. The one embedded background image is documented raster, not false vector art."
+    },
+    {
+      "id": "og-required",
+      "pass": true,
+      "detail": {
+        "og:title": "Awesome IINA",
+        "og:type": "website",
+        "og:url": "https://wyattowalsh.github.io/awesome-iina/",
+        "og:description": "Independent catalog for the IINA ecosystem.",
+        "og:image": "https://wyattowalsh.github.io/awesome-iina/assets/brand/github-social-preview-1280x640.png",
+        "og:image:type": "image/png",
+        "og:image:width": "1280",
+        "og:image:height": "640",
+        "og:image:alt": "Awesome IINA \u2014 independent catalog for the IINA ecosystem."
+      }
+    },
+    {
+      "id": "canonical-url",
+      "pass": true,
+      "detail": "Intended URL checked against configuration; public reachability not tested."
+    },
+    {
+      "id": "og-dimensions",
+      "pass": true,
+      "detail": {
+        "image": "https://wyattowalsh.github.io/awesome-iina/assets/brand/github-social-preview-1280x640.png"
+      }
+    },
+    {
+      "id": "no-output-placeholders",
+      "pass": true,
+      "detail": "Source template placeholders are resolved in delivered head."
+    },
+    {
+      "id": "manifest:icon-192.png",
+      "pass": true,
+      "detail": {
+        "purpose": "any",
+        "sizes": "192x192",
+        "src": "icon-192.png",
+        "type": "image/png"
+      }
+    },
+    {
+      "id": "manifest:icon-512.png",
+      "pass": true,
+      "detail": {
+        "purpose": "any",
+        "sizes": "512x512",
+        "src": "icon-512.png",
+        "type": "image/png"
+      }
+    },
+    {
+      "id": "manifest-identity",
+      "pass": true,
+      "detail": {
+        "id": "/awesome-iina/",
+        "resolved_id": "https://wyattowalsh.github.io/awesome-iina/",
+        "method": "Standards-based URL calculation; native processing not asserted"
+      }
+    },
+    {
+      "id": "manifest-launch-and-scope",
+      "pass": true,
+      "detail": {
+        "start": "https://wyattowalsh.github.io/awesome-iina/",
+        "scope": "https://wyattowalsh.github.io/awesome-iina/"
+      }
+    },
+    {
+      "id": "manifest-template-policy",
+      "pass": true,
+      "detail": "Generated ID is configured explicitly; no version/base-path inference."
+    },
+    {
+      "id": "editable-kerning-css:wordmark-dark-editable.svg",
+      "pass": true,
+      "detail": "Supported CSS policy; actual glyph parity is checked separately in Chromium."
+    },
+    {
+      "id": "editable-kerning-css:wordmark-light-editable.svg",
+      "pass": true,
+      "detail": "Supported CSS policy; actual glyph parity is checked separately in Chromium."
+    },
+    {
+      "id": "editable-kerning-css:social-card-editable.svg",
+      "pass": true,
+      "detail": "Supported CSS policy; actual glyph parity is checked separately in Chromium."
+    },
+    {
+      "id": "primary-shipping-selection",
+      "pass": true,
+      "detail": "Historical hero remains optional, not default installation/delivery."
+    },
+    {
+      "id": "primary-demo-selection",
+      "pass": true,
+      "detail": "Primary demo uses current wordmarks and live copy."
+    },
+    {
+      "id": "production-artwork-preserved",
+      "pass": true,
+      "detail": "All 35 original production artwork files are unchanged; only metadata/exchange sources change."
+    },
+    {
+      "id": "task-dag",
+      "pass": true,
+      "detail": "Social and README work are parallel; metadata preparation does not await icon exports."
+    },
+    {
+      "id": "local-html-references",
+      "pass": true,
+      "detail": [
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/favicon.svg",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/favicon-32.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/github-social-preview-1280x640.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/github-social-preview-1280x640.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../source/social-card-editable.svg",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../docs/CHANGELOG.md",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../integration/README.md",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/favicon-16.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/favicon-24.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/favicon-32.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/favicon-48.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/favicon-64.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/favicon-128.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/favicon-16.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/favicon-24.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/favicon-32.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/favicon-48.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/favicon-64.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/favicon-128.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../archive/original-kit/exports/web/favicon-16x16.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../archive/original-kit/exports/web/favicon-24x24.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../archive/original-kit/exports/web/favicon-32x32.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../archive/original-kit/exports/web/favicon-48x48.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../archive/original-kit/exports/web/favicon-64x64.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../archive/original-kit/exports/social/github-social-preview-1280x640.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/github-social-preview-1280x640.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/symbol-dark.svg",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/symbol-white.svg",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/symbol-dark.svg",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/symbol-white.svg",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/symbol-light.svg",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/symbol-ink.svg",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/symbol-light.svg",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/symbol-ink.svg",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../integration/demo/index.html",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../REPO-README-PREFIX.md",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../assets/brand/readme-hero-retained.png",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../docs/VALIDATION.md",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../docs/STYLE.md",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../docs/RELEASE-PLAN.json",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../docs/PATCH-REMEDIATION.json",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../ASSET-MANIFEST.json",
+          "exists": true
+        },
+        {
+          "file": "review/index.html",
+          "target": "../REVIEW-PROMPT.md",
+          "exists": true
+        },
+        {
+          "file": "START-HERE.html",
+          "target": "review/index.html",
+          "exists": true
+        },
+        {
+          "file": "START-HERE.html",
+          "target": "README.md",
+          "exists": true
+        },
+        {
+          "file": "integration/demo/index.html",
+          "target": "../../assets/brand/favicon.ico",
+          "exists": true
+        },
+        {
+          "file": "integration/demo/index.html",
+          "target": "../../assets/brand/favicon.svg",
+          "exists": true
+        },
+        {
+          "file": "integration/demo/index.html",
+          "target": "../../assets/brand/apple-touch-icon.png",
+          "exists": true
+        },
+        {
+          "file": "integration/demo/index.html",
+          "target": "../../assets/brand/site.webmanifest",
+          "exists": true
+        },
+        {
+          "file": "integration/demo/index.html",
+          "target": "../../assets/brand/wordmark-light.svg",
+          "exists": true
+        },
+        {
+          "file": "integration/demo/index.html",
+          "target": "../../assets/brand/wordmark-dark.svg",
+          "exists": true
+        },
+        {
+          "file": "integration/demo/index.html",
+          "target": "../../review/index.html",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "id": "no-font-binaries",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "id": "intended-role-text-contrast",
+      "pass": true,
+      "detail": {
+        "ratios": {
+          "foreground": 17.961,
+          "secondary": 14.924,
+          "cyan": 11.21,
+          "violet": 7.286
+        },
+        "method": "Known intended solid colors in assigned sRGB, not antialiased edge samples or whole-page certification."
+      }
+    }
+  ],
+  "asset_inventory": [
+    {
+      "path": "assets/brand/apple-touch-icon.png",
+      "size": [
+        180,
+        180
+      ],
+      "mode": "RGB",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 4577
+    },
+    {
+      "path": "assets/brand/avatar-1024.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 28236
+    },
+    {
+      "path": "assets/brand/favicon-128.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 9270
+    },
+    {
+      "path": "assets/brand/favicon-16.png",
+      "size": [
+        16,
+        16
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 1173
+    },
+    {
+      "path": "assets/brand/favicon-16@2x.png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 2176
+    },
+    {
+      "path": "assets/brand/favicon-24.png",
+      "size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 1621
+    },
+    {
+      "path": "assets/brand/favicon-24@2x.png",
+      "size": [
+        48,
+        48
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 3056
+    },
+    {
+      "path": "assets/brand/favicon-256.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 17988
+    },
+    {
+      "path": "assets/brand/favicon-32.png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 2265
+    },
+    {
+      "path": "assets/brand/favicon-32@2x.png",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 4592
+    },
+    {
+      "path": "assets/brand/favicon-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 3481
+    },
+    {
+      "path": "assets/brand/favicon-512.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 37439
+    },
+    {
+      "path": "assets/brand/favicon-64.png",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 4592
+    },
+    {
+      "path": "assets/brand/github-social-preview-1280x640.png",
+      "size": [
+        1280,
+        640
+      ],
+      "mode": "RGB",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 198593
+    },
+    {
+      "path": "assets/brand/icon-192.png",
+      "size": [
+        192,
+        192
+      ],
+      "mode": "RGB",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 4852
+    },
+    {
+      "path": "assets/brand/icon-512.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 13094
+    },
+    {
+      "path": "assets/brand/open-graph-1200x630.png",
+      "size": [
+        1200,
+        630
+      ],
+      "mode": "RGB",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 229995
+    },
+    {
+      "path": "assets/brand/readme-hero-retained.png",
+      "size": [
+        1800,
+        600
+      ],
+      "mode": "RGB",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "icc_profile": false,
+      "bytes": 931563
+    },
+    {
+      "path": "assets/brand/symbol-dark-1024.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 36713
+    },
+    {
+      "path": "assets/brand/symbol-dark-128.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 3928
+    },
+    {
+      "path": "assets/brand/symbol-dark-256.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 7549
+    },
+    {
+      "path": "assets/brand/symbol-dark-512.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 15652
+    },
+    {
+      "path": "assets/brand/symbol-light-1024.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 29433
+    },
+    {
+      "path": "assets/brand/symbol-light-128.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 3337
+    },
+    {
+      "path": "assets/brand/symbol-light-256.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 6508
+    },
+    {
+      "path": "assets/brand/symbol-light-512.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "icc_profile": true,
+      "bytes": 13498
+    }
+  ],
+  "limitations": [
+    "No live GitHub upload",
+    "No real browser-tab chrome selection verification",
+    "No Safari/iOS device test",
+    "No human recognition study",
+    "No trademark clearance or full C2PA validation"
+  ],
+  "type_of_claim": "Technical artifact checks, not human brand approval"
+}

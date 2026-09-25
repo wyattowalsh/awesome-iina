@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "command": "node ./scripts/agent-guard.mjs",
+        "timeout": 10,
+        "failClosed": true,
+        "matcher": "Shell|Bash"
+      },
+      {
+        "command": "node ./scripts/agent-guard.mjs",
+        "timeout": 10,
+        "failClosed": true,
+        "matcher": "Write"
+      },
+      {
+        "command": "node ./scripts/agent-guard.mjs",
+        "timeout": 10,
+        "failClosed": true,
+        "matcher": "StrReplace"
+      },
+      {
+        "command": "node ./scripts/agent-guard.mjs",
+        "timeout": 10,
+        "failClosed": false
+      }
+    ],
+    "afterFileEdit": [
+      {
+        "command": "node ./scripts/agent-guard.mjs",
+        "timeout": 10,
+        "failClosed": true,
+        "matcher": "Info\\.json"
+      }
+    ]
+  }
+}

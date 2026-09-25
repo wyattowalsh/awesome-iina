@@ -1,0 +1,26 @@
+:root { color-scheme: light dark; font: 14px/1.5 system-ui, sans-serif; }
+body { margin: 0; padding: 1rem; color: CanvasText; background: Canvas; }
+main { max-inline-size: 28rem; }
+h1 {
+  font-size: 1.125rem;
+  margin: 0 0 .5rem;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+p { margin: 0; }
+[% if preset == 'overlay' %]body { background: transparent; pointer-events: none; }
+main {
+  display: inline-block;
+  max-inline-size: 22rem;
+  padding: .75rem;
+  background: Canvas;
+  color: CanvasText;
+  border-radius: .5rem;
+}
+[% endif %]
+[% if preset == 'sidebar' or preset == 'controller' %]body { color: CanvasText; background: Canvas; }
+[% endif %]

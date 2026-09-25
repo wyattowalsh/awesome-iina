@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0a1",
+  "status": "source-candidate",
+  "blocking": [
+    {
+      "id": "real-copier",
+      "task": "Run all actual Copier copies/updates; include alpha adoption and shared-file conflicts."
+    },
+    {
+      "id": "dependency-graph",
+      "task": "Resolve pinned package graphs and approve only reviewed lifecycle scripts; produce real locks."
+    },
+    {
+      "id": "production-builds",
+      "task": "Build every generated profile with the selected compiler, esbuild and Starlight."
+    },
+    {
+      "id": "workflow-runtime",
+      "task": "Run actionlint/zizmor and execute workflows on a disposable repository."
+    },
+    {
+      "id": "native",
+      "task": "Run actual IINA/macOS acceptance, official packaging and two-version install/update."
+    }
+  ],
+  "deferred": [
+    "Fumadocs as a second docs engine",
+    "React/Vue UI profiles",
+    "automatic GitHub plugin publication",
+    "native GUI automation",
+    "property-based protocol testing"
+  ]
+}

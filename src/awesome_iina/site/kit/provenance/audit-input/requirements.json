@@ -1,0 +1,165 @@
+{
+  "review_date": "2026-09-16",
+  "requirements": [
+    {
+      "id": "R01",
+      "category": "Explicit user",
+      "statement": "Independent community catalog, not official IINA app/store or AI player",
+      "scope": "All public identity uses",
+      "result": "Needs positioning refinement; full-size catalog copy exists but no explicit independent/community descriptor.",
+      "source_ids": [],
+      "mandatory_when_applicable": true
+    },
+    {
+      "id": "R02",
+      "category": "Explicit user",
+      "statement": "No lettering in standalone symbols",
+      "scope": "Master and simplified icon artwork",
+      "result": "Pass: no visible lettering in either standalone concept.",
+      "source_ids": [],
+      "mandatory_when_applicable": true
+    },
+    {
+      "id": "R03",
+      "category": "Verified platform requirement",
+      "statement": "GitHub social preview: PNG/JPG/GIF under 1 MB",
+      "scope": "Repository social preview",
+      "result": "Pass: PNG, 794030 bytes. Actual upload not performed.",
+      "source_ids": [
+        "S01"
+      ],
+      "mandatory_when_applicable": true
+    },
+    {
+      "id": "R04",
+      "category": "Platform recommendation",
+      "statement": "GitHub recommends at least 640x320; 1280x640 for best display",
+      "scope": "Repository social preview",
+      "result": "Pass: supplied 1280x640. Not a mandatory universal social ratio.",
+      "source_ids": [
+        "S01"
+      ],
+      "mandatory_when_applicable": false
+    },
+    {
+      "id": "R05",
+      "category": "Verified protocol requirement",
+      "statement": "Four OG properties: title, type, image, url",
+      "scope": "Website OG integration only",
+      "result": "Conditional gap: example lacks og:type and og:url; og:image is explicitly a deployment placeholder.",
+      "source_ids": [
+        "S02"
+      ],
+      "mandatory_when_applicable": true
+    },
+    {
+      "id": "R06",
+      "category": "Verified platform behavior",
+      "statement": "Manifest icon src resolves relative to manifest and sizes describe resource",
+      "scope": "Supplied website manifest",
+      "result": "Packaged paths and declared sizes pass; live route resolution untested.",
+      "source_ids": [
+        "S03"
+      ],
+      "mandatory_when_applicable": true
+    },
+    {
+      "id": "R07",
+      "category": "Verified platform semantics",
+      "statement": "Purpose any is not a maskable claim",
+      "scope": "Supplied manifest and optional home-screen uses",
+      "result": "Pass as declared. PWA installability, maskable variants and App Store assets are out of required scope.",
+      "source_ids": [
+        "S03"
+      ],
+      "mandatory_when_applicable": true
+    },
+    {
+      "id": "R08",
+      "category": "Accessibility criterion, conditional",
+      "statement": "Text contrast applies according to function; logotypes exempt; essential descriptions need appropriate presentation",
+      "scope": "Actual README/website content, not an isolated decorative logo",
+      "result": "Spot samples measured; full compliance not established. Small descriptive text remains a usability problem.",
+      "source_ids": [
+        "S05"
+      ],
+      "mandatory_when_applicable": true
+    },
+    {
+      "id": "R09",
+      "category": "Accessibility criterion, conditional",
+      "statement": "Appropriate text alternatives; use live text where raster descriptions replace ordinary readable text",
+      "scope": "Actual README/website integration",
+      "result": "Snippet recommends live text, but real page absent. No whole-page failure or pass assigned.",
+      "source_ids": [
+        "S06",
+        "S07"
+      ],
+      "mandatory_when_applicable": true
+    },
+    {
+      "id": "R10",
+      "category": "Reviewer proposed acceptance test",
+      "statement": "Native 16/24/32/48/64/128/256 CSS recognition and light/dark surroundings at DPR 1/2",
+      "scope": "Icons when selected for release",
+      "result": "Current micro-size family fails reviewer recognition judgment; not a browser size standard.",
+      "source_ids": [],
+      "mandatory_when_applicable": false
+    },
+    {
+      "id": "R11",
+      "category": "Reviewer proposed acceptance test",
+      "statement": "Read project name and one role line at 320x160 social preview; inspect README at 390-pixel column",
+      "scope": "Public compositions",
+      "result": "Main name survives; current explanatory copy does not. These are simulated widths, not verified platform crops.",
+      "source_ids": [],
+      "mandatory_when_applicable": false
+    },
+    {
+      "id": "R12",
+      "category": "Professional maintainability recommendation",
+      "statement": "Keep editable symbol geometry and editable type; document font licenses and color space",
+      "scope": "Ongoing identity system",
+      "result": "Missing brand vector/layered/type masters. Not itself a GitHub upload blocker.",
+      "source_ids": [],
+      "mandatory_when_applicable": false
+    },
+    {
+      "id": "R13",
+      "category": "Release governance recommendation",
+      "statement": "Record maintainer approval and asset reuse terms without asserting legal clearance",
+      "scope": "Public asset distribution",
+      "result": "No approved identity or determined asset reuse policy in supplied kit.",
+      "source_ids": [],
+      "mandatory_when_applicable": false
+    },
+    {
+      "id": "R14",
+      "category": "Evidence interpretation rule",
+      "statement": "Embedded credentials are claims until validation scope is reported; do not copy old signatures onto altered images",
+      "scope": "Source provenance and derivative documentation",
+      "result": "Four caBX records parsed; four declared data hashes match; signature/trust/time validation not performed. Derivatives omit caBX.",
+      "source_ids": [
+        "S13"
+      ],
+      "mandatory_when_applicable": false
+    },
+    {
+      "id": "R15",
+      "category": "Explicit audit boundary",
+      "statement": "Do not execute bundled code or alter originals; do not infer prior versions or deployment",
+      "scope": "This audit",
+      "result": "Pass: read-only source inspection; only independently authored inspection/rendering code executed.",
+      "source_ids": [],
+      "mandatory_when_applicable": true
+    }
+  ],
+  "excluded_requirements": [
+    "Native macOS app icons or App Store submission",
+    "Mandatory PWA installability/offline support",
+    "Mandatory maskable or monochrome icons",
+    "A mandatory SVG for every composition",
+    "A universal social crop/safe-zone or 1200x630 requirement",
+    "Cross-platform tests not actually performed"
+  ]
+}

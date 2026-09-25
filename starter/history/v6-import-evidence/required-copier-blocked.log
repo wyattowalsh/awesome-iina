@@ -1,0 +1,10 @@
+
+==================================== ERRORS ====================================
+__________________ ERROR collecting tests/test_real_copier.py __________________
+tests/test_real_copier.py:9: in <module>
+    raise RuntimeError('Copier is required for integration/release verification; install it explicitly')
+E   RuntimeError: Copier is required for integration/release verification; install it explicitly
+=========================== short test summary info ============================
+ERROR tests/test_real_copier.py - RuntimeError: Copier is required for integration/release verification; install it explicitly
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.15s

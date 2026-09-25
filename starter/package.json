@@ -1,0 +1,24 @@
+{
+  "name": "iina-plugin-starter",
+  "version": "0.2.0-alpha.2",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.4.1",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "docs:check": "node scripts/docs.ts check",
+    "docs:prepare": "node scripts/docs.ts prepare",
+    "docs:dev": "node scripts/docs.ts dev",
+    "docs:build": "node scripts/docs.ts build",
+    "verify:workflows": "python3 tools/verify_workflows.py"
+  },
+  "devDependencies": {
+    "astro": "7.2.10",
+    "@astrojs/starlight": "0.42.0",
+    "@astrojs/starlight-tailwind": "5.0.0",
+    "tailwindcss": "4.3.3",
+    "@tailwindcss/vite": "4.3.3"
+  }
+}

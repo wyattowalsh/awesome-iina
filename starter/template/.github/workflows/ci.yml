@@ -1,0 +1,48 @@
+name: Plugin CI
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: plugin-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .node-version
+          package-manager-cache: false
+      - name: Install the declared package manager
+        run: npm install --global pnpm@12.4.1
+      - name: Frozen dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Check source and build the real stage
+        run: |
+          pnpm run check
+          pnpm run build
+          pnpm run verify:stage
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: staged-file-inventory
+          path: .build/artifact-manifest.json
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7
+  required:
+    if: always()
+    needs: checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - name: Reject failed or skipped applicable checks
+        env:
+          CHECK_RESULT: ${{ needs.checks.result }}
+        run: test "$CHECK_RESULT" = success

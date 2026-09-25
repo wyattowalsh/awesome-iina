@@ -1,0 +1,62 @@
+# [[ plugin_name ]]
+
+[[ description ]]
+
+Generated architecture: **[[ preset ]]**, preferences **[[ preferences ]]**, documentation
+**[[ docs_profile ]]**, optional hook configuration **[[ hooks ]]**.
+
+## Develop
+
+Install the tool versions declared by mise.toml / package.json, manually or with `mise install`.
+Then run:
+
+```sh
+pnpm run bootstrap
+pnpm run fmt
+pnpm run check
+pnpm run build
+pnpm run doctor
+```
+
+Rendering never installs packages or runs formatters. The explicit first-time `fmt` step
+normalizes rendered files. Review and commit the changes and resolver-produced lockfile.
+Subsequent CI installations are frozen. No lockfile has been fabricated by the template.
+
+`just` lists command aliases. Use `pnpm run dev` for rebuilding; it does not reload IINA.
+For UI presets, build then run `pnpm run preview` for a loopback-only browser simulation.
+`pnpm run fixture:media` creates a first-party WAV under ignored reports without playing it.
+
+## Native development and release
+
+On macOS, use `pnpm run link`, `pnpm run unlink` and `pnpm run pack`. Never confuse
+`pnpm run pack` with the package manager's own `pnpm pack`. The native IINA CLI is required.
+The wrapper never restarts IINA. Python 3 is needed only by development-time ZIP inspection.
+
+The generated CI validates real builds. The release workflow uploads a candidate stage,
+not a native-certified plugin and not a public release. After native acceptance, copy the
+native evidence example to reports/native-evidence.json, record the exact tested commit,
+and run `pnpm run release:prepare` from that clean tagged source. Results are user-reported
+native evidence checked for schema and source binding, not native tests executed by that script.
+
+## Documentation
+
+Edit `docs/content`. `pnpm run docs:check` checks local Markdown destinations.
+`pnpm run docs:prepare` derives command reference, llms.txt and individual Markdown exports.
+[% if docs_profile == 'starlight' %]
+Use `pnpm run docs:dev` and `pnpm run docs:build` for Starlight. Configure GitHub Pages
+and set the repository variable ENABLE_DOCS_DEPLOY=true to enable the deployment job.
+[% endif %]
+[% if hooks %]
+Lefthook configuration is included but not activated. Install a standalone Lefthook binary,
+review existing hooks, then run `pnpm run hooks:install`. Existing hooks are never overwritten.
+[% endif %]
+
+Read AGENTS.md, CONTRIBUTING.md and docs/content/updating.md before changing infrastructure.
+Runtime code and user docs are consumer-owned seeds. Copier updates overwrite `site/**`,
+so consumer theming there will be replaced on the next reviewed upgrade. Identity in this
+template means plugin name, identifier, and Info.json — not the Starlight palette.
+Preset/profile changes require a reviewed migration. Renovate may propose updates but no
+update is auto-merged.
+
+This project does not inherit a native compatibility certification from its generator.
+Record the exact IINA/macOS combinations that you actually test.

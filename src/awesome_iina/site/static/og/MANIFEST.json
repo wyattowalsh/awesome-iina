@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "role": "Takumi-derived catalog share cards. Kit originals stay in kit/assets/brand/.",
+  "assets": [
+    {
+      "path": "assets/og/open-graph-1200x630.png",
+      "bytes": 89173,
+      "sha256": "383a2c6f96526491d84443f507950b6d5cf552dfdb27e50c2d3fdfd204610297",
+      "width": 1200,
+      "height": 630,
+      "theme": "dark",
+      "generator": "takumi-js",
+      "source": "src/awesome_iina/site/ui/og/catalog-card.tsx"
+    },
+    {
+      "path": "assets/og/github-social-preview-1280x640.png",
+      "bytes": 96358,
+      "sha256": "04657c6038a9d392f4bfe3c0afe35ad5308cbb148701cb44d15c0b59c75147b6",
+      "width": 1280,
+      "height": 640,
+      "theme": "dark",
+      "generator": "takumi-js",
+      "source": "src/awesome_iina/site/ui/og/catalog-card.tsx"
+    },
+    {
+      "path": "assets/og/share-card-1200x630-light.png",
+      "bytes": 99579,
+      "sha256": "86b8f001d4009af572354d3cf854c27fe570e5b5ea049f07a09cb017e4b33cb8",
+      "width": 1200,
+      "height": 630,
+      "theme": "light",
+      "generator": "takumi-js",
+      "source": "src/awesome_iina/site/ui/og/catalog-card.tsx"
+    }
+  ]
+}

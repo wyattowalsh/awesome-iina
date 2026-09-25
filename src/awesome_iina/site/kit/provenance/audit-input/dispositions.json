@@ -1,0 +1,109 @@
+[
+  {
+    "family": "README hero",
+    "paths": [
+      "originals/awesome-iina-readme-hero.png",
+      "exports/headers/readme-hero-1200x400.png",
+      "exports/headers/readme-hero-1800x600.png"
+    ],
+    "disposition": "Keep",
+    "release": "Ship after specified fixes to integration",
+    "condition": "Supplementary/decorative hero with live heading and complete independent-catalog description; not sole mobile information."
+  },
+  {
+    "family": "GitHub social card",
+    "paths": [
+      "exports/social/github-social-preview-1280x640.png"
+    ],
+    "disposition": "Refine",
+    "release": "Ship after specified fixes",
+    "condition": "F02/F03; encoding and documented GitHub size checks already pass."
+  },
+  {
+    "family": "Optional padded OG card",
+    "paths": [
+      "exports/social/open-graph-1200x630-padded.png"
+    ],
+    "disposition": "Refine",
+    "release": "Conditional website release",
+    "condition": "Correct no-distortion padding; text needs same refinement as social card. Do not require this extra ratio without a selected platform."
+  },
+  {
+    "family": "Large master icon illustration",
+    "paths": [
+      "originals/awesome-iina-master-icon.png",
+      "exports/icons/brand-icon-1024.png",
+      "exports/icons/brand-icon-512.png",
+      "exports/icons/brand-icon-256.png",
+      "exports/icons/brand-icon-128.png"
+    ],
+    "disposition": "Retain as exploration/reference",
+    "release": "May be used as secondary illustration after role approval",
+    "condition": "Do not treat this as approved universal primary symbol."
+  },
+  {
+    "family": "Simplified large illustration",
+    "paths": [
+      "originals/awesome-iina-simplified-icon.png",
+      "exports/icons/simplified-icon-512.png",
+      "exports/icons/simplified-icon-256.png"
+    ],
+    "disposition": "Retain as exploration/reference",
+    "release": "Do not promote to final micro-mark",
+    "condition": "Useful source/reference for bounded identity work, not evidence of optical design."
+  },
+  {
+    "family": "Favicon and web-icon family",
+    "paths": [
+      "exports/web/favicon-16x16.png",
+      "exports/web/favicon-24x24.png",
+      "exports/web/favicon-32x32.png",
+      "exports/web/favicon-48x48.png",
+      "exports/web/favicon-64x64.png",
+      "exports/web/favicon.ico",
+      "exports/web/apple-touch-icon.png",
+      "exports/web/icon-192.png",
+      "exports/web/icon-512.png"
+    ],
+    "disposition": "Redesign",
+    "release": "Do not ship yet as primary identity family",
+    "condition": "Bounded symbol/optical redesign; 180/192/512 variants are mechanically valid and visually more legible, but await canonical symbol decision."
+  },
+  {
+    "family": "Metadata/integration examples",
+    "paths": [
+      "integration/readme-snippet.md",
+      "integration/website-head.example.html",
+      "exports/web/site.webmanifest"
+    ],
+    "disposition": "Refine",
+    "release": "Scope-dependent",
+    "condition": "README live-text advice and manifest relative any-icons are sound; website head incomplete as a production integration."
+  },
+  {
+    "family": "Preservation, inventory and review tooling",
+    "paths": [
+      "ASSET-INDEX.csv",
+      "ASSET-MANIFEST.json",
+      "QUALITY-CHECKS.json",
+      "README.md",
+      "SHA256SUMS",
+      "docs/PROVENANCE.md",
+      "docs/PLATFORM-REFERENCES.md",
+      "BRAND-AUDIT-PROMPT.md",
+      "review/index.html",
+      "scripts/export_assets.py",
+      "scripts/verify_assets.py"
+    ],
+    "disposition": "Keep",
+    "release": "Ship as review/support material only",
+    "condition": "Keep out of public runtime assets unless deliberately included; prior prompts/quality reports are not inherited approval."
+  },
+  {
+    "family": "Approved compact source and final live README context",
+    "paths": [],
+    "disposition": "Missing and required",
+    "release": "Different scope gates",
+    "condition": "A chosen compact mark is required only for primary-identity/web-icon release; integrated live heading/description is required for the recommended repository selection. Paths are proposed in tasks.json."
+  }
+]

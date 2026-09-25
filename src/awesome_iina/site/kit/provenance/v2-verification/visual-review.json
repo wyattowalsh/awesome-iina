@@ -1,0 +1,40 @@
+{
+  "scope": "Designer visual inspection of actual delivered files and corresponding browser proofs",
+  "selected_direction": "Indexed Media, preserving the existing wave language",
+  "points": [
+    {
+      "area": "mark",
+      "result": "One indexed-media construction in current symbol, social card and favicons; no legacy player emblem in canonical social card."
+    },
+    {
+      "area": "typography",
+      "result": "Correct project spelling and short role lines; editable SVG checked for bounded text and outlined production rendered."
+    },
+    {
+      "area": "optical sizes",
+      "result": "Viewed actual 16/24/32 outputs and 1x/2x source-density comparisons; no claim of user recognition."
+    },
+    {
+      "area": "palette",
+      "result": "New explicit color roles and sRGB interpretation; retained artwork visually related, not claimed as recovered palette."
+    },
+    {
+      "area": "retained hero",
+      "result": "Byte-identical original available as supplementary illustration, with live readable meaning in demo."
+    },
+    {
+      "area": "responsive review",
+      "result": "Desktop and 390px review page checked, theme button exercised, no body-wide horizontal overflow."
+    },
+    {
+      "area": "source typography proof",
+      "result": "SVG source rendered at its 1280x640 artboard without default body margins after correcting the proof harness."
+    }
+  ],
+  "not_a_claim": [
+    "Formal user approval",
+    "Trademark originality guarantee",
+    "Real-platform deployment validation",
+    "10/10 objective design score"
+  ]
+}

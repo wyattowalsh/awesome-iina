@@ -1,0 +1,14 @@
+import {existsSync,readdirSync} from 'node:fs';
+import {resolve} from 'node:path';
+import {spawnSync} from 'node:child_process';
+import {ROOT,json,run} from './common.mjs';
+const project=await json('.iina-project.json');
+if (!project.hooks || !existsSync(resolve(ROOT,'lefthook.yml'))) throw new Error('This project did not enable the hooks profile.');
+run('git',['rev-parse','--is-inside-work-tree']);
+const custom=spawnSync('git',['config','--get','core.hooksPath'],{cwd:ROOT,encoding:'utf8',shell:false});
+if (custom.status!==1) throw new Error('Refusing to override core.hooksPath or a failed Git configuration query.');
+const hooks=resolve(ROOT,run('git',['rev-parse','--git-path','hooks']).trim());
+const existing=existsSync(hooks)?readdirSync(hooks).filter(x=>!x.endsWith('.sample')):[];
+if(existing.length) throw new Error('Existing hooks detected. Merge them manually; no hooks were overwritten.');
+run('lefthook',['version'],{stdio:'inherit'});
+run('lefthook',['install'],{stdio:'inherit'});

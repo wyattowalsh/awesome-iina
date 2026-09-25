@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "description": "Source-of-truth coordinate grids. SVG exchange masters are generated from these editable paths. The 16 and 24 drawings have deliberate geometry differences.",
+  "optical_designs": {
+    "16": {
+      "back": "M1.5 10.75V4Q1.5 1.5 4 1.5H10.75",
+      "back_stroke": 1.6,
+      "frame": [
+        5,
+        5,
+        9.5,
+        2.0,
+        1.75
+      ],
+      "play": "M8 7.25L12.25 9.75L8 12.25Z"
+    },
+    "24": {
+      "back": "M2.1 17V5.6Q2.1 2.1 5.6 2.1H17",
+      "back_stroke": 2.2,
+      "frame": [
+        7.25,
+        7.25,
+        15.25,
+        3.0,
+        2.25
+      ],
+      "play": "M11.75 10.75L18.75 14.875L11.75 19Z"
+    },
+    "32": {
+      "back": "M3 23V7Q3 3 7 3H23",
+      "back_stroke": 2.9,
+      "frame": [
+        8.75,
+        8.75,
+        20.75,
+        4.4,
+        2.9
+      ],
+      "play": "M15 13.4C15 13.05 15.4 12.85 15.7 13.05L23.1 18.55C23.55 18.9 23.55 19.35 23.1 19.7L15.7 25.05C15.4 25.25 15 25.05 15 24.7Z"
+    }
+  }
+}

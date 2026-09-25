@@ -1,0 +1,91 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          version: "0.12.13"
+          enable-cache: true
+          cache-dependency-glob: |
+            pyproject.toml
+            uv.lock
+
+      - name: Install Python and dependencies
+        run: |
+          uv python install 3.13
+          uv sync --all-groups
+
+      - name: Format
+        run: uv run ruff format --check .
+
+      - name: Lint
+        run: uv run ruff check .
+
+      - name: Type check
+        run: uv run ty check src tests
+
+      - name: Test
+        run: uv run pytest --cov=awesome_iina --cov-report=term-missing
+
+      - name: Validate repository policies
+        run: |
+          uv run awesome-iina repository lint-root
+          uv run awesome-iina repository lint-awesome
+          uv run awesome-iina doctor --profile core
+
+      - name: Validate catalog and generated outputs
+        run: |
+          uv run awesome-iina catalog validate src/awesome_iina/catalog/catalog.yaml
+          uv run awesome-iina catalog audit-official src/awesome_iina/catalog/catalog.yaml
+          uv run awesome-iina catalog generate src/awesome_iina/catalog/catalog.yaml --check
+
+      - name: Verify repository integrity
+        run: uv run awesome-iina repository verify
+
+      - name: Build distributions
+        run: uv build
+
+      - name: Build and inspect full-source archive
+        run: |
+          mkdir -p dist
+          uv run awesome-iina repository archive \
+            --output dist/awesome-iina.zip \
+            --manifest dist/awesome-iina.manifest.sha256
+          unzip -l dist/awesome-iina.zip | tee dist/archive-listing.txt
+          unzip -l dist/awesome-iina.zip | grep -F 'awesome-iina/src/awesome_iina/cli.py'
+          unzip -l dist/awesome-iina.zip | grep -F 'awesome-iina/tests/catalog/test_catalog.py'
+
+      - name: Verify brand provenance and render public catalog
+        run: |
+          uv run awesome-iina brand sync --check
+          uv run awesome-iina site build
+
+      - name: Upload static site for review (does not deploy)
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: awesome-iina-static-catalog
+          path: dist/site/
+          if-no-files-found: error
+          retention-days: 14

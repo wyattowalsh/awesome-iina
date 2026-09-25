@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-16",
+  "compared_files": 62,
+  "byte_identical": true,
+  "source_to_export_rebuild": "Ran build_assets.py twice using the same JSON source, font version and frozen output ICC profile.",
+  "font_binaries_shipped": false
+}

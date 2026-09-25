@@ -1,0 +1,4 @@
+# One questionnaire and one template source. This wrapper enables Copier at the repo root.
+!include starter/copier.yml
+---
+_subdirectory: starter/template

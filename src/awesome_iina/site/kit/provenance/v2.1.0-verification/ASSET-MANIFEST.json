@@ -1,0 +1,718 @@
+{
+  "schema_version": 2,
+  "release": "2.1.0",
+  "identity_release": "2.0.0-review.1",
+  "date": "2026-09-16",
+  "status": "implementation candidate; owner approval and public platform tests remain pending",
+  "asset_count": 36,
+  "original_preservation_root": "archive/original-kit",
+  "font_binaries_distributed": false,
+  "assets": [
+    {
+      "path": "assets/brand/apple-touch-icon.png",
+      "bytes": 4577,
+      "sha256": "f7284b47436e60d62e270041d376eb0cdf6fba6ed9ea8d16352a1b4e56b3039a",
+      "format": "png",
+      "width": 180,
+      "height": 180,
+      "mode": "RGB",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/avatar-1024.png",
+      "bytes": 28236,
+      "sha256": "8bdc8af4a81f46fe53ac947fecd38e0fc68cc9954f717a801074a1f21921524c",
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/favicon-128.png",
+      "bytes": 9270,
+      "sha256": "49c045e2b87e3b085582304b9b9739920cd01c3b42b193a10bd955a2abe78ef9",
+      "format": "png",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/favicon-16.png",
+      "bytes": 1173,
+      "sha256": "8b55b71b929bd248562481012ee5f874127b2ac884c495c8becb588615f247dc",
+      "format": "png",
+      "width": 16,
+      "height": 16,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/favicon-16@2x.png",
+      "bytes": 2176,
+      "sha256": "cf0de7300465b28715095debc126746c2132d4c74b3f57885e2c84aade9b465b",
+      "format": "png",
+      "width": 32,
+      "height": 32,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/favicon-24.png",
+      "bytes": 1621,
+      "sha256": "06886d7bb34b4e506bbd0d573d60d57641652674ac2c254b88a863419be65b94",
+      "format": "png",
+      "width": 24,
+      "height": 24,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/favicon-24@2x.png",
+      "bytes": 3056,
+      "sha256": "e14b489344715e3957dc729a1df137efeffdae84494e4c68c1ff6cc77ba4ee01",
+      "format": "png",
+      "width": 48,
+      "height": 48,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/favicon-256.png",
+      "bytes": 17988,
+      "sha256": "ae096abbc66cbf1912aa89bccc12b32401cf690635282479e15c5b65ebfc1494",
+      "format": "png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/favicon-32.png",
+      "bytes": 2265,
+      "sha256": "a20731a368bcc1617001601110037020a02b635e7281ccfdd3db5e0de0bc2f94",
+      "format": "png",
+      "width": 32,
+      "height": 32,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/favicon-32@2x.png",
+      "bytes": 4592,
+      "sha256": "26208025a4b894addb2307e2a00cdf106adff12606bc54771a18f439e1f894d0",
+      "format": "png",
+      "width": 64,
+      "height": 64,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/favicon-48.png",
+      "bytes": 3481,
+      "sha256": "f84c9567c5c347f701f7813bdb8851113a662ff030bfae8b65b259d3f9b030a3",
+      "format": "png",
+      "width": 48,
+      "height": 48,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/favicon-512.png",
+      "bytes": 37439,
+      "sha256": "8d31e7bf1f376678c3550bb6c72aa6fa0bf6339290476357975b3e464abae12b",
+      "format": "png",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/favicon-64.png",
+      "bytes": 4592,
+      "sha256": "26208025a4b894addb2307e2a00cdf106adff12606bc54771a18f439e1f894d0",
+      "format": "png",
+      "width": 64,
+      "height": 64,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/favicon.ico",
+      "bytes": 40508,
+      "sha256": "a944db04d79dfcc173c3b7a0e4b90589d8190b34e271822e69e0dec64f14effe",
+      "format": "ico",
+      "frames": [
+        [
+          16,
+          16
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          32,
+          32
+        ],
+        [
+          48,
+          48
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          128,
+          128
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/favicon.svg",
+      "bytes": 873,
+      "sha256": "e5436e944a0d27eb7b04c985e62045efde520c859501e8b4ed0c8cb4bd027750",
+      "format": "svg",
+      "viewBox": "0 0 16 16",
+      "embedded_rasters": 0,
+      "text_elements": 0,
+      "path_elements": 2,
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/github-social-preview-1280x640.png",
+      "bytes": 198593,
+      "sha256": "762d913ef90de2a091bc89434ca23622a1d0e644dc18123c01afb469b77f063a",
+      "format": "png",
+      "width": 1280,
+      "height": 640,
+      "mode": "RGB",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical social composition",
+      "sources": [
+        "source/social-layout.json",
+        "source/geometry.json",
+        "source/tokens.json",
+        "source/social-background.png"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/github-social-preview.svg",
+      "bytes": 224386,
+      "sha256": "777471da3bad83b9cf4964e7f624aa3e071913e3be78da618bf381d026532f0a",
+      "format": "svg",
+      "viewBox": "0 0 1280 640",
+      "embedded_rasters": 1,
+      "text_elements": 0,
+      "path_elements": 50,
+      "role": "canonical social composition",
+      "sources": [
+        "source/social-layout.json",
+        "source/geometry.json",
+        "source/tokens.json",
+        "source/social-background.png"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/icon-192.png",
+      "bytes": 4852,
+      "sha256": "2e9fa40c0a5cb22f13514913122c8f821968f0affd5b90525d1dfae44f33cc1c",
+      "format": "png",
+      "width": 192,
+      "height": 192,
+      "mode": "RGB",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/icon-512.png",
+      "bytes": 13094,
+      "sha256": "d68f1f7cb891e5b891381d7c78173664986d3a980f89fec4adc520c6cae0f0d2",
+      "format": "png",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/open-graph-1200x630.png",
+      "bytes": 229995,
+      "sha256": "c5f60a186248c67732e02f797601e93c32c04a39cefc6b8915c8208d69cea450",
+      "format": "png",
+      "width": 1200,
+      "height": 630,
+      "mode": "RGB",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical social composition",
+      "sources": [
+        "source/social-layout.json",
+        "source/geometry.json",
+        "source/tokens.json",
+        "source/social-background.png"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/readme-hero-retained.png",
+      "bytes": 931563,
+      "sha256": "5e9a1f43b2b64348a5502e02c92507eaf4af2404c064c76225e862bcbaf09248",
+      "format": "png",
+      "width": 1800,
+      "height": 600,
+      "mode": "RGB",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "color_profile": "untagged retained original",
+      "role": "optional supplementary illustration; not primary mark",
+      "sources": [
+        "archive/original-kit/exports/headers/readme-hero-1800x600.png"
+      ],
+      "design_family": "preserved v1 illustration"
+    },
+    {
+      "path": "assets/brand/site.webmanifest",
+      "bytes": 518,
+      "sha256": "386b788097537579854e5fdcc2ceb7eeb76f2cddcdf4aff87251bddd4a0c0ff7",
+      "format": "webmanifest",
+      "role": "conditional website integration",
+      "sources": [
+        "source/manifest.template.json"
+      ],
+      "purpose_claim": "any, not maskable"
+    },
+    {
+      "path": "assets/brand/symbol-dark-1024.png",
+      "bytes": 36713,
+      "sha256": "f58ed7915257f52b6660d783f7299215bcacc5305fb68877b7ebaf12d56447f3",
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/symbol-dark-128.png",
+      "bytes": 3928,
+      "sha256": "ce9bfdc4ce5ab68cba17ca6e61a70f18ef2b46847d42dfec710ea8146f2f8aef",
+      "format": "png",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/symbol-dark-256.png",
+      "bytes": 7549,
+      "sha256": "7bf03b78f6b253e8431e8f675b2a457fa48362165b6d123c130f0032048201fa",
+      "format": "png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/symbol-dark-512.png",
+      "bytes": 15652,
+      "sha256": "fb989aaab8397e5b7b20d627f8650b3ca4f50f191ecaf63f49b0b529156bc3a4",
+      "format": "png",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/symbol-dark.svg",
+      "bytes": 940,
+      "sha256": "711a0165584de904ecc3b9bd6d3947a39dd4a4d9c1e9613533615c34aedd3db0",
+      "format": "svg",
+      "viewBox": "0 0 32 32",
+      "embedded_rasters": 0,
+      "text_elements": 0,
+      "path_elements": 2,
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/symbol-ink.svg",
+      "bytes": 623,
+      "sha256": "e57b945c2159c82c541e9781cc3e3a02958d469015d719c2088dc68343b15941",
+      "format": "svg",
+      "viewBox": "0 0 32 32",
+      "embedded_rasters": 0,
+      "text_elements": 0,
+      "path_elements": 2,
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/symbol-light-1024.png",
+      "bytes": 29433,
+      "sha256": "d185293f621bb279d997ee4bba95aa75d1b5b9849cc2e8238a755f7391e6766e",
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/symbol-light-128.png",
+      "bytes": 3337,
+      "sha256": "38173fdab3e55eb20776822f9603ffa3241fac9e8630fcf8e48246336f71094a",
+      "format": "png",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/symbol-light-256.png",
+      "bytes": 6508,
+      "sha256": "ae23daa354324d52a9472ec414e05f37b21a2eee4733bb54d9ca8d67efa56931",
+      "format": "png",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/symbol-light-512.png",
+      "bytes": 13498,
+      "sha256": "46aa2dc16b4a03242260c01f31eb45ed642e740d4ec19e3a40d2d92e6f569e2d",
+      "format": "png",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "color_profile": "embedded ICC",
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/symbol-light.svg",
+      "bytes": 932,
+      "sha256": "1e837554d96c0505d6e3db647d2ddf841ecfe4c289b00d42927ba290bdb9fe26",
+      "format": "svg",
+      "viewBox": "0 0 32 32",
+      "embedded_rasters": 0,
+      "text_elements": 0,
+      "path_elements": 2,
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/symbol-white.svg",
+      "bytes": 623,
+      "sha256": "af524007f874e82bcf6ce779e556b75d44cc41e35efc3c342220679548bf50d0",
+      "format": "svg",
+      "viewBox": "0 0 32 32",
+      "embedded_rasters": 0,
+      "text_elements": 0,
+      "path_elements": 2,
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/wordmark-dark.svg",
+      "bytes": 3781,
+      "sha256": "b2de1665ac9ac4c4f99e80922ece38e3590194537d8bcffd47b158f4178de254",
+      "format": "svg",
+      "viewBox": "0 0 400 64",
+      "embedded_rasters": 0,
+      "text_elements": 0,
+      "path_elements": 13,
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    },
+    {
+      "path": "assets/brand/wordmark-light.svg",
+      "bytes": 3772,
+      "sha256": "a54ec810afe8ef29e072b4bf4386a0f56a5708ce2bf6c652ae0eee78c2708f74",
+      "format": "svg",
+      "viewBox": "0 0 400 64",
+      "embedded_rasters": 0,
+      "text_elements": 0,
+      "path_elements": 13,
+      "role": "canonical compact identity or optical derivative",
+      "sources": [
+        "source/geometry.json",
+        "source/tokens.json"
+      ],
+      "design_family": "Indexed Media v2"
+    }
+  ]
+}

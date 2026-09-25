@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "base_archive": "wyattowalsh-awesome-iina-v6-copier-full-codebase.zip",
+  "base_sha256": "36752563cc27b994e28edd3fccfa7c13f0536eee08cfd10e2ca822377843d70d",
+  "base_files": 392,
+  "unavailable_predecessors": [
+    "v7-full-codebase",
+    "audited-full-codebase"
+  ],
+  "migrations": {
+    "templates/iina-plugin-starter": "starter",
+    "templates/README.md.j2": "src/awesome_iina/catalog/templates/README.md.j2",
+    "schemas": "src/awesome_iina/catalog/schemas",
+    "queries": "src/awesome_iina/discovery/queries",
+    "examples": "docs/maintain/examples",
+    "docs/catalog.json": "src/awesome_iina/catalog/exports/catalog.json",
+    "reports/README.md": "docs/discovery/reporting.md",
+    "data/catalog.yaml": "src/awesome_iina/catalog/catalog.yaml",
+    "data/discovery.yaml": "src/awesome_iina/discovery/discovery.yaml",
+    "brand/kit": "src/awesome_iina/site/kit"
+  },
+  "notes": "Only recovered source bytes and changes implemented in this pass are included. No earlier unavailable implementation is claimed."
+}

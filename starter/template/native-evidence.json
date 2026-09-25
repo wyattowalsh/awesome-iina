@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "status": "not-run",
+  "sourceCommit": null,
+  "iinaVersion": null,
+  "macosVersion": null,
+  "architecture": null,
+  "scenarios": [],
+  "instructions": "Copy to reports/native-evidence.json after native testing. Record the tested source commit without changing that commit. This example is not a pass."
+}

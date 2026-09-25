@@ -1,0 +1,66 @@
+_min_copier_version: "9.18.2"
+_subdirectory: template
+_answers_file: .copier-answers.yml
+_envops:
+  undefined: jinja2.StrictUndefined
+  variable_start_string: "[["
+  variable_end_string: "]]"
+  block_start_string: "[%"
+  block_end_string: "%]"
+  comment_start_string: "[#"
+  comment_end_string: "#]"
+  keep_trailing_newline: true
+_exclude:
+  - .DS_Store
+  - __pycache__
+  - "*.pyc"
+  - .pytest_cache
+  - "[% if _copier_operation == 'update' %]src/**[% endif %]"
+  - "[% if _copier_operation == 'update' %]tests/unit/**[% endif %]"
+  - "[% if _copier_operation == 'update' %]Info.json[% endif %]"
+  - "[% if _copier_operation == 'update' %].iina-project.json[% endif %]"
+  - "[% if _copier_operation == 'update' %]README.md[% endif %]"
+  - "[% if _copier_operation == 'update' %]LICENSE[% endif %]"
+  - "[% if _copier_operation == 'update' %]docs/content/**[% endif %]"
+  - "[% if _copier_operation == 'update' %]docs.config.json[% endif %]"
+  - "[% if _copier_operation == 'update' %]native-evidence.json[% endif %]"
+plugin_name:
+  type: str
+  help: Human-readable plugin name
+  default: IINA Example
+  validator: "[% if not plugin_name.strip() or plugin_name | length > 120 %]Use 1 to 120 characters.[% endif %]"
+plugin_slug:
+  type: str
+  help: Stable lowercase package and staging name
+  default: iina-example
+  validator: "[% if not (plugin_slug | regex_search('^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$')) or plugin_slug | length > 64 %]Use lowercase kebab-case, at most 64 characters.[% endif %]"
+plugin_identifier:
+  type: str
+  help: Stable reverse-domain identifier; never change for an installed plugin
+  default: org.example.iina-example
+  validator: "[% if not (plugin_identifier | regex_search('^[A-Za-z][A-Za-z0-9-]*(?:[.][A-Za-z][A-Za-z0-9-]*)+$')) %]Use a reverse-domain identifier.[% endif %]"
+description:
+  type: str
+  default: A typed IINA plugin.
+user_name:
+  type: str
+  help: Author or team
+  default: Plugin Author
+  validator: "[% if not user_name.strip() or user_name | length > 120 %]Use a non-empty author name, at most 120 characters.[% endif %]"
+preset:
+  type: str
+  choices: [command, sidebar, overlay, controller]
+  default: command
+preferences:
+  type: bool
+  default: false
+
+docs_profile:
+  type: str
+  help: Documentation source is always included; Starlight adds a static site.
+  choices: [markdown, starlight]
+  default: markdown
+hooks:
+  type: bool
+  help: Include an optional Lefthook configuration (not automatically installed).
+  default: false

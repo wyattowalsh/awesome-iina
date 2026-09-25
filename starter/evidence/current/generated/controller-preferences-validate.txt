@@ -1,0 +1,4 @@
+{
+  "layer": "manifest-policy",
+  "status": "passed"
+}

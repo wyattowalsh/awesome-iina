@@ -1,0 +1,59 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":pinDevDependencies"
+  ],
+  "automerge": false,
+  "dependencyDashboard": true,
+  "prConcurrentLimit": 3,
+  "minimumReleaseAge": "3 days",
+  "packageRules": [
+    {
+      "matchManagers": [
+        "copier"
+      ],
+      "groupName": "template infrastructure",
+      "automerge": false
+    },
+    {
+      "matchPackageNames": [
+        "typescript",
+        "@typescript/typescript6"
+      ],
+      "groupName": "compiler toolchain",
+      "automerge": false
+    },
+    {
+      "matchPackageNames": [
+        "astro",
+        "@astrojs/starlight",
+        "@astrojs/starlight-tailwind",
+        "tailwindcss",
+        "@tailwindcss/vite"
+      ],
+      "groupName": "documentation framework",
+      "automerge": false
+    },
+    {
+      "matchManagers": [
+        "github-actions"
+      ],
+      "groupName": "workflow actions",
+      "pinDigests": true,
+      "automerge": false
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/template/package\\.json\\.jinja$/"
+      ],
+      "matchStrings": [
+        "\"(?<depName>typescript|@typescript/typescript6|esbuild|prettier|@biomejs/biome|astro|@astrojs/starlight-tailwind|@astrojs/starlight|tailwindcss|@tailwindcss/vite)\"\\s*:\\s*\"(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)\""
+      ],
+      "datasourceTemplate": "npm"
+    }
+  ]
+}

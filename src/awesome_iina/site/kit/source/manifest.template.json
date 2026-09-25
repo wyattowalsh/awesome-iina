@@ -1,0 +1,25 @@
+{
+  "id": "{{APP_ID}}",
+  "name": "Awesome IINA",
+  "short_name": "Awesome IINA",
+  "description": "Independent IINA ecosystem catalog",
+  "start_url": "../../",
+  "scope": "../../",
+  "display": "browser",
+  "background_color": "#080F2B",
+  "theme_color": "#080F2B",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

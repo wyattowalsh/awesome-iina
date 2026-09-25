@@ -1,0 +1,199 @@
+{
+  "schema_version": 2,
+  "calculated_critical_path": null,
+  "note": "Dependencies are a DAG. No task durations or calculated critical path are asserted. T04 and T05 can run in parallel; metadata preparation does not wait for icon approval.",
+  "tasks": [
+    {
+      "id": "T01",
+      "title": "Set scoped implementation and role copy",
+      "depends_on": [],
+      "state": "implemented scope; owner publication decision pending"
+    },
+    {
+      "id": "T08",
+      "title": "Choose font, color and source conventions",
+      "depends_on": [
+        "T01"
+      ],
+      "state": "implemented"
+    },
+    {
+      "id": "T02",
+      "title": "Construct compact symbol",
+      "depends_on": [
+        "T01",
+        "T08"
+      ],
+      "state": "implemented candidate; human approval pending"
+    },
+    {
+      "id": "T03",
+      "title": "Create optical sizes and exports",
+      "depends_on": [
+        "T02",
+        "T08"
+      ],
+      "state": "implemented and locally tested"
+    },
+    {
+      "id": "T04",
+      "title": "Rebuild social card typography",
+      "depends_on": [
+        "T01",
+        "T08"
+      ],
+      "state": "implemented and locally tested"
+    },
+    {
+      "id": "T05",
+      "title": "Supply live-text README integration",
+      "depends_on": [
+        "T01"
+      ],
+      "state": "implemented prefix and demo; existing repository merge not performed"
+    },
+    {
+      "id": "T06A",
+      "title": "Prepare canonical site metadata",
+      "depends_on": [
+        "T01"
+      ],
+      "state": "implemented intended configuration"
+    },
+    {
+      "id": "T06B",
+      "title": "Validate deployed asset selection and routes",
+      "depends_on": [
+        "T03",
+        "T04",
+        "T06A"
+      ],
+      "state": "local routes tested; public deployment and browser chrome pending"
+    },
+    {
+      "id": "T07",
+      "title": "Document preservation and proposed reuse terms",
+      "depends_on": [
+        "T01"
+      ],
+      "state": "implemented documentation; owner policy adoption pending"
+    },
+    {
+      "id": "T10",
+      "title": "Reconcile symbol and illustration across placements",
+      "depends_on": [
+        "T02",
+        "T03",
+        "T04",
+        "T05"
+      ],
+      "state": "designer review performed; no user-recognition result"
+    },
+    {
+      "id": "T09",
+      "title": "Scoped release validation",
+      "depends_on": [
+        "T04",
+        "T05"
+      ],
+      "state": "technical candidate checks performed; owner approval and platform checks pending",
+      "conditional_dependencies": {
+        "full_identity": [
+          "T10"
+        ],
+        "website": [
+          "T06B"
+        ],
+        "public_reuse_policy": [
+          "T07"
+        ]
+      }
+    },
+    {
+      "id": "T11",
+      "title": "Preview-first repository integration with rollback and recovery",
+      "depends_on": [
+        "T04",
+        "T05",
+        "T06A"
+      ],
+      "state": "implemented and regression-tested locally; not applied to a user repository"
+    },
+    {
+      "id": "T12",
+      "title": "Parameterized site metadata and immutable-source rebuild controls",
+      "depends_on": [
+        "T08",
+        "T06A"
+      ],
+      "state": "implemented and tested; configured values are not claims of deployment"
+    },
+    {
+      "id": "T13",
+      "title": "Deterministic full and minimal release packaging",
+      "depends_on": [
+        "T11",
+        "T12"
+      ],
+      "state": "implemented; final archive verification recorded separately"
+    },
+    {
+      "id": "T14",
+      "title": "Correct stable manifest identity at source and integration boundaries",
+      "depends_on": [
+        "T12",
+        "T06A"
+      ],
+      "state": "implemented; unit and JS URL-resolution tests; native processed-manifest acceptance pending"
+    },
+    {
+      "id": "T15",
+      "title": "Align editable SVG CSS and verify glyph origins",
+      "depends_on": [
+        "T08"
+      ],
+      "state": "implemented; exact-font Chromium parity checked without changing production outlines"
+    },
+    {
+      "id": "T16",
+      "title": "Use explicit primary/optional shipping selection and current demo wordmark",
+      "depends_on": [
+        "T10",
+        "T11"
+      ],
+      "state": "implemented; optional historical hero is excluded from default install and production ZIP"
+    },
+    {
+      "id": "T17",
+      "title": "Bind and verify the maintenance patch",
+      "depends_on": [
+        "T14",
+        "T15",
+        "T16"
+      ],
+      "state": "local regression, rebuild, upgrade/undo and extraction checks recorded in current QA; no public publishing"
+    }
+  ],
+  "repository_release_required_tasks": [
+    "T01",
+    "T04",
+    "T05",
+    "T09"
+  ],
+  "full_identity_release_required_tasks": [
+    "T01",
+    "T08",
+    "T02",
+    "T03",
+    "T04",
+    "T05",
+    "T07",
+    "T10",
+    "T09"
+  ],
+  "website_only_additional_tasks": [
+    "T06A",
+    "T06B"
+  ],
+  "kit_revision": "2.1.1"
+}

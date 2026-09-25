@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-13",
+  "source_version": "0.2.0a1",
+  "artifact_status": "complete-source-candidate-not-release-certified",
+  "actual_environment": {
+    "platform": "Linux",
+    "python": "3.13.5",
+    "node": "v22.16.0",
+    "typescript_cli": "5.8.3",
+    "typescript_compiler_api": "5.8.3",
+    "uv": "uv 0.10.0",
+    "pytest": "9.0.2"
+  },
+  "selected_not_integrated": {
+    "node": "24.21.0",
+    "pnpm": "12.4.1",
+    "python": "3.13.15",
+    "copier": "9.18.2",
+    "typescript": "7.0.2",
+    "compilerApi": "6.0.2",
+    "esbuild": "0.28.2",
+    "prettier": "3.6.2",
+    "biome": "2.5.13",
+    "astro": "7.2.10",
+    "starlight": "0.42.0",
+    "just": "1.58.0",
+    "uv": "0.12.13"
+  },
+  "executed": {
+    "python": {
+      "collected": 129,
+      "passed": 92,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 37
+    },
+    "expanded_fixture_shape_combinations": 32,
+    "real_copier_required_cases": {
+      "passed": 0,
+      "skipped": 37,
+      "reason": "Copier unavailable; dependency retrieval failed DNS."
+    },
+    "required_copier_gate": {
+      "result": "passed",
+      "behavior": "Correctly rejects this skipped integration suite."
+    },
+    "generated_fixture_variants_with_typecheck_boundary_manifest_and_node_tests": 8,
+    "generated_command_runs": 32,
+    "generated_command_failures": 0,
+    "node_test_executions": 460,
+    "node_test_failures": 0,
+    "node_test_skips": 0,
+    "node_variants": [
+      {
+        "variant": "command",
+        "tests": 56,
+        "pass": 56,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "command-preferences",
+        "tests": 56,
+        "pass": 56,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "controller",
+        "tests": 58,
+        "pass": 58,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "controller-preferences",
+        "tests": 58,
+        "pass": 58,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "overlay",
+        "tests": 58,
+        "pass": 58,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "overlay-preferences",
+        "tests": 58,
+        "pass": 58,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "sidebar",
+        "tests": 58,
+        "pass": 58,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "sidebar-preferences",
+        "tests": 58,
+        "pass": 58,
+        "fail": 0,
+        "skipped": 0
+      }
+    ],
+    "negative_typescript_compilation_cases": 11,
+    "additional_checks": {
+      "runs": 34,
+      "failures": 0,
+      "scope": "Generated/root JavaScript syntax; Markdown destinations and text export preparation; structural workflow pin/policy inspection; redacted support JSON."
+    },
+    "preview_http_transport": "Executed on loopback with synthetic HTML. Host/method/path restrictions and bridge injection verified; no browser or IINA run.",
+    "media_fixture": "Deterministic mono WAV verified; repeated-write refusal tested; no playback."
+  },
+  "not_executed": [
+    "Real Copier copy/update/history/merge semantics (37 cases skipped).",
+    "Selected Node/TypeScript/pnpm/Copier integration and real dependency resolution.",
+    "Prettier normalization or Biome lint execution.",
+    "esbuild production bundles and native IINA packages.",
+    "Astro/Starlight production build, Pagefind UI, browser accessibility, project-subpath browser smoke.",
+    "actionlint, zizmor, Renovate service, remote GitHub Actions/Pages execution.",
+    "Native JavaScriptCore/WKWebView/IINA CLI link/unlink/pack and GUI acceptance.",
+    "Claude Code/Codex client discovery or agent task evaluation.",
+    "Two-version GitHub plugin installation and updater behavior.",
+    "Release publication or artifact attestation."
+  ],
+  "limitations": [
+    "Offline Jinja rendering is fixture evidence, not a substitute for Copier.",
+    "Node mocks and loopback HTTP checks are not native IINA or real-browser evidence.",
+    "460 test executions include repeated contracts across variants, not 460 unique requirements.",
+    "No pnpm-lock.yaml, uv.lock or mise.lock was synthesized; explicit resolution/review is required.",
+    "Fresh generated files require the documented explicit bootstrap and formatting before frozen CI.",
+    "Strict dependency build-script allowlists may need reviewed exact-version additions once the actual graph is resolved.",
+    "The optional docs/hooks profile matrix is fixture-checked; its installed toolchain combinations are not certified.",
+    "The native evidence checker validates report structure and source binding; a reported pass is not automated native testing.",
+    "The release workflow uploads a candidate stage, not a published native-tested IINA plugin.",
+    "Migration from the previous alpha requires the supplied advisory; newly excluded seed paths are not automatically introduced by an update.",
+    "No min-macOS or host-version compatibility certification is asserted."
+  ],
+  "evidence_directory": "evidence/current/",
+  "historical_results": "history/alpha-validation.json and history/alpha-evidence/",
+  "source_inventory": "SOURCE-MANIFEST.json in the delivered archive; SHA-256 for every source entry."
+}

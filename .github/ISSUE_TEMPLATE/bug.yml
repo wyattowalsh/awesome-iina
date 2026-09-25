@@ -1,0 +1,31 @@
+name: Tooling bug
+description: Report incorrect discovery, generation, validation, or media inspection behavior.
+title: "[Bug]: "
+labels: [bug, triage]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Problem
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: macOS version, Python, uv, gh, and tool versions
+    validations:
+      required: true

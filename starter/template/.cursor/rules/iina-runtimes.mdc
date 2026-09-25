@@ -1,0 +1,14 @@
+---
+description: IINA JavaScriptCore runtimes — main vs global vs UI vs shared. Do not mix host APIs with WKWebView DOM or Node.
+globs: src/**/*.ts,types/**/*.ts
+alwaysApply: false
+---
+
+# IINA runtimes
+
+Main is player-local JavaScriptCore (`mpv`, events, core). Global JSC has no player
+`mpv`, event, or core. UI (sidebar/overlay/standalone) has DOM plus a narrow message
+port, not host APIs. Shared code has neither.
+
+Never bypass with `any`, `@ts-ignore`, dynamic evaluation, or a broad ambient import.
+Confirm symbols in `docs/agent/runtime.md` before adding APIs.

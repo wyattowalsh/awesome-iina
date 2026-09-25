@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "integration_version": "0.5.0",
+  "template_version": "0.2.0a2",
+  "inputs": [
+    {
+      "name": "wyattowalsh-awesome-iina-v5-full-codebase.zip",
+      "sha256": "8148328eff226aa3b62f3382c504446885110277113b1dd26f89b14d796d66b4"
+    },
+    {
+      "name": "iina-plugin-starter-full(1).zip",
+      "sha256": "31d9bf6b4edc6248948f691462efe1eb630237fad645935f80049148a7da7e96"
+    }
+  ],
+  "source_directory": "starter",
+  "copier_entrypoint": "copier.yml",
+  "upstream_git_commit": null,
+  "retrieved_as": "user-provided-source-archives",
+  "publication_status": "not-published-by-this-session",
+  "original_evidence": "starter/history/import-0.2.0a1-evidence",
+  "ownership": {
+    "catalog": "src/awesome_iina/catalog/catalog.yaml",
+    "questionnaire": "starter/copier.yml",
+    "consumer_runtime_source": "seed-owned; exclude on update",
+    "build_and_contract_tools": "managed; review merge conflicts"
+  },
+  "current_source_lineage": "src/awesome_iina/repo/source-lineage.json"
+}

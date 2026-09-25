@@ -1,0 +1,7 @@
+{
+  "browser_plugin": "not listed; Playwright fallback",
+  "url": "http://127.0.0.1:<ephemeral-port>/integration/demo/index.html",
+  "browser_version": "144.0.7559.96",
+  "navigation": "blocked",
+  "error": "Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR during loopback navigation"
+}

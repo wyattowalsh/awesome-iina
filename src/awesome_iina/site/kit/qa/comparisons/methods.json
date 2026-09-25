@@ -1,0 +1,20 @@
+{
+  "method": "sRGB-assumed relative luminance > 0.18 bounds; square crop with 80-source-pixel total extra margin. Diagnostic only, not a required occupied-area percentage.",
+  "bright_bbox_xyxy": [
+    228,
+    246,
+    1094,
+    931
+  ],
+  "crop_xyxy": [
+    188,
+    115,
+    1134,
+    1061
+  ],
+  "crop_status": "control only; not selected production design",
+  "new_social_source_em_size": 48,
+  "new_social_em_at_320_css": 12,
+  "old_social_descriptor_ink_at_320_css": 5.75,
+  "old_value_origin": "Prior audit diagnostic, reproduced in earlier addendum; font em and raster ink are different measures."
+}

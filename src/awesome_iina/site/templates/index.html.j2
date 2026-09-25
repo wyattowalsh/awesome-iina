@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F5FAFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#080F2B">
+  <meta name="theme-color" content="#F5FAFF">
+  {# Radix Select/Dialog set positioning via inline styles; keep scripts same-origin only. #}
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Awesome IINA · Independent ecosystem catalog</title>
+  <meta name="description" content="{{ copy.description }}">
+  <link rel="canonical" href="{{ deployment.project_url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Awesome IINA">
+  <meta property="og:description" content="{{ copy.description }}">
+  <meta property="og:url" content="{{ deployment.project_url }}">
+  <meta property="og:image" content="{{ social_image }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Awesome IINA. Independent catalog for the IINA ecosystem.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Awesome IINA">
+  <meta name="twitter:description" content="{{ copy.description }}">
+  <meta name="twitter:image" content="{{ social_image }}">
+  <meta name="twitter:image:alt" content="Awesome IINA. Independent catalog for the IINA ecosystem.">
+  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/brand/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+  <link rel="manifest" href="assets/brand/site.webmanifest">
+  <link rel="stylesheet" href="assets/brand/tokens.css">
+  <link rel="stylesheet" href="assets/catalog.css">
+  <link rel="stylesheet" href="assets/ui/catalog-ui.css">
+  <script type="module" src="assets/ui/catalog-ui.js"></script>
+</head>
+<body>
+{% macro icon(name) -%}
+<svg class="icon" aria-hidden="true" width="20" height="20" focusable="false"><use href="assets/icons.svg#{{ name }}"></use></svg>
+{%- endmacro %}
+{% set category_titles = dict(categories) %}
+{% set composition = namespace(x=0) %}
+<a class="skip-link" href="#catalog">Skip to catalog</a>
+<header class="masthead">
+  <div class="wrap masthead-bar">
+    <a class="identity" href="./" aria-label="Awesome IINA home">
+      <img class="logo logo-light" src="assets/brand/wordmark-light.svg" width="400" height="64" alt="">
+      <img class="logo logo-dark" src="assets/brand/wordmark-dark.svg" width="400" height="64" alt="">
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#contents">Contents</a>
+      <a href="#catalog">Catalog</a>
+      <a href="https://docs.iina.io/index.html">IINA API docs</a>
+      <a href="{{ deployment.repository_url }}">GitHub</a>
+      <div id="theme-root"></div>
+    </nav>
+  </div>
+</header>
+<main class="wrap catalog-shell">
+  <section class="intro" aria-labelledby="intro-title">
+    <div class="intro-copy">
+      <h1 id="intro-title">Awesome IINA</h1>
+      <p class="independence">{{ copy.independence }}</p>
+      <p class="lede">A curated companion to the awesome list: official plugins, IINA’s published plugin index, other native plugins, media tools, and developer resources. Source-reviewed references, not runtime certification.</p>
+      <ul class="badge-row">
+        <li><a class="badge" href="{{ deployment.repository_url }}/blob/main/docs/catalog/policy/awesome-list-policy.md">Awesome</a></li>
+        <li><a class="badge" href="{{ deployment.repository_url }}/blob/main/LICENSE">MIT</a></li>
+      </ul>
+      <p class="badge-note">The Awesome mark follows the common awesome-list convention and links to this catalog’s policy. This catalog is <strong>not</strong> an awesome.re listing.</p>
+    </div>
+  </section>
+  <nav class="contents" id="contents" aria-labelledby="contents-title">
+    <h2 id="contents-title">Contents</h2>
+    <ol>
+      <li data-contents-start><a href="#start-here">Start here</a></li>
+      {% for section in sections %}
+      <li data-contents-section="{{ section.id }}"><a href="#{{ section.id }}">{{ section.title }} <span>{{ section.projects|length }}</span></a></li>
+      {% endfor %}
+      <li><a href="#selection-policy">Selection policy</a></li>
+      <li><a href="#contributing">Contributing</a></li>
+    </ol>
+  </nav>
+  <div id="catalog" tabindex="-1">
+    <div class="section-heading">
+      <h2 id="catalog-title">The catalog</h2>
+      <p>{{ projects|length }} entries <span aria-hidden="true">/</span> {{ plugin_count }} native plugins <span aria-hidden="true">/</span> {{ index_count }} in the plugin index</p>
+    </div>
+    <p class="scope-note">Grouped by provenance, not category. Check each project’s installation instructions and compatibility before use. Featured, official, plugin-index, and status labels are catalog fields, not a census of the wider IINA ecosystem.</p>
+    <p class="visually-hidden" id="composition-label">Provenance mix:{% for section in sections %} {{ section.title }} {{ section.projects|length }}{% if not loop.last %},{% endif %}{% endfor %}.</p>
+    <svg class="composition-bar" viewBox="0 0 {{ projects|length }} 8" preserveAspectRatio="none" role="img" aria-labelledby="composition-label">
+      {% for section in sections %}
+      <rect class="composition-{{ section.id }}" x="{{ composition.x }}" y="0" width="{{ section.projects|length }}" height="8"></rect>
+      {% set composition.x = composition.x + section.projects|length %}
+      {% endfor %}
+    </svg>
+    <ul class="composition-legend">
+      {% for section in sections %}
+      <li><span class="composition-swatch composition-{{ section.id }}" aria-hidden="true"></span>{{ section.title }} <span>{{ section.projects|length }}</span></li>
+      {% endfor %}
+    </ul>
+    <div
+      id="catalog-chrome-root"
+      data-categories="{{ chrome_categories_json }}"
+      data-kinds="{{ chrome_kinds_json }}"
+      data-statuses="{{ chrome_statuses_json }}"
+    ></div>
+    <section class="start-here" id="start-here" aria-labelledby="featured-title">
+      <h3 id="featured-title">Start here</h3>
+      <p class="scope-note">Useful first stops, not a ranking. Each name jumps to its on-page entry; the project heading still opens the project URL.</p>
+      <ul class="start-list">
+        {% for p in projects if p.featured %}
+        <li>
+          <a href="#{{ p.slug }}">{{ p.name }}</a>
+          <p class="start-one-liner">{{ p.description }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    <p id="results-status" class="results-status" role="status" aria-live="polite">{{ projects|length }} entries, grouped by provenance</p>
+    <p id="empty" class="empty-state" hidden>No matches. Try a broader search or reset the filters.</p>
+    <div id="project-list">
+      {% for section in sections %}
+      <section id="{{ section.id }}" class="catalog-section" aria-labelledby="{{ section.id }}-title">
+        <div class="section-heading">
+          <h3 id="{{ section.id }}-title">{{ section.title }}</h3>
+          <p>{{ section.projects|length }}</p>
+        </div>
+        <p class="scope-note">{{ section.description }}</p>
+        <ul class="project-list">
+          {% for p in section.projects %}
+          <li class="project" id="{{ p.slug }}" data-category="{{ p.category.value }}" data-kind="{{ p.kind.value }}" data-status="{{ p.status.value }}" data-official="{{ 'true' if p.official else 'false' }}" data-featured="{{ 'true' if p.featured else 'false' }}" data-index="{{ 'true' if in_plugin_index(p) else 'false' }}" data-section="{{ section.id }}" data-search="{{ p.name }} {{ p.description }} {{ p.repo or '' }} {{ p.url or '' }} {{ p.tags|join(' ') }} {{ p.status.value }} {{ status_labels[p.status.value] }} {{ p.kind.value }} {{ p.kind.value|replace('-', ' ') }} {{ p.category.value|replace('-', ' ') }} {{ category_titles[p.category.value] }} {{ section.title }} {{ p.plugin_identifier or '' }} {{ p.license or '' }} {{ p.notes or '' }} {{ p.minimum_iina or '' }}{% for source in p.sources %} {{ source.label }} {{ source.url }}{% endfor %}{% if p.official %} official{% endif %}{% if p.featured %} featured{% endif %}{% if in_plugin_index(p) %} plugin index plugins.json{% endif %}">
+            <div class="project-heading">
+              <h4><a href="{{ p.project_url }}" rel="noopener noreferrer">{{ p.name }} {{ icon("arrow-up-right") }}</a></h4>
+              <span class="project-flags">
+                {% if p.featured %}<span class="flag flag-featured">Featured</span>{% endif %}
+                {% if p.official %}<span class="flag flag-official">Official</span>{% endif %}
+                {% if in_plugin_index(p) %}<span class="flag flag-index">Plugin index</span>{% endif %}
+                <span class="flag flag-status">{{ status_labels[p.status.value] }}</span>
+              </span>
+            </div>
+            <p class="project-description">{{ p.description }}</p>
+            <dl class="project-meta">
+              <div>
+                <dt>Category</dt>
+                <dd>{{ category_titles[p.category.value] }}</dd>
+              </div>
+              <div>
+                <dt>Type</dt>
+                <dd>{{ p.kind.value|replace('-', ' ') }}</dd>
+              </div>
+              {% if p.repo %}
+              <div>
+                <dt>Repository</dt>
+                <dd><a href="{{ p.project_url }}" rel="noopener noreferrer"><code>{{ p.repo }}</code></a></dd>
+              </div>
+              {% elif p.url %}
+              <div>
+                <dt>URL</dt>
+                <dd><a href="{{ p.project_url }}" rel="noopener noreferrer">{{ p.url }}</a></dd>
+              </div>
+              {% endif %}
+              {% if p.plugin_identifier %}
+              <div>
+                <dt>Plugin ID</dt>
+                <dd><code>{{ p.plugin_identifier }}</code></dd>
+              </div>
+              {% endif %}
+              {% if p.license %}
+              <div>
+                <dt>License</dt>
+                <dd>{{ p.license }}</dd>
+              </div>
+              {% endif %}
+              {% if p.minimum_iina %}
+              <div>
+                <dt>Min IINA</dt>
+                <dd>{{ p.minimum_iina }} <span class="meta-aside">declared, not runtime-tested</span></dd>
+              </div>
+              {% endif %}
+              {% if p.sources %}
+              <div>
+                <dt>Sources</dt>
+                <dd class="meta-sources">{% for source in p.sources %}<a href="{{ source.url }}" rel="noopener noreferrer">{{ source.label }}</a>{% if not loop.last %}<span aria-hidden="true"> · </span>{% endif %}{% endfor %}</dd>
+              </div>
+              {% endif %}
+            </dl>
+            {% if p.tags %}
+            <p class="project-tags">{% for tag in p.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</p>
+            {% endif %}
+            {% if p.notes %}
+            <details class="project-notes"><summary>Review notes</summary>
+              <p>{{ p.notes }}</p>
+            </details>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endfor %}
+    </div>
+    <noscript><p>Every entry is available without JavaScript. Use your browser’s Find command to search this page. Featured names jump to on-page entries; each heading’s project name still opens the project URL. Theme, filters, and the labels glossary need JavaScript.</p></noscript>
+  </div>
+  <section class="policy" id="selection-policy" aria-labelledby="policy-title">
+    <h2 id="policy-title">Selection policy</h2>
+    <p>Projects are included when they are directly useful to IINA users or plugin developers. Inclusion is not a security audit, warranty, or endorsement. See the <a href="{{ deployment.repository_url }}/blob/main/docs/catalog/policy/scope.md">written scope</a>.</p>
+    <p>Official, plugins.json, Featured, and Unverified are distinct fields. Definitions:</p>
+    <ul class="policy-list">
+      <li><strong>Official</strong> marks first-party IINA software: a repository under <code>iina/</code> or a URL on <code>iina.io</code>. It is not a quality ranking and is not inferred from stars, a topic, or index membership.</li>
+      <li><strong>Listed in plugins.json</strong> means IINA publishes the plugin in its plugin index. Index listing is not first-party ownership and does not set Official.</li>
+      <li><strong>Featured</strong> means a useful starting point, not an objective quality ranking.</li>
+      <li><strong>Unverified</strong> means relevance was reviewed but activity and compatibility still need confirmation. Inclusion does not mean a project is active.</li>
+    </ul>
+  </section>
+  <section class="contrib" id="contributing" aria-labelledby="contrib-title">
+    <h2 id="contrib-title">Contributing</h2>
+    <p>GitHub discovery gathers evidence. Human review decides what enters this catalog. Suggest a project or correction in <a href="{{ deployment.repository_url }}/blob/main/.github/CONTRIBUTING.md">CONTRIBUTING</a>, then edit the reviewed YAML.</p>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-bar">
+    <p>Awesome IINA <span aria-hidden="true">·</span> {{ copy.independence }}</p>
+    <p class="footer-links">
+      <a href="{{ deployment.repository_url }}/blob/main/.github/CONTRIBUTING.md">Contribute</a>
+      <a href="{{ deployment.repository_url }}/blob/main/docs/catalog/policy/scope.md">Selection policy</a>
+      <a href="{{ deployment.repository_url }}/blob/main/LICENSE">License</a>
+      <a href="{{ deployment.repository_url }}/blob/main/docs/history/NOTICE.md">NOTICE</a>
+      <a href="catalog.json">Catalog JSON</a>
+    </p>
+    <p>README groups by category.</p>
+  </div>
+</footer>
+</body>
+</html>

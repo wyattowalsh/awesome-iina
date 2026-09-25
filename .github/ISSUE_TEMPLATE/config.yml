@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: IINA application support
+    url: https://github.com/iina/iina/issues
+    about: Report player bugs and feature requests to the IINA project.
+  - name: Security report
+    url: https://github.com/wyattowalsh/awesome-iina/security/advisories/new
+    about: Privately report vulnerabilities in this repository's tooling.

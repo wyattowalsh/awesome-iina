@@ -1,0 +1,14 @@
+node_modules/
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+reports/
+.generated/
+dist/
+site/dist/
+site/.astro/
+site/src/content/docs/
+site/public/llms*.txt
+site/public/markdown/
+.mise.local*

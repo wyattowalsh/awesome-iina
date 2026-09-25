@@ -1,0 +1,111 @@
+{
+  "schema_version": 3,
+  "date": "2026-09-16",
+  "status": "source-candidate-not-native-or-release-certified",
+  "source_lineage": "config/source-lineage.json in the parent catalog repository",
+  "environment": {
+    "python": "3.13.5",
+    "node": "v22.16.0",
+    "typescript_cli": "5.8.3 audit substitute",
+    "typescript_api": "5.8.3 audit substitute",
+    "pytest": "9.0.2"
+  },
+  "selected_toolchain": {
+    "node": "24.21.0",
+    "pnpm": "12.4.1",
+    "python": "3.13.15",
+    "copier": "9.18.2",
+    "typescript": "7.0.2",
+    "compilerApi": "6.0.2",
+    "esbuild": "0.28.2",
+    "prettier": "3.6.2",
+    "biome": "2.5.13",
+    "astro": "7.2.10",
+    "starlight": "0.42.0",
+    "just": "1.58.0",
+    "uv": "0.12.13"
+  },
+  "executed": {
+    "python_tests_passed": 100,
+    "python_tests_skipped": 42,
+    "python_tests_failed": 0,
+    "offline_fixture_shapes": 32,
+    "generated_command_runs": 32,
+    "generated_command_failures": 0,
+    "node_test_executions": {
+      "tests": 572,
+      "pass": 572,
+      "fail": 0,
+      "skipped": 0
+    },
+    "variants": [
+      {
+        "variant": "command-node-tests.txt",
+        "tests": 70,
+        "pass": 70,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "command-preferences-node-tests.txt",
+        "tests": 70,
+        "pass": 70,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "controller-node-tests.txt",
+        "tests": 72,
+        "pass": 72,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "controller-preferences-node-tests.txt",
+        "tests": 72,
+        "pass": 72,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "overlay-node-tests.txt",
+        "tests": 72,
+        "pass": 72,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "overlay-preferences-node-tests.txt",
+        "tests": 72,
+        "pass": 72,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "sidebar-node-tests.txt",
+        "tests": 72,
+        "pass": 72,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "variant": "sidebar-preferences-node-tests.txt",
+        "tests": 72,
+        "pass": 72,
+        "fail": 0,
+        "skipped": 0
+      }
+    ]
+  },
+  "not_verified": [
+    "Real Copier copy/update/merge/trust",
+    "Selected production Node/TypeScript/pnpm toolchain",
+    "Installed-dependency esbuild and Starlight builds",
+    "Native IINA execution",
+    "Hosted GitHub Actions"
+  ],
+  "notes": [
+    "572 Node executions include shared tests repeated across eight variants.",
+    "Imported validation evidence is retained under history/, not counted as a new test run."
+  ]
+}
