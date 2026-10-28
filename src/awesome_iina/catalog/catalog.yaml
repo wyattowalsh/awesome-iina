@@ -608,6 +608,23 @@ projects:
   sources:
   - label: GitHub iina-plugin topic
     url: https://github.com/topics/iina-plugin
+- slug: contentplay
+  name: ContentPlay
+  description: Searches movies and series, resolves instant debrid streams through Stremio, and plays a whole season as an M3U playlist.
+  category: libraries-streaming
+  kind: plugin
+  status: unknown
+  official: false
+  featured: false
+  repo: Arnav12S/iina-contentplay
+  plugin_identifier: com.arnav.contentplay
+  tags:
+  - debrid
+  - stremio
+  - streaming
+  sources:
+  - label: Official IINA plugin index
+    url: https://github.com/iina/iina/blob/develop/plugins.json
 - slug: jellyfin-iina-alt
   name: Jellyfin IINA
   description: Provides another community implementation for using Jellyfin with IINA.
