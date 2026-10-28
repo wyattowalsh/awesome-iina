@@ -7,7 +7,7 @@
 
 Independent of the IINA project. The Awesome badge marks list style only; this catalog is not an [awesome.re](https://awesome.re) listing.
 
-**75** projects · **60** plugins · **12** official · **6** featured · [Handbook](docs/README.md)
+**76** projects · **61** plugins · **12** official · **6** featured · [Handbook](docs/README.md)
 
 ## Contents
 
@@ -107,6 +107,7 @@ Subtitle search, generation, translation, dictionaries, danmaku, and bilingual s
 Jellyfin, online media, catalog browsing, and service integrations.
 
 - **[Cinema IINA Plugin](https://github.com/hailp-vn38/cinema-iina-plugin)** **Experimental.** Experiments with a cinema-oriented media experience inside IINA. `cinema` `media browsing`
+- **[ContentPlay](https://github.com/Arnav12S/iina-contentplay)** **Maintenance status unverified.** Searches movies and series, resolves instant debrid streams through Stremio, and plays a whole season as an M3U playlist. `debrid` `stremio` `streaming`
 - **[Episode Info](https://github.com/Zain-Imam/iina-episode-info)** **Maintenance status unverified.** Shows TMDB movie or episode details on pause and includes subtitle-search support. `metadata` `tmdb`
 - **[IINA Jellyfin Companion](https://github.com/yxwyoyoyo/iina-jellyfin-companion)** **Maintenance status unverified.** Adds companion functionality around Jellyfin playback in IINA. `companion` `jellyfin`
 - **[IINA Store](https://github.com/Kuameh/iina-store)** **Maintenance status unverified.** Browse, search, and install community IINA plugins from a standalone window and companion sidebar. `catalog` `discovery` Independent third-party installer; its package and remote catalog were not executed or security-certified here. Info.json identifier com.example.iina-store is the upstream placeholder reverse-DNS id, not listed in IINA's official plugins.json index.

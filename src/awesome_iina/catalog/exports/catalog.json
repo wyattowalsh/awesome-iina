@@ -292,6 +292,32 @@
       ]
     },
     {
+      "category": "libraries-streaming",
+      "description": "Searches movies and series, resolves instant debrid streams through Stremio, and plays a whole season as an M3U playlist.",
+      "featured": false,
+      "identifier_collision_allowed": false,
+      "install": [],
+      "kind": "plugin",
+      "name": "ContentPlay",
+      "official": false,
+      "plugin_identifier": "com.arnav.contentplay",
+      "project_url": "https://github.com/Arnav12S/iina-contentplay",
+      "repo": "Arnav12S/iina-contentplay",
+      "slug": "contentplay",
+      "sources": [
+        {
+          "label": "Official IINA plugin index",
+          "url": "https://github.com/iina/iina/blob/develop/plugins.json"
+        }
+      ],
+      "status": "unknown",
+      "tags": [
+        "debrid",
+        "stremio",
+        "streaming"
+      ]
+    },
+    {
       "category": "subtitles-language",
       "description": "Overlays time-synchronized scrolling comments from supported danmaku sources.",
       "featured": false,
@@ -1938,7 +1964,7 @@
       "development": 4,
       "enhancement-rendering": 6,
       "historical": 2,
-      "libraries-streaming": 7,
+      "libraries-streaming": 8,
       "media-tooling": 8,
       "official-plugin": 4,
       "playback": 16,
@@ -1948,13 +1974,13 @@
     "external": 1,
     "featured": 6,
     "official": 12,
-    "plugins": 60,
-    "projects": 75,
+    "plugins": 61,
+    "projects": 76,
     "statuses": {
       "active": 20,
       "archived": 2,
       "experimental": 7,
-      "unknown": 46
+      "unknown": 47
     }
   }
 }
