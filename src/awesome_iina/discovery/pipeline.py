@@ -87,6 +87,21 @@ def _url_keyed_official_candidate(
     return candidate
 
 
+def _store_candidate(
+    candidates: dict[str, Candidate], candidate: Candidate, *, preferred_key: str
+) -> None:
+    """Keep one dict entry per candidate without evicting a different repository."""
+
+    for stored in [key for key, item in candidates.items() if item is candidate]:
+        candidates.pop(stored, None)
+    destination = preferred_key
+    occupant = candidates.get(destination)
+    if occupant is not None and _stable_ids_conflict(occupant.repository, candidate.repository):
+        identity = candidate.repository.node_id or candidate.repository.database_id
+        destination = f"{destination}#{identity}"
+    candidates[destination] = candidate
+
+
 def _stable_ids_conflict(current: RepositorySnapshot, incoming: RepositorySnapshot) -> bool:
     node_conflict = bool(
         incoming.node_id and current.node_id and incoming.node_id != current.node_id
@@ -148,7 +163,7 @@ def _candidate_for(
         key = f"{key}#{snapshot.node_id or snapshot.database_id}"
     if existing:
         if snapshot:
-            old_key = existing.repository.name_with_owner.casefold()
+            old_name = existing.repository.name_with_owner.casefold()
             update = snapshot.model_dump(exclude_unset=True)
             # Placeholder observations cannot erase known identity or objective metadata.
             update = {
@@ -156,7 +171,7 @@ def _candidate_for(
                 for k, v in update.items()
                 if k not in {"node_id", "database_id"} or v is not None
             }
-            if snapshot.name_with_owner.casefold() != old_key:
+            if snapshot.name_with_owner.casefold() != old_name:
                 update["aliases"] = sorted(
                     set(
                         existing.repository.aliases
@@ -167,9 +182,7 @@ def _candidate_for(
             elif "aliases" in update:
                 update["aliases"] = sorted(set(existing.repository.aliases + snapshot.aliases))
             existing.repository = existing.repository.model_copy(update=update)
-            if old_key != key:
-                candidates.pop(old_key, None)
-                candidates[key] = existing
+            _store_candidate(candidates, existing, preferred_key=key)
         return existing
     candidate = Candidate(repository=snapshot or _placeholder_snapshot(repository))
     candidates[key] = candidate
@@ -254,9 +267,11 @@ def _paginate_repository_shard(
     cursors: set[str] = set()
     page = first_page
     returned = 0
+    pages = 0
     reason = None
     has_next = False
     while True:
+        pages += 1
         returned += _collect_page_nodes(
             page, candidates=candidates, query=query, compiled_query=compiled, seen=seen
         )
@@ -274,6 +289,9 @@ def _paginate_repository_shard(
             break
         if returned >= client.config.search_cap:
             reason = "GitHub search cap reached"
+            break
+        if pages >= client.config.search_cap:
+            reason = "Repository pagination exceeded the page bound before coverage was complete"
             break
         cursors.add(str(cursor))
         try:

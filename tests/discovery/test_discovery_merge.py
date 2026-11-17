@@ -240,6 +240,7 @@ def test_merge_keeps_an_earlier_idless_row_when_later_ids_disagree() -> None:
 
     assert len(merged.candidates) == 3
     assert any(candidate.repository.node_id is None for candidate in merged.candidates)
+    assert any("id-less observation" in warning for warning in merged.warnings)
 
 
 def test_merge_attaches_an_earlier_idless_row_to_the_only_identified_name() -> None:

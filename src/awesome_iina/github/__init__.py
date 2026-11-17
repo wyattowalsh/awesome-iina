@@ -183,6 +183,9 @@ class GhClient:
         page = (response.get("data") or {}).get("search")
         if not isinstance(page, dict):
             raise GhError("GitHub GraphQL search returned an invalid page")
+        if response.get("errors"):
+            page = dict(page)
+            page["incomplete_results"] = True
         return page
 
     def search_code_page(

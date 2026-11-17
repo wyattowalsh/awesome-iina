@@ -218,6 +218,16 @@ def merge_discovery_runs(runs: Iterable[DiscoveryRun]) -> DiscoveryRun:
             ambiguous_names=ambiguous_names,
         )
         if existing is None:
+            repository = incoming.repository
+            if (
+                repository.node_id is None
+                and repository.database_id is None
+                and repository.name_with_owner.casefold() in ambiguous_names
+            ):
+                warnings.append(
+                    "kept an id-less observation separate from ambiguous repository name: "
+                    f"{repository.name_with_owner}"
+                )
             existing = incoming.model_copy(deep=True)
             candidates.append(existing)
         else:

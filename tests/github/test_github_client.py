@@ -50,6 +50,21 @@ def test_rest_builds_headers_and_params() -> None:
     assert "enabled=true" in args
 
 
+def test_graphql_search_errors_mark_the_page_incomplete() -> None:
+    client = StubClient(
+        [
+            {
+                "data": {
+                    "search": {"repositoryCount": 1, "nodes": [], "pageInfo": {}},
+                },
+                "errors": [{"message": "partial search"}],
+            }
+        ]
+    )
+    page = client.search_repositories_page("topic:iina")
+    assert page["incomplete_results"] is True
+
+
 def test_search_methods_validate_shapes() -> None:
     client = StubClient(
         [
