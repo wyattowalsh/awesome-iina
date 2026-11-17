@@ -93,7 +93,12 @@ class GhClient:
         if not isinstance(response, dict):
             raise GhError("GitHub GraphQL returned a non-object response")
         if errors := response.get("errors"):
-            raise GhError(f"GitHub GraphQL returned errors: {errors}")
+            data = response.get("data")
+            has_payload = isinstance(data, dict) and any(
+                key != "rateLimit" and value is not None for key, value in data.items()
+            )
+            if not has_payload:
+                raise GhError(f"GitHub GraphQL returned errors: {errors}")
         # Defer waiting until the next request so an exhausted wait budget cannot
         # discard a successfully returned search page.
         self._previous_rate_limit = {
@@ -385,19 +390,24 @@ class GhClient:
     @staticmethod
     def _is_retryable(error_text: str) -> bool:
         lowered = error_text.casefold()
-        retry_fragments = (
-            "secondary rate limit",
-            "rate limit exceeded",
-            "abuse detection",
-            "502",
-            "503",
-            "504",
-            "timeout",
-            "timed out",
-            "connection reset",
-            "temporary failure",
+        if any(
+            fragment in lowered
+            for fragment in (
+                "secondary rate limit",
+                "rate limit exceeded",
+                "abuse detection",
+                "connection reset",
+                "temporary failure",
+                "timed out",
+            )
+        ):
+            return True
+        # Status codes and the word timeout must be tokens. A repository such as
+        # imb503/name would otherwise look like HTTP 503.
+        return (
+            re.search(r"(?<![\w])(?:502|503|504)(?![\w])", lowered) is not None
+            or re.search(r"(?<![\w])timeout(?![\w])", lowered) is not None
         )
-        return any(fragment in lowered for fragment in retry_fragments)
 
     @staticmethod
     def _respect_graphql_rate_limit(

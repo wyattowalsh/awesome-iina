@@ -30,6 +30,8 @@ _EXCLUDED_PARTS = {
     "output",
 }
 _EXCLUDED_NAMES = {".coverage", ".DS_Store"}
+_SECRET_NAMES = {".envrc", "credentials.json", "id_ecdsa", "id_ed25519", "id_rsa"}
+_LOCAL_OVERRIDE = "src/awesome_iina/discovery/discovery.local.yaml"
 _EXCLUDED_SUFFIXES = {".pyc", ".pyo", ".zip", ".ttf", ".otf", ".woff", ".woff2"}
 _FIXED_TIMESTAMP = (1980, 1, 1, 0, 0, 0)
 _REQUIRED_SOURCE_MEMBERS = {
@@ -81,12 +83,24 @@ _REQUIRED_SOURCE_MEMBERS = {
 }
 
 
+def _is_blocked_secret(path: Path, relative: Path) -> bool:
+    if path.name in _SECRET_NAMES or path.suffix.casefold() in {".pem", ".key"}:
+        return True
+    if (path.name == ".env" or path.name.startswith(".env.")) and path.name not in {
+        ".env.example",
+        ".env.sample",
+        ".env.template",
+    }:
+        return True
+    return relative.as_posix() == _LOCAL_OVERRIDE
+
+
 def included(path: Path, root: Path, output: Path) -> bool:
     if path.resolve() == output.resolve():
         return False
     relative = path.relative_to(root)
     # Root editor state is local; template/.vscode contains intentional generated source.
-    if relative.parts[0] == ".vscode":
+    if relative.parts[0] in {".cursor", ".vscode"}:
         return False
     if path.name in {"SOURCE-MANIFEST.json", "FILE-HASHES.json"}:
         return False
@@ -118,14 +132,7 @@ def collect_files(root: Path, output: Path) -> list[Path]:
         relative = path.relative_to(root)
         if any(part in _EXCLUDED_PARTS for part in relative.parts):
             continue
-        if (
-            path.name in {"id_rsa", "id_ed25519"}
-            or path.suffix == ".pem"
-            or (
-                (path.name == ".env" or path.name.startswith(".env."))
-                and path.name not in {".env.example", ".env.sample", ".env.template"}
-            )
-        ):
+        if _is_blocked_secret(path, relative):
             raise RuntimeError(f"refusing to bundle a possible local secret: {relative}")
         if path.is_symlink():
             raise RuntimeError(f"refusing to silently omit a source symlink: {relative}")

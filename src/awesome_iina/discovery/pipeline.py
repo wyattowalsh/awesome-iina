@@ -87,6 +87,18 @@ def _url_keyed_official_candidate(
     return candidate
 
 
+def _stable_ids_conflict(current: RepositorySnapshot, incoming: RepositorySnapshot) -> bool:
+    node_conflict = bool(
+        incoming.node_id and current.node_id and incoming.node_id != current.node_id
+    )
+    database_conflict = (
+        incoming.database_id is not None
+        and current.database_id is not None
+        and incoming.database_id != current.database_id
+    )
+    return node_conflict or database_conflict
+
+
 def _candidate_for(
     candidates: dict[str, Candidate],
     repository: str,
@@ -95,17 +107,45 @@ def _candidate_for(
 ) -> Candidate:
     key = repository.casefold()
     existing = candidates.get(key)
-    if existing is None and snapshot:
+    if (
+        existing is not None
+        and snapshot is not None
+        and _stable_ids_conflict(existing.repository, snapshot)
+    ):
+        existing = None
+    if existing is None and snapshot is not None and snapshot.node_id:
+        existing = next(
+            (item for item in candidates.values() if item.repository.node_id == snapshot.node_id),
+            None,
+        )
+    if existing is None and snapshot is not None and snapshot.database_id is not None:
         existing = next(
             (
                 item
                 for item in candidates.values()
-                if (snapshot.node_id and item.repository.node_id == snapshot.node_id)
-                or item.repository.name_with_owner.casefold()
-                in {alias.casefold() for alias in snapshot.aliases}
+                if item.repository.database_id == snapshot.database_id
+                and not _stable_ids_conflict(item.repository, snapshot)
             ),
             None,
         )
+    if existing is None and snapshot is not None and snapshot.aliases:
+        alias_names = {alias.casefold() for alias in snapshot.aliases}
+        existing = next(
+            (
+                item
+                for item in candidates.values()
+                if not _stable_ids_conflict(item.repository, snapshot)
+                and item.repository.name_with_owner.casefold() in alias_names
+            ),
+            None,
+        )
+    if (
+        existing is None
+        and snapshot is not None
+        and key in candidates
+        and _stable_ids_conflict(candidates[key].repository, snapshot)
+    ):
+        key = f"{key}#{snapshot.node_id or snapshot.database_id}"
     if existing:
         if snapshot:
             old_key = existing.repository.name_with_owner.casefold()
@@ -179,6 +219,28 @@ def _collect_page_nodes(
     return count
 
 
+def _incomplete_paginated_shard(
+    client: GithubDiscoveryClient,
+    query: RepositoryQueryConfig,
+    shard: SearchShard,
+    first_page: dict[str, Any],
+    candidates: dict[str, Candidate],
+    *,
+    total: int,
+    reason: str,
+) -> QueryOutcome:
+    """Read every page of a capped shard, then keep the outcome incomplete."""
+
+    outcome = _paginate_repository_shard(client, query, shard, first_page, candidates)
+    return outcome.model_copy(
+        update={
+            "complete": False,
+            "total_count": max(outcome.total_count, total),
+            "incomplete_reason": outcome.incomplete_reason or reason,
+        }
+    )
+
+
 def _paginate_repository_shard(
     client: GithubDiscoveryClient,
     query: RepositoryQueryConfig,
@@ -195,7 +257,6 @@ def _paginate_repository_shard(
     reason = None
     has_next = False
     while True:
-        before = returned
         returned += _collect_page_nodes(
             page, candidates=candidates, query=query, compiled_query=compiled, seen=seen
         )
@@ -210,9 +271,6 @@ def _paginate_repository_shard(
             break
         if not cursor or str(cursor) in cursors:
             reason = "Missing or repeated repository pagination cursor"
-            break
-        if returned == before:
-            reason = "Repository pagination made no unique public progress"
             break
         if returned >= client.config.search_cap:
             reason = "GitHub search cap reached"
@@ -277,38 +335,28 @@ def discover_repository_query(
         if total > config.github.search_cap and query.date_sharding:
             if shard.depth >= config.github.max_shard_depth:
                 outcomes.append(
-                    QueryOutcome(
-                        query_id=query.id,
-                        query=compiled,
-                        kind=EvidenceKind.REPOSITORY_SEARCH,
-                        backend=DiscoveryBackend(client.config.repository_backend),
-                        total_count=total,
-                        returned_count=_collect_page_nodes(
-                            first_page, candidates=candidates, query=query, compiled_query=compiled
-                        ),
-                        complete=False,
-                        incomplete_reason=(
-                            "maximum shard depth reached before search cap was cleared"
-                        ),
+                    _incomplete_paginated_shard(
+                        client,
+                        query,
+                        shard,
+                        first_page,
+                        candidates,
+                        total=total,
+                        reason="maximum shard depth reached before search cap was cleared",
                     )
                 )
                 continue
             children = split_shard(shard)
             if children is None:
                 outcomes.append(
-                    QueryOutcome(
-                        query_id=query.id,
-                        query=compiled,
-                        kind=EvidenceKind.REPOSITORY_SEARCH,
-                        backend=DiscoveryBackend(client.config.repository_backend),
-                        total_count=total,
-                        returned_count=_collect_page_nodes(
-                            first_page, candidates=candidates, query=query, compiled_query=compiled
-                        ),
-                        complete=False,
-                        incomplete_reason=(
-                            "unsplittable query shard still exceeds GitHub's 1,000-result cap"
-                        ),
+                    _incomplete_paginated_shard(
+                        client,
+                        query,
+                        shard,
+                        first_page,
+                        candidates,
+                        total=total,
+                        reason="unsplittable query shard still exceeds GitHub's 1,000-result cap",
                     )
                 )
                 continue
@@ -383,10 +431,12 @@ def discover_code_query(
                     details={"blob_sha": item.get("sha")} if item.get("sha") else {},
                 )
             )
-        if items and len(seen) == before:
-            reason = "Code-search pagination made no unique public progress"
+        if not items or len(items) < client.config.page_size:
+            if items and len(seen) == before:
+                reason = "Code-search pagination made no unique public progress"
             break
-        if len(items) < client.config.page_size or not items:
+        if len(seen) == before and page * client.config.page_size >= (total or 0):
+            reason = "Code-search pagination made no unique public progress"
             break
         page += 1
     total = total or 0

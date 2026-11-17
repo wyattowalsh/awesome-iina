@@ -194,6 +194,8 @@ def merge_discovery_runs(runs: Iterable[DiscoveryRun]) -> DiscoveryRun:
     by_name: dict[str, Candidate] = {}
     ambiguous_names: set[str] = set()
     warnings: list[str] = []
+    identified: list[Candidate] = []
+    idless: list[Candidate] = []
 
     for run in sorted(source_runs, key=lambda item: item.started_at):
         label = run.repository_backend.value if run.repository_backend else "unknown"
@@ -201,25 +203,39 @@ def merge_discovery_runs(runs: Iterable[DiscoveryRun]) -> DiscoveryRun:
         for incoming in run.candidates:
             if incoming.repository.private:
                 continue
-            existing = _find_existing(
-                incoming,
-                by_node=by_node,
-                by_database=by_database,
-                by_name=by_name,
-                ambiguous_names=ambiguous_names,
-            )
-            if existing is None:
-                existing = incoming.model_copy(deep=True)
-                candidates.append(existing)
+            repository = incoming.repository
+            if repository.node_id or repository.database_id is not None:
+                identified.append(incoming)
             else:
-                _merge_candidate(existing, incoming, warnings)
-            _register_candidate(
-                existing,
-                by_node=by_node,
-                by_database=by_database,
-                by_name=by_name,
-                ambiguous_names=ambiguous_names,
-            )
+                idless.append(incoming)
+
+    def absorb(incoming: Candidate) -> None:
+        existing = _find_existing(
+            incoming,
+            by_node=by_node,
+            by_database=by_database,
+            by_name=by_name,
+            ambiguous_names=ambiguous_names,
+        )
+        if existing is None:
+            existing = incoming.model_copy(deep=True)
+            candidates.append(existing)
+        else:
+            _merge_candidate(existing, incoming, warnings)
+        _register_candidate(
+            existing,
+            by_node=by_node,
+            by_database=by_database,
+            by_name=by_name,
+            ambiguous_names=ambiguous_names,
+        )
+
+    # Identified rows first, so an earlier id-less observation cannot capture
+    # the name before a second GitHub id arrives.
+    for incoming in identified:
+        absorb(incoming)
+    for incoming in idless:
+        absorb(incoming)
 
     config_hashes = sorted({run.config_sha256 for run in source_runs})
     config_sha256 = (

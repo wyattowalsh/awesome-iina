@@ -507,6 +507,14 @@ def test_manifest_request_failure_is_recorded_without_aborting() -> None:
     assert candidate.manifest_errors
 
 
+def test_release_smoke_invokes_the_repository_cli() -> None:
+    text = (REPO_ROOT / ".github/workflows/release.yml").read_text()
+    assert "-m awesome_iina repository lint-root" in text
+    assert "-m awesome_iina repository lint-awesome" in text
+    assert "awesome_iina.repo.root_policy" not in text
+    assert "awesome_iina.repo.awesome_lint" not in text
+
+
 def test_discovery_cannot_assert_exhaustiveness() -> None:
     from datetime import UTC, datetime
 
@@ -526,7 +534,10 @@ def test_discovery_cannot_assert_exhaustiveness() -> None:
         )
 
 
-@pytest.mark.parametrize("name", [".env", "id_rsa", "signing.pem"])
+@pytest.mark.parametrize(
+    "name",
+    [".env", "id_rsa", "signing.pem", ".envrc", "id_ecdsa", "token.key", "credentials.json"],
+)
 def test_possible_secrets_block_packaging(tmp_path: Path, name: str) -> None:
     module = load_archive_module()
     root = tmp_path / "repo"
@@ -535,6 +546,34 @@ def test_possible_secrets_block_packaging(tmp_path: Path, name: str) -> None:
     (root / name).write_text("sensitive test fixture")
     with pytest.raises(RuntimeError, match="secret"):
         module.create_archive(root, tmp_path / "safe.zip", "awesome-iina")
+
+
+def test_local_discovery_override_blocks_packaging(tmp_path: Path) -> None:
+    module = load_archive_module()
+    root = tmp_path / "repo"
+    root.mkdir()
+    create_minimal_source_tree(root)
+    override = root / "src/awesome_iina/discovery/discovery.local.yaml"
+    override.parent.mkdir(parents=True, exist_ok=True)
+    override.write_text("token: secret\n")
+    with pytest.raises(RuntimeError, match="secret"):
+        module.create_archive(root, tmp_path / "safe.zip", "awesome-iina")
+
+
+def test_root_cursor_directory_is_omitted_and_starter_cursor_is_kept(tmp_path: Path) -> None:
+    module = load_archive_module()
+    root = tmp_path / "repo"
+    root.mkdir()
+    create_minimal_source_tree(root)
+    secret = root / ".cursor" / "mcp.json"
+    secret.parent.mkdir()
+    secret.write_text("{}\n")
+    kit = root / "starter" / ".cursor" / "skill.md"
+    kit.parent.mkdir(parents=True)
+    kit.write_text("kit\n")
+    files = module.collect_files(root, tmp_path / "out.zip")
+    assert secret not in files
+    assert kit in files
 
 
 def test_source_symlink_blocks_packaging(tmp_path: Path) -> None:

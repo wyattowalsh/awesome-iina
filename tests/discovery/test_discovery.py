@@ -32,6 +32,108 @@ from awesome_iina.models import (
 )
 
 
+def test_same_name_with_different_node_ids_stay_separate() -> None:
+    from awesome_iina.discovery.pipeline import _candidate_for
+
+    candidates: dict[str, Candidate] = {}
+    first = _candidate_for(
+        candidates,
+        "example/plugin",
+        snapshot=RepositorySnapshot(
+            node_id="R_first",
+            database_id=1,
+            name_with_owner="example/plugin",
+            url="https://github.com/example/plugin",
+        ),
+    )
+    second = _candidate_for(
+        candidates,
+        "example/plugin",
+        snapshot=RepositorySnapshot(
+            node_id="R_second",
+            database_id=2,
+            name_with_owner="example/plugin",
+            url="https://github.com/example/plugin",
+        ),
+    )
+    assert first is not second
+    assert {item.repository.node_id for item in candidates.values()} == {"R_first", "R_second"}
+
+
+def test_repository_pagination_continues_after_a_private_only_page(tmp_path: Path) -> None:
+    from awesome_iina.discovery.settings import GithubConfig
+
+    class PrivateThenPublic:
+        def __init__(self) -> None:
+            self.config = GithubConfig(
+                page_size=1,
+                search_cap=1000,
+                repository_request_delay_seconds=0,
+                code_search_delay_seconds=0,
+            )
+
+        def get_content(
+            self, repository: str, path: str, *, ref: str | None = None
+        ) -> bytes | None:
+            del repository, path, ref
+            raise AssertionError("repository pagination does not fetch content")
+
+        def search_code_page(
+            self, query: str, *, page: int, per_page: int | None = None
+        ) -> dict[str, Any]:
+            del query, page, per_page
+            raise AssertionError("repository pagination does not search code")
+
+        def enrich_repositories(
+            self, repositories: object
+        ) -> tuple[dict[str, RepositorySnapshot], list[str]]:
+            del repositories
+            raise AssertionError("repository pagination does not enrich")
+
+        def search_repositories_page(
+            self,
+            query: str,
+            *,
+            cursor: str | None = None,
+            page_size: int | None = None,
+        ) -> dict[str, Any]:
+            del query, page_size
+            if cursor is None:
+                return {
+                    "repositoryCount": 2,
+                    "nodes": [
+                        {
+                            "id": "R_private",
+                            "nameWithOwner": "secret/hidden",
+                            "isPrivate": True,
+                        }
+                    ],
+                    "pageInfo": {"hasNextPage": True, "endCursor": "cursor-1"},
+                }
+            return {
+                "repositoryCount": 2,
+                "nodes": [
+                    {
+                        "id": "R_public",
+                        "nameWithOwner": "example/public",
+                        "url": "https://github.com/example/public",
+                        "isPrivate": False,
+                    }
+                ],
+                "pageInfo": {"hasNextPage": False, "endCursor": "cursor-2"},
+            }
+
+    candidates: dict[str, Candidate] = {}
+    outcomes = discover_repository_query(
+        PrivateThenPublic(),
+        config(tmp_path).repository_queries[0],
+        config(tmp_path),
+        candidates,
+    )
+    assert "example/public" in candidates
+    assert outcomes[0].returned_count == 1
+
+
 def test_repository_query_paginates(tmp_path: Path) -> None:
     client = FakeClient()
     candidates: dict[str, Candidate] = {}

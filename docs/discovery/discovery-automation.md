@@ -106,9 +106,10 @@ just discover-nightly
 just discover-deep
 ```
 
-`discover-nightly` uses strict mode and can return exit code 2 after saving an incomplete
-result. `discover-deep` omits strict mode until both backends have produced files so the
-merged report can still be inspected locally.
+`discover-nightly` and `discover-deep` both pass `--strict` and can return exit code 2
+after saving an incomplete result. A local deep run then stops before GraphQL and the
+merge. The weekly workflow marks those steps `continue-on-error`, so it still writes
+the merge from whatever each backend saved.
 
 ## References
 

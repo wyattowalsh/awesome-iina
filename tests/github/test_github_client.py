@@ -141,6 +141,43 @@ def test_low_graphql_budget_sleeps(monkeypatch: pytest.MonkeyPatch) -> None:
 def test_retryable_classifier() -> None:
     assert GhClient._is_retryable("secondary rate limit") is True
     assert GhClient._is_retryable("validation failed") is False
+    assert GhClient._is_retryable("HTTP 503") is True
+    assert GhClient._is_retryable("request timeout") is True
+    assert (
+        GhClient._is_retryable(
+            "Could not resolve to a Repository with the name 'imb503/MoonTVPlus'."
+        )
+        is False
+    )
+
+
+def test_enrich_keeps_nodes_from_a_partial_graphql_payload() -> None:
+    client = StubClient(
+        [
+            {
+                "data": {
+                    "repo0": {
+                        "id": "R_ok",
+                        "databaseId": 7,
+                        "nameWithOwner": "imb503/MoonTVPlus-c92d2",
+                        "url": "https://github.com/imb503/MoonTVPlus-c92d2",
+                    },
+                    "repo1": None,
+                },
+                "errors": [
+                    {
+                        "message": (
+                            "Could not resolve to a Repository with the name 'scjxx/MoonTVPlus'."
+                        )
+                    }
+                ],
+            }
+        ]
+    )
+    enriched, warnings = client.enrich_repositories(["imb503/MoonTVPlus-c92d2", "scjxx/MoonTVPlus"])
+    assert "imb503/moontvplus-c92d2" in enriched
+    assert enriched["imb503/moontvplus-c92d2"].node_id == "R_ok"
+    assert any("scjxx/MoonTVPlus" in warning for warning in warnings)
 
 
 def test_enrich_repositories_records_batch_failure() -> None:

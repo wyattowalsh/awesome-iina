@@ -211,6 +211,65 @@ def test_reclassify_does_not_apply_name_override_to_ambiguous_identities() -> No
     assert any("ambiguous repository name" in warning for warning in run.warnings)
 
 
+def test_merge_keeps_an_earlier_idless_row_when_later_ids_disagree() -> None:
+    idless = Candidate(
+        repository=RepositorySnapshot(
+            name_with_owner="example/plugin",
+            url="https://github.com/example/plugin",
+            description="An idless first observation.",
+        )
+    )
+    identified = [
+        Candidate(
+            repository=RepositorySnapshot(
+                node_id=node_id,
+                database_id=database_id,
+                name_with_owner="example/plugin",
+                url="https://github.com/example/plugin",
+            )
+        )
+        for node_id, database_id in (("R_first", 1), ("R_second", 2))
+    ]
+    merged = merge_discovery_runs(
+        [
+            _run(DiscoveryBackend.REST, idless),
+            _run(DiscoveryBackend.GRAPHQL, identified[0], offset=1),
+            _run(DiscoveryBackend.REST, identified[1], offset=2),
+        ]
+    )
+
+    assert len(merged.candidates) == 3
+    assert any(candidate.repository.node_id is None for candidate in merged.candidates)
+
+
+def test_merge_attaches_an_earlier_idless_row_to_the_only_identified_name() -> None:
+    idless = Candidate(
+        repository=RepositorySnapshot(
+            name_with_owner="example/plugin",
+            url="https://github.com/example/plugin",
+            description="An idless first observation.",
+        )
+    )
+    identified = Candidate(
+        repository=RepositorySnapshot(
+            node_id="R_only",
+            database_id=1,
+            name_with_owner="example/plugin",
+            url="https://github.com/example/plugin",
+        )
+    )
+    merged = merge_discovery_runs(
+        [
+            _run(DiscoveryBackend.REST, idless),
+            _run(DiscoveryBackend.GRAPHQL, identified, offset=1),
+        ]
+    )
+
+    assert len(merged.candidates) == 1
+    assert merged.candidates[0].repository.node_id == "R_only"
+    assert merged.candidates[0].repository.description == "An idless first observation."
+
+
 def test_merge_does_not_attach_idless_observation_to_ambiguous_name() -> None:
     candidates = [
         Candidate(

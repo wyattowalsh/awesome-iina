@@ -93,8 +93,8 @@ jobs:
           mkdir -p /tmp/awesome-iina-release
           unzip -q dist/awesome-iina.zip -d /tmp/awesome-iina-release
           cd /tmp/awesome-iina-release/awesome-iina
-          PYTHONPATH=src "$PYTHON" -m awesome_iina.repo.root_policy --root .
-          PYTHONPATH=src "$PYTHON" -m awesome_iina.repo.awesome_lint --root .
+          PYTHONPATH=src "$PYTHON" -m awesome_iina repository lint-root
+          PYTHONPATH=src "$PYTHON" -m awesome_iina repository lint-awesome
           PYTHONPATH=src "$PYTHON" -m pytest -q
 
       - name: Create or update GitHub release
