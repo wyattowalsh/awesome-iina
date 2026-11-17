@@ -184,7 +184,7 @@ Cross-player tools used to inspect, transform, and understand media files.
 - **[libass](https://github.com/libass/libass)** Renders ASS and SSA subtitles and underpins advanced subtitle presentation in mpv-based players. `ass` `rendering` `subtitles`
 - **[libplacebo](https://github.com/haasn/libplacebo)** Provides GPU-accelerated rendering primitives used by modern video players and shader pipelines. `gpu` `rendering` `shaders`
 - **[MediaInfo](https://github.com/MediaArea/MediaInfo)** Reports detailed container, codec, stream, HDR, language, and tag metadata for media files. `codecs` `metadata` `probing`
-- **[MKVToolNix](https://github.com/mkvtoolnix/mkvtoolnix)** Inspects, multiplexes, edits, and validates Matroska containers with mkvmerge, mkvinfo, and related tools. `matroska` `metadata` `mkv`
+- **[MKVToolNix](https://mkvtoolnix.download/)** Inspects, multiplexes, edits, and validates Matroska containers with mkvmerge, mkvinfo, and related tools. `matroska` `metadata` `mkv` The GitHub path mkvtoolnix/mkvtoolnix returned HTTP 404 on 2026-11-17. The project site answered HTTP 200.
 - **[mpv](https://github.com/mpv-player/mpv)** The command-line media player and playback engine embedded by IINA. `media player` `playback engine`
 - **[yt-dlp](https://github.com/yt-dlp/yt-dlp)** Resolves and downloads online media and is used by IINA’s official Online Media plugin. `downloader` `online media`
 

@@ -219,6 +219,8 @@ def plugin_inspect(
         console.print(f"identifier: {report.identifier or '<unknown>'}")
         console.print(f"package size: {report.package_size_bytes} bytes")
         console.print(f"permissions: {', '.join(report.permissions) or '<none>'}")
+        if report.allowed_domains:
+            console.print(f"allowed domains: {', '.join(report.allowed_domains)}")
         if report.dangerous_permissions:
             console.print(
                 "[yellow]dangerous permissions:[/yellow] " + ", ".join(report.dangerous_permissions)

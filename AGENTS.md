@@ -60,7 +60,8 @@ Do not package Node tools, tests, agent files, docs build sources or fixture ans
 native plugin. Do package the full nested source tree in this repository's source ZIP.
 
 Portable Agent Plugins source is `starter/plugins/iina-plugin-dev/` (closed `plugin.json`,
-skills, no `mcp.json`). Sync with `just starter-sync-agent-kit` / `--check`. Nested
+skills, no `mcp.json`). Sync with `just starter-sync-agent-kit` to apply, or
+`just starter-sync-agent-kit-check` to verify. Nested
 `starter/.cursor/skills/` is allowed; catalog-root `.cursor/` and catalog-root `plugin.json`
 are not. Generated consumers get workspace `.cursor/skills` without `iina-generate`.
 Copier `hooks:` is Lefthook, not an agent hook. `just starter-agent-plugin-install` is an

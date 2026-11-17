@@ -16,9 +16,7 @@ def _permissions_cell(candidate: Candidate) -> str:
     if manifest is None:
         return ""
     parts = list(manifest.permissions)
-    if any(domain == "*" for domain in manifest.allowedDomains):
-        parts.append("wildcard domains")
-    elif manifest.allowedDomains:
+    if manifest.allowedDomains:
         parts.append("allowedDomains: " + ", ".join(manifest.allowedDomains))
     return _escape_cell(", ".join(parts))
 

@@ -1100,14 +1100,16 @@ projects:
   status: active
   official: false
   featured: false
-  repo: mkvtoolnix/mkvtoolnix
+  url: https://mkvtoolnix.download/
   tags:
   - matroska
   - mkv
   - metadata
   sources:
-  - label: Upstream repository
-    url: https://github.com/mkvtoolnix/mkvtoolnix
+  - label: Upstream site
+    url: https://mkvtoolnix.download/
+  notes: The GitHub path mkvtoolnix/mkvtoolnix returned HTTP 404 on 2026-11-17. The project site
+    answered HTTP 200.
 - slug: mediainfo
   name: MediaInfo
   description: Reports detailed container, codec, stream, HDR, language, and tag metadata for media files.

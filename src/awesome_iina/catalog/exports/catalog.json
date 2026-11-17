@@ -1246,14 +1246,14 @@
       "install": [],
       "kind": "media-tool",
       "name": "MKVToolNix",
+      "notes": "The GitHub path mkvtoolnix/mkvtoolnix returned HTTP 404 on 2026-11-17. The project site answered HTTP 200.",
       "official": false,
-      "project_url": "https://github.com/mkvtoolnix/mkvtoolnix",
-      "repo": "mkvtoolnix/mkvtoolnix",
+      "project_url": "https://mkvtoolnix.download/",
       "slug": "mkvtoolnix",
       "sources": [
         {
-          "label": "Upstream repository",
-          "url": "https://github.com/mkvtoolnix/mkvtoolnix"
+          "label": "Upstream site",
+          "url": "https://mkvtoolnix.download/"
         }
       ],
       "status": "active",
@@ -1261,7 +1261,8 @@
         "matroska",
         "metadata",
         "mkv"
-      ]
+      ],
+      "url": "https://mkvtoolnix.download/"
     },
     {
       "category": "official-plugin",
@@ -1945,7 +1946,7 @@
       "subtitles-language": 12,
       "tracking-scrobbling": 4
     },
-    "external": 1,
+    "external": 2,
     "featured": 6,
     "official": 12,
     "plugins": 60,

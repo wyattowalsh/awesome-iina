@@ -34,7 +34,7 @@ def run() -> DiscoveryRun:
                 author="Example",
                 entry="index.js",
                 permissions=["network-request", "file-system"],
-                allowedDomains=["*"],
+                allowedDomains=["*", "api.example.com"],
             ),
         ),
         Candidate(
@@ -80,7 +80,7 @@ def test_render_report_contains_coverage_and_candidates() -> None:
     assert "IINA in:readme" in text
     assert "network-request" in text
     assert "file-system" in text
-    assert "wildcard domains" in text
+    assert "allowedDomains: *, api.example.com" in text
     assert "| Permissions |" in text
 
 

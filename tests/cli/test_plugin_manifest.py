@@ -84,6 +84,24 @@ def test_manifest_inspection_warns_about_wildcard_network_access(tmp_path: Path)
     report = inspect_manifest(path)
 
     assert report.valid
+    assert report.allowed_domains == ["*"]
+    assert any(finding.code == "network-domains-wildcard" for finding in report.findings)
+
+
+def test_manifest_inspection_keeps_hosts_declared_beside_a_wildcard(tmp_path: Path) -> None:
+    path = valid_manifest(tmp_path)
+    payload = json.loads(path.read_text())
+    payload["permissions"] = ["file-system", "network-request", "network-request"]
+    payload["allowedDomains"] = ["*", "api.example.com", "*"]
+    path.write_text(json.dumps(payload) + "\n")
+
+    report = inspect_manifest(path)
+
+    assert report.valid
+    assert report.permissions == ["file-system", "network-request"]
+    assert report.allowed_domains == ["*", "api.example.com"]
+    assert any(finding.code == "duplicate-permission" for finding in report.findings)
+    assert any(finding.code == "duplicate-domain" for finding in report.findings)
     assert any(finding.code == "network-domains-wildcard" for finding in report.findings)
 
 

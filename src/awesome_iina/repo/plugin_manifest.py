@@ -37,6 +37,7 @@ class ManifestInspection:
     name: str | None
     version: str | None
     permissions: list[str] = field(default_factory=list)
+    allowed_domains: list[str] = field(default_factory=list)
     dangerous_permissions: list[str] = field(default_factory=list)
     package_size_bytes: int = 0
     findings: list[ManifestFinding] = field(default_factory=list)
@@ -169,7 +170,21 @@ def inspect_manifest(path: Path) -> ManifestInspection:
             )
         )
     else:
-        permissions = sorted(set(permissions_value))
+        permissions = []
+        seen_permissions: set[str] = set()
+        for permission in permissions_value:
+            if permission in seen_permissions:
+                findings.append(
+                    ManifestFinding(
+                        "warning",
+                        "duplicate-permission",
+                        "permissions",
+                        f"duplicate permission declaration: {permission}",
+                    )
+                )
+                continue
+            seen_permissions.add(permission)
+            permissions.append(permission)
         findings.extend(
             ManifestFinding(
                 "warning",
@@ -182,6 +197,7 @@ def inspect_manifest(path: Path) -> ManifestInspection:
         )
 
     allowed_domains = payload.get("allowedDomains", [])
+    recorded_domains: list[str] = []
     if allowed_domains and (
         not isinstance(allowed_domains, list)
         or not all(isinstance(item, str) for item in allowed_domains)
@@ -194,8 +210,26 @@ def inspect_manifest(path: Path) -> ManifestInspection:
                 "allowedDomains must be an array of strings",
             )
         )
-    elif "network-request" in permissions:
-        if not allowed_domains:
+    elif isinstance(allowed_domains, list):
+        seen_domains: set[str] = set()
+        for domain in allowed_domains:
+            if domain in seen_domains:
+                findings.append(
+                    ManifestFinding(
+                        "warning",
+                        "duplicate-domain",
+                        "allowedDomains",
+                        f"duplicate allowed domain: {domain}",
+                    )
+                )
+                continue
+            seen_domains.add(domain)
+            recorded_domains.append(domain)
+    domains_are_strings = isinstance(allowed_domains, list) and all(
+        isinstance(item, str) for item in allowed_domains
+    )
+    if "network-request" in permissions and domains_are_strings:
+        if not recorded_domains:
             findings.append(
                 ManifestFinding(
                     "warning",
@@ -204,7 +238,7 @@ def inspect_manifest(path: Path) -> ManifestInspection:
                     "network-request is declared without allowedDomains",
                 )
             )
-        elif "*" in allowed_domains:
+        elif "*" in recorded_domains:
             findings.append(
                 ManifestFinding(
                     "warning",
@@ -315,6 +349,7 @@ def inspect_manifest(path: Path) -> ManifestInspection:
         name=payload.get("name") if isinstance(payload.get("name"), str) else None,
         version=payload.get("version") if isinstance(payload.get("version"), str) else None,
         permissions=permissions,
+        allowed_domains=recorded_domains,
         dangerous_permissions=sorted(_DANGEROUS_PERMISSIONS & set(permissions)),
         package_size_bytes=package_size,
         findings=findings,
