@@ -87,31 +87,56 @@ def _url_keyed_official_candidate(
     return candidate
 
 
-def _store_candidate(
-    candidates: dict[str, Candidate], candidate: Candidate, *, preferred_key: str
-) -> None:
-    """Keep one dict entry per candidate without evicting a different repository."""
-
-    for stored in [key for key, item in candidates.items() if item is candidate]:
-        candidates.pop(stored, None)
-    destination = preferred_key
-    occupant = candidates.get(destination)
-    if occupant is not None and _stable_ids_conflict(occupant.repository, candidate.repository):
-        identity = candidate.repository.node_id or candidate.repository.database_id
-        destination = f"{destination}#{identity}"
-    candidates[destination] = candidate
-
-
-def _stable_ids_conflict(current: RepositorySnapshot, incoming: RepositorySnapshot) -> bool:
-    node_conflict = bool(
-        incoming.node_id and current.node_id and incoming.node_id != current.node_id
-    )
-    database_conflict = (
+def _ids_conflict(current: RepositorySnapshot, incoming: RepositorySnapshot) -> bool:
+    if incoming.node_id and current.node_id and incoming.node_id != current.node_id:
+        return True
+    return (
         incoming.database_id is not None
         and current.database_id is not None
         and incoming.database_id != current.database_id
     )
-    return node_conflict or database_conflict
+
+
+def _names(repository: RepositorySnapshot) -> set[str]:
+    return {
+        repository.name_with_owner.casefold(),
+        *(alias.casefold() for alias in repository.aliases),
+    }
+
+
+def _find_candidate(
+    candidates: dict[str, Candidate], snapshot: RepositorySnapshot
+) -> Candidate | None:
+    if snapshot.node_id:
+        for candidate in candidates.values():
+            if candidate.repository.node_id == snapshot.node_id:
+                return candidate
+    if snapshot.database_id is not None:
+        for candidate in candidates.values():
+            if candidate.repository.database_id == snapshot.database_id and not _ids_conflict(
+                candidate.repository, snapshot
+            ):
+                return candidate
+    names = _names(snapshot)
+    matches = [
+        candidate
+        for candidate in candidates.values()
+        if not _ids_conflict(candidate.repository, snapshot)
+        and names & _names(candidate.repository)
+    ]
+    if len(matches) == 1:
+        return matches[0]
+    return None
+
+
+def _remember(candidates: dict[str, Candidate], candidate: Candidate) -> None:
+    for key, item in list(candidates.items()):
+        if item is candidate:
+            del candidates[key]
+    key = candidate.repository.name_with_owner.casefold()
+    if key in candidates:
+        key = f"id:{candidate.repository.node_id or candidate.repository.database_id}"
+    candidates[key] = candidate
 
 
 def _candidate_for(
@@ -120,73 +145,39 @@ def _candidate_for(
     *,
     snapshot: RepositorySnapshot | None = None,
 ) -> Candidate:
-    key = repository.casefold()
-    existing = candidates.get(key)
-    if (
-        existing is not None
-        and snapshot is not None
-        and _stable_ids_conflict(existing.repository, snapshot)
-    ):
-        existing = None
-    if existing is None and snapshot is not None and snapshot.node_id:
-        existing = next(
-            (item for item in candidates.values() if item.repository.node_id == snapshot.node_id),
-            None,
-        )
-    if existing is None and snapshot is not None and snapshot.database_id is not None:
-        existing = next(
-            (
-                item
-                for item in candidates.values()
-                if item.repository.database_id == snapshot.database_id
-                and not _stable_ids_conflict(item.repository, snapshot)
-            ),
-            None,
-        )
-    if existing is None and snapshot is not None and snapshot.aliases:
-        alias_names = {alias.casefold() for alias in snapshot.aliases}
-        existing = next(
-            (
-                item
-                for item in candidates.values()
-                if not _stable_ids_conflict(item.repository, snapshot)
-                and item.repository.name_with_owner.casefold() in alias_names
-            ),
-            None,
-        )
-    if (
-        existing is None
-        and snapshot is not None
-        and key in candidates
-        and _stable_ids_conflict(candidates[key].repository, snapshot)
-    ):
-        key = f"{key}#{snapshot.node_id or snapshot.database_id}"
-    if existing:
-        if snapshot:
-            old_name = existing.repository.name_with_owner.casefold()
-            update = snapshot.model_dump(exclude_unset=True)
-            # Placeholder observations cannot erase known identity or objective metadata.
-            update = {
-                k: v
-                for k, v in update.items()
-                if k not in {"node_id", "database_id"} or v is not None
-            }
-            if snapshot.name_with_owner.casefold() != old_name:
-                update["aliases"] = sorted(
-                    set(
-                        existing.repository.aliases
-                        + snapshot.aliases
-                        + [existing.repository.name_with_owner]
-                    )
-                )
-            elif "aliases" in update:
-                update["aliases"] = sorted(set(existing.repository.aliases + snapshot.aliases))
-            existing.repository = existing.repository.model_copy(update=update)
-            _store_candidate(candidates, existing, preferred_key=key)
+    if snapshot is None:
+        key = repository.casefold()
+        existing = candidates.get(key)
+        if existing is None:
+            existing = Candidate(repository=_placeholder_snapshot(repository))
+            candidates[key] = existing
         return existing
-    candidate = Candidate(repository=snapshot or _placeholder_snapshot(repository))
-    candidates[key] = candidate
-    return candidate
+    existing = _find_candidate(candidates, snapshot)
+    if existing is None:
+        existing = Candidate(repository=snapshot)
+        _remember(candidates, existing)
+        return existing
+    old_name = existing.repository.name_with_owner.casefold()
+    update = snapshot.model_dump(exclude_unset=True)
+    # Placeholder observations cannot erase known identity or objective metadata.
+    update = {
+        key: value
+        for key, value in update.items()
+        if key not in {"node_id", "database_id"} or value is not None
+    }
+    if snapshot.name_with_owner.casefold() != old_name:
+        update["aliases"] = sorted(
+            set(
+                existing.repository.aliases
+                + snapshot.aliases
+                + [existing.repository.name_with_owner]
+            )
+        )
+    elif "aliases" in update:
+        update["aliases"] = sorted(set(existing.repository.aliases + snapshot.aliases))
+    existing.repository = existing.repository.model_copy(update=update)
+    _remember(candidates, existing)
+    return existing
 
 
 def _collect_page_nodes(
