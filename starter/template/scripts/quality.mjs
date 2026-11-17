@@ -4,7 +4,7 @@ import {ROOT,run} from './common.mjs';
 const mode=process.argv[2];
 if (!['format','format-check','lint'].includes(mode)) throw new Error('Use format, format-check, or lint');
 const binary=resolve(ROOT,'node_modules/.bin',mode==='lint'?'biome':'prettier');
-if (!existsSync(binary)) throw new Error('Quality tools missing. Run pnpm run bootstrap explicitly.');
+if (!existsSync(binary)) throw new Error('Quality tools missing. Run node scripts/bootstrap.mjs explicitly.');
 if(mode==='lint') run(binary,['lint','.'],{stdio:'inherit'});
 else {
   const paths=['src','scripts','tests','types','docs','schemas','.vscode','*.json','*.mjs','*.md','*.yaml','.github'];

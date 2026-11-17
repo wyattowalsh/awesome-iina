@@ -62,13 +62,13 @@ uvx --from copier==9.18.2 copier copy --defaults --vcs-ref=v0.2.0a2 --prerelease
   -d preset=sidebar -d preferences=true -d docs_profile=starlight . ../my-iina-plugin
 cd ../my-iina-plugin
 mise install
-pnpm run bootstrap
+node scripts/bootstrap.mjs
 pnpm run fmt
 pnpm run check
 pnpm run build
 ```
 
-mise is optional; matching tools may be installed manually. First-time formatting is
+mise is optional; matching tools may be installed manually. `pnpm run` is refused until dependencies exist (`verifyDepsBeforeRun: error`), so the first install is `node scripts/bootstrap.mjs`. First-time formatting is
 explicit because rendering does not execute formatters. Review the source and new lockfile,
 then initialize/commit the consumer repository. Keep the template source available for updates.
 A local source path is not portable across machines; host the reviewed template before

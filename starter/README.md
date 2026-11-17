@@ -54,14 +54,14 @@ repository rather than an ephemeral local path.
 ```sh
 cd ../my-iina-plugin
 mise install
-pnpm run bootstrap
+node scripts/bootstrap.mjs
 pnpm run fmt
 pnpm run check
 pnpm run build
 pnpm run doctor
 ```
 
-mise is optional if the matching tools are installed manually. Dependency installation and
+mise is optional if the matching tools are installed manually. `pnpm run` is refused until dependencies exist (`verifyDepsBeforeRun: error`), so the first install is `node scripts/bootstrap.mjs`. Dependency installation and
 first-render formatting are explicit. Review and commit the dependency lock and normalized
 source before frozen CI. Strict lifecycle-script policy may require reviewed exact-version
 exceptions after resolving the selected dependency graph; do not enable all scripts.

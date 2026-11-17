@@ -10,13 +10,13 @@ sidebar:
 Provision the pinned tools manually or with `mise install`. Then run these explicitly:
 
 ```sh title="Bootstrap"
-pnpm run bootstrap
+node scripts/bootstrap.mjs
 pnpm run fmt
 pnpm run check
 pnpm run build
 ```
 
-The first bootstrap creates a resolver-produced lockfile. Formatting is an explicit
+`pnpm run` is refused until dependencies exist, because `verifyDepsBeforeRun` is `error`. The bootstrap script installs them. The first bootstrap creates a resolver-produced lockfile. Formatting is an explicit
 first-time normalization step for rendered files. Review and commit both before relying
 on frozen CI installations. Subsequent bootstrap runs use the existing lockfile frozen.
 

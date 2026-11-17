@@ -1,6 +1,9 @@
 .DS_Store
 .idea/
 .vscode/
+# The plugin template ships editor settings. Other .vscode trees stay local.
+!starter/template/.vscode/
+!starter/template/.vscode/settings.json
 /.cursor/
 .venv/
 __pycache__/

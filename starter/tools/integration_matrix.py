@@ -32,7 +32,9 @@ def main():
         destination=Path(tmp)/'plugin'
         copier.run_copy(str(source),destination,defaults=True,vcs_ref='HEAD',data={'preset':args.preset,'preferences':args.preferences=='true','docs_profile':args.docs,'hooks':True})
         run(['python',str(ROOT/'tools/verify_workflows.py'),str(destination/'.github/workflows')],ROOT)
-        for script in ['bootstrap','fmt','check','build','verify:stage','docs:prepare']:
+        # pnpm run is refused until node_modules exists (verifyDepsBeforeRun: error).
+        run(['node','scripts/bootstrap.mjs'],destination)
+        for script in ['fmt','check','build','verify:stage','docs:prepare']:
             run(['pnpm','run',script],destination)
         if args.docs=='starlight':run(['pnpm','run','docs:build'],destination)
         # Check actual selected-compiler rejection, not only successful typing of a mock.
