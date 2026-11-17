@@ -51,6 +51,7 @@ snapshot without rewriting historical audit evidence. Refreshing that frozen ref
 requires an explicit new provenance review. The repository checks validate each artifact
 according to its own role, not by demanding that all later observations remain identical.
 
+`legacy-awesome-iina.json` is kept when sources sync. Discovery does not score it.
 The official index includes an external-host project. GitHub discovery does not crawl that
 host, although the manually curated catalog can link it. Official indexing is not the same
 as official authorship, security approval, active maintenance, or runtime certification.

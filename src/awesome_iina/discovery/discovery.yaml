@@ -139,6 +139,7 @@ sources:
     ref: develop
     destination: src/awesome_iina/discovery/snapshots/iina-plugins.json
     weight: 110
+  # Saved when sources sync. Not a search query and not scored.
   - id: legacy-awesome-iina
     kind: github-text
     repository: cxwx/awesome-iina

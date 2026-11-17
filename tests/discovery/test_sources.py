@@ -147,6 +147,14 @@ def test_sync_sources_writes_snapshot(tmp_path: Path) -> None:
     assert paths[0].read_bytes() == original
 
 
+def test_try_load_unusable_snapshot(tmp_path: Path) -> None:
+    path = tmp_path / "plugins.json"
+    path.write_text('{"content": {"not": "a list"}}\n')
+    plugins, warnings = try_load_official_plugins(path)
+    assert plugins == []
+    assert any("official plugin snapshot is unusable" in warning for warning in warnings)
+
+
 def test_try_load_missing_snapshot(tmp_path: Path) -> None:
     plugins, warnings = try_load_official_plugins(tmp_path / "missing.json")
     assert plugins == []

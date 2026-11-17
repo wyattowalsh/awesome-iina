@@ -141,4 +141,7 @@ def try_load_official_plugins(
 ) -> tuple[list[OfficialPluginEntry], list[str]]:
     if not path.exists():
         return [], [f"official plugin snapshot is missing: {path}"]
-    return load_official_plugins(path), []
+    try:
+        return load_official_plugins(path), []
+    except (OSError, ValueError, SourceSyncError) as error:
+        return [], [f"official plugin snapshot is unusable: {path}: {error}"]
